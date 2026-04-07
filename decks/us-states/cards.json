@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "front": {
+      "text": "How many US states begin with the letter M?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "8 — Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 2,
+    "front": {
+      "text": "How many US states begin with the letter N?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "8 — Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 3,
+    "front": {
+      "text": "How many US states begin with the letter A?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "4 — Alabama, Alaska, Arizona, Arkansas",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 4,
+    "front": {
+      "text": "How many US states begin with the letter W?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "4 — Washington, West Virginia, Wisconsin, Wyoming",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 5,
+    "front": {
+      "text": "How many US states begin with the letter I?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "4 — Idaho, Illinois, Indiana, Iowa",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 6,
+    "front": {
+      "text": "How many US states begin with the letter C?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "3 — California, Colorado, Connecticut",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 7,
+    "front": {
+      "text": "How many US states begin with the letter O?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "3 — Ohio, Oklahoma, Oregon",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 8,
+    "front": {
+      "text": "How many US states begin with the letter K?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "2 — Kansas, Kentucky",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 9,
+    "front": {
+      "text": "How many US states begin with the letter T?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "2 — Tennessee, Texas",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 10,
+    "front": {
+      "text": "How many US states begin with the letter V?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "2 — Vermont, Virginia",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 11,
+    "front": {
+      "text": "How many US states begin with the letter S?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "2 — South Carolina, South Dakota",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 12,
+    "front": {
+      "text": "How many US states begin with the letter D?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "1 — Delaware",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 13,
+    "front": {
+      "text": "How many US states begin with the letter F?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "1 — Florida",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 14,
+    "front": {
+      "text": "How many US states begin with the letter G?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "1 — Georgia",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 15,
+    "front": {
+      "text": "How many US states begin with the letter H?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "1 — Hawaii",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 16,
+    "front": {
+      "text": "How many US states begin with the letter L?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "1 — Louisiana",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 17,
+    "front": {
+      "text": "How many US states begin with the letter P?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "1 — Pennsylvania",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 18,
+    "front": {
+      "text": "How many US states begin with the letter R?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "1 — Rhode Island",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 19,
+    "front": {
+      "text": "How many US states begin with the letter U?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "1 — Utah",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 20,
+    "front": {
+      "text": "Which two letters are tied for the most US states starting with them?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "M and N — 8 states each",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 21,
+    "front": {
+      "text": "How many letters of the alphabet have no US state starting with them?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "7 — B, E, J, Q, X, Y, Z",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 22,
+    "front": {
+      "text": "Can you name all 7 letters that no US state begins with?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "B, E, J, Q, X, Y, Z",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 23,
+    "front": {
+      "text": "How many US states begin with the word \"New\"?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "4 — New Hampshire, New Jersey, New Mexico, New York",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 24,
+    "front": {
+      "text": "How many US states begin with \"North\" or \"South\"?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "4 — North Carolina, North Dakota, South Carolina, South Dakota",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 25,
+    "front": {
+      "text": "Only one US state begins with the word \"West\". Which is it?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "West Virginia",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  }
+]
