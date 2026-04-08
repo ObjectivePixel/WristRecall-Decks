@@ -1,0 +1,64 @@
+{
+  "id": "mojo-language",
+  "uuid": "F7A1B2C3-D4E5-4F6A-B7C8-D9E0F1A2B3C4",
+  "name": "Mojo Language",
+  "description": "Core concepts of the Mojo programming language",
+  "storeFileName": "mojo_language",
+  "imageName": "mojo_deck",
+  "gradientColors": ["#FF8C1A99", "#F2730D40"],
+  "cardCount": 141,
+  "topicCount": 14,
+  "category": "Programming",
+  "version": "1.0.1",
+  "moreInfoURL": "https://docs.modular.com/mojo/",
+  "aboutURL": "https://github.com/objectivepixel/wristrecall-decks",
+  "sourceFileName": "mojophrases.json",
+  "topicDefinitions": [
+    { "name": "Functions", "cardIDs": [1, 5, 19, 26, 64, 71, 81, 91, 92, 93, 110, 135, 136] },
+    {
+      "name": "Variables & Types",
+      "cardIDs": [2, 21, 23, 25, 27, 31, 35, 46, 72, 105]
+    },
+    {
+      "name": "Control Flow & Errors",
+      "cardIDs": [12, 13, 20, 43, 44, 51, 52, 76, 90, 103, 108, 109, 137, 138, 139, 140]
+    },
+    {
+      "name": "Structs",
+      "cardIDs": [
+        6, 7, 22, 32, 33, 34, 53, 55, 59, 62, 87, 88, 89, 95, 96, 101, 102
+      ]
+    },
+    {
+      "name": "Value Ownership",
+      "cardIDs": [3, 4, 61, 77, 78, 79, 80, 81, 107, 141, 142]
+    },
+    {
+      "name": "Value Lifecycle",
+      "cardIDs": [14, 15, 16, 74, 86, 118, 119, 120]
+    },
+    {
+      "name": "Pointers",
+      "cardIDs": [9, 24, 54, 97, 98, 111, 112, 113, 114, 115, 116, 117]
+    },
+    {
+      "name": "Traits & Generics",
+      "cardIDs": [8, 18, 63, 73, 121, 122, 123, 124]
+    },
+    {
+      "name": "Compile-Time Metaprogramming",
+      "cardIDs": [17, 37, 38, 39, 68, 99, 125, 126]
+    },
+    {
+      "name": "Strings & Collections",
+      "cardIDs": [28, 30, 40, 41, 42, 56, 57, 58, 66, 82, 83, 84]
+    },
+    { "name": "Modules & Imports", "cardIDs": [11, 69, 85, 127, 128, 129] },
+    { "name": "Python Interop", "cardIDs": [10, 36, 100, 130, 131, 132] },
+    {
+      "name": "Standard Library",
+      "cardIDs": [47, 48, 49, 50, 60, 65, 104, 106]
+    },
+    { "name": "Tools & CLI", "cardIDs": [45, 67, 70, 75, 94, 133, 134] }
+  ]
+}
