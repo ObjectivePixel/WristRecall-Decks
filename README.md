@@ -4,9 +4,10 @@ Community flashcard decks for [WristRecall](https://apps.apple.com/app/wristreca
 
 ## Available decks
 
-| Deck | Cards | Category |
-|------|-------|----------|
-| US States by Letter | 25 | Geography |
+| Deck | Cards | Topics | Category |
+|------|-------|--------|----------|
+| Mojo Language | 152 | 15 | Programming |
+| US States by Letter | 25 | 4 | Geography |
 
 ## Compiling decks
 

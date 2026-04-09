@@ -6,10 +6,10 @@
   "storeFileName": "mojo_language",
   "imageName": "mojo_deck",
   "gradientColors": ["#FF8C1A99", "#F2730D40"],
-  "cardCount": 141,
-  "topicCount": 14,
+  "cardCount": 152,
+  "topicCount": 15,
   "category": "Programming",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "moreInfoURL": "https://docs.modular.com/mojo/",
   "aboutURL": "https://github.com/objectivepixel/wristrecall-decks",
   "sourceFileName": "mojophrases.json",
@@ -57,8 +57,9 @@
     { "name": "Python Interop", "cardIDs": [10, 36, 100, 130, 131, 132] },
     {
       "name": "Standard Library",
-      "cardIDs": [47, 48, 49, 50, 60, 65, 104, 106]
+      "cardIDs": [47, 48, 49, 50, 60, 65, 104, 106, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153]
     },
-    { "name": "Tools & CLI", "cardIDs": [45, 67, 70, 75, 94, 133, 134] }
+    { "name": "Tools & CLI", "cardIDs": [45, 67, 70, 75, 94, 133, 134] },
+    { "name": "Styles & Conventions", "cardIDs": [143] }
   ]
 }
