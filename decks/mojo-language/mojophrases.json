@@ -2690,8 +2690,8 @@
       "formatting": ["bold", "center_align"]
     },
     "back": {
-      "text": "Structs & Traits: PascalCase.\nFunctions & methods: snake_case.\nModules & packages: snake_case.\nVariables: snake_case.\nCompile-time parameters: PascalCase.\nPrivate members: leading underscore.",
-      "code_snippet": "struct MyParser:         # PascalCase\n    var _buffer: String  # _private\n\ntrait Printable: ...     # PascalCase\n\ndef parse_input(): ...   # snake_case\n\n# my_utils.mojo          # snake_case\n# Param: [T: Writable]   # PascalCase",
+      "text": "Structs & Traits: PascalCase.\nFunctions & methods: snake_case.\nModules & packages: snake_case.\nVariables: snake_case.\nType parameters: PascalCase (T, Element).\nValue parameters: snake_case (capacity).\nPrivate members: leading underscore.",
+      "code_snippet": "struct MyParser:         # PascalCase\n    var _buffer: String  # _private\n\ntrait Printable: ...     # PascalCase\n\ndef parse_input(): ...   # snake_case\n\n# Type param: [T: Writable] PascalCase\n# Value param: [count: Int] snake_case\n# my_utils.mojo           snake_case",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -2818,12 +2818,12 @@
       "formatting": ["bold", "center_align"]
     },
     "back": {
-      "text": "Use abort() from std.os for an immediate crash with a message. Use exit() for a clean shutdown with an exit code.",
-      "code_snippet": "from std.os import abort, exit\n\nif critical_failure:\n    abort(\"Fatal: corrupt data\")\n\n# Clean exit with code\nexit(0)",
+      "text": "Use abort() from std.os for an immediate crash with a message. Use exit() from std.sys for a clean shutdown with an exit code.",
+      "code_snippet": "from std.os import abort\nfrom std.sys import exit\n\nif critical_failure:\n    abort(\"Fatal: corrupt data\")\n\n# Clean exit with code\nexit(0)",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["abort", "exit", "std.os"]
+        "inline_code_terms": ["abort", "exit", "std.os", "std.sys"]
       }
     }
   },
@@ -2834,12 +2834,12 @@
       "formatting": ["bold", "center_align"]
     },
     "back": {
-      "text": "Implement the Hashable trait by defining __hash__. Dict keys and Set elements must also be EqualityComparable. Together these form KeyElement.",
-      "code_snippet": "struct UserId(Hashable, EqualityComparable):\n    var id: Int\n\n    def __hash__(self) -> UInt:\n        return hash(self.id)\n\n    def __eq__(self, other: Self) -> Bool:\n        return self.id == other.id",
+      "text": "Implement the Hashable trait using the Hasher protocol. Dict keys and Set elements must also be EqualityComparable. Together these form KeyElement.",
+      "code_snippet": "from std.hashlib import Hasher\n\nstruct UserId(Hashable, EqualityComparable):\n    var id: Int\n\n    def __hash__[H: Hasher](self,\n        mut hasher: H):\n        hasher.update(self.id)\n\n    def __eq__(self, other: Self) -> Bool:\n        return self.id == other.id",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["Hashable", "__hash__", "KeyElement"]
+        "inline_code_terms": ["Hashable", "__hash__", "Hasher", "KeyElement"]
       }
     }
   },
