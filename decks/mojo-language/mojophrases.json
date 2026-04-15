@@ -53,8 +53,8 @@
       ]
     },
     "back": {
-      "text": "read (default, immutable borrow), mut (mutable reference), var (takes ownership), ref (parametric origin reference), out (uninitialized output), and deinit (consuming — initialized on entry, uninitialized on exit).",
-      "code_snippet": "def show(read val: Int):      # immutable (default)\n    pass\ndef update(mut val: Int):     # mutable ref\n    val += 1\ndef consume(var val: String):  # takes ownership\n    pass\ndef peek(ref val: Int):       # parametric ref\n    pass\n\n# out — used in __init__:\ndef __init__(out self): ...\n\n# deinit — used in __del__ and moves:\ndef __del__(deinit self): ...",
+      "text": "read: immutable borrow (default). mut: mutable reference, caller sees changes. var: caller gives up ownership. ref: adapts to caller's mutability (read or mut) and tracks the value's origin for lifetime safety. out: uninitialized slot the function must fill (used in __init__). deinit: value is consumed and destroyed by the function (used in __del__ and moves).",
+      "code_snippet": "def show(read val: Int):      # can't modify val\n    pass\ndef update(mut val: Int):     # caller sees changes\n    val += 1\ndef consume(var val: String):  # takes ownership\n    pass\ndef peek(ref val: Int):       # read or mut,\n    pass                       # with origin tracking\n\n# out — used in __init__:\ndef __init__(out self): ...\n\n# deinit — used in __del__ and moves:\ndef __del__(deinit self): ...",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -1990,7 +1990,7 @@
     },
     "back": {
       "text": "It creates a parametric closure that captures surrounding variables and can be passed to compile-time APIs like parallelize.",
-      "code_snippet": "@parameter\nfn process_row(i: Int):\n    results[i] = compute(i)\n\nparallelize[process_row](num_rows)",
+      "code_snippet": "def run(data: List[Int]):\n    var total = 0\n\n    @parameter\n    fn add_row(i: Int):\n        total += data[i]  # captures total, data\n\n    parallelize[add_row](len(data))",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
