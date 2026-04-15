@@ -46,22 +46,25 @@
   {
     "id": 3,
     "front": {
-      "text": "What are the three main argument conventions for memory passing?",
+      "text": "What are the six argument conventions in Mojo?",
       "formatting": [
         "bold",
         "center_align"
       ]
     },
     "back": {
-      "text": "read: Immutable reference (default).\nmut: Mutable reference.\nvar: Takes unique ownership of the value.",
-      "code_snippet": "def process(read a: Int, mut b: Int, var c: String):\n    b += a",
+      "text": "read (default, immutable borrow), mut (mutable reference), var (takes ownership), ref (parametric origin reference), out (uninitialized output), and deinit (consuming — initialized on entry, uninitialized on exit).",
+      "code_snippet": "def show(read val: Int):      # immutable (default)\n    pass\ndef update(mut val: Int):     # mutable ref\n    val += 1\ndef consume(var val: String):  # takes ownership\n    pass\ndef peek(ref val: Int):       # parametric ref\n    pass\n\n# out — used in __init__:\ndef __init__(out self): ...\n\n# deinit — used in __del__ and moves:\ndef __del__(deinit self): ...",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
           "read",
           "mut",
-          "var"
+          "var",
+          "ref",
+          "out",
+          "deinit"
         ]
       }
     }
@@ -1971,7 +1974,7 @@
     },
     "back": {
       "text": "Use memcpy to copy between buffers and memset_zero to fill with zeros. Import from std.memory.",
-      "code_snippet": "from std.memory import memcpy, memset_zero\n\nself.data = UnsafePointer[Int8].alloc(n)\nmemset_zero(self.data, n)\nmemcpy(dest=new.data, src=old.data,\n    count=n)",
+      "code_snippet": "from std.memory import memcpy, memset_zero\n\nvar src = UnsafePointer[Int8].alloc(n)\nvar dest = UnsafePointer[Int8].alloc(n)\nmemset_zero(dest, n)\nmemcpy(dest=dest, src=src, count=n)",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -1986,8 +1989,8 @@
       "formatting": ["bold", "center_align"]
     },
     "back": {
-      "text": "It creates a parametric closure that can capture surrounding variables and be passed to compile-time APIs like parallelize.",
-      "code_snippet": "def evolve(self) -> Self:\n    next_gen = Self()\n\n    @parameter\n    def worker(row: Int) -> None:\n        # Can capture self, next_gen\n        ...\n\n    parallelize[worker](Self.rows)",
+      "text": "It creates a parametric closure that captures surrounding variables and can be passed to compile-time APIs like parallelize.",
+      "code_snippet": "@parameter\nfn process_row(i: Int):\n    results[i] = compute(i)\n\nparallelize[process_row](num_rows)",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -2194,8 +2197,8 @@
       "formatting": ["bold", "center_align"]
     },
     "back": {
-      "text": "Use Pointer when a struct needs a non-owning reference, such as an iterator referencing its collection. The struct must carry an origin parameter so the compiler can track the referenced value's lifetime.",
-      "code_snippet": "struct Cursor[origin: Origin]:\n    var source: Pointer[List[Int], origin]\n    var pos: Int\n\n    def __init__(out self,\n        ref [origin] src: List[Int]):\n        self.source = Pointer(to=src)\n        self.pos = 0\n\n    def next(mut self) -> Int:\n        var val = self.source[][self.pos]\n        self.pos += 1\n        return val",
+      "text": "Use Pointer when a struct needs a non-owning reference. The struct carries an origin parameter so the compiler tracks the referenced value's lifetime. ref on arguments infers origin automatically — callers never specify it.",
+      "code_snippet": "struct Cursor[origin: Origin]:\n    var source: Pointer[List[Int], origin]\n    var pos: Int\n\n    def __init__(out self,\n        ref [origin] src: List[Int]):\n        self.source = Pointer(to=src)\n        self.pos = 0\n\n    def next(mut self) -> Int:\n        var val = self.source[][self.pos]\n        self.pos += 1\n        return val\n\n# Usage — origin is inferred from data:\nvar data = List[Int](10, 20, 30)\nvar c = Cursor(data)\nprint(c.next())  # 10",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -2680,6 +2683,214 @@
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": ["ref [origin]", "origin_of", "Pointer"]
+      }
+    }
+  },
+  {
+    "id": 143,
+    "front": {
+      "text": "What are the naming conventions for structs, functions, modules, and variables in Mojo?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "Structs & Traits: PascalCase.\nFunctions & methods: snake_case.\nModules & packages: snake_case.\nVariables: snake_case.\nType parameters: PascalCase (T, Element).\nValue parameters: snake_case (capacity).\nPrivate members: leading underscore.",
+      "code_snippet": "struct MyParser:         # PascalCase\n    var _buffer: String  # _private\n\ntrait Printable: ...     # PascalCase\n\ndef parse_input(): ...   # snake_case\n\n# Type param: [T: Writable] PascalCase\n# Value param: [count: Int] snake_case\n# my_utils.mojo           snake_case",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["PascalCase", "snake_case"]
+      }
+    }
+  },
+  {
+    "id": 144,
+    "front": {
+      "text": "How do you create a collection of unique elements (a set)?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "Use the Set type from std.collections. Elements must be KeyElement (Hashable, EqualityComparable, etc.).",
+      "code_snippet": "from std.collections import Set\n\nvar s = Set[String](\"a\", \"b\", \"a\")\nprint(len(s))      # 2\ns.add(\"c\")\nprint(\"b\" in s)    # True\ns.remove(\"a\")",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["Set", "KeyElement"]
+      }
+    }
+  },
+  {
+    "id": 145,
+    "front": {
+      "text": "How do you sort a List in place?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "Call the sort() method on the List. Elements must conform to ComparableCollectionElement.",
+      "code_snippet": "var nums = [5, 2, 8, 1]\nnums.sort()\nprint(nums)  # [1, 2, 5, 8]",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["sort()", "ComparableCollectionElement"]
+      }
+    }
+  },
+  {
+    "id": 146,
+    "front": {
+      "text": "How do you run loop iterations across multiple CPU cores?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "Use parallelize() from std.algorithm. Pass a @parameter closure and the iteration count. Each iteration may run on a different thread.",
+      "code_snippet": "from std.algorithm import parallelize\n\n@parameter\ndef worker(i: Int) -> None:\n    # process row i\n    ...\n\nparallelize[worker](num_rows)",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["parallelize", "@parameter"]
+      }
+    }
+  },
+  {
+    "id": 147,
+    "front": {
+      "text": "What is Span and when do you use it?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "Span is a lightweight, non-owning view over contiguous memory (like a List's buffer). It avoids copies when passing slices of data to functions.",
+      "code_snippet": "from std.memory import Span\n\ndef sum_span(data: Span[Int]) -> Int:\n    var total = 0\n    for val in data:\n        total += val[]\n    return total\n\nvar nums = [10, 20, 30]\nprint(sum_span(nums))  # 60",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["Span"]
+      }
+    }
+  },
+  {
+    "id": 148,
+    "front": {
+      "text": "How do you create a fixed-size, stack-allocated array?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "Use InlineArray with a compile-time size. Elements live on the stack with no heap allocation.",
+      "code_snippet": "var arr = InlineArray[Int, 4](0)\narr[0] = 10\narr[1] = 20\nprint(arr[0])  # 10\nprint(len(arr)) # 4",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["InlineArray"]
+      }
+    }
+  },
+  {
+    "id": 149,
+    "front": {
+      "text": "How do you query system info like CPU core count or the current OS?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "Use functions from the sys module. num_physical_cores() returns CPU cores. os_is_linux() / os_is_macos() / os_is_windows() detect the OS at compile time.",
+      "code_snippet": "from sys import num_physical_cores,\n    os_is_linux, os_is_macos\n\nprint(num_physical_cores())\ncomptime if os_is_linux():\n    print(\"Running on Linux\")",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["num_physical_cores", "os_is_linux", "sys"]
+      }
+    }
+  },
+  {
+    "id": 150,
+    "front": {
+      "text": "How do you pause execution for a specified duration?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "Use sleep() from std.time. Pass the duration in seconds as a Float64.",
+      "code_snippet": "from std.time import sleep\n\nprint(\"Starting...\")\nsleep(0.5)  # pause 500ms\nprint(\"Done!\")",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["sleep", "std.time"]
+      }
+    }
+  },
+  {
+    "id": 151,
+    "front": {
+      "text": "How do you terminate a program immediately with an error message?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "Use abort() from std.os for an immediate crash with a message. Use exit() from std.sys for a clean shutdown with an exit code.",
+      "code_snippet": "from std.os import abort\nfrom std.sys import exit\n\nif critical_failure:\n    abort(\"Fatal: corrupt data\")\n\n# Clean exit with code\nexit(0)",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["abort", "exit", "std.os", "std.sys"]
+      }
+    }
+  },
+  {
+    "id": 152,
+    "front": {
+      "text": "What trait must a type implement to be used as a Dict key or Set element?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "Implement the Hashable trait using the Hasher protocol. Dict keys and Set elements must also be EqualityComparable. Together these form KeyElement.",
+      "code_snippet": "from std.hashlib import Hasher\n\nstruct UserId(Hashable, EqualityComparable):\n    var id: Int\n\n    def __hash__[H: Hasher](self,\n        mut hasher: H):\n        hasher.update(self.id)\n\n    def __eq__(self, other: Self) -> Bool:\n        return self.id == other.id",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["Hashable", "__hash__", "Hasher", "KeyElement"]
+      }
+    }
+  },
+  {
+    "id": 153,
+    "front": {
+      "text": "What math functions are available beyond sqrt and max?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "std.math provides floor, ceil, abs, min, max, pow, log, log2, sin, cos, tan, pi, e, and more. All work with SIMD types for vectorized math.",
+      "code_snippet": "from std.math import floor, ceil, abs,\n    pow, log2, pi\n\nprint(floor(3.7))   # 3.0\nprint(ceil(3.2))    # 4.0\nprint(abs(-5))      # 5\nprint(pow(2.0, 10.0)) # 1024.0\nprint(log2(256.0))  # 8.0",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["floor", "ceil", "abs", "pow", "log2", "std.math"]
+      }
+    }
+  },
+  {
+    "id": 154,
+    "front": {
+      "text": "What are all the struct lifecycle special methods?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "Mojo structs have four lifecycle methods: __init__ (constructor), copy __init__ (copy), move __init__ (consuming move), and __del__ (destructor). Note the argument conventions: out (uninitialized output), deinit (consuming), and ref (parametric reference).",
+      "code_snippet": "struct MyType:\n    var val: Int\n\n    # Constructor (out = uninitialized output)\n    def __init__(out self, val: Int):\n        self.val = val\n\n    # Copy constructor\n    def __init__(out self, *, copy: Self):\n        self.val = copy.val\n\n    # Move constructor (deinit = consumes original)\n    def __init__(out self, *, deinit take: Self):\n        self.val = take.val\n\n    # Destructor (deinit self = consumed)\n    def __del__(deinit self):\n        pass  # free resources here\n\n    # ref self = parametric reference\n    def peek(ref self) -> ref [self] Int:\n        return self.val",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["__init__", "__del__", "out", "deinit", "ref", "copy", "deinit take"]
+      }
+    }
+  },
+  {
+    "id": 155,
+    "front": {
+      "text": "What does Self() do inside a struct method?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "Self is a type alias for the enclosing struct. Calling Self() invokes the struct's __init__ to create a new instance. Commonly used for constructor delegation or creating defaults.",
+      "code_snippet": "struct Grid:\n    var rows: Int\n    var cols: Int\n\n    def __init__(out self):\n        self.rows = 0\n        self.cols = 0\n\n    def __init__(out self, rows: Int, cols: Int):\n        self = Self()  # delegate to no-arg init\n        self.rows = rows\n        self.cols = cols\n\n    def empty_copy(self) -> Self:\n        return Self()  # new default instance",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["Self", "Self()", "__init__"]
       }
     }
   }
