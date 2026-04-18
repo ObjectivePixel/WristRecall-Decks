@@ -6,7 +6,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "What keyword is used to define all functions in Mojo?"
     },
     "back": {
       "text": "Use 'def' for all functions. The legacy 'fn' keyword is deprecated as of 26.2. All arguments are typed and immutable (read) by default.",
@@ -18,7 +19,8 @@
           "def",
           "fn"
         ]
-      }
+      },
+      "markdown": "## Use `def` for all functions\n\nThe legacy `fn` keyword is deprecated as of 26.2. All arguments are typed and immutable (read) by default.\n\n```\ndef add(a: Int, b: Int) -> Int:\n    return a + b\n```"
     }
   },
   {
@@ -28,7 +30,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you declare a mutable variable vs a compile-time constant?"
     },
     "back": {
       "text": "var: Mutable variable.\ncomptime: Compile-time constant.",
@@ -40,7 +43,8 @@
           "var",
           "comptime"
         ]
-      }
+      },
+      "markdown": "## `var`: Mutable variable\n\n`comptime`: Compile-time constant.\n\n```\nvar x: Int = 5\nx += 1\ncomptime MAX = 100\n```"
     }
   },
   {
@@ -50,7 +54,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "What are the six argument conventions in Mojo?"
     },
     "back": {
       "text": "read: immutable borrow, no copy (default). mut: mutable reference, caller sees changes. var: takes ownership — copies the value unless caller uses ^ to transfer. ref: borrows with origin tracking, adapts to caller's mutability. out: uninitialized slot the function must fill (used in __init__). deinit: value is consumed and destroyed (used in __del__ and moves).",
@@ -66,7 +71,8 @@
           "out",
           "deinit"
         ]
-      }
+      },
+      "markdown": "## `read`: immutable borrow, no copy (default)\n\n`mut`: mutable reference, caller sees changes. `var`: takes ownership — copies the value unless caller uses ^ to transfer. `ref`: borrows with origin tracking, adapts to caller's mutability. `out`: uninitialized slot the function must fill (used in __init__). `deinit`: value is consumed and destroyed (used in __del__ and moves).\n\n```\ndef show(read s: String):     # borrows, no copy\n    print(s)\ndef update(mut s: String):    # caller sees changes\n    s += \"!\"\ndef consume(var s: String):   # copies s in\n    print(s)\ndef take(var s: String):      # no copy with ^\n    print(s)\ndef peek(ref s: String):      # borrows, adapts\n    print(s)                   # mutability + origin\n\nvar msg = String(\"hi\")\nconsume(msg)    # msg copied, still usable\ntake(msg^)      # msg moved, no longer usable\n\n# out — used in __init__:\ndef __init__(out self): ...\n# deinit — consumed on exit:\ndef __del__(deinit self): ...\n```"
     }
   },
   {
@@ -76,7 +82,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you explicitly copy memory vs transfer ownership (move)?"
     },
     "back": {
       "text": "copy() explicitly copies memory.\n^ moves the value, transferring ownership.",
@@ -88,7 +95,8 @@
           "copy()",
           "^"
         ]
-      }
+      },
+      "markdown": "## `copy()` explicitly copies memory\n\n`^` moves the value, transferring ownership.\n\n```\nvar a = String(\"Mojo\")\nvar b = a^ # 'a' is no longer valid\n```"
     }
   },
   {
@@ -98,7 +106,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "What is the syntax difference between compile-time parameters and runtime arguments?"
     },
     "back": {
       "text": "[] evaluate at compile time.\n() evaluate at runtime.",
@@ -110,7 +119,8 @@
           "[]",
           "()"
         ]
-      }
+      },
+      "markdown": "## `[]` evaluate at compile time\n\n`()` evaluate at runtime.\n\n```\ndef repeat[count: Int](msg: String):\n    # count is known at compile time\n```"
     }
   },
   {
@@ -120,7 +130,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "What are the core differences between a `struct` and a Python `class`?"
     },
     "back": {
       "text": "Static, tightly packed memory. Fields bound at compile time.",
@@ -132,7 +143,8 @@
           "struct",
           "class"
         ]
-      }
+      },
+      "markdown": "## Static, tightly packed memory\n\nFields bound at compile time.\n\n```\nstruct Point:\n    var x: Int\n    var y: Int\n```"
     }
   },
   {
@@ -142,7 +154,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "What is the purpose of the `out self` parameter in a struct's `__init__` method?"
     },
     "back": {
       "text": "It guarantees that the programmer will initialize all fields by the end of the method, passing the fully constructed instance back to the caller.",
@@ -154,7 +167,8 @@
           "out self",
           "__init__"
         ]
-      }
+      },
+      "markdown": "It guarantees that the programmer will initialize all fields by the end of the method, passing the fully constructed instance back to the caller.\n\n```\ndef __init__(out self, val: Int):\n    self.val = val\n```"
     }
   },
   {
@@ -164,7 +178,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you define an interface to enforce static polymorphism?"
     },
     "back": {
       "text": "Defines required methods for static polymorphism using traits.",
@@ -175,7 +190,8 @@
         "inline_code_terms": [
           "trait"
         ]
-      }
+      },
+      "markdown": "Defines required methods for static polymorphism using traits.\n\n```\ntrait Logger:\n    def log(self): ...\n```"
     }
   },
   {
@@ -185,7 +201,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "What is `UnsafePointer` and how do you access its `pointee`?"
     },
     "back": {
       "text": "UnsafePointer holds a memory address. The value stored at that address is the pointee. Read or write it with ptr[]. Unsafe means you manage allocation and lifetime manually, with no bounds or lifetime checks.",
@@ -198,7 +215,8 @@
           "ptr[]",
           "pointee"
         ]
-      }
+      },
+      "markdown": "## `UnsafePointer` holds a memory address\n\nThe value stored at that address is the `pointee`. Read or write it with `ptr[]`.\n\nUnsafe means you manage allocation and lifetime manually, with no bounds or lifetime checks.\n\n```\nvar x = 42\nvar ptr = UnsafePointer(to=x)\nprint(ptr[])    # read pointee: 42\nptr[] = 99      # write pointee\nprint(x)        # 99 (same memory)\n```"
     }
   },
   {
@@ -208,7 +226,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you import and use an existing Python module?"
     },
     "back": {
       "text": "Use existing Python libraries natively.",
@@ -219,7 +238,8 @@
         "inline_code_terms": [
           "Python.import_module()"
         ]
-      }
+      },
+      "markdown": "Use existing Python libraries natively.\n\n```\nfrom std.python import Python\nvar np = Python.import_module(\"numpy\")\nvar arr = np.array([1, 2, 3])\n```"
     }
   },
   {
@@ -229,7 +249,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "What is the syntax for importing native Mojo modules?"
     },
     "back": {
       "text": "Use standard import or from ... import.",
@@ -241,7 +262,8 @@
           "import",
           "from"
         ]
-      }
+      },
+      "markdown": "## Use standard `import` or `from` \n\n`import`.\n\n```\nimport std.math\nfrom std.math import sin, pi\n```"
     }
   },
   {
@@ -251,7 +273,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you declare and handle a function that can throw an error?"
     },
     "back": {
       "text": "Functions are non-raising by default. Add 'raises' to allow error propagation, or specify a typed error. Use try/except to catch.",
@@ -265,7 +288,8 @@
           "except",
           "def"
         ]
-      }
+      },
+      "markdown": "## Functions are non-raising by default\n\nAdd `raises` to allow error propagation, or specify a typed error.\n\nUse `try`/`except` to catch.\n\n```\ndef risky() raises:\n    raise Error(\"oops\")\ntry:\n    risky()\nexcept e:\n    print(e)\n```"
     }
   },
   {
@@ -275,7 +299,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "What is the syntax `for` standard `for` and `while` loops?"
     },
     "back": {
       "text": "Pythonic control flow over ranges or iterables.",
@@ -288,7 +313,8 @@
           "while",
           "range"
         ]
-      }
+      },
+      "markdown": "Pythonic control flow over ranges or iterables.\n\n```\nfor i in range(5): print(i)\nwhile x > 0: x -= 1\n```"
     }
   },
   {
@@ -298,7 +324,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you define the logic for explicit '`.`copy`()`' calls?"
     },
     "back": {
       "text": "Define an __init__ with a keyword-only 'copy' parameter. The Copyable trait then provides the .copy() method.",
@@ -311,7 +338,8 @@
           "copy",
           ".copy()"
         ]
-      }
+      },
+      "markdown": "## Define an `__init__` with a keyword-only `copy` parameter\n\nThe Copyable trait then provides the `.`copy`()` method.\n\n```\ndef __init__(out self, *, copy: Self):\n    self.val = copy.val\n```"
     }
   },
   {
@@ -321,7 +349,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you define a consuming move constructor for a struct?"
     },
     "back": {
       "text": "Implement __init__ with a keyword-only 'deinit take' parameter. The 'deinit' convention consumes the original.",
@@ -334,7 +363,8 @@
           "deinit",
           "take"
         ]
-      }
+      },
+      "markdown": "## Implement `__init__` with a keyword-only '`deinit` `take`' parameter\n\nThe `deinit` convention consumes the original.\n\n```\ndef __init__(out self, *, deinit take: Self):\n    self.val = take.val\n```"
     }
   },
   {
@@ -344,7 +374,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "Which dunder method acts as a destructor to free manual resources?"
     },
     "back": {
       "text": "Runs automatically after the value's last use (ASAP destruction), not at end of scope.",
@@ -355,7 +386,8 @@
         "inline_code_terms": [
           "__del__"
         ]
-      }
+      },
+      "markdown": "Runs automatically after the value's last use (ASAP destruction), not at end of scope.\n\n```\ndef __del__(deinit self):\n    # free manual resources\n```"
     }
   },
   {
@@ -365,7 +397,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you execute conditional logic at compile-time?"
     },
     "back": {
       "text": "Use 'comptime if' to evaluate conditions at compile time.",
@@ -376,7 +409,8 @@
         "inline_code_terms": [
           "comptime if"
         ]
-      }
+      },
+      "markdown": "Use `comptime if` to evaluate conditions at compile time.\n\n```\ncomptime if os_is_linux():\n    def do_thing(): ...\n```"
     }
   },
   {
@@ -386,7 +420,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you define a generic struct that takes a type parameter?"
     },
     "back": {
       "text": "Use parameters [] to pass types. Constrain with the traits you need.",
@@ -398,7 +433,8 @@
           "[]",
           "Copyable"
         ]
-      }
+      },
+      "markdown": "## Use parameters `[]` to pass types\n\nConstrain with the traits you need.\n\n```\nstruct Box[T: Copyable & ImplicitlyDestructible]:\n    var data: T\n```"
     }
   },
   {
@@ -408,7 +444,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you implement function overloading in Mojo?"
     },
     "back": {
       "text": "Define functions with same name but different argument types.",
@@ -421,7 +458,8 @@
           "Int",
           "Float64"
         ]
-      }
+      },
+      "markdown": "Define functions with same name but different argument types.\n\n```\ndef add(a: Int, b: Int): ...\ndef add(a: Float64, b: Float64): ...\n```"
     }
   },
   {
@@ -431,7 +469,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you implement a context manager struct and use it `with` `with`?"
     },
     "back": {
       "text": "Implement __enter__() to set up and return self, and __exit__() to clean up. Use the struct with a 'with' statement for automatic resource management.",
@@ -445,7 +484,8 @@
           "__exit__",
           "Self"
         ]
-      }
+      },
+      "markdown": "Implement `__enter__`() to set up and return self, and `__exit__`() to clean up. Use the struct `with` a `with` statement for automatic resource management.\n\n```\nstruct DBConn:\n    var url: String\n    var open: Bool\n\n    def __init__(out self, url: String):\n        self.url = url\n        self.open = False\n\n    def __enter__(mut self) -> Self:\n        self.open = True\n        print(\"Connected to\", self.url)\n        return self\n\n    def __exit__(mut self):\n        self.open = False\n        print(\"Disconnected\")\n\n# caller\nwith DBConn(\"localhost:5432\") as db:\n    print(\"open:\", db.open)  # True\n# __exit__ runs automatically here\n```"
     }
   },
   {
@@ -455,7 +495,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you create a compile-time constant for complex or repeated types?"
     },
     "back": {
       "text": "Use the 'comptime' keyword to define a compile-time type alias.",
@@ -466,7 +507,8 @@
         "inline_code_terms": [
           "comptime"
         ]
-      }
+      },
+      "markdown": "Use the `comptime` keyword to define a compile-time type alias.\n\n```\ncomptime Float32 = SIMD[DType.float32, 1]\n```"
     }
   },
   {
@@ -476,7 +518,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "Which decorator auto-generates a fieldwise __init__ constructor for a struct?"
     },
     "back": {
       "text": "The @fieldwise_init decorator synthesizes an __init__ based on fields.",
@@ -487,7 +530,8 @@
         "inline_code_terms": [
           "@fieldwise_init"
         ]
-      }
+      },
+      "markdown": "The `@fieldwise_init` decorator synthesizes an __init__ based on fields.\n\n```\n@fieldwise_init\nstruct Point:\n    var x: Int\n    var y: Int\n```"
     }
   },
   {
@@ -497,7 +541,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you specify hardware-level data types for low-level memory operations?"
     },
     "back": {
       "text": "Use the DType struct to access primitive machine types.",
@@ -508,7 +553,8 @@
         "inline_code_terms": [
           "DType"
         ]
-      }
+      },
+      "markdown": "Use the `DType` struct to access primitive machine types.\n\n```\nvar x = SIMD[DType.int8, 4](0)\n```"
     }
   },
   {
@@ -518,7 +564,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you allocate raw memory with `UnsafePointer`?"
     },
     "back": {
       "text": "Call alloc[T](n) to reserve space for n values. The memory is uninitialized — reading it is undefined behavior until you write or init_pointee_copy/move.",
@@ -531,7 +578,8 @@
           "UnsafePointer",
           "free()"
         ]
-      }
+      },
+      "markdown": "## Call `alloc`[T](n) to reserve space for n values\n\nThe memory is uninitialized — reading it is undefined behavior until you write or init_pointee_copy/move.\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[Int](10)   # 10 uninit Ints\n# ... initialize before reading ...\nptr.free()                 # release later\n```"
     }
   },
   {
@@ -541,7 +589,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you cast a vector to a different hardware data type?"
     },
     "back": {
       "text": "Use the .cast[]() method.",
@@ -552,7 +601,8 @@
         "inline_code_terms": [
           ".cast[]()"
         ]
-      }
+      },
+      "markdown": "Use the `.cast[]()` method.\n\n```\nvar a = SIMD[DType.float32, 1](1.5)\nvar b = a.cast[DType.int32]()\n```"
     }
   },
   {
@@ -562,7 +612,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "What is the syntax for passing a variable number of arguments?"
     },
     "back": {
       "text": "Use *args to capture variadic arguments as a VariadicList.",
@@ -573,7 +624,8 @@
         "inline_code_terms": [
           "*args"
         ]
-      }
+      },
+      "markdown": "Use `*args` to capture variadic arguments as a VariadicList.\n\n```\ndef sum(*args: Int) -> Int:\n    var total = 0\n```"
     }
   },
   {
@@ -583,7 +635,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you define a fixed-size `Tuple` with multiple types?"
     },
     "back": {
       "text": "Use Tuple and specify the underlying types in brackets.",
@@ -594,7 +647,8 @@
         "inline_code_terms": [
           "Tuple"
         ]
-      }
+      },
+      "markdown": "Use `Tuple` and specify the underlying types in brackets.\n\n```\nvar t: Tuple[Int, String] = (1, \"mojo\")\nprint(t[0])\n```"
     }
   },
   {
@@ -604,7 +658,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you create a heap-allocated, growable array?"
     },
     "back": {
       "text": "Use the standard library List type.",
@@ -615,7 +670,8 @@
         "inline_code_terms": [
           "List"
         ]
-      }
+      },
+      "markdown": "Use the standard library `List` type.\n\n```\nvar lst = List[Int]()\nlst.append(10)\n```"
     }
   },
   {
@@ -625,7 +681,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "What is the difference between `String` and a literal string like \"hello\"?"
     },
     "back": {
       "text": "String is dynamically heap-allocated. \"hello\" is a static StringLiteral.",
@@ -637,7 +694,8 @@
           "String",
           "StringLiteral"
         ]
-      }
+      },
+      "markdown": "## `String` is dynamically heap-allocated\n\n\"hello\" is a static `StringLiteral`.\n\n```\nvar heap_str = String(\"heap\")\nvar static_str: StringLiteral = \"binary\"\n```"
     }
   },
   {
@@ -647,7 +705,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you declare a value that might be missing or null?"
     },
     "back": {
       "text": "Use the Optional type to represent a value or None.",
@@ -659,7 +718,8 @@
           "Optional",
           "None"
         ]
-      }
+      },
+      "markdown": "Use the `Optional` type to represent a value or `None`.\n\n```\nvar x: Optional[Int] = None\nif x:\n    print(x.value())\n```"
     }
   },
   {
@@ -669,7 +729,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you refer to the current struct's type dynamically inside its own methods?"
     },
     "back": {
       "text": "Use the capitalized 'Self' type alias.",
@@ -680,7 +741,8 @@
         "inline_code_terms": [
           "Self"
         ]
-      }
+      },
+      "markdown": "Use the capitalized `Self` type alias.\n\n```\nstruct Node:\n    def clone(self) -> Self:\n        ...\n```"
     }
   },
   {
@@ -690,7 +752,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you overload the '+' operator for a custom struct?"
     },
     "back": {
       "text": "Implement the __add__ dunder method.",
@@ -701,7 +764,8 @@
         "inline_code_terms": [
           "__add__"
         ]
-      }
+      },
+      "markdown": "Implement the `__add__` dunder method.\n\n```\ndef __add__(self, other: Self) -> Self:\n    return Self(self.val + other.val)\n```"
     }
   },
   {
@@ -711,7 +775,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you overload the '[]' operator for reading indexed elements?"
     },
     "back": {
       "text": "Implement the __getitem__ dunder method.",
@@ -722,7 +787,8 @@
         "inline_code_terms": [
           "__getitem__"
         ]
-      }
+      },
+      "markdown": "Implement the `__getitem__` dunder method.\n\n```\ndef __getitem__(self, idx: Int) -> Int:\n    return self.data[idx]\n```"
     }
   },
   {
@@ -732,7 +798,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "When can you omit the `var` keyword and implicitly declare a variable?"
     },
     "back": {
       "text": "Implicit declarations (e.g., x = 100) are allowed inside 'def' functions. You can also use explicit 'var' or 'comptime' for clarity.",
@@ -745,7 +812,8 @@
           "def",
           "comptime"
         ]
-      }
+      },
+      "markdown": "## Implicit declarations (e.g., x = 100) are allowed inside `def` functions\n\nYou can also use explicit `var` or `comptime` for clarity.\n\n```\ndef my_func():\n    x = 100       # Implicit, inferred as Int\n    var y = 200   # Explicit, also valid\n```"
     }
   },
   {
@@ -755,7 +823,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you import custom Python files from a local directory?"
     },
     "back": {
       "text": "Add the directory to Python's sys.path before importing.",
@@ -766,7 +835,8 @@
         "inline_code_terms": [
           "Python.add_to_path"
         ]
-      }
+      },
+      "markdown": "Add the directory to Python's sys.path before importing.\n\n```\nfrom std.python import Python\nPython.add_to_path(\"./src\")\nvar my_mod = Python.import_module(\"my_mod\")\n```"
     }
   },
   {
@@ -776,7 +846,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you unroll a loop entirely at compile time?"
     },
     "back": {
       "text": "Use 'comptime for' to unroll a loop at compile time.",
@@ -787,7 +858,8 @@
         "inline_code_terms": [
           "comptime for"
         ]
-      }
+      },
+      "markdown": "Use `comptime for` to unroll a loop at compile time.\n\n```\ncomptime for i in range(3):\n    print(i) # Unrolled at compile time\n```"
     }
   },
   {
@@ -797,7 +869,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you find the optimal SIMD vector width for your CPU at compile time?"
     },
     "back": {
       "text": "Use simdwidthof[] to get the hardware-specific width.",
@@ -808,7 +881,8 @@
         "inline_code_terms": [
           "simdwidthof"
         ]
-      }
+      },
+      "markdown": "Use `simdwidthof`[] to get the hardware-specific width.\n\n```\nfrom math import simdwidthof\ncomptime width = simdwidthof[DType.float32]()\n```"
     }
   },
   {
@@ -818,7 +892,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you write a compile-time or runtime assertion for debugging?"
     },
     "back": {
       "text": "Use debug_assert (a builtin, no import needed) to validate conditions during debug builds.",
@@ -829,7 +904,8 @@
         "inline_code_terms": [
           "debug_assert"
         ]
-      }
+      },
+      "markdown": "Use `debug_assert` (a builtin, no import needed) to validate conditions during debug builds.\n\n```\ndebug_assert(x > 0, \"x must be positive\")\n```"
     }
   },
   {
@@ -839,7 +915,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you create a standard dictionary / hash map in Mojo?"
     },
     "back": {
       "text": "Use the Dict type from the collections module.",
@@ -850,7 +927,8 @@
         "inline_code_terms": [
           "Dict"
         ]
-      }
+      },
+      "markdown": "Use the `Dict` type from the collections module.\n\n```\nfrom std.collections import Dict\nvar d = Dict[String, Int]()\nd[\"key\"] = 1\n```"
     }
   },
   {
@@ -860,7 +938,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you format strings with variables natively?"
     },
     "back": {
       "text": "Use Python-style f-strings.",
@@ -871,7 +950,8 @@
         "inline_code_terms": [
           "f\"\""
         ]
-      }
+      },
+      "markdown": "Use Python-style f-strings.\n\n```\nvar name = \"Mojo\"\nprint(f\"Hello, {name}!\")\n```"
     }
   },
   {
@@ -881,7 +961,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you print without a newline or with a custom separator?"
     },
     "back": {
       "text": "Use the 'end' and 'sep' keyword arguments in print().",
@@ -894,7 +975,8 @@
           "sep",
           "print()"
         ]
-      }
+      },
+      "markdown": "Use the `end` and `sep` keyword arguments in `print()`.\n\n```\nprint(\"A\", \"B\", sep=\"-\", end=\"\")\n# Outputs: A-B\n```"
     }
   },
   {
@@ -904,7 +986,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "What is the syntax for a one-line conditional (ternary) operator?"
     },
     "back": {
       "text": "Use the 'True-value if condition else False-value' syntax.",
@@ -916,7 +999,8 @@
           "if",
           "else"
         ]
-      }
+      },
+      "markdown": "Use the 'True-value `if` condition `else` False-value' syntax.\n\n```\nvar status = \"OK\" if code == 200 else \"Error\"\n```"
     }
   },
   {
@@ -926,7 +1010,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "Does Mojo have a 'switch' or 'match' statement?"
     },
     "back": {
       "text": "Not natively yet. Use standard if, elif, else blocks.",
@@ -939,7 +1024,8 @@
           "elif",
           "else"
         ]
-      }
+      },
+      "markdown": "## Not natively yet\n\nUse standard `if`, `elif`, `else` blocks.\n\n```\nif x == 1:\n    print(\"One\")\nelif x == 2:\n    print(\"Two\")\n```"
     }
   },
   {
@@ -949,7 +1035,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you access command-line arguments passed to your program?"
     },
     "back": {
       "text": "Import 'argv' from the sys module.",
@@ -961,7 +1048,8 @@
           "argv",
           "sys"
         ]
-      }
+      },
+      "markdown": "Import `argv` from the `sys` module.\n\n```\nfrom sys import argv\nvar args = argv()\nprint(args[1])\n```"
     }
   },
   {
@@ -971,7 +1059,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you convert between standard primitive types like Float and Int?"
     },
     "back": {
       "text": "Initialize the new type directly with the existing value.",
@@ -983,7 +1072,8 @@
           "Int()",
           "Float64"
         ]
-      }
+      },
+      "markdown": "Initialize the new type directly with the existing value.\n\n```\nvar f: Float64 = 3.14\nvar i = Int(f) # Truncates to 3\n```"
     }
   },
   {
@@ -993,7 +1083,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you perform standard `math` operations like square root or `max`?"
     },
     "back": {
       "text": "Import them from the standard math module.",
@@ -1006,7 +1097,8 @@
           "sqrt",
           "max"
         ]
-      }
+      },
+      "markdown": "Import them from the standard `math` module.\n\n```\nfrom std.math import sqrt, max\nvar x = max(10, 20)\nvar y = sqrt(25.0)\n```"
     }
   },
   {
@@ -1016,7 +1108,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you quickly read the entire contents of a file?"
     },
     "back": {
       "text": "Use open() with a context manager and call .read().",
@@ -1028,7 +1121,8 @@
           "open()",
           ".read()"
         ]
-      }
+      },
+      "markdown": "Use `open()` with a context manager and call `.read()`.\n\n```\nwith open(\"data.txt\", \"r\") as f:\n    var text = f.read()\n```"
     }
   },
   {
@@ -1038,7 +1132,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you read environment variables at runtime?"
     },
     "back": {
       "text": "Use getenv() from the std.os.env module.",
@@ -1050,7 +1145,8 @@
           "getenv",
           "std.os.env"
         ]
-      }
+      },
+      "markdown": "Use `getenv`() from the `std.os.env` module.\n\n```\nfrom std.os.env import getenv\nvar path = getenv(\"PATH\")\n```"
     }
   },
   {
@@ -1060,7 +1156,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you measure how long a piece of code takes to run?"
     },
     "back": {
       "text": "Use perf_counter_ns() from std.time to measure elapsed nanoseconds.",
@@ -1072,7 +1169,8 @@
           "perf_counter_ns()",
           "std.time"
         ]
-      }
+      },
+      "markdown": "Use `perf_counter_ns()` from `std.time` to measure elapsed nanoseconds.\n\n```\nfrom std.time import perf_counter_ns\nvar start = perf_counter_ns()\n# do work...\nvar elapsed = perf_counter_ns() - start\n```"
     }
   },
   {
@@ -1082,7 +1180,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you explicitly `raise` a strongly-typed custom exception?"
     },
     "back": {
       "text": "Declare the specific error type in the 'raises' signature and raise the struct. Any struct can be an error type. Typed errors compile to alternate return values — no stack unwinding.",
@@ -1094,7 +1193,8 @@
           "raises",
           "raise"
         ]
-      }
+      },
+      "markdown": "Declare the specific error type in the `raises` signature and `raise` the struct. Any struct can be an error type. Typed errors compile to alternate return values — no stack unwinding.\n\n```\ndef check(x: Int) raises MyError:\n    if x < 0:\n        raise MyError(reason=\"Negative\")\n```"
     }
   },
   {
@@ -1104,7 +1204,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you catch a typed exception and access its fields?"
     },
     "back": {
       "text": "Use try/except. The caught variable retains its struct fields.",
@@ -1116,7 +1217,8 @@
           "try",
           "except"
         ]
-      }
+      },
+      "markdown": "## Use `try`/`except`\n\nThe caught variable retains its struct fields.\n\n```\ntry:\n    check(-1)\nexcept e:\n    # e is explicitly a MyError type\n    print(e.reason)\n```"
     }
   },
   {
@@ -1126,7 +1228,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "What are the memory semantics of Mojo structs compared to Python classes?"
     },
     "back": {
       "text": "Mojo supports both value and reference semantics. Structs typically use value semantics: assignment creates an independent copy (or move), not a shared reference.",
@@ -1137,7 +1240,8 @@
         "inline_code_terms": [
           "Value Semantics"
         ]
-      }
+      },
+      "markdown": "## Mojo supports both value and reference semantics\n\nStructs typically use value semantics: assignment creates an independent copy (or move), not a shared reference.\n\n```\nvar a = MyStruct(1)\nvar b = a # 'b' is a completely independent copy\nb.val = 2 # 'a' is unchanged\n```"
     }
   },
   {
@@ -1147,7 +1251,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you create a Python-like object with shared, heap-allocated reference semantics?"
     },
     "back": {
       "text": "Use ArcPointer for reference-counted heap memory. The ref count is atomic, but data access is not automatically thread-safe.",
@@ -1158,7 +1263,8 @@
         "inline_code_terms": [
           "ArcPointer"
         ]
-      }
+      },
+      "markdown": "## Use `ArcPointer` for reference-counted heap memory\n\nThe ref count is atomic, but data access is not automatically thread-safe.\n\n```\nfrom std.memory import ArcPointer\nvar shared_state = ArcPointer(MyStruct(10))\nvar ref2 = shared_state # Increments ref count\n```"
     }
   },
   {
@@ -1168,7 +1274,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you define public vs private methods or fields in a struct?"
     },
     "back": {
       "text": "Everything is public by default. Use the Pythonic '_' prefix convention to indicate private members. There are no strict public/private keywords yet.",
@@ -1179,7 +1286,8 @@
         "inline_code_terms": [
           "_"
         ]
-      }
+      },
+      "markdown": "## Everything is public by default\n\nUse the Pythonic `_` prefix convention to indicate private members.\n\nThere are no strict public/private keywords yet.\n\n```\nstruct Person:\n    var _internal_id: Int # Private convention\n    var name: String      # Public\n```"
     }
   },
   {
@@ -1189,7 +1297,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "What is the difference between `String` and `StringSlice`?"
     },
     "back": {
       "text": "String owns mutable, heap-allocated memory. StringSlice is a lightweight, zero-copy, non-owning view.",
@@ -1201,7 +1310,8 @@
           "String",
           "StringSlice"
         ]
-      }
+      },
+      "markdown": "## `String` owns mutable, heap-allocated memory\n\n`StringSlice` is a lightweight, zero-copy, non-owning view.\n\n```\nvar text = String(\"Hello World\")\nvar view: StringSlice = text[0:5] # Zero-copy view\n```"
     }
   },
   {
@@ -1211,7 +1321,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you accurately get the character length of a UTF-8 String?"
     },
     "back": {
       "text": "len(text) returns byte length. Use text.codepoints() for actual Unicode character count.",
@@ -1223,7 +1334,8 @@
           "len()",
           ".codepoints()"
         ]
-      }
+      },
+      "markdown": "## len(text) returns byte length\n\nUse text.codepoints() for actual Unicode character count.\n\n```\nvar text = \"café\"\nprint(len(text)) # 5 bytes\nprint(len(text.codepoints())) # 4 characters\n```"
     }
   },
   {
@@ -1233,7 +1345,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "What is a Template String (TString) and how does it differ from format()?"
     },
     "back": {
       "text": "Prefix with 't'. It evaluates expressions lazily and prevents memory allocation until explicitly cast to a String.",
@@ -1244,7 +1357,8 @@
         "inline_code_terms": [
           "t\"\""
         ]
-      }
+      },
+      "markdown": "## Prefix with t\n\nIt evaluates expressions lazily and prevents memory allocation until explicitly cast to a String.\n\n```\nvar count = 3\nvar lazy_msg = t\"Give me {count} apples.\"\nvar s = String(lazy_msg) # Allocates here\n```"
     }
   },
   {
@@ -1254,7 +1368,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you allow a struct to be implicitly converted from another type?"
     },
     "back": {
       "text": "Add the @implicit decorator to an __init__ method taking a single argument.",
@@ -1265,7 +1380,8 @@
         "inline_code_terms": [
           "@implicit"
         ]
-      }
+      },
+      "markdown": "Add the `@implicit` decorator to an __init__ method taking a single argument.\n\n```\nstruct Wrapper:\n    @implicit\n    def __init__(out self, val: Int):\n        ...\n```"
     }
   },
   {
@@ -1275,7 +1391,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you write a unit test to verify that a specific exception is raised?"
     },
     "back": {
       "text": "Use the assert_raises() context manager from the testing module.",
@@ -1286,7 +1403,8 @@
         "inline_code_terms": [
           "assert_raises()"
         ]
-      }
+      },
+      "markdown": "Use the `assert_raises()` context manager from the testing module.\n\n```\nfrom std.testing import assert_raises\ndef test_fail() raises:\n    with assert_raises(contains=\"Negative\"):\n        check(-1)\n```"
     }
   },
   {
@@ -1296,7 +1414,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you safely return a reference to a struct's internal field?"
     },
     "back": {
       "text": "Use the 'ref' keyword and bind the lifetime to 'self' using origin parameters to prevent dangling references.",
@@ -1308,7 +1427,8 @@
           "ref",
           "[self]"
         ]
-      }
+      },
+      "markdown": "Use the `ref` keyword and bind the lifetime to self using origin parameters to prevent dangling references.\n\n```\nstruct Container:\n    var val: Int\n    def get_ref(self) -> ref [self] Int:\n        return self.val\n```"
     }
   },
   {
@@ -1318,7 +1438,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you define a custom string representation for printing a struct?"
     },
     "back": {
       "text": "Implement the 'Writable' trait and define the 'write_to' method.",
@@ -1330,7 +1451,8 @@
           "Writable",
           "write_to"
         ]
-      }
+      },
+      "markdown": "Implement the `Writable` trait and define the `write_to` method.\n\n```\nstruct User(Writable):\n    var name: String\n    def write_to(self, mut writer: Some[Writer]):\n        writer.write(\"User(\", self.name, \")\")\n```"
     }
   },
   {
@@ -1340,7 +1462,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "What trait must a struct implement to be stored in standard containers like `List` or Dict?"
     },
     "back": {
       "text": "It must implement the 'CollectionElement' trait, which requires the struct to be both Copyable and Movable.",
@@ -1352,7 +1475,8 @@
           "CollectionElement",
           "List"
         ]
-      }
+      },
+      "markdown": "It must implement the `CollectionElement` trait, which requires the struct to be both Copyable and Movable.\n\n```\nstruct Data(CollectionElement):\n    var id: Int\n\nvar items = List[Data]()\n```"
     }
   },
   {
@@ -1362,7 +1486,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you define and execute an asynchronous function?"
     },
     "back": {
       "text": "Use the 'async def' signature and the 'await' keyword when calling it.",
@@ -1374,7 +1499,8 @@
           "async def",
           "await"
         ]
-      }
+      },
+      "markdown": "Use the `async def` signature and the `await` keyword when calling it.\n\n```\nasync def fetch() -> Int:\n    return 200\n\nasync def main():\n    var status = await fetch()\n```"
     }
   },
   {
@@ -1384,7 +1510,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you interact with the filesystem to check if a file or directory exists?"
     },
     "back": {
       "text": "Use the 'Path' object from the 'pathlib' standard library module.",
@@ -1396,7 +1523,8 @@
           "Path",
           ".exists()"
         ]
-      }
+      },
+      "markdown": "Use the `Path` object from the pathlib standard library module.\n\n```\nfrom std.pathlib import Path\nvar p = Path(\"config.json\")\nif p.exists():\n    print(\"Found it!\")\n```"
     }
   },
   {
@@ -1406,7 +1534,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you safely retrieve a value from a Dict with a fallback for missing keys?"
     },
     "back": {
       "text": "Use the '.get()' method, passing the fallback value as the second argument.",
@@ -1417,7 +1546,8 @@
         "inline_code_terms": [
           ".get()"
         ]
-      }
+      },
+      "markdown": "Use the `.get()` method, passing the fallback value as the second argument.\n\n```\nvar settings = Dict[String, Int]()\n# Returns 8080 if 'port' is not found\nvar port = settings.get(\"port\", 8080)\n```"
     }
   },
   {
@@ -1427,7 +1557,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you call a function from an external C library?"
     },
     "back": {
       "text": "Use 'external_call' from the 'std.ffi' module, specifying the function name and return type.",
@@ -1439,7 +1570,8 @@
           "std.ffi",
           "external_call"
         ]
-      }
+      },
+      "markdown": "Use `external_call` from the `std.ffi` module, specifying the function name and return type.\n\n```\nfrom std.ffi import external_call\n# Calling standard C 'puts'\nvar res = external_call[\"puts\", Int32](c_string_ptr)\n```"
     }
   },
   {
@@ -1449,7 +1581,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you let the Mojo compiler automatically find the fastest parameter value for your specific CPU?"
     },
     "back": {
       "text": "Use the 'autotune' function combined with an evaluator struct to benchmark different compile-time values.",
@@ -1460,7 +1593,8 @@
         "inline_code_terms": [
           "autotune"
         ]
-      }
+      },
+      "markdown": "Use the `autotune` function combined with an evaluator struct to benchmark different compile-time values.\n\n```\n# Compiler tests 1, 4, and 8 to find the fastest\ncomptime best_width = autotune(1, 4, 8)\nvar vec = SIMD[DType.float32, best_width]()\n```"
     }
   },
   {
@@ -1470,7 +1604,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you compile a Mojo module into a reusable, compiled package from the command line?"
     },
     "back": {
       "text": "Use the 'mojo package' CLI command to create a .mojopkg file.",
@@ -1482,7 +1617,8 @@
           "mojo package",
           ".mojopkg"
         ]
-      }
+      },
+      "markdown": "Use the `mojo package` CLI command to create a `.mojopkg` file.\n\n```\n# Run this in your terminal\nmojo package my_source_dir -o my_library.mojopkg\n```"
     }
   },
   {
@@ -1492,7 +1628,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you compile a Mojo file into a highly optimized, standalone executable?"
     },
     "back": {
       "text": "Use the 'mojo build' CLI command. This creates a statically linked binary you can run anywhere.",
@@ -1503,7 +1640,8 @@
         "inline_code_terms": [
           "mojo build"
         ]
-      }
+      },
+      "markdown": "## Use the `mojo build` CLI command\n\nThis creates a statically linked binary you can run anywhere.\n\n```\n# Run this in your terminal\nmojo build main.mojo -o my_app\n./my_app\n```"
     }
   },
   {
@@ -1513,7 +1651,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "What is the required entry point for executing a compiled Mojo program?"
     },
     "back": {
       "text": "Every compiled Mojo program must include a function named 'main()'. (Not required in REPL or notebooks.)",
@@ -1524,7 +1663,8 @@
         "inline_code_terms": [
           "main()"
         ]
-      }
+      },
+      "markdown": "## Every compiled Mojo program must include a function named `main()`\n\n(Not required in REPL or notebooks.)\n\n```\ndef main():\n    print(\"Hello, world!\")\n```"
     }
   },
   {
@@ -1534,7 +1674,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "If you implicitly declare a variable without `var` (e.g., x = 10), is it dynamically typed?"
     },
     "back": {
       "text": "No. Both implicit and explicit variables are statically typed. Mojo assigns the type based on the first value.",
@@ -1545,7 +1686,8 @@
         "inline_code_terms": [
           "var"
         ]
-      }
+      },
+      "markdown": "## No\n\nBoth implicit and explicit variables are statically typed. Mojo assigns the type based on the first value.\n\n```\ndef main():\n    x = 10\n    x = \"Foo\" # Error: Cannot convert to Int\n```"
     }
   },
   {
@@ -1555,7 +1697,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you indicate to the compiler that a trait method is intentionally left unimplemented?"
     },
     "back": {
       "text": "Use the ellipsis (...) syntax directly after the method signature.",
@@ -1566,7 +1709,8 @@
         "inline_code_terms": [
           "..."
         ]
-      }
+      },
+      "markdown": "Use the ellipsis (`...`) syntax directly after the method signature.\n\n```\ntrait SomeTrait:\n    def required_method(self, x: Int): ...\n```"
     }
   },
   {
@@ -1576,7 +1720,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you auto-generate copy and move constructors for a struct?"
     },
     "back": {
       "text": "Pass the Copyable or Movable trait to the struct. Mojo synthesizes unified __init__ constructors with 'copy' and 'take' parameters (legacy __copyinit__/__moveinit__ are deprecated).",
@@ -1589,7 +1734,8 @@
           "Movable",
           "__init__"
         ]
-      }
+      },
+      "markdown": "## Pass the `Copyable` or `Movable` trait to the struct\n\nMojo synthesizes unified `__init__` constructors with copy and take parameters (legacy __copyinit__/__moveinit__ are deprecated).\n\n```\n@fieldwise_init\nstruct MyPair(Copyable):\n    var a: Int\n    var b: Int\n```"
     }
   },
   {
@@ -1599,7 +1745,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "What is the syntax for standard comments and API docstrings?"
     },
     "back": {
       "text": "Use '#' for single-line comments and triple quotes '\"\"\"' for API docstrings.",
@@ -1611,7 +1758,8 @@
           "#",
           "\"\"\""
         ]
-      }
+      },
+      "markdown": "Use `#` for single-line comments and triple quotes `\"\"\"` for API docstrings.\n\n```\ndef do_work():\n    \"\"\"This is a docstring.\"\"\"\n    # This is a comment\n    ...\n```"
     }
   },
   {
@@ -1621,7 +1769,8 @@
       "formatting": [
         "bold",
         "center_align"
-      ]
+      ],
+      "markdown": "How do you span a long statement or string across multiple lines without syntax errors?"
     },
     "back": {
       "text": "Indent the following lines. Mojo allows implicit line continuation through indentation.",
@@ -1630,14 +1779,19 @@
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": []
-      }
+      },
+      "markdown": "## Indent the following lines\n\nMojo allows implicit line continuation through indentation.\n\n```\ndef print_line():\n    text = \"This is a long string \"\n           \"split across two lines.\"\n```"
     }
   },
   {
     "id": 77,
     "front": {
       "text": "What is Argument Exclusivity regarding mutable references?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What is Argument Exclusivity regarding mutable references?"
     },
     "back": {
       "text": "Mojo enforces that if a function receives a 'mut' reference, it cannot receive any other references (mutable or immutable) to that exact same value.",
@@ -1645,15 +1799,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["mut", "read"]
-      }
+        "inline_code_terms": [
+          "mut",
+          "read"
+        ]
+      },
+      "markdown": "Mojo enforces that if a function receives a `mut` reference, it cannot receive any other references (mutable or immutable) to that exact same value.\n\n```\nvar s = String(\"Mojo\")\n# Error: Cannot pass 's' as both mut and read\nappend_twice(s, s)\n```"
     }
   },
   {
     "id": 78,
     "front": {
       "text": "What is the 'deinit' argument convention used for?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What is the `deinit` argument convention used for?"
     },
     "back": {
       "text": "Used in destructors (__del__) and consuming-move methods. The argument is initialized at the start, but guaranteed uninitialized when the function returns.",
@@ -1661,15 +1823,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["deinit", "__del__"]
-      }
+        "inline_code_terms": [
+          "deinit",
+          "__del__"
+        ]
+      },
+      "markdown": "## Used in destructors (`__del__`) and consuming-move methods\n\nThe argument is initialized at the start, but guaranteed uninitialized when the function returns.\n\n```\ndef __del__(deinit self):\n    # Memory is freed, self is now uninitialized\n```"
     }
   },
   {
     "id": 79,
     "front": {
       "text": "What are the three ways a 'var' argument receives its value?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What are the three ways a `var` argument receives its value?"
     },
     "back": {
       "text": "1. Moved via the '^' transfer sigil.\n2. Implicitly copied (if '^' is omitted).\n3. Passed a newly-created value (ownership transfers to the function).",
@@ -1677,15 +1847,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["var", "^"]
-      }
+        "inline_code_terms": [
+          "var",
+          "^"
+        ]
+      },
+      "markdown": "## 1\n\nMoved via the `^` transfer sigil.\n2. Implicitly copied (if `^` is omitted).\n3.\n\nPassed a newly-created value (ownership transfers to the function).\n\n```\ntake_text(my_str^) # 1. Moved (lifetime ends)\ntake_text(my_str)  # 2. Copied safely\ntake_text(\"New\")   # 3. New unowned value\n```"
     }
   },
   {
     "id": 80,
     "front": {
       "text": "How do you declare a struct that is passed in CPU registers instead of by pointer?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you declare a struct that is passed in CPU registers instead of by pointer?"
     },
     "back": {
       "text": "Conform to RegisterPassable (or TrivialRegisterPassable for trivial types). These types live in registers, avoiding memory indirection. The @register_passable decorator is deprecated.",
@@ -1693,15 +1871,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["RegisterPassable", "TrivialRegisterPassable"]
-      }
+        "inline_code_terms": [
+          "RegisterPassable",
+          "TrivialRegisterPassable"
+        ]
+      },
+      "markdown": "Conform to `RegisterPassable` (or `TrivialRegisterPassable` for trivial types). These types live in registers, avoiding memory indirection. The @register_passable decorator is deprecated.\n\n```\nstruct Flags(TrivialRegisterPassable):\n    var bits: UInt8\n\n# Passed directly in a CPU register,\n# not by pointer\n```"
     }
   },
   {
     "id": 81,
     "front": {
       "text": "What is the 'ref' argument convention?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What is the `ref` argument convention?"
     },
     "back": {
       "text": "A reference with parametric mutability. It generalizes 'read' and 'mut', allowing the reference to be either mutable or immutable depending on the caller's context.",
@@ -1709,15 +1895,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["ref", "read", "mut"]
-      }
+        "inline_code_terms": [
+          "ref",
+          "read",
+          "mut"
+        ]
+      },
+      "markdown": "## A reference with parametric mutability\n\nIt generalizes `read` and `mut`, allowing the reference to be either mutable or immutable depending on the caller's context.\n\n```\ndef generic_process(ref x: Int):\n    # 'x' adapts to the mutability of the input\n```"
     }
   },
   {
     "id": 82,
     "front": {
       "text": "How do you create a List using literal syntax with type inference?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you create a `List` using literal syntax with type inference?"
     },
     "back": {
       "text": "Enclose values in square brackets. Mojo infers the element type from the values provided.",
@@ -1725,15 +1920,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["List", "[]"]
-      }
+        "inline_code_terms": [
+          "List",
+          "[]"
+        ]
+      },
+      "markdown": "## Enclose values in square brackets\n\nMojo infers the element type from the values provided.\n\n```\nnums = [12, -7, 64]\n# Equivalent to:\nnums: List[Int] = [12, -7, 64]\n```"
     }
   },
   {
     "id": 83,
     "front": {
       "text": "How do you represent a 2D grid using nested Lists?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you represent a 2D grid using nested Lists?"
     },
     "back": {
       "text": "Use List[List[T]]. Access elements with chained subscripts: grid[row][col].",
@@ -1741,15 +1944,22 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["List[List[Int]]"]
-      }
+        "inline_code_terms": [
+          "List[List[Int]]"
+        ]
+      },
+      "markdown": "## Use List[List[T]]\n\nAccess elements with chained subscripts: grid[row][col].\n\n```\ngrid = [\n    [11, 22],\n    [33, 44]\n]\nprint(grid[1][0]) # 33\n```"
     }
   },
   {
     "id": 84,
     "front": {
       "text": "How do you use pop(), len(), and negative indexing on a List?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you use `pop()`, `len()`, and negative indexing on a List?"
     },
     "back": {
       "text": "pop() removes and returns the last element. len() returns the count. Negative indices count from the end.",
@@ -1757,15 +1967,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["pop()", "len()", "[-1]"]
-      }
+        "inline_code_terms": [
+          "pop()",
+          "len()",
+          "[-1]"
+        ]
+      },
+      "markdown": "## `pop()` removes and returns the last element\n\n`len()` returns the count. Negative indices count from the end.\n\n```\nnums = [12, -7, 64]\nnums.append(-937)\nprint(nums.pop())  # -937\nprint(len(nums))   # 3\nprint(nums[-1])    # 64\n```"
     }
   },
   {
     "id": 85,
     "front": {
       "text": "How do you create and import a custom Mojo module?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you create and `import` a custom Mojo module?"
     },
     "back": {
       "text": "Any .mojo source file is a module. Import its types/functions with 'from <filename> import <name>'.",
@@ -1773,15 +1992,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["from", "import", ".mojo"]
-      }
+        "inline_code_terms": [
+          "from",
+          "import",
+          ".mojo"
+        ]
+      },
+      "markdown": "## Any `.mojo` source file is a module\n\nImport its types/functions with '`from` <filename> `import` <name>'.\n\n```\n# gridv1.mojo defines struct Grid\n# life.mojo imports it:\nfrom gridv1 import Grid\n\ndef main():\n    g = Grid(8, 8, data^)\n```"
     }
   },
   {
     "id": 86,
     "front": {
       "text": "What is the difference between Copyable and ImplicitlyCopyable traits?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What is the difference between `Copyable` and `ImplicitlyCopyable` traits?"
     },
     "back": {
       "text": "Copyable types require an explicit .copy() call. ImplicitlyCopyable types (like Int, String) can be copied with simple assignment.",
@@ -1789,15 +2017,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["Copyable", "ImplicitlyCopyable", ".copy()"]
-      }
+        "inline_code_terms": [
+          "Copyable",
+          "ImplicitlyCopyable",
+          ".copy()"
+        ]
+      },
+      "markdown": "## `Copyable` types require an explicit `.copy()` call\n\n`ImplicitlyCopyable` types (like Int, String) can be copied with simple assignment.\n\n```\n# ImplicitlyCopyable (Int, String)\nvar b = a  # implicit copy\n\n# Copyable only (List)\nvar copy = my_list.copy()  # must be explicit\n```"
     }
   },
   {
     "id": 87,
     "front": {
       "text": "How do you overload the '[]' operator for setting indexed elements?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you overload the '[]' operator for setting indexed elements?"
     },
     "back": {
       "text": "Implement __setitem__ with 'mut self' so the method can modify the instance's state.",
@@ -1805,15 +2042,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["__setitem__", "mut self"]
-      }
+        "inline_code_terms": [
+          "__setitem__",
+          "mut self"
+        ]
+      },
+      "markdown": "Implement `__setitem__` with `mut self` so the method can modify the instance's state.\n\n```\ndef __setitem__(mut self, row: Int,\n    col: Int, value: Int) -> None:\n    self.data[row][col] = value\n```"
     }
   },
   {
     "id": 88,
     "front": {
       "text": "How do you support multi-dimensional indexing like grid[row, col]?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you support multi-dimensional indexing like `grid[row, col]`?"
     },
     "back": {
       "text": "Define __getitem__ and __setitem__ with multiple index arguments. Mojo supports comma-separated subscripts.",
@@ -1821,15 +2066,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["__getitem__", "grid[row, col]"]
-      }
+        "inline_code_terms": [
+          "__getitem__",
+          "grid[row, col]"
+        ]
+      },
+      "markdown": "## Define `__getitem__` and __setitem__ with multiple index arguments\n\nMojo supports comma-separated subscripts.\n\n```\ndef __getitem__(self, row: Int,\n    col: Int) -> Int:\n    return self.data[row][col]\n\n# Usage: value = grid[2, 3]\n```"
     }
   },
   {
     "id": 89,
     "front": {
       "text": "How do you define a static method on a struct?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you define a static method on a struct?"
     },
     "back": {
       "text": "Use the @staticmethod decorator. Static methods don't take 'self' and are called on the type, not an instance.",
@@ -1837,15 +2090,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["@staticmethod", "Self"]
-      }
+        "inline_code_terms": [
+          "@staticmethod",
+          "Self"
+        ]
+      },
+      "markdown": "## Use the `@staticmethod` decorator\n\nStatic methods don't take self and are called on the type, not an instance.\n\n```\n@staticmethod\ndef random(rows: Int, cols: Int) -> Self:\n    # Factory method\n    return Self(rows, cols, data^)\n\n# Call: grid = Grid.random(8, 16)\n```"
     }
   },
   {
     "id": 90,
     "front": {
       "text": "What is the discard pattern '_' used for in a for loop?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What is the discard pattern `_` used for in a for loop?"
     },
     "back": {
       "text": "Use '_' when the loop variable is intentionally unused. Without it, the compiler warns about unused variables.",
@@ -1853,15 +2114,22 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["_"]
-      }
+        "inline_code_terms": [
+          "_"
+        ]
+      },
+      "markdown": "## Use `_` when the loop variable is intentionally unused\n\nWithout it, the compiler warns about unused variables.\n\n```\nfor _ in range(rows):\n    row_data = List[Int]()\n    # '_' signals we only care about\n    # the iteration count\n```"
     }
   },
   {
     "id": 91,
     "front": {
       "text": "How do you define default argument values in a function?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you define default argument values in a function?"
     },
     "back": {
       "text": "Assign a default value with '=' in the function signature. Callers can omit those arguments.",
@@ -1869,15 +2137,22 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["="]
-      }
+        "inline_code_terms": [
+          "="
+        ]
+      },
+      "markdown": "## Assign a default value with `=` in the function signature\n\nCallers can omit those arguments.\n\n```\ndef run_display(\n    var grid: Grid,\n    window_height: Int = 600,\n    pause: Float64 = 0.1,\n) raises -> None:\n    ...\n```"
     }
   },
   {
     "id": 92,
     "front": {
       "text": "How do you read user input from the terminal?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you read user input from the terminal?"
     },
     "back": {
       "text": "Use the built-in input() function. It accepts an optional prompt String and returns a String (can raise).",
@@ -1885,15 +2160,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["input()", "raises"]
-      }
+        "inline_code_terms": [
+          "input()",
+          "raises"
+        ]
+      },
+      "markdown": "## Use the built-in `input()` function\n\nIt accepts an optional prompt String and returns a String (can raise).\n\n```\ndef main() raises:\n    name = input(\"Who are you? \")\n    print(\"Hi, \" + name + \"!\")\n```"
     }
   },
   {
     "id": 93,
     "front": {
       "text": "How do you indicate that a function has no return value?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you indicate that a function has no return value?"
     },
     "back": {
       "text": "Set the return type to None. This is optional for def functions but makes intent explicit.",
@@ -1901,15 +2184,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["None", "-> None"]
-      }
+        "inline_code_terms": [
+          "None",
+          "-> None"
+        ]
+      },
+      "markdown": "## Set the return type to `None`\n\nThis is optional for def functions but makes intent explicit.\n\n```\ndef __setitem__(mut self, row: Int,\n    col: Int, value: Int) -> None:\n    self.data[row][col] = value\n```"
     }
   },
   {
     "id": 94,
     "front": {
       "text": "What is the difference between running 'mojo file.mojo' and 'mojo build file.mojo'?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What is the difference between running '`mojo` file.`mojo`' and '`mojo build` file.`mojo`'?"
     },
     "back": {
       "text": "'mojo file.mojo' performs JIT compilation and runs immediately. 'mojo build' creates a standalone executable file.",
@@ -1917,15 +2208,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["mojo", "mojo build", "JIT"]
-      }
+        "inline_code_terms": [
+          "mojo",
+          "mojo build",
+          "JIT"
+        ]
+      },
+      "markdown": "## '`mojo` file.`mojo`' performs `JIT` compilation and runs immediately\n\n`mojo build` creates a standalone executable file.\n\n```\n# JIT compile and run\nmojo life.mojo\n\n# Compile to executable\nmojo build life.mojo\n./life\n```"
     }
   },
   {
     "id": 95,
     "front": {
       "text": "How do you define a struct with compile-time parameters for dimensions or sizes?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you define a struct with compile-time parameters for dimensions or sizes?"
     },
     "back": {
       "text": "Use [] after the struct name for compile-time parameters. Access them via Self.param inside the struct.",
@@ -1933,15 +2233,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["[]", "Self.rows"]
-      }
+        "inline_code_terms": [
+          "[]",
+          "Self.rows"
+        ]
+      },
+      "markdown": "## Use `[]` after the struct name for compile-time parameters\n\nAccess them via Self.param inside the struct.\n\n```\nstruct Grid[rows: Int, cols: Int](Copyable):\n    comptime num_cells = Self.rows * Self.cols\n    var data: UnsafePointer[Int8]\n\n# Usage: Grid[1024, 1024].random()\n```"
     }
   },
   {
     "id": 96,
     "front": {
       "text": "How do you define a compile-time constant field inside a struct?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you define a compile-time constant field inside a struct?"
     },
     "back": {
       "text": "Use 'comptime' instead of 'var'. The value is computed at compile time and shared across all instances.",
@@ -1949,15 +2257,22 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["comptime"]
-      }
+        "inline_code_terms": [
+          "comptime"
+        ]
+      },
+      "markdown": "## Use `comptime` instead of var\n\nThe value is computed at compile time and shared across all instances.\n\n```\nstruct Grid[rows: Int, cols: Int]:\n    comptime num_cells = Self.rows * Self.cols\n    var data: UnsafePointer[Int8]\n```"
     }
   },
   {
     "id": 97,
     "front": {
       "text": "How do you use UnsafePointer arithmetic to index a flat 1D buffer as a 2D grid?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you use `UnsafePointer` arithmetic to index a flat 1D buffer as a 2D grid?"
     },
     "back": {
       "text": "Add the offset to the pointer and dereference with []. Row-major: offset = row * cols + col.",
@@ -1965,15 +2280,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["[]", "UnsafePointer"]
-      }
+        "inline_code_terms": [
+          "[]",
+          "UnsafePointer"
+        ]
+      },
+      "markdown": "## Add the offset to the pointer and dereference with `[]`\n\nRow-major: offset = row * cols + col.\n\n```\ndef __getitem__(self, row: Int,\n    col: Int) -> Int8:\n    return (self.data\n        + row * Self.cols + col)[]\n\ndef __setitem__(mut self, row: Int,\n    col: Int, value: Int8) -> None:\n    (self.data\n        + row * Self.cols + col)[] = value\n```"
     }
   },
   {
     "id": 98,
     "front": {
       "text": "How do you copy or zero-fill raw memory buffers?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you copy or zero-fill raw memory buffers?"
     },
     "back": {
       "text": "Use memcpy to copy between buffers and memset_zero to fill with zeros. Import from std.memory.",
@@ -1981,15 +2304,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["memcpy", "memset_zero", "std.memory"]
-      }
+        "inline_code_terms": [
+          "memcpy",
+          "memset_zero",
+          "std.memory"
+        ]
+      },
+      "markdown": "## Use `memcpy` to copy between buffers and `memset_zero` to fill with zeros\n\nImport from `std.memory`.\n\n```\nfrom std.memory import alloc, memcpy,\n    memset_zero\n\nvar src = alloc[Int8](n)\nvar dest = alloc[Int8](n)\nmemset_zero(dest, n)\nmemcpy(dest=dest, src=src, count=n)\n```"
     }
   },
   {
     "id": 99,
     "front": {
       "text": "What does the @parameter decorator do on an inner function?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What does the `@parameter` decorator do on an inner function?"
     },
     "back": {
       "text": "It creates a parametric closure that captures surrounding variables and can be passed to compile-time APIs like parallelize.",
@@ -1997,15 +2329,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["@parameter", "parallelize"]
-      }
+        "inline_code_terms": [
+          "@parameter",
+          "parallelize"
+        ]
+      },
+      "markdown": "It creates a parametric closure that captures surrounding variables and can be passed to compile-time APIs like `parallelize`.\n\n```\ndef run(data: List[Int]):\n    var total = 0\n\n    @parameter\n    fn add_row(i: Int):\n        total += data[i]  # captures total, data\n\n    parallelize[add_row](len(data))\n```"
     }
   },
   {
     "id": 100,
     "front": {
       "text": "How do you create a Python tuple from Mojo values?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you create a Python tuple from Mojo values?"
     },
     "back": {
       "text": "Use Python.tuple() to create a PythonObject tuple. Required when calling Python APIs that expect tuples.",
@@ -2013,15 +2353,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["Python.tuple()", "PythonObject"]
-      }
+        "inline_code_terms": [
+          "Python.tuple()",
+          "PythonObject"
+        ]
+      },
+      "markdown": "## Use `Python.tuple()` to create a `PythonObject` tuple\n\nRequired when calling Python APIs that expect tuples.\n\n```\nfrom std.python import Python\npygame = Python.import_module(\"pygame\")\nwindow = pygame.display.set_mode(\n    Python.tuple(800, 600)\n)\n```"
     }
   },
   {
     "id": 101,
     "front": {
       "text": "How do you declare a mutating method on a struct?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you declare a mutating method on a struct?"
     },
     "back": {
       "text": "Add the 'mut' convention to the 'self' parameter. Without it, self is read-only by default.",
@@ -2029,15 +2377,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["mut self", "mut"]
-      }
+        "inline_code_terms": [
+          "mut self",
+          "mut"
+        ]
+      },
+      "markdown": "## Add the `mut` convention to the self parameter\n\nWithout it, self is read-only by default.\n\n```\nstruct Grid:\n    var data: List[List[Int]]\n\n    def set_cell(mut self, r: Int,\n        c: Int, val: Int):\n        self.data[r][c] = val\n```"
     }
   },
   {
     "id": 102,
     "front": {
       "text": "How does the Writable trait's write_to method signature work with Some[Writer]?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How does the `Writable` trait's `write_to` method signature work with `Some[Writer]`?"
     },
     "back": {
       "text": "write_to takes 'mut writer: Some[Writer]', a generic writer. This lets your type work with String, files, or any output destination.",
@@ -2045,15 +2401,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["Writable", "Some[Writer]", "write_to"]
-      }
+        "inline_code_terms": [
+          "Writable",
+          "Some[Writer]",
+          "write_to"
+        ]
+      },
+      "markdown": "## `write_to` takes 'mut writer: `Some[Writer]`', a generic writer\n\nThis lets your type work with String, files, or any output destination.\n\n```\nstruct Grid(Writable):\n    def write_to(self,\n        mut writer: Some[Writer]):\n        writer.write_string(\"*\")\n\n# Now works: print(String(grid))\n```"
     }
   },
   {
     "id": 103,
     "front": {
       "text": "How do you use the modulo operator for toroidal (wrap-around) indexing?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you use the modulo operator for toroidal (wrap-around) indexing?"
     },
     "back": {
       "text": "Use '%' to wrap indices. In Mojo, -1 % 8 equals 7, making adjacent edges seamless for grids.",
@@ -2061,15 +2426,22 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["%"]
-      }
+        "inline_code_terms": [
+          "%"
+        ]
+      },
+      "markdown": "## Use `%` to wrap indices\n\nIn Mojo, -1 `%` 8 equals 7, making adjacent edges seamless for grids.\n\n```\n# Wrap-around for 8-row grid\nrow_above = (row - 1) % self.rows\nrow_below = (row + 1) % self.rows\n# row=0: above=7, below=1\n```"
     }
   },
   {
     "id": 104,
     "front": {
       "text": "How do you use perf_counter_ns() to benchmark code precisely?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you use `perf_counter_ns`() to benchmark code precisely?"
     },
     "back": {
       "text": "Import perf_counter_ns from std.time. It returns nanoseconds since an arbitrary point, ideal for elapsed-time measurement.",
@@ -2077,15 +2449,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["perf_counter_ns", "std.time"]
-      }
+        "inline_code_terms": [
+          "perf_counter_ns",
+          "std.time"
+        ]
+      },
+      "markdown": "## Import `perf_counter_ns` from `std.time`\n\nIt returns nanoseconds since an arbitrary point, ideal for elapsed-time measurement.\n\n```\nfrom std.time import perf_counter_ns\n\nstart = perf_counter_ns()\n# ... do work ...\nelapsed_ms = (perf_counter_ns()\n    - start) / 1e6\n```"
     }
   },
   {
     "id": 105,
     "front": {
       "text": "What are Int8, Int16, Int32, and Int64, and how do they differ from Int?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What are `Int8`, Int16, Int32, and `Int64`, and how do they differ from `Int`?"
     },
     "back": {
       "text": "Fixed-width signed integers with explicit bit sizes. Int is the CPU's native word size (typically 64-bit). Convert with Int().",
@@ -2093,15 +2473,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["Int8", "Int64", "Int"]
-      }
+        "inline_code_terms": [
+          "Int8",
+          "Int64",
+          "Int"
+        ]
+      },
+      "markdown": "## Fixed-width signed integers with explicit bit sizes\n\n`Int` is the CPU's native word size (typically 64-bit). Convert with `Int`().\n\n```\nvar small: Int8 = 42\nvar native: Int = Int(small)\n\n# random_si64 returns Int64\nvar r = random_si64(0, 1)\nvar i = Int(r)  # explicit convert\n```"
     }
   },
   {
     "id": 106,
     "front": {
       "text": "How do you seed the random number generator for reproducible vs unique results?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you seed the random number generator for reproducible vs unique results?"
     },
     "back": {
       "text": "Call random.seed() with no args for time-based unique seeds, or pass an Int for reproducible sequences.",
@@ -2109,15 +2498,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["random.seed()", "random_si64"]
-      }
+        "inline_code_terms": [
+          "random.seed()",
+          "random_si64"
+        ]
+      },
+      "markdown": "Call `random.seed()` with no args for time-based unique seeds, or pass an Int for reproducible sequences.\n\n```\nimport std.random\n\n# Unique each run\nstd.random.seed()\n\n# Reproducible\nstd.random.seed(42)\nvar val = std.random.random_si64(0, 1)\n```"
     }
   },
   {
     "id": 107,
     "front": {
       "text": "How does the 'var' argument convention differ from 'mut' in a function signature?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How does the `var` argument convention differ from `mut` in a function signature?"
     },
     "back": {
       "text": "'mut' gives a mutable reference (caller sees changes). 'var' gives the function its own mutable copy (caller is unaffected).",
@@ -2125,15 +2522,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["var", "mut", "^"]
-      }
+        "inline_code_terms": [
+          "var",
+          "mut",
+          "^"
+        ]
+      },
+      "markdown": "## `mut` gives a mutable reference (caller sees changes)\n\n`var` gives the function its own mutable copy (caller is unaffected).\n\n```\ndef run_display(var grid: Grid):\n    # grid is owned copy; can reassign\n    grid = grid.evolve()\n\ndef main():\n    start = Grid.random(16, 16)\n    run_display(start^)  # transfer ownership\n```"
     }
   },
   {
     "id": 108,
     "front": {
       "text": "How can a context manager's __exit__ suppress or propagate errors from the with block?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How can a context manager's `__exit__` suppress or propagate errors from the with block?"
     },
     "back": {
       "text": "Overload __exit__ to accept an Error parameter. Return True to suppress the error or False to re-raise it.",
@@ -2141,15 +2547,26 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["__exit__", "Error", "True", "False", "raises"]
-      }
+        "inline_code_terms": [
+          "__exit__",
+          "Error",
+          "True",
+          "False",
+          "raises"
+        ]
+      },
+      "markdown": "## Overload `__exit__` to accept an `Error` parameter\n\nReturn `True` to suppress the error or `False` to re-raise it.\n\n```\nstruct SafeConn:\n    var name: String\n\n    def __init__(out self, name: String):\n        self.name = name\n\n    def __enter__(mut self) -> Self:\n        return self\n\n    def __exit__(mut self):\n        print(self.name, \"closed\")\n\n    def __exit__(mut self, e: Error) raises -> Bool:\n        if String(e) == \"retry\":\n            print(\"Suppressed:\", e)\n            return True   # swallow error\n        return False      # re-raise error\n\nwith SafeConn(\"db\"):\n    raise Error(\"retry\")  # suppressed\n```"
     }
   },
   {
     "id": 109,
     "front": {
       "text": "How do you use multiple context managers in a single 'with' statement?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you use multiple context managers in a single `with` statement?"
     },
     "back": {
       "text": "Separate context managers with commas. Each gets its own 'as' binding and all are cleaned up in reverse order when the block exits.",
@@ -2157,15 +2574,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["with", "as", "open"]
-      }
+        "inline_code_terms": [
+          "with",
+          "as",
+          "open"
+        ]
+      },
+      "markdown": "## Separate context managers `with` commas\n\nEach gets its own `as` binding and all are cleaned up in reverse order when the block exits.\n\n```\nwith open(\"in.txt\", \"r\") as src,\n     open(\"out.txt\", \"w\") as dst:\n    dst.write(src.read().upper())\n# both files closed automatically\n```"
     }
   },
   {
     "id": 110,
     "front": {
       "text": "How do you run multiple async tasks concurrently and wait for all of them to finish?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you run multiple async tasks concurrently and wait for all of them to finish?"
     },
     "back": {
       "text": "Create a TaskGroup from std.runtime.asyncrt. Add coroutines with create_task(), then await the group or call .wait() to block until all tasks complete.",
@@ -2173,15 +2599,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["TaskGroup", "create_task", "await"]
-      }
+        "inline_code_terms": [
+          "TaskGroup",
+          "create_task",
+          "await"
+        ]
+      },
+      "markdown": "## Create a `TaskGroup` from std.runtime.asyncrt\n\nAdd coroutines with `create_task`(), then `await` the group or call .wait() to block until all tasks complete.\n\n```\nfrom std.runtime.asyncrt import TaskGroup\n\nasync def main():\n    var tg = TaskGroup()\n    tg.create_task(fetch_a())\n    tg.create_task(fetch_b())\n    await tg  # waits for both\n```"
     }
   },
   {
     "id": 111,
     "front": {
       "text": "What is Pointer and how does it differ from UnsafePointer?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What is `Pointer` and how does it differ from `UnsafePointer`?"
     },
     "back": {
       "text": "Pointer is a safe, non-owning reference to a single initialized value. It carries origin (lifetime) info so the compiler prevents dangling references. UnsafePointer has no such guarantees.",
@@ -2189,15 +2624,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["Pointer", "UnsafePointer", "Pointer(to=)"]
-      }
+        "inline_code_terms": [
+          "Pointer",
+          "UnsafePointer",
+          "Pointer(to=)"
+        ]
+      },
+      "markdown": "## `Pointer` is a safe, non-owning reference to a single initialized value\n\nIt carries origin (lifetime) info so the compiler prevents dangling references. `UnsafePointer` has no such guarantees.\n\n```\nfrom std.memory import Pointer\n\nvar counter: Int = 5\nvar ptr = Pointer(to=counter)\nprint(ptr[])  # 5\nptr[] += 1\nprint(counter) # 6 (same memory)\n```"
     }
   },
   {
     "id": 112,
     "front": {
       "text": "When should you store a Pointer inside a struct?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "When should you store a `Pointer` inside a struct?"
     },
     "back": {
       "text": "Use Pointer when a struct needs a non-owning reference. The struct carries an origin parameter so the compiler tracks the referenced value's lifetime. ref on arguments infers origin automatically — callers never specify it.",
@@ -2205,15 +2649,25 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["Pointer", "Pointer(to=)", "origin", "Origin"]
-      }
+        "inline_code_terms": [
+          "Pointer",
+          "Pointer(to=)",
+          "origin",
+          "Origin"
+        ]
+      },
+      "markdown": "## Use `Pointer` when a struct needs a non-owning reference\n\nThe struct carries an `origin` parameter so the compiler tracks the referenced value's lifetime. ref on arguments infers `origin` automatically — callers never specify it.\n\n```\nstruct Cursor[origin: Origin]:\n    var source: Pointer[List[Int], origin]\n    var pos: Int\n\n    def __init__(out self,\n        ref [origin] src: List[Int]):\n        self.source = Pointer(to=src)\n        self.pos = 0\n\n    def next(mut self) -> Int:\n        var val = self.source[][self.pos]\n        self.pos += 1\n        return val\n\n# Usage — origin is inferred from data:\nvar data = List[Int](10, 20, 30)\nvar c = Cursor(data)\nprint(c.next())  # 10\n```"
     }
   },
   {
     "id": 113,
     "front": {
       "text": "What is OwnedPointer and when do you use it?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What is `OwnedPointer` and when do you use it?"
     },
     "back": {
       "text": "OwnedPointer is a single-ownership smart pointer that heap-allocates a value and auto-frees it on destruction. Use it when a value is too large for the stack or when you need stable heap placement.",
@@ -2221,15 +2675,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["OwnedPointer", "[]"]
-      }
+        "inline_code_terms": [
+          "OwnedPointer",
+          "[]"
+        ]
+      },
+      "markdown": "`OwnedPointer` is a single-ownership smart pointer that heap-allocates a value and auto-frees it on destruction. Use it when a value is too large for the stack or when you need stable heap placement.\n\n```\nfrom std.memory import OwnedPointer\n\nvar ptr = OwnedPointer(100)\nprint(ptr[])   # 100\nptr[] += 10\nprint(ptr[])   # 110\n# memory freed when ptr is destroyed\n```"
     }
   },
   {
     "id": 114,
     "front": {
       "text": "Can you copy an OwnedPointer? How do you transfer ownership?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "Can you copy an `OwnedPointer`? How do you transfer ownership?"
     },
     "back": {
       "text": "No, OwnedPointer enforces exclusive ownership. It is movable but not copyable. Transfer ownership with the ^ operator.",
@@ -2237,15 +2699,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["OwnedPointer", "^", "Movable"]
-      }
+        "inline_code_terms": [
+          "OwnedPointer",
+          "^",
+          "Movable"
+        ]
+      },
+      "markdown": "## No, `OwnedPointer` enforces exclusive ownership\n\nIt is movable but not copyable. Transfer ownership with the `^` operator.\n\n```\nfrom std.memory import OwnedPointer\n\nvar a = OwnedPointer(42)\nvar b = a^  # ownership moved\n# 'a' is now invalid\nprint(b[])  # 42\n```"
     }
   },
   {
     "id": 115,
     "front": {
       "text": "How do you use ArcPointer to create a Copyable struct with shared state?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you use `ArcPointer` to create a `Copyable` struct with shared state?"
     },
     "back": {
       "text": "Wrap the shared data in an ArcPointer field. Copies of the struct share the same heap data via reference counting. Dereference with [] to access the inner value.",
@@ -2253,15 +2724,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["ArcPointer", "Copyable", "[]"]
-      }
+        "inline_code_terms": [
+          "ArcPointer",
+          "Copyable",
+          "[]"
+        ]
+      },
+      "markdown": "## Wrap the shared data in an `ArcPointer` field\n\nCopies of the struct share the same heap data via reference counting.\n\nDereference with `[]` to access the inner value.\n\n```\nfrom std.memory import ArcPointer\n\nstruct SharedDict(Copyable):\n    var data: ArcPointer[Dict[String, String]]\n\n    def __init__(out self):\n        self.data = ArcPointer(\n            Dict[String, String]())\n\n    def set(mut self, k: String, v: String):\n        self.data[][k] = v\n\nvar a = SharedDict()\nvar b = a          # shares same Dict\nb.set(\"x\", \"1\")\nprint(a.data[][\"x\"]) # \"1\"\n```"
     }
   },
   {
     "id": 116,
     "front": {
       "text": "How do you move a value out of, or destroy a value behind, an UnsafePointer?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you move a value out of, or destroy a value behind, an UnsafePointer?"
     },
     "back": {
       "text": "take_pointee() moves the value out (leaves memory uninitialized). destroy_pointee() calls the destructor in place. Always do one or the other before calling free().",
@@ -2269,15 +2749,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["take_pointee()", "destroy_pointee()", "free()"]
-      }
+        "inline_code_terms": [
+          "take_pointee()",
+          "destroy_pointee()",
+          "free()"
+        ]
+      },
+      "markdown": "## `take_pointee()` moves the value out (leaves memory uninitialized)\n\n`destroy_pointee()` calls the destructor in place. Always do one or the other before calling `free()`.\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[String](1)\nptr.init_pointee_move(String(\"hello\"))\n\n# Option A: move value out\nvar s = ptr.take_pointee()\n\n# Option B: destroy in place\n# ptr.destroy_pointee()\n\nptr.free()  # release the allocation\n```"
     }
   },
   {
     "id": 117,
     "front": {
       "text": "How do you choose between the four pointer types: Pointer, OwnedPointer, ArcPointer, and UnsafePointer?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you choose between the four pointer types: `Pointer`, `OwnedPointer`, `ArcPointer`, and `UnsafePointer`?"
     },
     "back": {
       "text": "Pointer: safe non-owning reference (like a borrow).\nOwnedPointer: exclusive heap ownership (like unique_ptr).\nArcPointer: shared heap ownership via ref counting.\nUnsafePointer: raw memory, no safety, for collections and FFI.",
@@ -2285,15 +2774,25 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["Pointer", "OwnedPointer", "ArcPointer", "UnsafePointer"]
-      }
+        "inline_code_terms": [
+          "Pointer",
+          "OwnedPointer",
+          "ArcPointer",
+          "UnsafePointer"
+        ]
+      },
+      "markdown": "## `Pointer`: safe non-owning reference (like a borrow)\n\n`OwnedPointer`: exclusive heap ownership (like unique_ptr).\n`ArcPointer`: shared heap ownership via ref counting.\n`UnsafePointer`: raw memory, no safety, for collections and FFI.\n\n```\n# Pointer     - ref to value you don't own\n# OwnedPointer- one owner, auto-freed\n# ArcPointer  - many owners, ref-counted\n# UnsafePointer- manual alloc/free, FFI\n```"
     }
   },
   {
     "id": 118,
     "front": {
       "text": "When does Mojo destroy a value — at end of scope or earlier?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "When does Mojo destroy a value — at end of scope or earlier?"
     },
     "back": {
       "text": "Mojo uses ASAP (as-soon-as-possible) destruction. A value's __del__ runs immediately after its last use, not at scope exit. This differs from C++ RAII.",
@@ -2301,15 +2800,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["ASAP", "__del__"]
-      }
+        "inline_code_terms": [
+          "ASAP",
+          "__del__"
+        ]
+      },
+      "markdown": "## Mojo uses `ASAP` (as-soon-as-possible) destruction\n\nA value's `__del__` runs immediately after its last use, not at scope exit.\n\nThis differs from C++ RAII.\n\n```\ndef example():\n    var s = String(\"hello\")\n    print(s)\n    # s.__del__() runs here (last use)\n    var x = 42\n    # more code using x...\n```"
     }
   },
   {
     "id": 119,
     "front": {
       "text": "How do you prevent automatic destruction and require explicit cleanup?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you prevent automatic destruction and require explicit cleanup?"
     },
     "back": {
       "text": "Apply @explicit_destroy to a struct. The compiler then refuses to auto-call __del__ and forces you to call a named cleanup method, catching forgotten resources at compile time.",
@@ -2317,15 +2824,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["@explicit_destroy", "deinit"]
-      }
+        "inline_code_terms": [
+          "@explicit_destroy",
+          "deinit"
+        ]
+      },
+      "markdown": "## Apply `@explicit_destroy` to a struct\n\nThe compiler then refuses to auto-call __del__ and forces you to call a named cleanup method, catching forgotten resources at compile time.\n\n```\n@explicit_destroy\nstruct DBConn:\n    var handle: Int\n\n    def close(deinit self):\n        # release handle\n        ...\n\nvar db = DBConn(handle=1)\ndb.close()  # required — compiler error if omitted\n```"
     }
   },
   {
     "id": 120,
     "front": {
       "text": "How do you extend a value's lifetime past its last use to control when __del__ runs?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you extend a value's lifetime past its last use to control when `__del__` runs?"
     },
     "back": {
       "text": "Assign the value to the discard pattern '_ = value' at the point you want destruction. This marks the explicit last use, delaying ASAP destruction.",
@@ -2333,15 +2848,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["_ =", "__del__"]
-      }
+        "inline_code_terms": [
+          "_ =",
+          "__del__"
+        ]
+      },
+      "markdown": "Assign the value to the discard pattern '`_ =` value' at the point you want destruction. This marks the explicit last use, delaying ASAP destruction.\n\n```\nvar lock = acquire_lock()\n# ... critical section ...\n_ = lock  # __del__ runs HERE, not earlier\n# lock is now released\n```"
     }
   },
   {
     "id": 121,
     "front": {
       "text": "How do you combine multiple trait requirements without creating a new named trait?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you combine multiple trait requirements without creating a new named trait?"
     },
     "back": {
       "text": "Use the & operator to compose traits inline. You can also create a named alias with comptime.",
@@ -2349,15 +2872,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["&", "comptime"]
-      }
+        "inline_code_terms": [
+          "&",
+          "comptime"
+        ]
+      },
+      "markdown": "## Use the `&` operator to compose traits inline\n\nYou can also create a named alias with `comptime`.\n\n```\n# Inline composition\ndef log[T: Writable & Sized](item: T):\n    print(len(item), item)\n\n# Named alias\ncomptime PrintableSized = Writable & Sized\n```"
     }
   },
   {
     "id": 122,
     "front": {
       "text": "Can a trait provide a default method implementation?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "Can a `trait` provide a default method implementation?"
     },
     "back": {
       "text": "Yes. Give the method a body instead of '...'. Conforming types inherit it automatically but can override it.",
@@ -2365,15 +2896,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["...", "trait"]
-      }
+        "inline_code_terms": [
+          "...",
+          "trait"
+        ]
+      },
+      "markdown": "## Yes\n\nGive the method a body instead of `...`. Conforming types inherit it automatically but can override it.\n\n```\ntrait Equatable:\n    def __eq__(self, other: Self) -> Bool: ...\n\n    def __ne__(self, other: Self) -> Bool:\n        return not self.__eq__(other)\n\n# Conforming types get __ne__ for free\n```"
     }
   },
   {
     "id": 123,
     "front": {
       "text": "How do you make a generic struct conditionally conform to a trait?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you make a generic struct conditionally conform to a trait?"
     },
     "back": {
       "text": "Add a 'where conforms_to(T, Trait)' clause. The struct only satisfies the trait when its type parameter does.",
@@ -2381,15 +2920,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["where", "conforms_to"]
-      }
+        "inline_code_terms": [
+          "where",
+          "conforms_to"
+        ]
+      },
+      "markdown": "## Add a '`where` `conforms_to`(T, Trait)' clause\n\nThe struct only satisfies the trait when its type parameter does.\n\n```\nstruct Wrapper[T](\n    Writable where conforms_to(T, Writable)\n):\n    var val: T\n    def write_to(self, mut w: Some[Writer]):\n        w.write(self.val)\n\n# Wrapper[Int] is Writable (Int is)\n# Wrapper[SomeOpaque] may not be\n```"
     }
   },
   {
     "id": 124,
     "front": {
       "text": "What does Some[Trait] mean as an argument type?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What does `Some[Trait]` mean as an argument type?"
     },
     "back": {
       "text": "Some[Trait] is shorthand for a generic parameter constrained to that trait. The compiler monomorphizes the call for each concrete type.",
@@ -2397,15 +2944,22 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["Some[Trait]"]
-      }
+        "inline_code_terms": [
+          "Some[Trait]"
+        ]
+      },
+      "markdown": "`Some[Trait]` is shorthand for a generic parameter constrained to that trait. The compiler monomorphizes the call for each concrete type.\n\n```\n# These two are equivalent:\ndef quack(d: Some[Quackable]):\n    d.quack()\n\ndef quack[T: Quackable](d: T):\n    d.quack()\n```"
     }
   },
   {
     "id": 125,
     "front": {
       "text": "How does Mojo automatically infer compile-time parameters from argument types?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How does Mojo automatically infer compile-time parameters from argument types?"
     },
     "back": {
       "text": "When an argument's type has unbound parameters, Mojo deduces them from the caller's value. You don't need to specify [] explicitly.",
@@ -2413,15 +2967,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["SIMD", "[]"]
-      }
+        "inline_code_terms": [
+          "SIMD",
+          "[]"
+        ]
+      },
+      "markdown": "When an argument's type has unbound parameters, Mojo deduces them from the caller's value. You don't need to specify `[]` explicitly.\n\n```\ndef add_vecs(a: SIMD, b: SIMD) -> SIMD:\n    return a + b\n\n# Mojo infers dtype and width from args\nvar x = SIMD[DType.float32, 4](1.0)\nvar y = SIMD[DType.float32, 4](2.0)\nvar z = add_vecs(x, y)  # no [] needed\n```"
     }
   },
   {
     "id": 126,
     "front": {
       "text": "What is the rebind builtin used for?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What is the `rebind` builtin used for?"
     },
     "back": {
       "text": "rebind asserts at compile time that two types resolve to the same type after parameter substitution. It's a zero-cost cast for the compiler's benefit.",
@@ -2429,15 +2991,22 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["rebind"]
-      }
+        "inline_code_terms": [
+          "rebind"
+        ]
+      },
+      "markdown": "`rebind` asserts at compile time that two types resolve to the same type after parameter substitution. It's a zero-cost cast for the compiler's benefit.\n\n```\nfrom builtin import rebind\n\ndef convert[T: AnyType](val: T) -> T:\n    # Prove to the compiler these are the same\n    return rebind[T](val)\n```"
     }
   },
   {
     "id": 127,
     "front": {
       "text": "What is __init__.mojo and how does it create a package?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What is `__init__.mojo` and how does it create a package?"
     },
     "back": {
       "text": "A directory with an __init__.mojo file becomes a Mojo package. The file can be empty or re-export members from submodules to simplify imports.",
@@ -2445,15 +3014,22 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["__init__.mojo"]
-      }
+        "inline_code_terms": [
+          "__init__.mojo"
+        ]
+      },
+      "markdown": "## A directory with an `__init__.mojo` file becomes a Mojo package\n\nThe file can be empty or re-export members from submodules to simplify imports.\n\n```\n# Directory structure:\n# mypackage/\n#   __init__.mojo   <- makes it a package\n#   utils.mojo\n#   core.mojo\n\n# __init__.mojo can re-export:\nfrom .utils import helper\nfrom .core import Engine\n```"
     }
   },
   {
     "id": 128,
     "front": {
       "text": "How do you alias a module or member name on import?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you alias a module or member name on `import`?"
     },
     "back": {
       "text": "Use the 'as' keyword to create an alias, just like Python.",
@@ -2461,15 +3037,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["as", "import"]
-      }
+        "inline_code_terms": [
+          "as",
+          "import"
+        ]
+      },
+      "markdown": "Use the `as` keyword to create an alias, just like Python.\n\n```\nimport std.math as m\nvar x = m.sqrt(25.0)\n\nfrom std.collections import Dict as Map\nvar d = Map[String, Int]()\n```"
     }
   },
   {
     "id": 129,
     "front": {
       "text": "How do you import and use a compiled .mojopkg package?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you import and use a compiled `.mojopkg` package?"
     },
     "back": {
       "text": "Compile with 'mojo package', then import it like any module. The .mojopkg file is architecture-independent.",
@@ -2477,15 +3061,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": [".mojopkg", "mojo package"]
-      }
+        "inline_code_terms": [
+          ".mojopkg",
+          "mojo package"
+        ]
+      },
+      "markdown": "## Compile with `mojo package`, then import it like any module\n\nThe `.mojopkg` file is architecture-independent.\n\n```\n# Build the package\nmojo package mylib/ -o mylib.mojopkg\n\n# Use it in another file\nfrom mylib import MyStruct\nvar x = MyStruct(42)\n```"
     }
   },
   {
     "id": 130,
     "front": {
       "text": "How are Mojo primitive types automatically converted to Python objects?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How are Mojo primitive types automatically converted to Python objects?"
     },
     "back": {
       "text": "Mojo Int, Float64, Bool, and String implicitly convert to PythonObject when passed to Python APIs. Converting back requires explicit constructors.",
@@ -2493,15 +3085,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["PythonObject", "Int(py=)", "String(py=)"]
-      }
+        "inline_code_terms": [
+          "PythonObject",
+          "Int(py=)",
+          "String(py=)"
+        ]
+      },
+      "markdown": "Mojo Int, Float64, Bool, and String implicitly convert to `PythonObject` when passed to Python APIs. Converting back requires explicit constructors.\n\n```\nfrom std.python import Python, PythonObject\n\nvar py_val: PythonObject = 42  # implicit\nvar back: Int = Int(py=py_val)  # explicit\n\nvar py_str: PythonObject = \"hello\"\nvar s = String(py=py_str)\n```"
     }
   },
   {
     "id": 131,
     "front": {
       "text": "How do you create Python dicts and lists from Mojo?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you create Python dicts and lists from Mojo?"
     },
     "back": {
       "text": "Use Python.dict() and Python.list() to create native Python collections as PythonObject values.",
@@ -2509,15 +3110,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["Python.dict()", "Python.list()"]
-      }
+        "inline_code_terms": [
+          "Python.dict()",
+          "Python.list()"
+        ]
+      },
+      "markdown": "Use `Python.dict()` and `Python.list()` to create native Python collections as PythonObject values.\n\n```\nfrom std.python import Python\n\nvar d = Python.dict()\nd[\"key\"] = 42\n\nvar lst = Python.list()\nlst.append(\"hello\")\nlst.append(100)\n```"
     }
   },
   {
     "id": 132,
     "front": {
       "text": "How do Python-falsy values like None, False, 0, and \"\" behave in Mojo conditionals?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do Python-falsy values like None, False, 0, and \"\" behave in Mojo conditionals?"
     },
     "back": {
       "text": "Python-falsy values evaluate as false in Mojo boolean expressions, just like in Python. This lets you use PythonObject directly in if statements.",
@@ -2525,15 +3134,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["PythonObject", "if"]
-      }
+        "inline_code_terms": [
+          "PythonObject",
+          "if"
+        ]
+      },
+      "markdown": "Python-falsy values evaluate as false in Mojo boolean expressions, just like in Python. This lets you use `PythonObject` directly in `if` statements.\n\n```\nfrom std.python import Python\n\nvar result = Python.evaluate(\"None\")\nif not result:\n    print(\"None is falsy\")\n\nvar zero: PythonObject = 0\nif not zero:\n    print(\"0 is falsy too\")\n```"
     }
   },
   {
     "id": 133,
     "front": {
       "text": "How do you run unit tests with the Mojo test runner?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you run unit tests with the Mojo test runner?"
     },
     "back": {
       "text": "Name test functions with a 'test_' prefix. Run them with 'mojo test'. Use assert_equal, assert_true, and assert_raises from std.testing.",
@@ -2541,15 +3158,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["mojo test", "test_", "assert_equal"]
-      }
+        "inline_code_terms": [
+          "mojo test",
+          "test_",
+          "assert_equal"
+        ]
+      },
+      "markdown": "## Name test functions with a `test_` prefix\n\nRun them with `mojo test`. Use `assert_equal`, assert_true, and assert_raises from std.testing.\n\n```\n# test_math.mojo\nfrom std.testing import assert_equal\n\ndef test_add() raises:\n    assert_equal(1 + 1, 2)\n\n# Run from terminal:\n# mojo test test_math.mojo\n```"
     }
   },
   {
     "id": 134,
     "front": {
       "text": "How do you use Mojo interactively without compiling a file?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you use Mojo interactively without compiling a file?"
     },
     "back": {
       "text": "Run 'mojo repl' for an interactive shell, or use Mojo in a Jupyter notebook. Neither requires a main() function.",
@@ -2557,15 +3183,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["mojo repl", "Jupyter"]
-      }
+        "inline_code_terms": [
+          "mojo repl",
+          "Jupyter"
+        ]
+      },
+      "markdown": "Run `mojo repl` for an interactive shell, or use Mojo in a `Jupyter` notebook. Neither requires a main() function.\n\n```\n# Start the REPL:\nmojo repl\n\n# Or in a Jupyter notebook:\n# Each cell runs as top-level Mojo code\nvar x = 42\nprint(x)  # 42\n```"
     }
   },
   {
     "id": 135,
     "front": {
       "text": "How do you pass arguments or parameters by name instead of position?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you pass arguments or parameters by name instead of position?"
     },
     "back": {
       "text": "Use keyword syntax at the call site. Works for both runtime arguments () and compile-time parameters []. Positional and keyword forms can be mixed.",
@@ -2573,15 +3207,22 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["="]
-      }
+        "inline_code_terms": [
+          "="
+        ]
+      },
+      "markdown": "## Use keyword syntax at the call site\n\nWorks for both runtime arguments () and compile-time parameters [].\n\nPositional and keyword forms can be mixed.\n\n```\ndef greet(name: String, loud: Bool = False):\n    pass\n\ngreet(\"Mojo\", loud=True)  # mixed\ngreet(loud=True, name=\"Mojo\") # all keyword\n\n# Also works for parameters:\ndef repeat[count: Int](msg: String):\n    pass\nrepeat[count=3](\"hi\")\n```"
     }
   },
   {
     "id": 136,
     "front": {
       "text": "How do you write a function that accepts either a mutable or immutable reference?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you write a function that accepts either a mutable or immutable reference?"
     },
     "back": {
       "text": "Use the 'ref' argument convention for parametric mutability. Inside the function, a ref argument behaves like read or mut depending on what the caller passes.",
@@ -2589,15 +3230,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["ref", "read", "mut"]
-      }
+        "inline_code_terms": [
+          "ref",
+          "read",
+          "mut"
+        ]
+      },
+      "markdown": "## Use the `ref` argument convention for parametric mutability\n\nInside the function, a `ref` argument behaves like `read` or `mut` depending on what the caller passes.\n\n```\ndef print_len(ref items: List[Int]):\n    # Works whether caller passes\n    # a mutable or immutable list\n    print(len(items))\n\nvar a = List(1, 2, 3)\nprint_len(a)       # mutable OK\nprint_len(List(4)) # temporary OK\n```"
     }
   },
   {
     "id": 137,
     "front": {
       "text": "What is the built-in Error type?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What is the built-in `Error` type?"
     },
     "back": {
       "text": "Error is a struct (not a trait) that carries a string message. It is the default type for bare 'raises' functions. You can raise a string literal directly as shorthand.",
@@ -2605,15 +3255,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["Error", "raises"]
-      }
+        "inline_code_terms": [
+          "Error",
+          "raises"
+        ]
+      },
+      "markdown": "## `Error` is a struct (not a trait) that carries a string message\n\nIt is the default type for bare `raises` functions. You can raise a string literal directly as shorthand.\n\n```\n# These are equivalent:\nraise Error(\"file not found\")\nraise \"file not found\"\n\n# Error supports stack traces\n# (typed errors do not)\n```"
     }
   },
   {
     "id": 138,
     "front": {
       "text": "How do you define a custom error type?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you define a custom error type?"
     },
     "back": {
       "text": "Any struct can be an error type — no base class or trait required. Typed errors compile to alternate return values with no stack unwinding, making them suitable for GPU and embedded targets.",
@@ -2621,15 +3279,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["raises MyError", "@fieldwise_init"]
-      }
+        "inline_code_terms": [
+          "raises MyError",
+          "@fieldwise_init"
+        ]
+      },
+      "markdown": "## Any struct can be an error type — no base class or trait required\n\nTyped errors compile to alternate return values with no stack unwinding, making them suitable for GPU and embedded targets.\n\n```\n@fieldwise_init\nstruct MyError(Writable):\n    var reason: String\n\n    def write_to(self,\n        mut w: Some[Writer]):\n        w.write(\"MyError: \", self.reason)\n\ndef check(x: Int) raises MyError:\n    if x < 0:\n        raise MyError(reason=\"Negative\")\n```"
     }
   },
   {
     "id": 139,
     "front": {
       "text": "What are the else and finally clauses in try/except?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What are the `else` and `finally` clauses in `try`/`except`?"
     },
     "back": {
       "text": "'else' runs only when no error was raised. 'finally' always runs, whether or not an error occurred. You must include at least one of 'except' or 'finally'.",
@@ -2637,15 +3303,25 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["else", "finally", "try", "except"]
-      }
+        "inline_code_terms": [
+          "else",
+          "finally",
+          "try",
+          "except"
+        ]
+      },
+      "markdown": "## `else` runs only when no error was raised\n\n`finally` always runs, whether or not an error occurred. You must include at least one of `except` or `finally`.\n\n```\ntry:\n    result = parse(data)\nexcept e:\n    print(\"Failed:\", e)\nelse:\n    print(\"Parsed:\", result)\nfinally:\n    print(\"Cleanup done\")\n```"
     }
   },
   {
     "id": 140,
     "front": {
       "text": "What is the difference between pass and ... in a function body?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What is the difference between `pass` and `...` in a function body?"
     },
     "back": {
       "text": "'pass' is a no-op statement — the function runs but does nothing. '...' means 'not implemented' and is used in trait definitions to declare required methods without a default body.",
@@ -2653,15 +3329,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["pass", "..."]
-      }
+        "inline_code_terms": [
+          "pass",
+          "..."
+        ]
+      },
+      "markdown": "## `pass` is a no-op statement — the function runs but does nothing\n\n`...` means 'not implemented' and is used in trait definitions to declare required methods without a default body.\n\n```\ntrait Drawable:\n    def draw(self): ...  # must implement\n\nstruct Circle(Drawable):\n    def draw(self):\n        pass  # valid empty body\n```"
     }
   },
   {
     "id": 141,
     "front": {
       "text": "What is an origin and how does the compiler track lifetimes?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What is an origin and how does the compiler track lifetimes?"
     },
     "back": {
       "text": "An origin is a compile-time value that tracks which variable a reference points to and whether it is mutable. The compiler uses origins to prevent dangling references without runtime cost.",
@@ -2669,15 +3353,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["Origin", "ImmutOrigin", "MutOrigin"]
-      }
+        "inline_code_terms": [
+          "Origin",
+          "ImmutOrigin",
+          "MutOrigin"
+        ]
+      },
+      "markdown": "An origin is a compile-time value that tracks which variable a reference points to and whether it is mutable. The compiler uses origins to prevent dangling references without runtime cost.\n\n```\nvar x: Int = 10\nvar ptr = Pointer(to=x)\n# ptr's origin tracks 'x'\n# Compiler ensures 'x' outlives 'ptr'\n\n# Origin types:\n# ImmutOrigin — read-only reference\n# MutOrigin   — read-write reference\n```"
     }
   },
   {
     "id": 142,
     "front": {
       "text": "How do you bind a ref to a specific origin using ref [origin]?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you bind a ref to a specific origin using `ref [origin]`?"
     },
     "back": {
       "text": "Use ref [origin] on arguments and return types to specify which value's lifetime the reference is tied to. Use origin_of() to derive an origin from an existing value.",
@@ -2685,15 +3378,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["ref [origin]", "origin_of", "Pointer"]
-      }
+        "inline_code_terms": [
+          "ref [origin]",
+          "origin_of",
+          "Pointer"
+        ]
+      },
+      "markdown": "Use `ref [origin]` on arguments and return types to specify which value's lifetime the reference is tied to. Use `origin_of`() to derive an origin from an existing value.\n\n```\nstruct BoxedString:\n    var o_ptr: OwnedPointer[String]\n\n    def as_ptr(mut self)\n        -> Pointer[String,\n           origin_of(self.o_ptr)]:\n        return Pointer(to=self.o_ptr[])\n\n# The returned Pointer is tied to\n# self.o_ptr's lifetime\n```"
     }
   },
   {
     "id": 143,
     "front": {
       "text": "What are the naming conventions for structs, functions, modules, and variables in Mojo?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What are the naming conventions for structs, functions, modules, and variables in Mojo?"
     },
     "back": {
       "text": "Structs & Traits: PascalCase.\nFunctions & methods: snake_case.\nModules & packages: snake_case.\nVariables: snake_case.\nType parameters: PascalCase (T, Element).\nValue parameters: snake_case (capacity).\nPrivate members: leading underscore.",
@@ -2701,15 +3403,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["PascalCase", "snake_case"]
-      }
+        "inline_code_terms": [
+          "PascalCase",
+          "snake_case"
+        ]
+      },
+      "markdown": "## Structs & Traits: `PascalCase`\n\nFunctions & methods: `snake_case`. Modules & packages: `snake_case`.\n\nVariables: `snake_case`. Type parameters: `PascalCase` (T, Element).\n\nValue parameters: `snake_case` (capacity). Private members: leading underscore.\n\n```\nstruct MyParser:         # PascalCase\n    var _buffer: String  # _private\n\ntrait Printable: ...     # PascalCase\n\ndef parse_input(): ...   # snake_case\n\n# Type param: [T: Writable] PascalCase\n# Value param: [count: Int] snake_case\n# my_utils.mojo           snake_case\n```"
     }
   },
   {
     "id": 144,
     "front": {
       "text": "How do you create a collection of unique elements (a set)?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you create a collection of unique elements (a set)?"
     },
     "back": {
       "text": "Use the Set type from std.collections. Elements must be KeyElement (Hashable, EqualityComparable, etc.).",
@@ -2717,15 +3427,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["Set", "KeyElement"]
-      }
+        "inline_code_terms": [
+          "Set",
+          "KeyElement"
+        ]
+      },
+      "markdown": "## Use the `Set` type from std.collections\n\nElements must be `KeyElement` (Hashable, EqualityComparable, etc.).\n\n```\nfrom std.collections import Set\n\nvar s = Set[String](\"a\", \"b\", \"a\")\nprint(len(s))      # 2\ns.add(\"c\")\nprint(\"b\" in s)    # True\ns.remove(\"a\")\n```"
     }
   },
   {
     "id": 145,
     "front": {
       "text": "How do you sort a List in place?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you sort a List in place?"
     },
     "back": {
       "text": "Call the sort() method on the List. Elements must conform to ComparableCollectionElement.",
@@ -2733,15 +3451,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["sort()", "ComparableCollectionElement"]
-      }
+        "inline_code_terms": [
+          "sort()",
+          "ComparableCollectionElement"
+        ]
+      },
+      "markdown": "## Call the `sort()` method on the List\n\nElements must conform to `ComparableCollectionElement`.\n\n```\nvar nums = [5, 2, 8, 1]\nnums.sort()\nprint(nums)  # [1, 2, 5, 8]\n```"
     }
   },
   {
     "id": 146,
     "front": {
       "text": "How do you run loop iterations across multiple CPU cores?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you run loop iterations across multiple CPU cores?"
     },
     "back": {
       "text": "Use parallelize() from std.algorithm. Pass a @parameter closure and the iteration count. Each iteration may run on a different thread.",
@@ -2749,15 +3475,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["parallelize", "@parameter"]
-      }
+        "inline_code_terms": [
+          "parallelize",
+          "@parameter"
+        ]
+      },
+      "markdown": "## Use `parallelize`() from std.algorithm\n\nPass a `@parameter` closure and the iteration count. Each iteration may run on a different thread.\n\n```\nfrom std.algorithm import parallelize\n\n@parameter\ndef worker(i: Int) -> None:\n    # process row i\n    ...\n\nparallelize[worker](num_rows)\n```"
     }
   },
   {
     "id": 147,
     "front": {
       "text": "What is Span and when do you use it?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What is `Span` and when do you use it?"
     },
     "back": {
       "text": "Span is a lightweight, non-owning view over contiguous memory (like a List's buffer). It avoids copies when passing slices of data to functions.",
@@ -2765,15 +3499,22 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["Span"]
-      }
+        "inline_code_terms": [
+          "Span"
+        ]
+      },
+      "markdown": "`Span` is a lightweight, non-owning view over contiguous memory (like a List's buffer). It avoids copies when passing slices of data to functions.\n\n```\nfrom std.memory import Span\n\ndef sum_span(data: Span[Int]) -> Int:\n    var total = 0\n    for val in data:\n        total += val[]\n    return total\n\nvar nums = [10, 20, 30]\nprint(sum_span(nums))  # 60\n```"
     }
   },
   {
     "id": 148,
     "front": {
       "text": "How do you create a fixed-size, stack-allocated array?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you create a fixed-size, stack-allocated array?"
     },
     "back": {
       "text": "Use InlineArray with a compile-time size. Elements live on the stack with no heap allocation.",
@@ -2781,15 +3522,22 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["InlineArray"]
-      }
+        "inline_code_terms": [
+          "InlineArray"
+        ]
+      },
+      "markdown": "## Use `InlineArray` with a compile-time size\n\nElements live on the stack with no heap allocation.\n\n```\nvar arr = InlineArray[Int, 4](0)\narr[0] = 10\narr[1] = 20\nprint(arr[0])  # 10\nprint(len(arr)) # 4\n```"
     }
   },
   {
     "id": 149,
     "front": {
       "text": "How do you query system info like CPU core count or the current OS?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you query system info like CPU core count or the current OS?"
     },
     "back": {
       "text": "Use functions from the sys module. num_physical_cores() returns CPU cores. os_is_linux() / os_is_macos() / os_is_windows() detect the OS at compile time.",
@@ -2797,15 +3545,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["num_physical_cores", "os_is_linux", "sys"]
-      }
+        "inline_code_terms": [
+          "num_physical_cores",
+          "os_is_linux",
+          "sys"
+        ]
+      },
+      "markdown": "## Use functions from the `sys` module\n\n`num_physical_cores`() returns CPU cores. `os_is_linux`() / os_is_macos() / os_is_windows() detect the OS at compile time.\n\n```\nfrom sys import num_physical_cores,\n    os_is_linux, os_is_macos\n\nprint(num_physical_cores())\ncomptime if os_is_linux():\n    print(\"Running on Linux\")\n```"
     }
   },
   {
     "id": 150,
     "front": {
       "text": "How do you pause execution for a specified duration?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you pause execution for a specified duration?"
     },
     "back": {
       "text": "Use sleep() from std.time. Pass the duration in seconds as a Float64.",
@@ -2813,15 +3570,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["sleep", "std.time"]
-      }
+        "inline_code_terms": [
+          "sleep",
+          "std.time"
+        ]
+      },
+      "markdown": "## Use `sleep`() from `std.time`\n\nPass the duration in seconds as a Float64.\n\n```\nfrom std.time import sleep\n\nprint(\"Starting...\")\nsleep(0.5)  # pause 500ms\nprint(\"Done!\")\n```"
     }
   },
   {
     "id": 151,
     "front": {
       "text": "How do you terminate a program immediately with an error message?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you terminate a program immediately with an error message?"
     },
     "back": {
       "text": "Use abort() from std.os for an immediate crash with a message. Use exit() from std.sys for a clean shutdown with an exit code.",
@@ -2829,15 +3594,25 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["abort", "exit", "std.os", "std.sys"]
-      }
+        "inline_code_terms": [
+          "abort",
+          "exit",
+          "std.os",
+          "std.sys"
+        ]
+      },
+      "markdown": "## Use `abort`() from `std.os` for an immediate crash with a message\n\nUse `exit`() from `std.sys` for a clean shutdown with an `exit` code.\n\n```\nfrom std.os import abort\nfrom std.sys import exit\n\nif critical_failure:\n    abort(\"Fatal: corrupt data\")\n\n# Clean exit with code\nexit(0)\n```"
     }
   },
   {
     "id": 152,
     "front": {
       "text": "What trait must a type implement to be used as a Dict key or Set element?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What trait must a type implement to be used as a Dict key or Set element?"
     },
     "back": {
       "text": "Implement the Hashable trait using the Hasher protocol. Dict keys and Set elements must also be EqualityComparable. Together these form KeyElement.",
@@ -2845,15 +3620,25 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["Hashable", "__hash__", "Hasher", "KeyElement"]
-      }
+        "inline_code_terms": [
+          "Hashable",
+          "__hash__",
+          "Hasher",
+          "KeyElement"
+        ]
+      },
+      "markdown": "## Implement the `Hashable` trait using the `Hasher` protocol\n\nDict keys and Set elements must also be EqualityComparable. Together these form `KeyElement`.\n\n```\nfrom std.hashlib import Hasher\n\nstruct UserId(Hashable, EqualityComparable):\n    var id: Int\n\n    def __hash__[H: Hasher](self,\n        mut hasher: H):\n        hasher.update(self.id)\n\n    def __eq__(self, other: Self) -> Bool:\n        return self.id == other.id\n```"
     }
   },
   {
     "id": 153,
     "front": {
       "text": "What math functions are available beyond sqrt and max?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What math functions are available beyond sqrt and max?"
     },
     "back": {
       "text": "std.math provides floor, ceil, abs, min, max, pow, log, log2, sin, cos, tan, pi, e, and more. All work with SIMD types for vectorized math.",
@@ -2861,15 +3646,27 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["floor", "ceil", "abs", "pow", "log2", "std.math"]
-      }
+        "inline_code_terms": [
+          "floor",
+          "ceil",
+          "abs",
+          "pow",
+          "log2",
+          "std.math"
+        ]
+      },
+      "markdown": "`std.math` provides `floor`, `ceil`, `abs`, min, max, `pow`, log, `log2`, sin, cos, tan, pi, e, and more. All work with SIMD types for vectorized math.\n\n```\nfrom std.math import floor, ceil, abs,\n    pow, log2, pi\n\nprint(floor(3.7))   # 3.0\nprint(ceil(3.2))    # 4.0\nprint(abs(-5))      # 5\nprint(pow(2.0, 10.0)) # 1024.0\nprint(log2(256.0))  # 8.0\n```"
     }
   },
   {
     "id": 154,
     "front": {
       "text": "What are all the struct lifecycle special methods?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What are all the struct lifecycle special methods?"
     },
     "back": {
       "text": "Mojo structs have four lifecycle methods: __init__ (constructor), copy __init__ (copy), move __init__ (consuming move), and __del__ (destructor). Note the argument conventions: out (uninitialized output), deinit (consuming), and ref (parametric reference).",
@@ -2877,15 +3674,28 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["__init__", "__del__", "out", "deinit", "ref", "copy", "deinit take"]
-      }
+        "inline_code_terms": [
+          "__init__",
+          "__del__",
+          "out",
+          "deinit",
+          "ref",
+          "copy",
+          "deinit take"
+        ]
+      },
+      "markdown": "Mojo structs have four lifecycle methods: `__init__` (constructor), `copy` `__init__` (`copy`), move `__init__` (consuming move), and `__del__` (destructor). Note the argument conventions: `out` (uninitialized output), `deinit` (consuming), and `ref` (parametric reference).\n\n```\nstruct MyType:\n    var val: Int\n\n    # Constructor (out = uninitialized output)\n    def __init__(out self, val: Int):\n        self.val = val\n\n    # Copy constructor\n    def __init__(out self, *, copy: Self):\n        self.val = copy.val\n\n    # Move constructor (deinit = consumes original)\n    def __init__(out self, *, deinit take: Self):\n        self.val = take.val\n\n    # Destructor (deinit self = consumed)\n    def __del__(deinit self):\n        pass  # free resources here\n\n    # ref self = parametric reference\n    def peek(ref self) -> ref [self] Int:\n        return self.val\n```"
     }
   },
   {
     "id": 155,
     "front": {
       "text": "What does Self() do inside a struct method?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What does `Self()` do inside a struct method?"
     },
     "back": {
       "text": "Self is a type alias for the enclosing struct. Calling Self() invokes the struct's __init__ to create a new instance. Commonly used for constructor delegation or creating defaults.",
@@ -2893,15 +3703,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["Self", "Self()", "__init__"]
-      }
+        "inline_code_terms": [
+          "Self",
+          "Self()",
+          "__init__"
+        ]
+      },
+      "markdown": "## `Self` is a type alias for the enclosing struct\n\nCalling `Self()` invokes the struct's `__init__` to create a new instance.\n\nCommonly used for constructor delegation or creating defaults.\n\n```\nstruct Grid:\n    var rows: Int\n    var cols: Int\n\n    def __init__(out self):\n        self.rows = 0\n        self.cols = 0\n\n    def __init__(out self, rows: Int, cols: Int):\n        self = Self()  # delegate to no-arg init\n        self.rows = rows\n        self.cols = cols\n\n    def empty_copy(self) -> Self:\n        return Self()  # new default instance\n```"
     }
   },
   {
     "id": 156,
     "front": {
       "text": "What are the five states an UnsafePointer can be in?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What are the five states an `UnsafePointer` can be in?"
     },
     "back": {
       "text": "1) Uninitialized: declared but not assigned. 2) Null: points to nothing. 3) Allocated uninitialized: alloc'd but no pointee yet (reading = UB). 4) Initialized: allocated and populated, safe to read/write. 5) Dangling: freed or out of scope (reading = UB).",
@@ -2909,15 +3728,25 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["UnsafePointer", "alloc", "free()", "dangling"]
-      }
+        "inline_code_terms": [
+          "UnsafePointer",
+          "alloc",
+          "free()",
+          "dangling"
+        ]
+      },
+      "markdown": "## 1) Uninitialized: declared but not assigned\n\n2) Null: points to nothing. 3) Allocated uninitialized: `alloc`'d but no pointee yet (reading = UB). 4) Initialized: allocated and populated, safe to read/write. 5) Dangling: freed or out of scope (reading = UB).\n\n```\nvar p: UnsafePointer[Int]   # uninitialized\n\nvar q = UnsafePointer[Int]() # null\n\nvar r = alloc[Int](1)        # alloc uninit\nr.init_pointee_copy(42)      # initialized\nr.destroy_pointee()\nr.free()                     # r now dangling\n```"
     }
   },
   {
     "id": 157,
     "front": {
       "text": "How do you initialize a pointee in allocated memory?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you initialize a pointee in allocated memory?"
     },
     "back": {
       "text": "init_pointee_copy copies the value in (requires Copyable). init_pointee_move transfers ownership — use ^ for an owned variable, or pass a literal/temporary directly. Always initialize before reading.",
@@ -2925,15 +3754,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["init_pointee_copy", "init_pointee_move", "^"]
-      }
+        "inline_code_terms": [
+          "init_pointee_copy",
+          "init_pointee_move",
+          "^"
+        ]
+      },
+      "markdown": "## `init_pointee_copy` copies the value in (requires Copyable)\n\n`init_pointee_move` transfers ownership — use `^` for an owned variable, or pass a literal/temporary directly.\n\nAlways initialize before reading.\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[String](1)\n\n# copy the value in:\nptr.init_pointee_copy(String(\"hi\"))\n\n# OR move a literal:\nptr.init_pointee_move(String(\"hi\"))\n\n# OR transfer an owned variable:\nvar s = String(\"hi\")\nptr.init_pointee_move(s^)\n```"
     }
   },
   {
     "id": 158,
     "front": {
       "text": "How do you create an UnsafePointer to an existing value?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you create an UnsafePointer to an existing value?"
     },
     "back": {
       "text": "Use UnsafePointer(to=value). No allocation — you get a pointer to memory that already exists and is initialized. Origin is inferred from the value, so lifetime is tracked by the compiler.",
@@ -2941,15 +3779,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["UnsafePointer(to=)", "origin"]
-      }
+        "inline_code_terms": [
+          "UnsafePointer(to=)",
+          "origin"
+        ]
+      },
+      "markdown": "## Use UnsafePointer(to=value)\n\nNo allocation — you get a pointer to memory that already exists and is initialized.\n\nOrigin is inferred from the value, so lifetime is tracked by the compiler.\n\n```\nvar counter: Int = 5\nvar ptr = UnsafePointer(to=counter)\n\nptr[] += 1\nprint(counter)   # 6 (same memory)\n# no free() needed — we didn't alloc\n```"
     }
   },
   {
     "id": 159,
     "front": {
       "text": "How do you dereference and index an UnsafePointer?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you dereference and index an UnsafePointer?"
     },
     "back": {
       "text": "ptr[] reads or writes the single pointee. ptr[i] accesses the i-th element in an array-style allocation — equivalent to (ptr + i)[]. Dereferencing uninitialized or freed memory is undefined behavior.",
@@ -2957,15 +3803,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["ptr[]", "ptr[i]"]
-      }
+        "inline_code_terms": [
+          "ptr[]",
+          "ptr[i]"
+        ]
+      },
+      "markdown": "## `ptr[]` reads or writes the single pointee\n\n`ptr[i]` accesses the i-th element in an array-style allocation — equivalent to (ptr + i)[].\n\nDereferencing uninitialized or freed memory is undefined behavior.\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[Int](3)\nptr[0] = 10      # write index 0\nptr[1] = 20\nptr[2] = 30\nprint(ptr[])     # 10 (same as ptr[0])\nprint(ptr[1])    # 20\nptr.free()\n```"
     }
   },
   {
     "id": 160,
     "front": {
       "text": "How do you do scalar load/store through an UnsafePointer?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you do scalar load/store through an UnsafePointer?"
     },
     "back": {
       "text": "ptr.load() reads the pointee, ptr.store(val) writes. Equivalent to ptr[] for scalar types but supports compile-time flags — most notably volatile=True for memory-mapped I/O where the compiler must not cache or reorder the access.",
@@ -2973,15 +3827,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["load()", "store()", "volatile"]
-      }
+        "inline_code_terms": [
+          "load()",
+          "store()",
+          "volatile"
+        ]
+      },
+      "markdown": "## ptr.`load()` reads the pointee, ptr.store(val) writes\n\nEquivalent to ptr[] for scalar types but supports compile-time flags — most notably `volatile`=True for memory-mapped I/O where the compiler must not cache or reorder the access.\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[Int32](1)\nptr.store(42)\nvar v = ptr.load()   # 42\n\n# For memory-mapped I/O:\nptr.store[volatile=True](99)\nvar r = ptr.load[volatile=True]()\nptr.free()\n```"
     }
   },
   {
     "id": 161,
     "front": {
       "text": "How do you load or store a SIMD vector through an UnsafePointer?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you load or store a `SIMD` vector through an UnsafePointer?"
     },
     "back": {
       "text": "ptr.load[width=N]() reads N contiguous values into a SIMD vector. ptr.store(simd_value) writes them back. This is the core vectorization primitive for contiguous memory.",
@@ -2989,15 +3852,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["load[width=]", "store()", "SIMD"]
-      }
+        "inline_code_terms": [
+          "load[width=]",
+          "store()",
+          "SIMD"
+        ]
+      },
+      "markdown": "## ptr.load[width=N]() reads N contiguous values into a `SIMD` vector\n\nptr.store(simd_value) writes them back. This is the core vectorization primitive for contiguous memory.\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[Float32](8)\n# ... fill ptr[0..7] ...\n\nvar vec = ptr.load[width=4]()\n# SIMD[Float32, 4] from ptr[0..3]\n\nptr.store(vec * 2.0)  # writes 4 values\nptr.free()\n```"
     }
   },
   {
     "id": 162,
     "front": {
       "text": "How do you load or store SIMD values at a regular stride?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you load or store SIMD values at a regular `stride`?"
     },
     "back": {
       "text": "Use strided_load[width=N](stride) and strided_store[width=N](vec, stride). Useful for interleaved data — e.g. reading every 3rd byte of RGB pixel data to pull out just the red channel.",
@@ -3005,15 +3877,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["strided_load", "strided_store", "stride"]
-      }
+        "inline_code_terms": [
+          "strided_load",
+          "strided_store",
+          "stride"
+        ]
+      },
+      "markdown": "Use `strided_load`[width=N](`stride`) and `strided_store`[width=N](vec, `stride`). Useful for interleaved data — e.g. reading every 3rd byte of RGB pixel data to pull out just the red channel.\n\n```\n# Interleaved RGB bytes (3 bytes per pixel):\nvar bpp = 3\n\n# Load 4 red values at offsets 0, 3, 6, 9:\nvar reds = ptr.strided_load[width=4](bpp)\n\n# Write modified reds back:\nptr.strided_store[width=4](\n    reds + 10, bpp)\n```"
     }
   },
   {
     "id": 163,
     "front": {
       "text": "How do you read or write SIMD values at arbitrary offsets?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you read or write SIMD values at arbitrary offsets?"
     },
     "back": {
       "text": "ptr.gather(offsets) reads values at each offset in the SIMD index vector. ptr.scatter(values, offsets) writes values at each offset. Used for fully random-access patterns like indexed table lookups.",
@@ -3021,15 +3902,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["gather", "scatter"]
-      }
+        "inline_code_terms": [
+          "gather",
+          "scatter"
+        ]
+      },
+      "markdown": "ptr.`gather`(offsets) reads values at each offset in the SIMD index vector. ptr.`scatter`(values, offsets) writes values at each offset. Used for fully random-access patterns like indexed table lookups.\n\n```\n# Read ptr[1], ptr[5], ptr[2], ptr[8]:\nvar offs = SIMD[DType.index, 4](1, 5, 2, 8)\nvar vals = ptr.gather(offs)\n\n# Write vals to different offsets:\nptr.scatter(\n    vals,\n    SIMD[DType.index, 4](0, 2, 4, 6))\n```"
     }
   },
   {
     "id": 164,
     "front": {
       "text": "How do you safely expose an UnsafePointer from a struct field?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you safely expose an UnsafePointer from a struct field?"
     },
     "back": {
       "text": "Return the pointer with its origin bound to self: origin_of(self). The compiler then ties the pointer's lifetime to the struct so callers cannot use it after the struct is destroyed. Use unsafe_origin_cast to rebind an existing pointer's origin.",
@@ -3037,15 +3926,23 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["origin_of(self)", "unsafe_origin_cast"]
-      }
+        "inline_code_terms": [
+          "origin_of(self)",
+          "unsafe_origin_cast"
+        ]
+      },
+      "markdown": "## Return the pointer with its origin bound to self: `origin_of(self)`\n\nThe compiler then ties the pointer's lifetime to the struct so callers cannot use it after the struct is destroyed.\n\nUse `unsafe_origin_cast` to rebind an existing pointer's origin.\n\n```\nstruct Buffer:\n    var data: UnsafePointer[Int]\n\n    def unsafe_ptr(ref self) ->\n        UnsafePointer[Int, origin_of(self)]:\n        return self.data.unsafe_origin_cast[\n            origin_of(self)]()\n```"
     }
   },
   {
     "id": 165,
     "front": {
       "text": "How do you work with opaque/void pointers and raw addresses for FFI?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you work with opaque/void pointers and raw addresses for FFI?"
     },
     "back": {
       "text": "OpaquePointer is an alias for UnsafePointer[NoneType] — Mojo's void*. Use bitcast[T]() to convert between pointer types. Use UnsafePointer(unsafe_from_address=addr) to turn a raw integer address into a typed pointer (for MMIO or C interop).",
@@ -3053,15 +3950,24 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["bitcast", "OpaquePointer", "unsafe_from_address"]
-      }
+        "inline_code_terms": [
+          "bitcast",
+          "OpaquePointer",
+          "unsafe_from_address"
+        ]
+      },
+      "markdown": "## `OpaquePointer` is an alias for UnsafePointer[NoneType] — Mojo's void*\n\nUse `bitcast`[T]() to convert between pointer types. Use UnsafePointer(`unsafe_from_address`=addr) to turn a raw integer address into a typed pointer (for MMIO or C interop).\n\n```\n# Opaque pointer for C APIs:\nvar opaque = ptr.bitcast[NoneType]()\n\n# Raw integer address -> typed pointer:\nvar mmio = UnsafePointer[Int32,\n    MutExternalOrigin](\n    unsafe_from_address=0xFEE00000)\n\n# Reinterpret bytes as a different type:\nvar as_u32 = byte_ptr.bitcast[UInt32]()\n```"
     }
   },
   {
     "id": 166,
     "front": {
       "text": "What are the three safety risks of UnsafePointer?",
-      "formatting": ["bold", "center_align"]
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What are the three safety risks of UnsafePointer?"
     },
     "back": {
       "text": "1) Manual memory management — leaks, double-free, use-after-free. 2) Nullable and uninitialized — dereferencing is undefined behavior. 3) Unchecked arithmetic — offsets beyond the allocation are allowed but unsafe. Discipline: allocate → initialize → use → destroy → free.",
@@ -3069,8 +3975,13 @@
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
-        "inline_code_terms": ["use-after-free", "uninitialized", "UB"]
-      }
+        "inline_code_terms": [
+          "use-after-free",
+          "uninitialized",
+          "UB"
+        ]
+      },
+      "markdown": "## 1) Manual memory management — leaks, double-free, `use-after-free`\n\n2) Nullable and `uninitialized` — dereferencing is undefined behavior. 3) Unchecked arithmetic — offsets beyond the allocation are allowed but unsafe.\n\nDiscipline: allocate → initialize → use → destroy → free.\n\n```\nfrom std.memory import alloc\n\n# UB: use after free\nvar p = alloc[Int](1)\np.init_pointee_copy(1)\np.destroy_pointee()\np.free()\n# print(p[])  # dangling — UB\n\n# UB: uninitialized read\nvar q = alloc[Int](1)\n# print(q[])  # never initialized — UB\nq.free()\n```"
     }
   }
 ]
