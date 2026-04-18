@@ -53,8 +53,8 @@
       ]
     },
     "back": {
-      "text": "read: immutable borrow (default). mut: mutable reference, caller sees changes. var: caller gives up ownership. ref: adapts to caller's mutability (read or mut) and tracks the value's origin for lifetime safety. out: uninitialized slot the function must fill (used in __init__). deinit: value is consumed and destroyed by the function (used in __del__ and moves).",
-      "code_snippet": "def show(read val: Int):      # can't modify val\n    pass\ndef update(mut val: Int):     # caller sees changes\n    val += 1\ndef consume(var val: String):  # takes ownership\n    pass\ndef peek(ref val: Int):       # read or mut,\n    pass                       # with origin tracking\n\n# out — used in __init__:\ndef __init__(out self): ...\n\n# deinit — used in __del__ and moves:\ndef __del__(deinit self): ...",
+      "text": "read: immutable borrow, no copy (default). mut: mutable reference, caller sees changes. var: takes ownership — copies the value unless caller uses ^ to transfer. ref: borrows with origin tracking, adapts to caller's mutability. out: uninitialized slot the function must fill (used in __init__). deinit: value is consumed and destroyed (used in __del__ and moves).",
+      "code_snippet": "def show(read s: String):     # borrows, no copy\n    print(s)\ndef update(mut s: String):    # caller sees changes\n    s += \"!\"\ndef consume(var s: String):   # copies s in\n    print(s)\ndef take(var s: String):      # no copy with ^\n    print(s)\ndef peek(ref s: String):      # borrows, adapts\n    print(s)                   # mutability + origin\n\nvar msg = String(\"hi\")\nconsume(msg)    # msg copied, still usable\ntake(msg^)      # msg moved, no longer usable\n\n# out — used in __init__:\ndef __init__(out self): ...\n# deinit — consumed on exit:\ndef __del__(deinit self): ...",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -181,21 +181,22 @@
   {
     "id": 9,
     "front": {
-      "text": "Which two hardware-level types handle vectors and raw memory access?",
+      "text": "What is UnsafePointer and how do you access its pointee?",
       "formatting": [
         "bold",
         "center_align"
       ]
     },
     "back": {
-      "text": "Vectors (SIMD) and raw memory (UnsafePointer).",
-      "code_snippet": "# 4-wide float32 vector\nvar vec = SIMD[DType.float32, 4](1.0)",
+      "text": "UnsafePointer holds a memory address. The value stored at that address is the pointee. Read or write it with ptr[]. Unsafe means you manage allocation and lifetime manually, with no bounds or lifetime checks.",
+      "code_snippet": "var x = 42\nvar ptr = UnsafePointer(to=x)\nprint(ptr[])    # read pointee: 42\nptr[] = 99      # write pointee\nprint(x)        # 99 (same memory)",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
-          "SIMD",
-          "UnsafePointer"
+          "UnsafePointer",
+          "ptr[]",
+          "pointee"
         ]
       }
     }
@@ -513,20 +514,22 @@
   {
     "id": 24,
     "front": {
-      "text": "How do you allocate and access raw, unmanaged memory?",
+      "text": "How do you allocate raw memory with UnsafePointer?",
       "formatting": [
         "bold",
         "center_align"
       ]
     },
     "back": {
-      "text": "Use UnsafePointer with alloc() and init_pointee_copy() for raw memory.",
-      "code_snippet": "var ptr = UnsafePointer[Int].alloc(1)\nptr.init_pointee_copy(42)\nptr.free()",
+      "text": "Call alloc[T](n) to reserve space for n values. The memory is uninitialized — reading it is undefined behavior until you write or init_pointee_copy/move.",
+      "code_snippet": "from std.memory import alloc\n\nvar ptr = alloc[Int](10)   # 10 uninit Ints\n# ... initialize before reading ...\nptr.free()                 # release later",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
-          "UnsafePointer"
+          "alloc",
+          "UnsafePointer",
+          "free()"
         ]
       }
     }
@@ -1974,7 +1977,7 @@
     },
     "back": {
       "text": "Use memcpy to copy between buffers and memset_zero to fill with zeros. Import from std.memory.",
-      "code_snippet": "from std.memory import memcpy, memset_zero\n\nvar src = UnsafePointer[Int8].alloc(n)\nvar dest = UnsafePointer[Int8].alloc(n)\nmemset_zero(dest, n)\nmemcpy(dest=dest, src=src, count=n)",
+      "code_snippet": "from std.memory import alloc, memcpy,\n    memset_zero\n\nvar src = alloc[Int8](n)\nvar dest = alloc[Int8](n)\nmemset_zero(dest, n)\nmemcpy(dest=dest, src=src, count=n)",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -2262,7 +2265,7 @@
     },
     "back": {
       "text": "take_pointee() moves the value out (leaves memory uninitialized). destroy_pointee() calls the destructor in place. Always do one or the other before calling free().",
-      "code_snippet": "var ptr = UnsafePointer[String].alloc(1)\nptr.init_pointee_move(String(\"hello\"))\n\n# Option A: move value out\nvar s = ptr.take_pointee()\n\n# Option B: destroy in place\n# ptr.destroy_pointee()\n\nptr.free()  # release the allocation",
+      "code_snippet": "from std.memory import alloc\n\nvar ptr = alloc[String](1)\nptr.init_pointee_move(String(\"hello\"))\n\n# Option A: move value out\nvar s = ptr.take_pointee()\n\n# Option B: destroy in place\n# ptr.destroy_pointee()\n\nptr.free()  # release the allocation",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -2891,6 +2894,182 @@
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": ["Self", "Self()", "__init__"]
+      }
+    }
+  },
+  {
+    "id": 156,
+    "front": {
+      "text": "What are the five states an UnsafePointer can be in?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "1) Uninitialized: declared but not assigned. 2) Null: points to nothing. 3) Allocated uninitialized: alloc'd but no pointee yet (reading = UB). 4) Initialized: allocated and populated, safe to read/write. 5) Dangling: freed or out of scope (reading = UB).",
+      "code_snippet": "var p: UnsafePointer[Int]   # uninitialized\n\nvar q = UnsafePointer[Int]() # null\n\nvar r = alloc[Int](1)        # alloc uninit\nr.init_pointee_copy(42)      # initialized\nr.destroy_pointee()\nr.free()                     # r now dangling",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["UnsafePointer", "alloc", "free()", "dangling"]
+      }
+    }
+  },
+  {
+    "id": 157,
+    "front": {
+      "text": "How do you initialize a pointee in allocated memory?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "init_pointee_copy copies the value in (requires Copyable). init_pointee_move transfers ownership — use ^ for an owned variable, or pass a literal/temporary directly. Always initialize before reading.",
+      "code_snippet": "from std.memory import alloc\n\nvar ptr = alloc[String](1)\n\n# copy the value in:\nptr.init_pointee_copy(String(\"hi\"))\n\n# OR move a literal:\nptr.init_pointee_move(String(\"hi\"))\n\n# OR transfer an owned variable:\nvar s = String(\"hi\")\nptr.init_pointee_move(s^)",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["init_pointee_copy", "init_pointee_move", "^"]
+      }
+    }
+  },
+  {
+    "id": 158,
+    "front": {
+      "text": "How do you create an UnsafePointer to an existing value?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "Use UnsafePointer(to=value). No allocation — you get a pointer to memory that already exists and is initialized. Origin is inferred from the value, so lifetime is tracked by the compiler.",
+      "code_snippet": "var counter: Int = 5\nvar ptr = UnsafePointer(to=counter)\n\nptr[] += 1\nprint(counter)   # 6 (same memory)\n# no free() needed — we didn't alloc",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["UnsafePointer(to=)", "origin"]
+      }
+    }
+  },
+  {
+    "id": 159,
+    "front": {
+      "text": "How do you dereference and index an UnsafePointer?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "ptr[] reads or writes the single pointee. ptr[i] accesses the i-th element in an array-style allocation — equivalent to (ptr + i)[]. Dereferencing uninitialized or freed memory is undefined behavior.",
+      "code_snippet": "from std.memory import alloc\n\nvar ptr = alloc[Int](3)\nptr[0] = 10      # write index 0\nptr[1] = 20\nptr[2] = 30\nprint(ptr[])     # 10 (same as ptr[0])\nprint(ptr[1])    # 20\nptr.free()",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["ptr[]", "ptr[i]"]
+      }
+    }
+  },
+  {
+    "id": 160,
+    "front": {
+      "text": "How do you do scalar load/store through an UnsafePointer?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "ptr.load() reads the pointee, ptr.store(val) writes. Equivalent to ptr[] for scalar types but supports compile-time flags — most notably volatile=True for memory-mapped I/O where the compiler must not cache or reorder the access.",
+      "code_snippet": "from std.memory import alloc\n\nvar ptr = alloc[Int32](1)\nptr.store(42)\nvar v = ptr.load()   # 42\n\n# For memory-mapped I/O:\nptr.store[volatile=True](99)\nvar r = ptr.load[volatile=True]()\nptr.free()",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["load()", "store()", "volatile"]
+      }
+    }
+  },
+  {
+    "id": 161,
+    "front": {
+      "text": "How do you load or store a SIMD vector through an UnsafePointer?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "ptr.load[width=N]() reads N contiguous values into a SIMD vector. ptr.store(simd_value) writes them back. This is the core vectorization primitive for contiguous memory.",
+      "code_snippet": "from std.memory import alloc\n\nvar ptr = alloc[Float32](8)\n# ... fill ptr[0..7] ...\n\nvar vec = ptr.load[width=4]()\n# SIMD[Float32, 4] from ptr[0..3]\n\nptr.store(vec * 2.0)  # writes 4 values\nptr.free()",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["load[width=]", "store()", "SIMD"]
+      }
+    }
+  },
+  {
+    "id": 162,
+    "front": {
+      "text": "How do you load or store SIMD values at a regular stride?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "Use strided_load[width=N](stride) and strided_store[width=N](vec, stride). Useful for interleaved data — e.g. reading every 3rd byte of RGB pixel data to pull out just the red channel.",
+      "code_snippet": "# Interleaved RGB bytes (3 bytes per pixel):\nvar bpp = 3\n\n# Load 4 red values at offsets 0, 3, 6, 9:\nvar reds = ptr.strided_load[width=4](bpp)\n\n# Write modified reds back:\nptr.strided_store[width=4](\n    reds + 10, bpp)",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["strided_load", "strided_store", "stride"]
+      }
+    }
+  },
+  {
+    "id": 163,
+    "front": {
+      "text": "How do you read or write SIMD values at arbitrary offsets?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "ptr.gather(offsets) reads values at each offset in the SIMD index vector. ptr.scatter(values, offsets) writes values at each offset. Used for fully random-access patterns like indexed table lookups.",
+      "code_snippet": "# Read ptr[1], ptr[5], ptr[2], ptr[8]:\nvar offs = SIMD[DType.index, 4](1, 5, 2, 8)\nvar vals = ptr.gather(offs)\n\n# Write vals to different offsets:\nptr.scatter(\n    vals,\n    SIMD[DType.index, 4](0, 2, 4, 6))",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["gather", "scatter"]
+      }
+    }
+  },
+  {
+    "id": 164,
+    "front": {
+      "text": "How do you safely expose an UnsafePointer from a struct field?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "Return the pointer with its origin bound to self: origin_of(self). The compiler then ties the pointer's lifetime to the struct so callers cannot use it after the struct is destroyed. Use unsafe_origin_cast to rebind an existing pointer's origin.",
+      "code_snippet": "struct Buffer:\n    var data: UnsafePointer[Int]\n\n    def unsafe_ptr(ref self) ->\n        UnsafePointer[Int, origin_of(self)]:\n        return self.data.unsafe_origin_cast[\n            origin_of(self)]()",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["origin_of(self)", "unsafe_origin_cast"]
+      }
+    }
+  },
+  {
+    "id": 165,
+    "front": {
+      "text": "How do you work with opaque/void pointers and raw addresses for FFI?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "OpaquePointer is an alias for UnsafePointer[NoneType] — Mojo's void*. Use bitcast[T]() to convert between pointer types. Use UnsafePointer(unsafe_from_address=addr) to turn a raw integer address into a typed pointer (for MMIO or C interop).",
+      "code_snippet": "# Opaque pointer for C APIs:\nvar opaque = ptr.bitcast[NoneType]()\n\n# Raw integer address -> typed pointer:\nvar mmio = UnsafePointer[Int32,\n    MutExternalOrigin](\n    unsafe_from_address=0xFEE00000)\n\n# Reinterpret bytes as a different type:\nvar as_u32 = byte_ptr.bitcast[UInt32]()",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["bitcast", "OpaquePointer", "unsafe_from_address"]
+      }
+    }
+  },
+  {
+    "id": 166,
+    "front": {
+      "text": "What are the three safety risks of UnsafePointer?",
+      "formatting": ["bold", "center_align"]
+    },
+    "back": {
+      "text": "1) Manual memory management — leaks, double-free, use-after-free. 2) Nullable and uninitialized — dereferencing is undefined behavior. 3) Unchecked arithmetic — offsets beyond the allocation are allowed but unsafe. Discipline: allocate → initialize → use → destroy → free.",
+      "code_snippet": "from std.memory import alloc\n\n# UB: use after free\nvar p = alloc[Int](1)\np.init_pointee_copy(1)\np.destroy_pointee()\np.free()\n# print(p[])  # dangling — UB\n\n# UB: uninitialized read\nvar q = alloc[Int](1)\n# print(q[])  # never initialized — UB\nq.free()",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": ["use-after-free", "uninitialized", "UB"]
       }
     }
   }
