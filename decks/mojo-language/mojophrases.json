@@ -20,7 +20,7 @@
           "fn"
         ]
       },
-      "markdown": "## Use `def` for all functions\n\nThe legacy `fn` keyword is deprecated as of 26.2. All arguments are typed and immutable (read) by default.\n\n```\ndef add(a: Int, b: Int) -> Int:\n    return a + b\n```"
+      "markdown": "## Use `def` for all functions\n\nThe legacy `fn` keyword is {#C62828}**deprecated as of 26.2.**{/} All arguments are typed and immutable (read) by default.\n\n```\ndef add(a: Int, b: Int) -> Int:\n    return a + b\n```"
     }
   },
   {
@@ -44,7 +44,7 @@
           "comptime"
         ]
       },
-      "markdown": "## `var`: Mutable variable\n\n`comptime`: Compile-time constant.\n\n```\nvar x: Int = 5\nx += 1\ncomptime MAX = 100\n```"
+      "markdown": "- **`var`**: Mutable variable\n- **`comptime`**: Compile-time constant\n\n```\nvar x: Int = 5\nx += 1\ncomptime MAX = 100\n```"
     }
   },
   {
@@ -72,7 +72,7 @@
           "deinit"
         ]
       },
-      "markdown": "## `read`: immutable borrow, no copy (default)\n\n`mut`: mutable reference, caller sees changes. `var`: takes ownership — copies the value unless caller uses ^ to transfer. `ref`: borrows with origin tracking, adapts to caller's mutability. `out`: uninitialized slot the function must fill (used in __init__). `deinit`: value is consumed and destroyed (used in __del__ and moves).\n\n```\ndef show(read s: String):     # borrows, no copy\n    print(s)\ndef update(mut s: String):    # caller sees changes\n    s += \"!\"\ndef consume(var s: String):   # copies s in\n    print(s)\ndef take(var s: String):      # no copy with ^\n    print(s)\ndef peek(ref s: String):      # borrows, adapts\n    print(s)                   # mutability + origin\n\nvar msg = String(\"hi\")\nconsume(msg)    # msg copied, still usable\ntake(msg^)      # msg moved, no longer usable\n\n# out — used in __init__:\ndef __init__(out self): ...\n# deinit — consumed on exit:\ndef __del__(deinit self): ...\n```"
+      "markdown": "- **`read`**: immutable borrow, no copy (default)\n- **`mut`**: mutable reference, caller sees changes\n- **`var`**: takes ownership — copies the value unless caller uses ^ to transfer\n- **`ref`**: borrows with origin tracking, adapts to caller's mutability\n- **`out`**: uninitialized slot the function must fill (used in __init__)\n- **`deinit`**: value is consumed and destroyed (used in __del__ and moves)\n\n```\ndef show(read s: String):     # borrows, no copy\n    print(s)\ndef update(mut s: String):    # caller sees changes\n    s += \"!\"\ndef consume(var s: String):   # copies s in\n    print(s)\ndef take(var s: String):      # no copy with ^\n    print(s)\ndef peek(ref s: String):      # borrows, adapts\n    print(s)                   # mutability + origin\n\nvar msg = String(\"hi\")\nconsume(msg)    # msg copied, still usable\ntake(msg^)      # msg moved, no longer usable\n\n# out — used in __init__:\ndef __init__(out self): ...\n# deinit — consumed on exit:\ndef __del__(deinit self): ...\n```"
     }
   },
   {
@@ -96,7 +96,7 @@
           "^"
         ]
       },
-      "markdown": "## `copy()` explicitly copies memory\n\n`^` moves the value, transferring ownership.\n\n```\nvar a = String(\"Mojo\")\nvar b = a^ # 'a' is no longer valid\n```"
+      "markdown": "- **`copy()`** explicitly copies memory\n- **`^`** moves the value, transferring ownership\n\n```\nvar a = String(\"Mojo\")\nvar b = a^ # 'a' is no longer valid\n```"
     }
   },
   {
@@ -120,7 +120,7 @@
           "()"
         ]
       },
-      "markdown": "## `[]` evaluate at compile time\n\n`()` evaluate at runtime.\n\n```\ndef repeat[count: Int](msg: String):\n    # count is known at compile time\n```"
+      "markdown": "- **`[]`** evaluate at compile time\n- **`()`** evaluate at runtime\n\n```\ndef repeat[count: Int](msg: String):\n    # count is known at compile time\n```"
     }
   },
   {
@@ -216,7 +216,7 @@
           "pointee"
         ]
       },
-      "markdown": "## `UnsafePointer` holds a memory address\n\nThe value stored at that address is the `pointee`. Read or write it with `ptr[]`.\n\nUnsafe means you manage allocation and lifetime manually, with no bounds or lifetime checks.\n\n```\nvar x = 42\nvar ptr = UnsafePointer(to=x)\nprint(ptr[])    # read pointee: 42\nptr[] = 99      # write pointee\nprint(x)        # 99 (same memory)\n```"
+      "markdown": "## `UnsafePointer` holds a memory address\n\nThe value stored at that address is the `pointee`. Read or write it with `ptr[]`.\n\nUnsafe means you manage allocation and lifetime manually, with {#C62828}**no bounds or lifetime checks**{/}.\n\n```\nvar x = 42\nvar ptr = UnsafePointer(to=x)\nprint(ptr[])    # read pointee: 42\nptr[] = 99      # write pointee\nprint(x)        # 99 (same memory)\n```"
     }
   },
   {
@@ -263,7 +263,7 @@
           "from"
         ]
       },
-      "markdown": "## Use standard `import` or `from` \n\n`import`.\n\n```\nimport std.math\nfrom std.math import sin, pi\n```"
+      "markdown": "Use standard `import` or `from` ... `import`.\n\n```\nimport std.math\nfrom std.math import sin, pi\n```"
     }
   },
   {
@@ -325,7 +325,7 @@
         "bold",
         "center_align"
       ],
-      "markdown": "How do you define the logic for explicit '`.`copy`()`' calls?"
+      "markdown": "How do you define the logic for explicit `.`copy`()` calls?"
     },
     "back": {
       "text": "Define an __init__ with a keyword-only 'copy' parameter. The Copyable trait then provides the .copy() method.",
@@ -364,7 +364,7 @@
           "take"
         ]
       },
-      "markdown": "## Implement `__init__` with a keyword-only '`deinit` `take`' parameter\n\nThe `deinit` convention consumes the original.\n\n```\ndef __init__(out self, *, deinit take: Self):\n    self.val = take.val\n```"
+      "markdown": "## Implement `__init__` with a keyword-only `deinit` `take` parameter\n\nThe `deinit` convention consumes the original.\n\n```\ndef __init__(out self, *, deinit take: Self):\n    self.val = take.val\n```"
     }
   },
   {
@@ -579,7 +579,7 @@
           "free()"
         ]
       },
-      "markdown": "## Call `alloc`[T](n) to reserve space for n values\n\nThe memory is uninitialized — reading it is undefined behavior until you write or init_pointee_copy/move.\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[Int](10)   # 10 uninit Ints\n# ... initialize before reading ...\nptr.free()                 # release later\n```"
+      "markdown": "## Call `alloc`[T](n) to reserve space for n values\n\nThe memory is uninitialized — reading it is {#C62828}**undefined behavior**{/} until you write or init_pointee_copy/move.\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[Int](10)   # 10 uninit Ints\n# ... initialize before reading ...\nptr.free()                 # release later\n```"
     }
   },
   {
@@ -695,7 +695,7 @@
           "StringLiteral"
         ]
       },
-      "markdown": "## `String` is dynamically heap-allocated\n\n\"hello\" is a static `StringLiteral`.\n\n```\nvar heap_str = String(\"heap\")\nvar static_str: StringLiteral = \"binary\"\n```"
+      "markdown": "`String` is dynamically heap-allocated. \"hello\" is a static `StringLiteral`.\n\n```\nvar heap_str = String(\"heap\")\nvar static_str: StringLiteral = \"binary\"\n```"
     }
   },
   {
@@ -813,7 +813,7 @@
           "comptime"
         ]
       },
-      "markdown": "## Implicit declarations (e.g., x = 100) are allowed inside `def` functions\n\nYou can also use explicit `var` or `comptime` for clarity.\n\n```\ndef my_func():\n    x = 100       # Implicit, inferred as Int\n    var y = 200   # Explicit, also valid\n```"
+      "markdown": "Implicit declarations (e.g., x = 100) are allowed inside `def` functions. You can also use explicit `var` or `comptime` for clarity.\n\n```\ndef my_func():\n    x = 100       # Implicit, inferred as Int\n    var y = 200   # Explicit, also valid\n```"
     }
   },
   {
@@ -1000,7 +1000,7 @@
           "else"
         ]
       },
-      "markdown": "Use the 'True-value `if` condition `else` False-value' syntax.\n\n```\nvar status = \"OK\" if code == 200 else \"Error\"\n```"
+      "markdown": "Use the True-value `if` condition `else` False-value syntax.\n\n```\nvar status = \"OK\" if code == 200 else \"Error\"\n```"
     }
   },
   {
@@ -1264,7 +1264,7 @@
           "ArcPointer"
         ]
       },
-      "markdown": "## Use `ArcPointer` for reference-counted heap memory\n\nThe ref count is atomic, but data access is not automatically thread-safe.\n\n```\nfrom std.memory import ArcPointer\nvar shared_state = ArcPointer(MyStruct(10))\nvar ref2 = shared_state # Increments ref count\n```"
+      "markdown": "## Use `ArcPointer` for reference-counted heap memory\n\nThe ref count is atomic, but data access is not automatically {#2E7D32}**thread-safe**{/}.\n\n```\nfrom std.memory import ArcPointer\nvar shared_state = ArcPointer(MyStruct(10))\nvar ref2 = shared_state # Increments ref count\n```"
     }
   },
   {
@@ -1311,7 +1311,7 @@
           "StringSlice"
         ]
       },
-      "markdown": "## `String` owns mutable, heap-allocated memory\n\n`StringSlice` is a lightweight, zero-copy, non-owning view.\n\n```\nvar text = String(\"Hello World\")\nvar view: StringSlice = text[0:5] # Zero-copy view\n```"
+      "markdown": "- **`String`** owns mutable, heap-allocated memory\n- **`StringSlice`** is a lightweight, zero-copy, non-owning view\n\n```\nvar text = String(\"Hello World\")\nvar view: StringSlice = text[0:5] # Zero-copy view\n```"
     }
   },
   {
@@ -1664,7 +1664,7 @@
           "main()"
         ]
       },
-      "markdown": "## Every compiled Mojo program must include a function named `main()`\n\n(Not required in REPL or notebooks.)\n\n```\ndef main():\n    print(\"Hello, world!\")\n```"
+      "markdown": "Every compiled Mojo program must include a function named `main()`. (Not required in REPL or notebooks.)\n\n```\ndef main():\n    print(\"Hello, world!\")\n```"
     }
   },
   {
@@ -1735,7 +1735,7 @@
           "__init__"
         ]
       },
-      "markdown": "## Pass the `Copyable` or `Movable` trait to the struct\n\nMojo synthesizes unified `__init__` constructors with copy and take parameters (legacy __copyinit__/__moveinit__ are deprecated).\n\n```\n@fieldwise_init\nstruct MyPair(Copyable):\n    var a: Int\n    var b: Int\n```"
+      "markdown": "## Pass the `Copyable` or `Movable` trait to the struct\n\nMojo synthesizes unified `__init__` constructors with copy and take parameters (legacy __copyinit__/__moveinit__ are {#C62828}**deprecated**{/}).\n\n```\n@fieldwise_init\nstruct MyPair(Copyable):\n    var a: Int\n    var b: Int\n```"
     }
   },
   {
@@ -1876,7 +1876,7 @@
           "TrivialRegisterPassable"
         ]
       },
-      "markdown": "Conform to `RegisterPassable` (or `TrivialRegisterPassable` for trivial types). These types live in registers, avoiding memory indirection. The @register_passable decorator is deprecated.\n\n```\nstruct Flags(TrivialRegisterPassable):\n    var bits: UInt8\n\n# Passed directly in a CPU register,\n# not by pointer\n```"
+      "markdown": "Conform to `RegisterPassable` (or `TrivialRegisterPassable` for trivial types). These types live in registers, avoiding memory indirection. The @register_passable decorator is {#C62828}**deprecated**{/}.\n\n```\nstruct Flags(TrivialRegisterPassable):\n    var bits: UInt8\n\n# Passed directly in a CPU register,\n# not by pointer\n```"
     }
   },
   {
@@ -1973,7 +1973,7 @@
           "[-1]"
         ]
       },
-      "markdown": "## `pop()` removes and returns the last element\n\n`len()` returns the count. Negative indices count from the end.\n\n```\nnums = [12, -7, 64]\nnums.append(-937)\nprint(nums.pop())  # -937\nprint(len(nums))   # 3\nprint(nums[-1])    # 64\n```"
+      "markdown": "- **`pop()`** removes and returns the last element\n- **`len()`** returns the count. Negative indices count from the end\n\n```\nnums = [12, -7, 64]\nnums.append(-937)\nprint(nums.pop())  # -937\nprint(len(nums))   # 3\nprint(nums[-1])    # 64\n```"
     }
   },
   {
@@ -1998,7 +1998,7 @@
           ".mojo"
         ]
       },
-      "markdown": "## Any `.mojo` source file is a module\n\nImport its types/functions with '`from` <filename> `import` <name>'.\n\n```\n# gridv1.mojo defines struct Grid\n# life.mojo imports it:\nfrom gridv1 import Grid\n\ndef main():\n    g = Grid(8, 8, data^)\n```"
+      "markdown": "## Any `.mojo` source file is a module\n\nImport its types/functions with `from` <filename> `import` <name>.\n\n```\n# gridv1.mojo defines struct Grid\n# life.mojo imports it:\nfrom gridv1 import Grid\n\ndef main():\n    g = Grid(8, 8, data^)\n```"
     }
   },
   {
@@ -2023,7 +2023,7 @@
           ".copy()"
         ]
       },
-      "markdown": "## `Copyable` types require an explicit `.copy()` call\n\n`ImplicitlyCopyable` types (like Int, String) can be copied with simple assignment.\n\n```\n# ImplicitlyCopyable (Int, String)\nvar b = a  # implicit copy\n\n# Copyable only (List)\nvar copy = my_list.copy()  # must be explicit\n```"
+      "markdown": "- **`Copyable`** types require an explicit `.copy()` call\n- **`ImplicitlyCopyable`** types (like Int, String) can be copied with simple assignment\n\n```\n# ImplicitlyCopyable (Int, String)\nvar b = a  # implicit copy\n\n# Copyable only (List)\nvar copy = my_list.copy()  # must be explicit\n```"
     }
   },
   {
@@ -2200,7 +2200,7 @@
         "bold",
         "center_align"
       ],
-      "markdown": "What is the difference between running '`mojo` file.`mojo`' and '`mojo build` file.`mojo`'?"
+      "markdown": "What is the difference between running `mojo` file.`mojo` and `mojo build` file.`mojo`?"
     },
     "back": {
       "text": "'mojo file.mojo' performs JIT compilation and runs immediately. 'mojo build' creates a standalone executable file.",
@@ -2214,7 +2214,7 @@
           "JIT"
         ]
       },
-      "markdown": "## '`mojo` file.`mojo`' performs `JIT` compilation and runs immediately\n\n`mojo build` creates a standalone executable file.\n\n```\n# JIT compile and run\nmojo life.mojo\n\n# Compile to executable\nmojo build life.mojo\n./life\n```"
+      "markdown": "- **`mojo`** file.`mojo` performs `JIT` compilation and runs immediately\n- **`mojo build`** creates a standalone executable file\n\n```\n# JIT compile and run\nmojo life.mojo\n\n# Compile to executable\nmojo build life.mojo\n./life\n```"
     }
   },
   {
@@ -2310,7 +2310,7 @@
           "std.memory"
         ]
       },
-      "markdown": "## Use `memcpy` to copy between buffers and `memset_zero` to fill with zeros\n\nImport from `std.memory`.\n\n```\nfrom std.memory import alloc, memcpy,\n    memset_zero\n\nvar src = alloc[Int8](n)\nvar dest = alloc[Int8](n)\nmemset_zero(dest, n)\nmemcpy(dest=dest, src=src, count=n)\n```"
+      "markdown": "Use `memcpy` to copy between buffers and `memset_zero` to fill with zeros. Import from `std.memory`.\n\n```\nfrom std.memory import alloc, memcpy,\n    memset_zero\n\nvar src = alloc[Int8](n)\nvar dest = alloc[Int8](n)\nmemset_zero(dest, n)\nmemcpy(dest=dest, src=src, count=n)\n```"
     }
   },
   {
@@ -2407,7 +2407,7 @@
           "write_to"
         ]
       },
-      "markdown": "## `write_to` takes 'mut writer: `Some[Writer]`', a generic writer\n\nThis lets your type work with String, files, or any output destination.\n\n```\nstruct Grid(Writable):\n    def write_to(self,\n        mut writer: Some[Writer]):\n        writer.write_string(\"*\")\n\n# Now works: print(String(grid))\n```"
+      "markdown": "## `write_to` takes mut writer: `Some[Writer]`, a generic writer\n\nThis lets your type work with String, files, or any output destination.\n\n```\nstruct Grid(Writable):\n    def write_to(self,\n        mut writer: Some[Writer]):\n        writer.write_string(\"*\")\n\n# Now works: print(String(grid))\n```"
     }
   },
   {
@@ -2479,7 +2479,7 @@
           "Int"
         ]
       },
-      "markdown": "## Fixed-width signed integers with explicit bit sizes\n\n`Int` is the CPU's native word size (typically 64-bit). Convert with `Int`().\n\n```\nvar small: Int8 = 42\nvar native: Int = Int(small)\n\n# random_si64 returns Int64\nvar r = random_si64(0, 1)\nvar i = Int(r)  # explicit convert\n```"
+      "markdown": "Fixed-width signed integers with explicit bit sizes. `Int` is the CPU's native word size (typically 64-bit). Convert with `Int`().\n\n```\nvar small: Int8 = 42\nvar native: Int = Int(small)\n\n# random_si64 returns Int64\nvar r = random_si64(0, 1)\nvar i = Int(r)  # explicit convert\n```"
     }
   },
   {
@@ -2528,7 +2528,7 @@
           "^"
         ]
       },
-      "markdown": "## `mut` gives a mutable reference (caller sees changes)\n\n`var` gives the function its own mutable copy (caller is unaffected).\n\n```\ndef run_display(var grid: Grid):\n    # grid is owned copy; can reassign\n    grid = grid.evolve()\n\ndef main():\n    start = Grid.random(16, 16)\n    run_display(start^)  # transfer ownership\n```"
+      "markdown": "- **`mut`** gives a mutable reference (caller sees changes)\n- **`var`** gives the function its own mutable copy (caller is unaffected)\n\n```\ndef run_display(var grid: Grid):\n    # grid is owned copy; can reassign\n    grid = grid.evolve()\n\ndef main():\n    start = Grid.random(16, 16)\n    run_display(start^)  # transfer ownership\n```"
     }
   },
   {
@@ -2630,7 +2630,7 @@
           "Pointer(to=)"
         ]
       },
-      "markdown": "## `Pointer` is a safe, non-owning reference to a single initialized value\n\nIt carries origin (lifetime) info so the compiler prevents dangling references. `UnsafePointer` has no such guarantees.\n\n```\nfrom std.memory import Pointer\n\nvar counter: Int = 5\nvar ptr = Pointer(to=counter)\nprint(ptr[])  # 5\nptr[] += 1\nprint(counter) # 6 (same memory)\n```"
+      "markdown": "- **`Pointer`** is a safe, non-owning reference to a single initialized value. It carries origin (lifetime) info so the compiler prevents dangling references\n- **`UnsafePointer`** has no such guarantees\n\n```\nfrom std.memory import Pointer\n\nvar counter: Int = 5\nvar ptr = Pointer(to=counter)\nprint(ptr[])  # 5\nptr[] += 1\nprint(counter) # 6 (same memory)\n```"
     }
   },
   {
@@ -2755,7 +2755,7 @@
           "free()"
         ]
       },
-      "markdown": "## `take_pointee()` moves the value out (leaves memory uninitialized)\n\n`destroy_pointee()` calls the destructor in place. Always do one or the other before calling `free()`.\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[String](1)\nptr.init_pointee_move(String(\"hello\"))\n\n# Option A: move value out\nvar s = ptr.take_pointee()\n\n# Option B: destroy in place\n# ptr.destroy_pointee()\n\nptr.free()  # release the allocation\n```"
+      "markdown": "- **`take_pointee()`** moves the value out (leaves memory uninitialized)\n- **`destroy_pointee()`** calls the destructor in place. Always do one or the other before calling `free()`\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[String](1)\nptr.init_pointee_move(String(\"hello\"))\n\n# Option A: move value out\nvar s = ptr.take_pointee()\n\n# Option B: destroy in place\n# ptr.destroy_pointee()\n\nptr.free()  # release the allocation\n```"
     }
   },
   {
@@ -2781,7 +2781,7 @@
           "UnsafePointer"
         ]
       },
-      "markdown": "## `Pointer`: safe non-owning reference (like a borrow)\n\n`OwnedPointer`: exclusive heap ownership (like unique_ptr).\n`ArcPointer`: shared heap ownership via ref counting.\n`UnsafePointer`: raw memory, no safety, for collections and FFI.\n\n```\n# Pointer     - ref to value you don't own\n# OwnedPointer- one owner, auto-freed\n# ArcPointer  - many owners, ref-counted\n# UnsafePointer- manual alloc/free, FFI\n```"
+      "markdown": "- **`Pointer`**: safe non-owning reference (like a borrow)\n- **`OwnedPointer`**: exclusive heap ownership (like unique_ptr)\n- **`ArcPointer`**: shared heap ownership via ref counting\n- **`UnsafePointer`**: raw memory, no safety, for collections and FFI\n\n```\n# Pointer     - ref to value you don't own\n# OwnedPointer- one owner, auto-freed\n# ArcPointer  - many owners, ref-counted\n# UnsafePointer- manual alloc/free, FFI\n```"
     }
   },
   {
@@ -2853,7 +2853,7 @@
           "__del__"
         ]
       },
-      "markdown": "Assign the value to the discard pattern '`_ =` value' at the point you want destruction. This marks the explicit last use, delaying ASAP destruction.\n\n```\nvar lock = acquire_lock()\n# ... critical section ...\n_ = lock  # __del__ runs HERE, not earlier\n# lock is now released\n```"
+      "markdown": "Assign the value to the discard pattern `_ =` value at the point you want destruction. This marks the explicit last use, delaying ASAP destruction.\n\n```\nvar lock = acquire_lock()\n# ... critical section ...\n_ = lock  # __del__ runs HERE, not earlier\n# lock is now released\n```"
     }
   },
   {
@@ -2925,7 +2925,7 @@
           "conforms_to"
         ]
       },
-      "markdown": "## Add a '`where` `conforms_to`(T, Trait)' clause\n\nThe struct only satisfies the trait when its type parameter does.\n\n```\nstruct Wrapper[T](\n    Writable where conforms_to(T, Writable)\n):\n    var val: T\n    def write_to(self, mut w: Some[Writer]):\n        w.write(self.val)\n\n# Wrapper[Int] is Writable (Int is)\n# Wrapper[SomeOpaque] may not be\n```"
+      "markdown": "## Add a `where` `conforms_to`(T, Trait) clause\n\nThe struct only satisfies the trait when its type parameter does.\n\n```\nstruct Wrapper[T](\n    Writable where conforms_to(T, Writable)\n):\n    var val: T\n    def write_to(self, mut w: Some[Writer]):\n        w.write(self.val)\n\n# Wrapper[Int] is Writable (Int is)\n# Wrapper[SomeOpaque] may not be\n```"
     }
   },
   {
@@ -3310,7 +3310,7 @@
           "except"
         ]
       },
-      "markdown": "## `else` runs only when no error was raised\n\n`finally` always runs, whether or not an error occurred. You must include at least one of `except` or `finally`.\n\n```\ntry:\n    result = parse(data)\nexcept e:\n    print(\"Failed:\", e)\nelse:\n    print(\"Parsed:\", result)\nfinally:\n    print(\"Cleanup done\")\n```"
+      "markdown": "- **`else`** runs only when no error was raised\n- **`finally`** always runs, whether or not an error occurred. You must include at least one of `except` or `finally`\n\n```\ntry:\n    result = parse(data)\nexcept e:\n    print(\"Failed:\", e)\nelse:\n    print(\"Parsed:\", result)\nfinally:\n    print(\"Cleanup done\")\n```"
     }
   },
   {
@@ -3334,7 +3334,7 @@
           "..."
         ]
       },
-      "markdown": "## `pass` is a no-op statement — the function runs but does nothing\n\n`...` means 'not implemented' and is used in trait definitions to declare required methods without a default body.\n\n```\ntrait Drawable:\n    def draw(self): ...  # must implement\n\nstruct Circle(Drawable):\n    def draw(self):\n        pass  # valid empty body\n```"
+      "markdown": "- **`pass`** is a no-op statement — the function runs but does nothing\n- **`...`** means 'not implemented' and is used in trait definitions to declare required methods without a default body\n\n```\ntrait Drawable:\n    def draw(self): ...  # must implement\n\nstruct Circle(Drawable):\n    def draw(self):\n        pass  # valid empty body\n```"
     }
   },
   {
@@ -3551,7 +3551,7 @@
           "sys"
         ]
       },
-      "markdown": "## Use functions from the `sys` module\n\n`num_physical_cores`() returns CPU cores. `os_is_linux`() / os_is_macos() / os_is_windows() detect the OS at compile time.\n\n```\nfrom sys import num_physical_cores,\n    os_is_linux, os_is_macos\n\nprint(num_physical_cores())\ncomptime if os_is_linux():\n    print(\"Running on Linux\")\n```"
+      "markdown": "Use functions from the `sys` module. `num_physical_cores`() returns CPU cores. `os_is_linux`() / os_is_macos() / os_is_windows() detect the OS at compile time.\n\n```\nfrom sys import num_physical_cores,\n    os_is_linux, os_is_macos\n\nprint(num_physical_cores())\ncomptime if os_is_linux():\n    print(\"Running on Linux\")\n```"
     }
   },
   {
@@ -3735,7 +3735,7 @@
           "dangling"
         ]
       },
-      "markdown": "## 1) Uninitialized: declared but not assigned\n\n2) Null: points to nothing. 3) Allocated uninitialized: `alloc`'d but no pointee yet (reading = UB). 4) Initialized: allocated and populated, safe to read/write. 5) Dangling: freed or out of scope (reading = UB).\n\n```\nvar p: UnsafePointer[Int]   # uninitialized\n\nvar q = UnsafePointer[Int]() # null\n\nvar r = alloc[Int](1)        # alloc uninit\nr.init_pointee_copy(42)      # initialized\nr.destroy_pointee()\nr.free()                     # r now dangling\n```"
+      "markdown": "1. Uninitialized: declared but not assigned\n2. Null: points to nothing\n3. Allocated uninitialized: `alloc`'d but no pointee yet (reading = UB)\n4. Initialized: allocated and populated, safe to read/write\n5. Dangling: freed or out of scope (reading = UB)\n\n```\nvar p: UnsafePointer[Int]   # uninitialized\n\nvar q = UnsafePointer[Int]() # null\n\nvar r = alloc[Int](1)        # alloc uninit\nr.init_pointee_copy(42)      # initialized\nr.destroy_pointee()\nr.free()                     # r now dangling\n```"
     }
   },
   {
@@ -3760,7 +3760,7 @@
           "^"
         ]
       },
-      "markdown": "## `init_pointee_copy` copies the value in (requires Copyable)\n\n`init_pointee_move` transfers ownership — use `^` for an owned variable, or pass a literal/temporary directly.\n\nAlways initialize before reading.\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[String](1)\n\n# copy the value in:\nptr.init_pointee_copy(String(\"hi\"))\n\n# OR move a literal:\nptr.init_pointee_move(String(\"hi\"))\n\n# OR transfer an owned variable:\nvar s = String(\"hi\")\nptr.init_pointee_move(s^)\n```"
+      "markdown": "- **`init_pointee_copy`** copies the value in (requires Copyable)\n- **`init_pointee_move`** transfers ownership — use `^` for an owned variable, or pass a literal/temporary directly. Always initialize before reading\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[String](1)\n\n# copy the value in:\nptr.init_pointee_copy(String(\"hi\"))\n\n# OR move a literal:\nptr.init_pointee_move(String(\"hi\"))\n\n# OR transfer an owned variable:\nvar s = String(\"hi\")\nptr.init_pointee_move(s^)\n```"
     }
   },
   {
@@ -3808,7 +3808,7 @@
           "ptr[i]"
         ]
       },
-      "markdown": "## `ptr[]` reads or writes the single pointee\n\n`ptr[i]` accesses the i-th element in an array-style allocation — equivalent to (ptr + i)[].\n\nDereferencing uninitialized or freed memory is undefined behavior.\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[Int](3)\nptr[0] = 10      # write index 0\nptr[1] = 20\nptr[2] = 30\nprint(ptr[])     # 10 (same as ptr[0])\nprint(ptr[1])    # 20\nptr.free()\n```"
+      "markdown": "- **`ptr[]`** reads or writes the single pointee\n- **`ptr[i]`** accesses the i-th element in an array-style allocation — equivalent to (ptr + i)[]. Dereferencing uninitialized or freed memory is {#C62828}**undefined behavior**{/}\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[Int](3)\nptr[0] = 10      # write index 0\nptr[1] = 20\nptr[2] = 30\nprint(ptr[])     # 10 (same as ptr[0])\nprint(ptr[1])    # 20\nptr.free()\n```"
     }
   },
   {
@@ -3858,7 +3858,7 @@
           "SIMD"
         ]
       },
-      "markdown": "## ptr.load[width=N]() reads N contiguous values into a `SIMD` vector\n\nptr.store(simd_value) writes them back. This is the core vectorization primitive for contiguous memory.\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[Float32](8)\n# ... fill ptr[0..7] ...\n\nvar vec = ptr.load[width=4]()\n# SIMD[Float32, 4] from ptr[0..3]\n\nptr.store(vec * 2.0)  # writes 4 values\nptr.free()\n```"
+      "markdown": "ptr.load[width=N]() reads N contiguous values into a `SIMD` vector. ptr.store(simd_value) writes them back. This is the core vectorization primitive for contiguous memory.\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[Float32](8)\n# ... fill ptr[0..7] ...\n\nvar vec = ptr.load[width=4]()\n# SIMD[Float32, 4] from ptr[0..3]\n\nptr.store(vec * 2.0)  # writes 4 values\nptr.free()\n```"
     }
   },
   {
@@ -3981,7 +3981,7 @@
           "UB"
         ]
       },
-      "markdown": "## 1) Manual memory management — leaks, double-free, `use-after-free`\n\n2) Nullable and `uninitialized` — dereferencing is undefined behavior. 3) Unchecked arithmetic — offsets beyond the allocation are allowed but unsafe.\n\nDiscipline: allocate → initialize → use → destroy → free.\n\n```\nfrom std.memory import alloc\n\n# UB: use after free\nvar p = alloc[Int](1)\np.init_pointee_copy(1)\np.destroy_pointee()\np.free()\n# print(p[])  # dangling — UB\n\n# UB: uninitialized read\nvar q = alloc[Int](1)\n# print(q[])  # never initialized — UB\nq.free()\n```"
+      "markdown": "1. Manual memory management — leaks, double-free, `use-after-free`\n2. Nullable and `uninitialized` — dereferencing is {#C62828}**undefined behavior**{/}\n3. Unchecked arithmetic — offsets beyond the allocation are allowed but unsafe. Discipline: allocate → initialize → use → destroy → free\n\n```\nfrom std.memory import alloc\n\n# UB: use after free\nvar p = alloc[Int](1)\np.init_pointee_copy(1)\np.destroy_pointee()\np.free()\n# print(p[])  # dangling — UB\n\n# UB: uninitialized read\nvar q = alloc[Int](1)\n# print(q[])  # never initialized — UB\nq.free()\n```"
     }
   }
 ]
