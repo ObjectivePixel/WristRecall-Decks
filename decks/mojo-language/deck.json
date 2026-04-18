@@ -6,10 +6,10 @@
   "storeFileName": "mojo_language",
   "imageName": "mojo_deck",
   "gradientColors": ["#FF8C1A99", "#F2730D40"],
-  "cardCount": 154,
+  "cardCount": 165,
   "topicCount": 15,
   "category": "Programming",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "moreInfoURL": "https://docs.modular.com/mojo/",
   "aboutURL": "https://github.com/objectivepixel/wristrecall-decks",
   "sourceFileName": "mojophrases.json",
@@ -39,7 +39,7 @@
     },
     {
       "name": "Pointers",
-      "cardIDs": [9, 24, 54, 97, 98, 111, 112, 113, 114, 115, 116, 117]
+      "cardIDs": [9, 24, 54, 97, 98, 111, 112, 113, 114, 115, 116, 117, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166]
     },
     {
       "name": "Traits & Generics",
