@@ -12,7 +12,7 @@
   "cardCount": 100,
   "topicCount": 7,
   "category": "Geography",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "sourceFileName": "cards.json",
   "topicDefinitions": [
     {

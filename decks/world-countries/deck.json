@@ -9,7 +9,7 @@
   "cardCount": 60,
   "topicCount": 9,
   "category": "Geography",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "sourceFileName": "cards.json",
   "topicDefinitions": [
     { "name": "World Overview", "cardIDs": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] },
