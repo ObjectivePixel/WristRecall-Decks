@@ -6,8 +6,9 @@ Community flashcard decks for [WristRecall](https://apps.apple.com/app/wristreca
 
 | Deck | Cards | Topics | Category |
 |------|-------|--------|----------|
-| Mojo Language | 152 | 15 | Programming |
-| US States by Letter | 25 | 4 | Geography |
+| Mojo Language | 165 | 15 | Programming |
+| United States | 100 | 7 | Geography |
+| Countries of the World | 60 | 9 | Geography |
 
 ## Compiling decks
 
@@ -71,15 +72,21 @@ The `DeckCompiler` binary can also be used directly:
    - `cardCount` and `topicCount` should match the actual content.
    - `topicDefinitions` maps topic names to card IDs from the source file.
 
-3. Add the source flashcard JSON file (referenced by `sourceFileName`):
+3. Add the source flashcard JSON file (referenced by `sourceFileName`). Cards
+   carry both v1 fields (`text`, `code_snippet`) and a v2 `markdown` field —
+   the compiler picks the active path via `--format`:
 
    ```json
    [
      {
        "id": 1,
-       "front": { "text": "Question?" },
+       "front": {
+         "text": "Question?",
+         "markdown": "Question?"
+       },
        "back": {
          "text": "Answer.",
+         "markdown": "## Answer\n\nWith **markdown** support — lists, code fences, and `{#0F766E}colored callouts{/}`.",
          "code_snippet": null,
          "formatting": { "inline_code_terms": [] }
        }
@@ -87,9 +94,12 @@ The `DeckCompiler` binary can also be used directly:
    ]
    ```
 
-4. Optionally add an `assets/` directory with a deck image (referenced by `imageName`).
+4. Optionally add an `assets/` directory with a deck image (referenced by
+   `imageName`, e.g. `assets/my_topic_deck.jpg`, 1024×1024 JPG).
 
-5. Run `./tools/compile.sh my-topic` and import the `.wristdeck` from `output/`.
+5. Run `./tools/compile.sh my-topic` and import the `.wristdeck` from
+   `output/`. The script defaults to v2 markdown output; pass `--format v1`
+   to compile the legacy text/code-snippet path.
 
 ## License
 
