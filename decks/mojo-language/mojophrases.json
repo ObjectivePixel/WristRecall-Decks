@@ -3715,16 +3715,16 @@
   {
     "id": 156,
     "front": {
-      "text": "What are the five states an UnsafePointer can be in?",
+      "text": "What states can an UnsafePointer and its pointee be in?",
       "formatting": [
         "bold",
         "center_align"
       ],
-      "markdown": "What are the five states an `UnsafePointer` can be in?"
+      "markdown": "What states can an `UnsafePointer` **and its pointee** be in?"
     },
     "back": {
-      "text": "1) Uninitialized: declared but not assigned. 2) Null: points to nothing. 3) Allocated uninitialized: alloc'd but no pointee yet (reading = UB). 4) Initialized: allocated and populated, safe to read/write. 5) Dangling: freed or out of scope (reading = UB).",
-      "code_snippet": "var p: UnsafePointer[Int]   # uninitialized\n\nvar q = UnsafePointer[Int]() # null\n\nvar r = alloc[Int](1)        # alloc uninit\nr.init_pointee_copy(42)      # initialized\nr.destroy_pointee()\nr.free()                     # r now dangling",
+      "text": "Two separate axes. The pointer variable: 1) Uninitialized — declared, holds no address. 2) Holds an address. The memory it addresses (the pointee): 3) Allocated, uninitialized — alloc() returned storage, no value lives there yet. 4) Initialized — a value lives at the address. 5) Dangling — free() was called; pointer still holds the old address. Dereferencing in states 1, 3, or 5 is undefined behavior. UnsafePointer is non-nullable; wrap it in Optional to model null.",
+      "code_snippet": "from std.memory import alloc\n\nvar p: UnsafePointer[Int]      # 1: pointer uninitialized\n\nvar r = alloc[Int](1)          # 2 + 3: pointer holds an address;\n                               #         memory allocated, uninitialized\nr.init_pointee_copy(42)        # 4: initialized\nprint(r[])                     # safe read\nr.destroy_pointee()            # back to 3 (alloc'd, uninit)\nr.free()                       # 5: pointer now dangling\n\n# UnsafePointer is non-nullable. To model null:\nvar maybe: Optional[UnsafePointer[Int]] = None",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -3732,10 +3732,13 @@
           "UnsafePointer",
           "alloc",
           "free()",
-          "dangling"
+          "init_pointee_copy",
+          "destroy_pointee",
+          "dangling",
+          "Optional"
         ]
       },
-      "markdown": "1. Uninitialized: declared but not assigned\n2. Null: points to nothing\n3. Allocated uninitialized: `alloc`'d but no pointee yet (reading = UB)\n4. Initialized: allocated and populated, safe to read/write\n5. Dangling: freed or out of scope (reading = UB)\n\n```\nvar p: UnsafePointer[Int]   # uninitialized\n\nvar q = UnsafePointer[Int]() # null\n\nvar r = alloc[Int](1)        # alloc uninit\nr.init_pointee_copy(42)      # initialized\nr.destroy_pointee()\nr.free()                     # r now dangling\n```"
+      "markdown": "{#0F766E}**Pointer state and pointee state are independent.**{/}\n\n**The pointer variable**\n\n1. **Uninitialized** — declared, holds no address yet (e.g. `var p: UnsafePointer[Int]`). Any use is {#C62828}**UB**{/}.\n2. **Holds an address** — has been assigned a pointer value. Whether dereference is safe depends on the pointee state below.\n\n**The memory at that address (the pointee)**\n\n3. **Allocated, uninitialized** — `alloc[T](n)` returned storage, but no value lives there yet. Safe: `init_pointee_copy` / `init_pointee_move`, pointer arithmetic. {#C62828}UB to dereference, `destroy_pointee`, or `take_pointee`.{/}\n4. **Initialized** — a value lives at the address. Safe: `[]` read/write, `destroy_pointee`, `take_pointee` (both return the memory to state 3).\n5. **Dangling** — `free()` was called or the memory went out of scope. The pointer still holds the old address. {#C62828}Any access is UB.{/}\n\n{#C62828}**Note:**{/} `UnsafePointer` is **non-nullable** — there's no separate \"null\" state. To model null, wrap it in `Optional[UnsafePointer[T]]`.\n\n```\nfrom std.memory import alloc\n\nvar p: UnsafePointer[Int]      # 1: pointer uninitialized\n\nvar r = alloc[Int](1)          # 2 + 3: pointer holds an address;\n                               #         memory allocated, uninitialized\nr.init_pointee_copy(42)        # 4: initialized\nprint(r[])                     # safe read\nr.destroy_pointee()            # back to 3 (alloc'd, uninit)\nr.free()                       # 5: pointer now dangling\n\n# UnsafePointer is non-nullable. To model null:\nvar maybe: Optional[UnsafePointer[Int]] = None\n```"
     }
   },
   {
