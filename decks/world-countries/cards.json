@@ -1,0 +1,902 @@
+[
+  {
+    "id": 1,
+    "front": {
+      "text": "How many countries are in the world?",
+      "markdown": "How many **countries** are in the world?"
+    },
+    "back": {
+      "text": "195 — 193 UN member states plus 2 UN observer states (Vatican City and Palestine).",
+      "markdown": "## 195 Countries 🌍\n\n{#0F766E}The widely accepted count of **sovereign states**.{/}\n\nBreakdown:\n\n- **193** UN member states\n- **2** UN observer states — 🇻🇦 Vatican City, 🇵🇸 Palestine\n\nTaiwan 🇹🇼 and Kosovo 🇽🇰 are partially recognized and sometimes push the count to 196 or 197.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 2,
+    "front": {
+      "text": "How many UN member states are there?",
+      "markdown": "How many **UN member states** are there?"
+    },
+    "back": {
+      "text": "193 — the newest is South Sudan, admitted in 2011.",
+      "markdown": "## 193 Members\n\n{#0F766E}All fully-recognized sovereign states except Vatican City and Palestine.{/}\n\n- Newest member: 🇸🇸 **South Sudan** (2011)\n- Founding members (1945): **51**\n- Vatican City and Palestine hold *observer* status instead",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 3,
+    "front": {
+      "text": "How many continents are there?",
+      "markdown": "How many **continents** are there?"
+    },
+    "back": {
+      "text": "7 — Africa, Antarctica, Asia, Australia/Oceania, Europe, North America, South America.",
+      "markdown": "## 7 Continents\n\n{#0F766E}The standard seven-continent model used in English-speaking countries.{/}\n\n1. **Africa** 🌍\n2. **Antarctica** 🇦🇶\n3. **Asia** 🌏\n4. **Australia / Oceania** 🇦🇺\n5. **Europe** 🌍\n6. **North America** 🌎\n7. **South America** 🌎",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 4,
+    "front": {
+      "text": "How many oceans are there?",
+      "markdown": "How many **oceans** are there?"
+    },
+    "back": {
+      "text": "5 — Pacific, Atlantic, Indian, Southern, and Arctic.",
+      "markdown": "## 5 Oceans 🌊\n\n{#0F766E}The Southern Ocean was officially recognized by the IHO in 2000.{/}\n\n1. **Pacific** — largest\n2. **Atlantic**\n3. **Indian**\n4. **Southern** — around Antarctica\n5. **Arctic** — smallest\n\nOceans cover about **71%** of Earth's surface.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 5,
+    "front": {
+      "text": "What is the largest country by land area?",
+      "markdown": "What is the **largest country** by land area?"
+    },
+    "back": {
+      "text": "Russia — about 17.1 million km², roughly 11% of Earth's land surface.",
+      "markdown": "## 🇷🇺 Russia\n\n{#0F766E}Spans **11 time zones** — the most of any country.{/}\n\n- Area: **~17.1 million km²**\n- About **11%** of Earth's total land\n- Nearly **twice** the size of the #2, Canada 🇨🇦",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 6,
+    "front": {
+      "text": "What is the smallest country in the world?",
+      "markdown": "What is the **smallest country** in the world?"
+    },
+    "back": {
+      "text": "Vatican City — just 0.49 km² (49 hectares) and fewer than 800 residents.",
+      "markdown": "## 🇻🇦 Vatican City\n\n{#0F766E}A walled enclave inside **Rome**, Italy.{/}\n\n- Area: **0.49 km²** (~49 hectares)\n- Population: **under 800**\n- Seat of the **Roman Catholic Church**\n- Smaller than most city parks",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 7,
+    "front": {
+      "text": "What is the most populous country in the world?",
+      "markdown": "What is the **most populous** country in the world?"
+    },
+    "back": {
+      "text": "India — surpassed China in 2023, now home to over 1.4 billion people.",
+      "markdown": "## 🇮🇳 India\n\n{#0F766E}**Overtook China in 2023** to become the world's most populous country.{/}\n\n- Population: **~1.43 billion**\n- #2 China 🇨🇳: ~1.41 billion\n- #3 United States 🇺🇸: ~340 million\n- Together India and China hold **~35%** of humanity",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 8,
+    "front": {
+      "text": "What is the newest UN member state?",
+      "markdown": "What is the **newest** UN member state?"
+    },
+    "back": {
+      "text": "South Sudan — admitted July 14, 2011, after splitting from Sudan.",
+      "markdown": "## 🇸🇸 South Sudan\n\n{#0F766E}Joined the UN on **14 July 2011**, days after independence.{/}\n\n- Split from 🇸🇩 Sudan after a referendum\n- Capital: **Juba**\n- The **193rd** UN member state",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 9,
+    "front": {
+      "text": "What percentage of Earth's surface is covered by ocean?",
+      "markdown": "What **%** of Earth's surface is covered by ocean?"
+    },
+    "back": {
+      "text": "About 71% — leaving roughly 29% as land.",
+      "markdown": "## ~71% Ocean 🌊\n\n{#0F766E}Earth is often called the **Blue Planet** for a reason.{/}\n\n- **Ocean:** ~71% (~361 million km²)\n- **Land:** ~29% (~149 million km²)\n- The **Pacific alone** covers roughly a third of Earth's surface",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 10,
+    "front": {
+      "text": "Which countries have the most land borders?",
+      "markdown": "Which countries have the **most land borders**?"
+    },
+    "back": {
+      "text": "China and Russia — each shares a land border with 14 other countries.",
+      "markdown": "## 🇨🇳 China & 🇷🇺 Russia\n\n{#0F766E}**Tied at 14** land borders each.{/}\n\n- **China 🇨🇳** — 14 neighbors incl. Russia, India, Mongolia, Vietnam\n- **Russia 🇷🇺** — 14 neighbors incl. China, Finland, Ukraine, Kazakhstan\n- #3: **Brazil 🇧🇷** with 10 neighbors",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 11,
+    "front": {
+      "text": "How many countries are in Africa?",
+      "markdown": "How many countries are in **Africa**?"
+    },
+    "back": {
+      "text": "54 sovereign countries — the most of any continent.",
+      "markdown": "## 54 Countries 🌍\n\n{#0F766E}**The most of any continent** — about 28% of the world's countries.{/}\n\n- Largest by area: 🇩🇿 **Algeria**\n- Most populous: 🇳🇬 **Nigeria** (~230M)\n- Newest: 🇸🇸 **South Sudan** (2011)",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 12,
+    "front": {
+      "text": "How many countries are in Asia?",
+      "markdown": "How many countries are in **Asia**?"
+    },
+    "back": {
+      "text": "48 sovereign countries.",
+      "markdown": "## 48 Countries 🌏\n\n{#0F766E}Home to about **60%** of the world's population.{/}\n\n- Largest by area: 🇷🇺 **Russia** (transcontinental)\n- Most populous: 🇮🇳 **India** (~1.43B)\n- Stretches from 🇹🇷 Turkey to 🇯🇵 Japan",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 13,
+    "front": {
+      "text": "How many countries are in Europe?",
+      "markdown": "How many countries are in **Europe**?"
+    },
+    "back": {
+      "text": "44 sovereign countries — definitions vary slightly depending on transcontinental states.",
+      "markdown": "## 44 Countries 🌍\n\n{#0F766E}Counts can range **44–51** depending on how transcontinental states are classified.{/}\n\n- Largest by area: 🇷🇺 **Russia** (European portion)\n- Smallest: 🇻🇦 **Vatican City**\n- **EU members:** 27 (as of 2026)",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 14,
+    "front": {
+      "text": "How many countries are in North America?",
+      "markdown": "How many countries are in **North America**?"
+    },
+    "back": {
+      "text": "23 sovereign countries — includes Central America and the Caribbean.",
+      "markdown": "## 23 Countries 🌎\n\n{#0F766E}Includes the mainland, **Central America**, and the **Caribbean**.{/}\n\n- Largest by area: 🇨🇦 **Canada**\n- Most populous: 🇺🇸 **United States** (~340M)\n- 13 of the 23 are **Caribbean island nations**",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 15,
+    "front": {
+      "text": "How many countries are in South America?",
+      "markdown": "How many countries are in **South America**?"
+    },
+    "back": {
+      "text": "12 sovereign countries — the fewest outside Antarctica.",
+      "markdown": "## 12 Countries 🌎\n\n{#0F766E}Plus **French Guiana**, which is a department of France, not a country.{/}\n\n- Largest by area: 🇧🇷 **Brazil**\n- Most populous: 🇧🇷 **Brazil** (~215M)\n- Only two aren't Spanish-speaking: 🇧🇷 Brazil (Portuguese), 🇸🇷 Suriname (Dutch)",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 16,
+    "front": {
+      "text": "How many countries are in Oceania?",
+      "markdown": "How many countries are in **Oceania**?"
+    },
+    "back": {
+      "text": "14 sovereign countries — mostly Pacific island nations.",
+      "markdown": "## 14 Countries 🌏\n\n{#0F766E}Scattered across the Pacific, most are **small island nations**.{/}\n\n- Largest by area: 🇦🇺 **Australia**\n- Most populous: 🇦🇺 **Australia** (~26M)\n- Includes 🇳🇿 New Zealand, 🇵🇬 Papua New Guinea, 🇫🇯 Fiji",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 17,
+    "front": {
+      "text": "How many countries are in Antarctica?",
+      "markdown": "How many countries are in **Antarctica**?"
+    },
+    "back": {
+      "text": "Zero — no sovereign countries, governed by the Antarctic Treaty.",
+      "markdown": "## 0 Countries 🇦🇶\n\n{#C62828}No sovereign state — governed by the **Antarctic Treaty (1959)**.{/}\n\n- Preserved for **peaceful scientific research**\n- **7 countries** claim overlapping territories (UK, Norway, France, Australia, New Zealand, Chile, Argentina), but claims are **frozen** under the treaty\n- Population: a few thousand rotating **researchers**, zero permanent residents",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 18,
+    "front": {
+      "text": "Name the 7 continents.",
+      "markdown": "Name the **7 continents**."
+    },
+    "back": {
+      "text": "Africa, Antarctica, Asia, Australia/Oceania, Europe, North America, South America.",
+      "markdown": "## The 7 Continents\n\n{#0F766E}Alphabetical order — the standard seven-continent model.{/}\n\n1. **Africa** 🌍\n2. **Antarctica** 🇦🇶\n3. **Asia** 🌏\n4. **Australia / Oceania** 🇦🇺\n5. **Europe** 🌍\n6. **North America** 🌎\n7. **South America** 🌎",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 19,
+    "front": {
+      "text": "What is the largest continent by area?",
+      "markdown": "What is the **largest continent** by area?"
+    },
+    "back": {
+      "text": "Asia — about 44.6 million km², roughly 30% of Earth's land.",
+      "markdown": "## Asia 🌏\n\n{#0F766E}Roughly **30%** of Earth's land area.{/}\n\n- Area: **~44.6 million km²**\n- #2 **Africa** — ~30.4M km²\n- #3 **North America** — ~24.7M km²\n- Also the **most populous** continent",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 20,
+    "front": {
+      "text": "What is the smallest continent by area?",
+      "markdown": "What is the **smallest continent** by area?"
+    },
+    "back": {
+      "text": "Australia / Oceania — about 8.5 million km².",
+      "markdown": "## Australia / Oceania 🇦🇺\n\n{#0F766E}The **mainland of Australia** is often counted as the smallest continent.{/}\n\n- Area: **~8.5 million km²**\n- Smaller than **Europe** (~10.2M km²)\n- Also the **least populous** inhabited continent",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 21,
+    "front": {
+      "text": "What is the most populous continent?",
+      "markdown": "What is the **most populous** continent?"
+    },
+    "back": {
+      "text": "Asia — home to roughly 4.7 billion people, about 60% of humanity.",
+      "markdown": "## Asia 🌏\n\n{#0F766E}Nearly **60%** of the world's population lives here.{/}\n\n- Population: **~4.7 billion**\n- #2 **Africa** — ~1.4 billion\n- #3 **Europe** — ~745 million\n- China and India alone account for **~2.8 billion**",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 22,
+    "front": {
+      "text": "Which continent has essentially no permanent population?",
+      "markdown": "Which continent has essentially **no permanent population**?"
+    },
+    "back": {
+      "text": "Antarctica — only rotating researchers (a few thousand in summer, ~1,000 in winter).",
+      "markdown": "## Antarctica 🇦🇶\n\n{#C62828}**No permanent residents** — only researchers on rotation.{/}\n\n- Summer population: **~5,000**\n- Winter population: **~1,000**\n- Operated from **~70 research stations**\n- Coldest recorded temperature on Earth: **−89.2°C** at Vostok Station",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 23,
+    "front": {
+      "text": "Name the 5 oceans of the world.",
+      "markdown": "Name the **5 oceans** of the world."
+    },
+    "back": {
+      "text": "Pacific, Atlantic, Indian, Southern, Arctic.",
+      "markdown": "## The 5 Oceans 🌊\n\n{#0F766E}Ordered from **largest** to **smallest**.{/}\n\n1. **Pacific** — ~165M km²\n2. **Atlantic** — ~85M km²\n3. **Indian** — ~70M km²\n4. **Southern** — ~22M km²\n5. **Arctic** — ~14M km²",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 24,
+    "front": {
+      "text": "Which is the largest ocean?",
+      "markdown": "Which is the **largest ocean**?"
+    },
+    "back": {
+      "text": "Pacific — about 165 million km², larger than all of Earth's landmasses combined.",
+      "markdown": "## Pacific Ocean 🌊\n\n{#0F766E}**Larger than all of Earth's land combined.**{/}\n\n- Area: **~165 million km²**\n- Covers about **1/3** of Earth's surface\n- Contains the **Mariana Trench** — Earth's deepest point",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 25,
+    "front": {
+      "text": "Which is the smallest ocean?",
+      "markdown": "Which is the **smallest ocean**?"
+    },
+    "back": {
+      "text": "Arctic — about 14 million km², centered on the North Pole.",
+      "markdown": "## Arctic Ocean 🧊\n\n{#0F766E}Mostly covered by **sea ice** year-round, though shrinking.{/}\n\n- Area: **~14 million km²**\n- Centered on the **North Pole**\n- Bordered by Russia, Canada, USA (Alaska), Norway, Greenland, Iceland",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 26,
+    "front": {
+      "text": "Which ocean contains Earth's deepest point?",
+      "markdown": "Which ocean contains Earth's **deepest point**?"
+    },
+    "back": {
+      "text": "The Pacific — the Challenger Deep in the Mariana Trench, about 10,935 m down.",
+      "markdown": "## Pacific Ocean 🌊\n\n{#0F766E}The **Challenger Deep** in the Mariana Trench is the deepest known point.{/}\n\n- Depth: **~10,935 m** (35,876 ft)\n- Located **near Guam** in the western Pacific\n- Mount Everest would be submerged with **~2 km** to spare",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 27,
+    "front": {
+      "text": "Which ocean was most recently officially named?",
+      "markdown": "Which ocean was **most recently** officially named?"
+    },
+    "back": {
+      "text": "The Southern Ocean — recognized by the International Hydrographic Organization in 2000.",
+      "markdown": "## Southern Ocean 🐧\n\n{#0F766E}Officially recognized by the **IHO in 2000**.{/}\n\n- Surrounds **Antarctica**\n- Formed by merging the southern parts of the Pacific, Atlantic, and Indian oceans\n- National Geographic began labeling it on maps in **2021**",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 28,
+    "front": {
+      "text": "What is the capital of France?",
+      "markdown": "What is the capital of **France**?"
+    },
+    "back": {
+      "text": "Paris — the capital of France.",
+      "markdown": "## 🇫🇷 Paris\n\n{#0F766E}The **City of Light** — home to the Eiffel Tower and the Louvre.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 29,
+    "front": {
+      "text": "What is the capital of Germany?",
+      "markdown": "What is the capital of **Germany**?"
+    },
+    "back": {
+      "text": "Berlin — the capital of Germany.",
+      "markdown": "## 🇩🇪 Berlin\n\n{#0F766E}Capital since reunification in **1990**; previously Bonn in West Germany.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 30,
+    "front": {
+      "text": "What is the capital of Italy?",
+      "markdown": "What is the capital of **Italy**?"
+    },
+    "back": {
+      "text": "Rome — the capital of Italy.",
+      "markdown": "## 🇮🇹 Rome\n\n{#0F766E}Founded traditionally in **753 BC** — the Eternal City.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 31,
+    "front": {
+      "text": "What is the capital of Spain?",
+      "markdown": "What is the capital of **Spain**?"
+    },
+    "back": {
+      "text": "Madrid — the capital of Spain.",
+      "markdown": "## 🇪🇸 Madrid\n\n{#0F766E}Sits on a plateau at **~650 m**, the highest capital in the EU.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 32,
+    "front": {
+      "text": "What is the capital of the United Kingdom?",
+      "markdown": "What is the capital of **the United Kingdom**?"
+    },
+    "back": {
+      "text": "London — the capital of the United Kingdom.",
+      "markdown": "## 🇬🇧 London\n\n{#0F766E}The UK's political, financial, and cultural center on the Thames.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 33,
+    "front": {
+      "text": "What is the capital of Portugal?",
+      "markdown": "What is the capital of **Portugal**?"
+    },
+    "back": {
+      "text": "Lisbon — the capital of Portugal.",
+      "markdown": "## 🇵🇹 Lisbon\n\n{#0F766E}Western Europe's oldest capital — older than Rome.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 34,
+    "front": {
+      "text": "What is the capital of Greece?",
+      "markdown": "What is the capital of **Greece**?"
+    },
+    "back": {
+      "text": "Athens — the capital of Greece.",
+      "markdown": "## 🇬🇷 Athens\n\n{#0F766E}Home of the **Acropolis** and birthplace of Western democracy.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 35,
+    "front": {
+      "text": "What is the capital of the Netherlands?",
+      "markdown": "What is the capital of **the Netherlands**?"
+    },
+    "back": {
+      "text": "Amsterdam — the capital of the Netherlands.",
+      "markdown": "## 🇳🇱 Amsterdam\n\n{#0F766E}Official capital, but the government sits in **The Hague**.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 36,
+    "front": {
+      "text": "What is the capital of Sweden?",
+      "markdown": "What is the capital of **Sweden**?"
+    },
+    "back": {
+      "text": "Stockholm — the capital of Sweden.",
+      "markdown": "## 🇸🇪 Stockholm\n\n{#0F766E}Built across **14 islands** connected by **57 bridges**.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 37,
+    "front": {
+      "text": "What is the capital of Japan?",
+      "markdown": "What is the capital of **Japan**?"
+    },
+    "back": {
+      "text": "Tokyo — the capital of Japan.",
+      "markdown": "## 🇯🇵 Tokyo\n\n{#0F766E}World's largest metro area — **~37 million** people.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 38,
+    "front": {
+      "text": "What is the capital of China?",
+      "markdown": "What is the capital of **China**?"
+    },
+    "back": {
+      "text": "Beijing — the capital of China.",
+      "markdown": "## 🇨🇳 Beijing\n\n{#0F766E}Home of the **Forbidden City** and Tiananmen Square.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 39,
+    "front": {
+      "text": "What is the capital of India?",
+      "markdown": "What is the capital of **India**?"
+    },
+    "back": {
+      "text": "New Delhi — the capital of India.",
+      "markdown": "## 🇮🇳 New Delhi\n\n{#0F766E}**New Delhi** is the capital — part of the greater Delhi metropolitan area.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 40,
+    "front": {
+      "text": "What is the capital of South Korea?",
+      "markdown": "What is the capital of **South Korea**?"
+    },
+    "back": {
+      "text": "Seoul — the capital of South Korea.",
+      "markdown": "## 🇰🇷 Seoul\n\n{#0F766E}Half of South Korea's population lives in the Seoul metro area.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 41,
+    "front": {
+      "text": "What is the capital of Thailand?",
+      "markdown": "What is the capital of **Thailand**?"
+    },
+    "back": {
+      "text": "Bangkok — the capital of Thailand.",
+      "markdown": "## 🇹🇭 Bangkok\n\n{#0F766E}Full ceremonial name is **the longest city name in the world** (169 letters).{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 42,
+    "front": {
+      "text": "What is the capital of Vietnam?",
+      "markdown": "What is the capital of **Vietnam**?"
+    },
+    "back": {
+      "text": "Hanoi — the capital of Vietnam.",
+      "markdown": "## 🇻🇳 Hanoi\n\n{#0F766E}Chosen as capital when Vietnam reunified in **1976** — Ho Chi Minh City is larger.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 43,
+    "front": {
+      "text": "What is the capital of Indonesia?",
+      "markdown": "What is the capital of **Indonesia**?"
+    },
+    "back": {
+      "text": "Jakarta — the capital of Indonesia.",
+      "markdown": "## 🇮🇩 Jakarta\n\n{#0F766E}Indonesia is **relocating the capital** to **Nusantara** on Borneo — transition ongoing.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 44,
+    "front": {
+      "text": "What is the capital of Saudi Arabia?",
+      "markdown": "What is the capital of **Saudi Arabia**?"
+    },
+    "back": {
+      "text": "Riyadh — the capital of Saudi Arabia.",
+      "markdown": "## 🇸🇦 Riyadh\n\n{#0F766E}On a plateau in the **central desert**; population ~7 million.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 45,
+    "front": {
+      "text": "What is the capital of Egypt?",
+      "markdown": "What is the capital of **Egypt**?"
+    },
+    "back": {
+      "text": "Cairo — the capital of Egypt, on the Nile near the Giza pyramids.",
+      "markdown": "## 🇪🇬 Cairo\n\n{#0F766E}Africa's **largest metro area** — sits on the Nile near the **Giza pyramids**.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 46,
+    "front": {
+      "text": "What is the capital of Nigeria?",
+      "markdown": "What is the capital of **Nigeria**?"
+    },
+    "back": {
+      "text": "Abuja — moved from Lagos in 1991 for its central location.",
+      "markdown": "## 🇳🇬 Abuja\n\n{#0F766E}Capital since **1991** — chosen for its central location. **Lagos** remains the largest city.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 47,
+    "front": {
+      "text": "What is the capital of South Africa?",
+      "markdown": "What is the capital of **South Africa**?"
+    },
+    "back": {
+      "text": "South Africa has three capitals: Pretoria (executive), Cape Town (legislative), and Bloemfontein (judicial).",
+      "markdown": "## 🇿🇦 Three Capitals\n\n{#C62828}South Africa is one of only a few countries with **multiple capitals**.{/}\n\n- **Pretoria** — executive (President's office)\n- **Cape Town** — legislative (Parliament)\n- **Bloemfontein** — judicial (Supreme Court of Appeal)",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 48,
+    "front": {
+      "text": "What is the capital of Kenya?",
+      "markdown": "What is the capital of **Kenya**?"
+    },
+    "back": {
+      "text": "Nairobi — the only capital city with a national park inside its boundaries.",
+      "markdown": "## 🇰🇪 Nairobi\n\n{#0F766E}The only national capital with a **national park** inside its city limits.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 49,
+    "front": {
+      "text": "What is the capital of Ethiopia?",
+      "markdown": "What is the capital of **Ethiopia**?"
+    },
+    "back": {
+      "text": "Addis Ababa — also headquarters of the African Union.",
+      "markdown": "## 🇪🇹 Addis Ababa\n\n{#0F766E}Headquarters of the **African Union** — the diplomatic heart of Africa.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 50,
+    "front": {
+      "text": "What is the capital of Morocco?",
+      "markdown": "What is the capital of **Morocco**?"
+    },
+    "back": {
+      "text": "Rabat — capital since 1912, though Casablanca is larger.",
+      "markdown": "## 🇲🇦 Rabat\n\n{#0F766E}Capital since **1912**; **Casablanca** is the larger commercial hub.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 51,
+    "front": {
+      "text": "What is the capital of Canada?",
+      "markdown": "What is the capital of **Canada**?"
+    },
+    "back": {
+      "text": "Ottawa — the capital of Canada.",
+      "markdown": "## 🇨🇦 Ottawa\n\n{#0F766E}Chosen in 1857 by **Queen Victoria** as a compromise between English and French cities.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 52,
+    "front": {
+      "text": "What is the capital of Mexico?",
+      "markdown": "What is the capital of **Mexico**?"
+    },
+    "back": {
+      "text": "Mexico City — the capital of Mexico.",
+      "markdown": "## 🇲🇽 Mexico City\n\n{#0F766E}Built on the ruins of the Aztec capital **Tenochtitlán**.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 53,
+    "front": {
+      "text": "What is the capital of Brazil?",
+      "markdown": "What is the capital of **Brazil**?"
+    },
+    "back": {
+      "text": "Brasília — the capital of Brazil.",
+      "markdown": "## 🇧🇷 Brasília\n\n{#0F766E}**Purpose-built** capital inaugurated in **1960** — replaced Rio de Janeiro.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 54,
+    "front": {
+      "text": "What is the capital of Argentina?",
+      "markdown": "What is the capital of **Argentina**?"
+    },
+    "back": {
+      "text": "Buenos Aires — the capital of Argentina.",
+      "markdown": "## 🇦🇷 Buenos Aires\n\n{#0F766E}Home to roughly **one third** of Argentina's population.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 55,
+    "front": {
+      "text": "What is the capital of Chile?",
+      "markdown": "What is the capital of **Chile**?"
+    },
+    "back": {
+      "text": "Santiago — the capital of Chile.",
+      "markdown": "## 🇨🇱 Santiago\n\n{#0F766E}Ringed by the **Andes** — visible from downtown.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 56,
+    "front": {
+      "text": "What is the capital of Peru?",
+      "markdown": "What is the capital of **Peru**?"
+    },
+    "back": {
+      "text": "Lima — the capital of Peru.",
+      "markdown": "## 🇵🇪 Lima\n\n{#0F766E}Founded by Francisco Pizarro in **1535** as the *City of Kings*.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 57,
+    "front": {
+      "text": "What is the capital of Australia?",
+      "markdown": "What is the capital of **Australia**?"
+    },
+    "back": {
+      "text": "Canberra — not Sydney. Purpose-built as a compromise between Sydney and Melbourne.",
+      "markdown": "## 🇦🇺 Canberra\n\n{#C62828}**Not Sydney!** Canberra was purpose-built as a compromise.{/}\n\n- Inaugurated **1913**\n- Chosen to settle rivalry between **Sydney** and **Melbourne**\n- Population: **~460,000** — much smaller than either rival",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 58,
+    "front": {
+      "text": "What is the capital of New Zealand?",
+      "markdown": "What is the capital of **New Zealand**?"
+    },
+    "back": {
+      "text": "Wellington — the southernmost capital city of a sovereign country.",
+      "markdown": "## 🇳🇿 Wellington\n\n{#C62828}**Not Auckland!** Auckland is larger but Wellington is the capital.{/}\n\n- The **southernmost capital** of any sovereign country\n- Sits at the southern tip of the **North Island**",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 59,
+    "front": {
+      "text": "What is the capital of Fiji?",
+      "markdown": "What is the capital of **Fiji**?"
+    },
+    "back": {
+      "text": "Suva — on the southeast coast of Viti Levu, Fiji's main island.",
+      "markdown": "## 🇫🇯 Suva\n\n{#0F766E}On the island of **Viti Levu** — the largest Fijian island.{/}\n\n- Population: **~93,000**\n- A major diplomatic hub for the **South Pacific**",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 60,
+    "front": {
+      "text": "What is the capital of Papua New Guinea?",
+      "markdown": "What is the capital of **Papua New Guinea**?"
+    },
+    "back": {
+      "text": "Port Moresby — on the southeastern coast, facing the Coral Sea.",
+      "markdown": "## 🇵🇬 Port Moresby\n\n{#0F766E}On PNG's **southeastern coast**, facing the Coral Sea.{/}\n\n- Population: **~380,000**\n- PNG has over **800 languages** — more than any other country",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  }
+]
