@@ -76,7 +76,7 @@ If a tap doesn't open WristRecall, save the file to **Files**, open it from ther
   </tr>
 </table>
 
-Each deck is independently versioned and tagged in [Releases](https://github.com/ObjectivePixel/WristRecall-Decks/releases).
+Each deck is independently versioned in [Releases](https://github.com/ObjectivePixel/WristRecall-Decks/releases).
 
 ---
 
