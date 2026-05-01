@@ -55,7 +55,7 @@ If a tap doesn't open WristRecall, save the file to **Files**, open it from ther
     <td>
       <strong>Mojo Language</strong> · 165 cards · 15 topics · Programming<br>
       Core concepts of the <a href="https://docs.modular.com/mojo/">Mojo</a> programming language — functions, value ownership, traits, pointers, metaprogramming, and the standard library.<br>
-      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/mojo-language-v1.0.7/mojo-language-1.0.7.wristdeck"><strong>Download v1.0.7 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=mojo-language">All versions</a>
+      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/mojo-language-v1.0.8/mojo-language-1.0.8.wristdeck"><strong>Download v1.0.8 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=mojo-language">All versions</a>
     </td>
   </tr>
   <tr>
@@ -63,7 +63,7 @@ If a tap doesn't open WristRecall, save the file to **Files**, open it from ther
     <td>
       <strong>United States</strong> · 100 cards · 7 topics · Geography<br>
       States and letters, capitals, and national parks — test your knowledge of the US.<br>
-      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/us-states-v2.0.1/us-states-2.0.1.wristdeck"><strong>Download v2.0.1 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=us-states">All versions</a>
+      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/us-states-v2.0.2/us-states-2.0.2.wristdeck"><strong>Download v2.0.2 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=us-states">All versions</a>
     </td>
   </tr>
   <tr>
@@ -71,7 +71,7 @@ If a tap doesn't open WristRecall, save the file to **Files**, open it from ther
     <td>
       <strong>Countries of the World</strong> · 60 cards · 9 topics · Geography<br>
       How many countries, continents, oceans, and landmasses make up our world — plus capitals and flags from every region.<br>
-      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/world-countries-v1.0.1/world-countries-1.0.1.wristdeck"><strong>Download v1.0.1 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=world-countries">All versions</a>
+      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/world-countries-v1.0.2/world-countries-1.0.2.wristdeck"><strong>Download v1.0.2 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=world-countries">All versions</a>
     </td>
   </tr>
 </table>
