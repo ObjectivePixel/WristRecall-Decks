@@ -55,7 +55,7 @@ If a tap doesn't open WristRecall, save the file to **Files**, open it from ther
     <td>
       <strong>Mojo Language</strong> · 165 cards · 15 topics · Programming<br>
       Core concepts of the <a href="https://docs.modular.com/mojo/">Mojo</a> programming language — functions, value ownership, traits, pointers, metaprogramming, and the standard library.<br>
-      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/mojo-language-v1.0.8/mojo-language-1.0.8.wristdeck"><strong>Download v1.0.8 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=mojo-language">All versions</a>
+      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/mojo-language-v1.0.9/mojo-language-1.0.9.wristdeck"><strong>Download v1.0.9 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=mojo-language">All versions</a>
     </td>
   </tr>
   <tr>

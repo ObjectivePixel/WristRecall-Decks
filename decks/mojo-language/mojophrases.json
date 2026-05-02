@@ -134,17 +134,19 @@
       "markdown": "What are the core differences between a `struct` and a Python `class`?"
     },
     "back": {
-      "text": "Static, tightly packed memory. Fields bound at compile time.",
-      "code_snippet": "struct Point:\n    var x: Int\n    var y: Int",
+      "text": "Mojo has no native 'class' keyword — only 'struct'. Python classes only appear via interop as PythonObject. Compared to a Python class: structs are static (bound at compile time, no monkey-patching, no runtime method addition); fields must be declared with var; no static/shared class attributes; no implementation inheritance (a struct can implement traits but cannot subclass another struct). Per the docs: 'Eventually, Mojo will also support classes to match the behavior of Python classes' — but today it's structs only.",
+      "code_snippet": "# A Mojo struct — fields declared with var,\n# bound at compile time, no inheritance.\nstruct Point:\n    var x: Int\n    var y: Int\n\n# A Python class is only available via interop:\nfrom std.python import Python\nvar np = Python.import_module(\"numpy\")\nvar arr = np.array([1, 2, 3])  # PythonObject",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
           "struct",
-          "class"
+          "class",
+          "var",
+          "PythonObject"
         ]
       },
-      "markdown": "## Static, tightly packed memory\n\nFields bound at compile time.\n\n```\nstruct Point:\n    var x: Int\n    var y: Int\n```"
+      "markdown": "## Mojo has no native `class` — only `struct`\n\n{#0F766E}Python `class` is only available **via interop** as `PythonObject`. There is no native Mojo class today.{/}\n\nVersus a Python class, a struct is:\n\n- **Static** — bound at compile time, no monkey-patching, no runtime method addition\n- **Explicitly declared** — every field needs `var`\n- **No static/shared attributes** — no class-level data members\n- **No implementation inheritance** — a struct can implement traits but cannot subclass another struct\n\n```\n# Mojo struct — bound at compile time, no inheritance:\nstruct Point:\n    var x: Int\n    var y: Int\n\n# A Python class is only via interop:\nfrom std.python import Python\nvar np = Python.import_module(\"numpy\")\nvar arr = np.array([1, 2, 3])  # PythonObject\n```"
     }
   },
   {
@@ -325,21 +327,21 @@
         "bold",
         "center_align"
       ],
-      "markdown": "How do you define the logic for explicit `.`copy`()` calls?"
+      "markdown": "How do you define the logic for explicit `.copy()` calls?"
     },
     "back": {
-      "text": "Define an __init__ with a keyword-only 'copy' parameter. The Copyable trait then provides the .copy() method.",
-      "code_snippet": "def __init__(out self, *, copy: Self):\n    self.val = copy.val",
+      "text": "The struct must conform to the Copyable trait, AND you define __init__ with a keyword-only 'copy' parameter to provide the actual copy logic. With Copyable alone (and no manual __init__), the compiler synthesizes a default fieldwise copy. Write the __init__ when you need custom behaviour — e.g. deep-copying an UnsafePointer instead of duplicating the address.",
+      "code_snippet": "# Copyable conformance is required.\n# Without a custom __init__(*, copy:), the compiler\n# synthesizes a fieldwise copy automatically.\n@fieldwise_init\nstruct Point(Copyable):\n    var x: Int\n    var y: Int\n\n# Provide a custom __init__(*, copy:) for non-trivial copy logic\n# (e.g. deep-copying owned heap memory):\nstruct HeapArray(Copyable):\n    var size: Int\n    var data: UnsafePointer[Int]\n\n    def __init__(out self, *, copy: Self):\n        self.size = copy.size\n        self.data = alloc[Int](self.size)\n        for i in range(self.size):\n            (self.data + i).init_pointee_copy(copy.data[i])",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
           "__init__",
-          "copy",
+          "Copyable",
           ".copy()"
         ]
       },
-      "markdown": "## Define an `__init__` with a keyword-only `copy` parameter\n\nThe Copyable trait then provides the `.`copy`()` method.\n\n```\ndef __init__(out self, *, copy: Self):\n    self.val = copy.val\n```"
+      "markdown": "## Conform to `Copyable`, and (optionally) define `__init__(out self, *, copy: Self)`\n\n{#0F766E}**Yes — you need both.** The trait declares the type is copyable; the keyword-only `copy:` constructor provides the logic.{/}\n\nWith just `Copyable` and no custom `__init__(*, copy:)`, the compiler **synthesizes** a fieldwise copy. Write the constructor manually only when you need custom behaviour — e.g. deep-copying an `UnsafePointer` field instead of duplicating the bare address.\n\n```\n# Trivial: trait + synthesized fieldwise copy\n@fieldwise_init\nstruct Point(Copyable):\n    var x: Int\n    var y: Int\n\n# Custom: trait + manual deep copy\nstruct HeapArray(Copyable):\n    var size: Int\n    var data: UnsafePointer[Int]\n\n    def __init__(out self, *, copy: Self):\n        self.size = copy.size\n        self.data = alloc[Int](self.size)\n        for i in range(self.size):\n            (self.data + i).init_pointee_copy(copy.data[i])\n```"
     }
   },
   {
@@ -424,17 +426,20 @@
       "markdown": "How do you define a generic struct that takes a type parameter?"
     },
     "back": {
-      "text": "Use parameters [] to pass types. Constrain with the traits you need.",
-      "code_snippet": "struct Box[T: Copyable & ImplicitlyDestructible]:\n    var data: T",
+      "text": "Use parameters [] to pass types, constrained with the traits you need (use & to combine). The CALLER's struct (e.g. Data) must explicitly declare conformance to those traits — Mojo trait conformance is explicit, not structural. CollectionElement is the trait alias container types like List[T] require — it currently composes Copyable & Movable.",
+      "code_snippet": "# Generic container constrains T:\nstruct Box[T: Copyable & ImplicitlyDestructible]:\n    var data: T\n\n# To put `Data` inside Box, Data must EXPLICITLY conform.\n# Mojo conformance is declared, not inferred:\n@fieldwise_init\nstruct Data(Copyable, Movable):\n    var x: Int\n    var y: Int\n\nvar b = Box[Data](Data(1, 2))\n\n# Same idea for List[T] — its element type must satisfy\n# CollectionElement (= Copyable & Movable):\nvar lst = List[Data]()\nlst.append(Data(3, 4))",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
           "[]",
-          "Copyable"
+          "Copyable",
+          "Movable",
+          "CollectionElement",
+          "&"
         ]
       },
-      "markdown": "## Use parameters `[]` to pass types\n\nConstrain with the traits you need.\n\n```\nstruct Box[T: Copyable & ImplicitlyDestructible]:\n    var data: T\n```"
+      "markdown": "## Use parameters `[]` to pass types, constrained with traits via `&`\n\n{#0F766E}**Trait conformance in Mojo is explicit** — the struct passed in (e.g. `Data`) must declare the traits in its definition; the compiler doesn't infer conformance structurally.{/}\n\n```\n# Generic container constrains T:\nstruct Box[T: Copyable & ImplicitlyDestructible]:\n    var data: T\n\n# Data must EXPLICITLY conform to satisfy the constraint.\n# @fieldwise_init lets the compiler synthesize copy + move\n# given the trait declarations.\n@fieldwise_init\nstruct Data(Copyable, Movable):\n    var x: Int\n    var y: Int\n\nvar b = Box[Data](Data(1, 2))\n\n# List[T] uses the umbrella trait CollectionElement\n# (= Copyable & Movable), satisfied by the same declarations:\nvar lst = List[Data]()\nlst.append(Data(3, 4))\n```"
     }
   },
   {
@@ -1852,7 +1857,7 @@
           "^"
         ]
       },
-      "markdown": "## 1\n\nMoved via the `^` transfer sigil.\n2. Implicitly copied (if `^` is omitted).\n3.\n\nPassed a newly-created value (ownership transfers to the function).\n\n```\ntake_text(my_str^) # 1. Moved (lifetime ends)\ntake_text(my_str)  # 2. Copied safely\ntake_text(\"New\")   # 3. New unowned value\n```"
+      "markdown": "## Three ways to pass a value to a `var` argument\n\n1. **Moved** with the `^` transfer sigil — the caller's variable becomes uninitialized, ownership transfers in.\n2. **Implicitly copied** when `^` is omitted. {#C62828}If the type isn't `Copyable`, this is a compile-time error.{/}\n3. **A newly-created value** (e.g. a literal or a return from another function) — there's no caller variable, ownership flows straight in.\n\n```\ntake_text(my_str^)  # 1. Moved (lifetime of my_str ends)\ntake_text(my_str)   # 2. Copied (my_str still usable)\ntake_text(\"New\")    # 3. New unowned value\n```"
     }
   },
   {
@@ -2656,7 +2661,7 @@
           "Origin"
         ]
       },
-      "markdown": "## Use `Pointer` when a struct needs a non-owning reference\n\nThe struct carries an `origin` parameter so the compiler tracks the referenced value's lifetime. ref on arguments infers `origin` automatically — callers never specify it.\n\n```\nstruct Cursor[origin: Origin]:\n    var source: Pointer[List[Int], origin]\n    var pos: Int\n\n    def __init__(out self,\n        ref [origin] src: List[Int]):\n        self.source = Pointer(to=src)\n        self.pos = 0\n\n    def next(mut self) -> Int:\n        var val = self.source[][self.pos]\n        self.pos += 1\n        return val\n\n# Usage — origin is inferred from data:\nvar data = List[Int](10, 20, 30)\nvar c = Cursor(data)\nprint(c.next())  # 10\n```"
+      "markdown": "## Use `Pointer` when a struct needs a non-owning reference\n\nA struct that holds a `Pointer` must carry an **`origin` parameter** so the compiler can track the referenced value's lifetime — without it, the pointer's lifetime is untracked. Callers never write the origin themselves; it's inferred from the `ref` argument they pass in.\n\n*See cards on origins (\"What is an origin\") and `ref [origin]` for the full lifetime story.*\n\n```\nstruct Cursor[origin: Origin]:\n    var source: Pointer[List[Int], origin]\n    var pos: Int\n\n    def __init__(out self,\n        ref [origin] src: List[Int]):\n        self.source = Pointer(to=src)\n        self.pos = 0\n\n    def next(mut self) -> Int:\n        var val = self.source[][self.pos]\n        self.pos += 1\n        return val\n\n# origin is inferred from `data`:\nvar data = List[Int](10, 20, 30)\nvar c = Cursor(data)\nprint(c.next())  # 10\n```"
     }
   },
   {
@@ -2819,17 +2824,19 @@
       "markdown": "How do you prevent automatic destruction and require explicit cleanup?"
     },
     "back": {
-      "text": "Apply @explicit_destroy to a struct. The compiler then refuses to auto-call __del__ and forces you to call a named cleanup method, catching forgotten resources at compile time.",
-      "code_snippet": "@explicit_destroy\nstruct DBConn:\n    var handle: Int\n\n    def close(deinit self):\n        # release handle\n        ...\n\nvar db = DBConn(handle=1)\ndb.close()  # required — compiler error if omitted",
+      "text": "Apply @explicit_destroy(\"<message>\") to the struct. The compiler then refuses to auto-call __del__ and forces the caller to invoke a destructor explicitly. The destructor must take 'deinit self' (the convention that consumes the value), but the method name itself is arbitrary — DBConn might have close(), discard(), abort(), etc. Unlike __del__, named destructors can raise.",
+      "code_snippet": "# The decorator argument is the diagnostic the compiler\n# shows if a destructor isn't called.\n@explicit_destroy(\"Must call commit() or discard()\")\nstruct DBConn:\n    var handle: Int\n\n    # Method name is arbitrary — only `deinit self` matters.\n    def commit(deinit self) raises:\n        # flush + release handle\n        ...\n\n    def discard(deinit self):\n        ...\n\nvar db = DBConn(handle=1)\ndb.commit()    # OK — explicit destructor called\n# (compile error if neither commit() nor discard() runs)",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
           "@explicit_destroy",
-          "deinit"
+          "deinit",
+          "deinit self",
+          "__del__"
         ]
       },
-      "markdown": "## Apply `@explicit_destroy` to a struct\n\nThe compiler then refuses to auto-call __del__ and forces you to call a named cleanup method, catching forgotten resources at compile time.\n\n```\n@explicit_destroy\nstruct DBConn:\n    var handle: Int\n\n    def close(deinit self):\n        # release handle\n        ...\n\nvar db = DBConn(handle=1)\ndb.close()  # required — compiler error if omitted\n```"
+      "markdown": "## Apply `@explicit_destroy(\"<message>\")` to a struct\n\n{#0F766E}The destructor's **name is arbitrary** — what matters is that the method takes `deinit self`.{/}\n\nWith `@explicit_destroy`:\n\n- The compiler **refuses to auto-call** `__del__` and won't drop the value implicitly.\n- The caller **must** invoke a method whose receiver is `deinit self` — this is the convention that consumes the value.\n- The method name is up to you (`close`, `commit`, `discard`, `abort`, …) and there can be more than one.\n- Unlike `__del__`, named destructors **can `raise`**.\n- The string passed to `@explicit_destroy` is the diagnostic the compiler emits when a destructor is missed.\n\n```\n@explicit_destroy(\"Must call commit() or discard()\")\nstruct DBConn:\n    var handle: Int\n\n    # Method name is arbitrary — only `deinit self` matters.\n    def commit(deinit self) raises:\n        # flush + release handle\n        ...\n\n    def discard(deinit self):\n        ...\n\nvar db = DBConn(handle=1)\ndb.commit()    # OK — explicit destructor called\n# (compile error if neither commit() nor discard() runs)\n```"
     }
   },
   {
@@ -3009,8 +3016,8 @@
       "markdown": "What is `__init__.mojo` and how does it create a package?"
     },
     "back": {
-      "text": "A directory with an __init__.mojo file becomes a Mojo package. The file can be empty or re-export members from submodules to simplify imports.",
-      "code_snippet": "# Directory structure:\n# mypackage/\n#   __init__.mojo   <- makes it a package\n#   utils.mojo\n#   core.mojo\n\n# __init__.mojo can re-export:\nfrom .utils import helper\nfrom .core import Engine",
+      "text": "A directory with an __init__.mojo file becomes a Mojo package. The file can be empty (the directory is just marked as a package) or it can re-export submodule members. The difference is what an external importer can write: with an empty __init__.mojo they must use the full path 'from mypackage.core import Engine'; with re-exports they can write 'from mypackage import Engine' directly.",
+      "code_snippet": "# mypackage/\n#   __init__.mojo   <- makes the dir a package\n#   utils.mojo      (defines `helper`)\n#   core.mojo       (defines `Engine`)\n\n# Case A — empty __init__.mojo:\n#   importer must use the full path:\nfrom mypackage.core import Engine\nfrom mypackage.utils import helper\n\n# Case B — __init__.mojo re-exports:\n#   from .utils import helper\n#   from .core import Engine\n# Now importer can write:\nfrom mypackage import Engine, helper",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -3018,7 +3025,7 @@
           "__init__.mojo"
         ]
       },
-      "markdown": "## A directory with an `__init__.mojo` file becomes a Mojo package\n\nThe file can be empty or re-export members from submodules to simplify imports.\n\n```\n# Directory structure:\n# mypackage/\n#   __init__.mojo   <- makes it a package\n#   utils.mojo\n#   core.mojo\n\n# __init__.mojo can re-export:\nfrom .utils import helper\nfrom .core import Engine\n```"
+      "markdown": "## A directory with `__init__.mojo` becomes a Mojo package\n\nThe file can be **empty** (the directory is just marked as a package) or it can **re-export** submodule members.\n\n{#0F766E}The difference is what an importer can write:{/}\n\n- **Empty `__init__.mojo`** → importers must use the **full path**: `from mypackage.core import Engine`.\n- **Re-exports inside** `__init__.mojo` → importers can pull names directly from the package: `from mypackage import Engine`.\n\n```\n# mypackage/\n#   __init__.mojo   <- makes the dir a package\n#   utils.mojo      (defines `helper`)\n#   core.mojo       (defines `Engine`)\n\n# Case A — empty __init__.mojo:\nfrom mypackage.core import Engine     # full path required\nfrom mypackage.utils import helper\n\n# Case B — __init__.mojo re-exports:\n#   from .utils import helper\n#   from .core import Engine\nfrom mypackage import Engine, helper  # surfaced at the package\n```"
     }
   },
   {
@@ -3274,17 +3281,18 @@
       "markdown": "How do you define a custom error type?"
     },
     "back": {
-      "text": "Any struct can be an error type — no base class or trait required. Typed errors compile to alternate return values with no stack unwinding, making them suitable for GPU and embedded targets.",
-      "code_snippet": "@fieldwise_init\nstruct MyError(Writable):\n    var reason: String\n\n    def write_to(self,\n        mut w: Some[Writer]):\n        w.write(\"MyError: \", self.reason)\n\ndef check(x: Int) raises MyError:\n    if x < 0:\n        raise MyError(reason=\"Negative\")",
+      "text": "Any struct can be an error type. Mojo has no implementation inheritance, so there's no base error class to extend — bare 'struct MyError:' is enough. Implementing Writable is optional but lets the error print readably. Typed errors compile to alternate return values with no stack unwinding, making them suitable for GPU and embedded targets.",
+      "code_snippet": "# Mojo has no struct inheritance, so no base error class.\n# A bare struct is enough:\nstruct ParseError:\n    pass\n\n# Writable is optional — it just lets the error print readably:\n@fieldwise_init\nstruct MyError(Copyable, Writable):\n    var reason: String\n\n    def write_to(self,\n        mut w: Some[Writer]):\n        w.write(\"MyError: \", self.reason)\n\ndef check(x: Int) raises MyError:\n    if x < 0:\n        raise MyError(reason=\"Negative\")",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
           "raises MyError",
-          "@fieldwise_init"
+          "@fieldwise_init",
+          "Writable"
         ]
       },
-      "markdown": "## Any struct can be an error type — no base class or trait required\n\nTyped errors compile to alternate return values with no stack unwinding, making them suitable for GPU and embedded targets.\n\n```\n@fieldwise_init\nstruct MyError(Writable):\n    var reason: String\n\n    def write_to(self,\n        mut w: Some[Writer]):\n        w.write(\"MyError: \", self.reason)\n\ndef check(x: Int) raises MyError:\n    if x < 0:\n        raise MyError(reason=\"Negative\")\n```"
+      "markdown": "## Any struct can be an error type — no base class or trait required\n\n{#0F766E}Mojo structs **don't support inheritance**, so there's no base error class to extend. A bare `struct MyError:` is enough.{/}\n\n`Writable` is optional — implementing it just lets the error print readably with `print()`. Typed errors compile to alternate return values with no stack unwinding, making them suitable for GPU and embedded targets.\n\n```\n# Minimum: no traits, no base class.\nstruct ParseError:\n    pass\n\n# Writable is optional — it just enables readable printing:\n@fieldwise_init\nstruct MyError(Copyable, Writable):\n    var reason: String\n\n    def write_to(self,\n        mut w: Some[Writer]):\n        w.write(\"MyError: \", self.reason)\n\ndef check(x: Int) raises MyError:\n    if x < 0:\n        raise MyError(reason=\"Negative\")\n```"
     }
   },
   {
@@ -3615,8 +3623,8 @@
       "markdown": "What trait must a type implement to be used as a Dict key or Set element?"
     },
     "back": {
-      "text": "Implement the Hashable trait using the Hasher protocol. Dict keys and Set elements must also be EqualityComparable. Together these form KeyElement.",
-      "code_snippet": "from std.hashlib import Hasher\n\nstruct UserId(Hashable, EqualityComparable):\n    var id: Int\n\n    def __hash__[H: Hasher](self,\n        mut hasher: H):\n        hasher.update(self.id)\n\n    def __eq__(self, other: Self) -> Bool:\n        return self.id == other.id",
+      "text": "KeyElement is the umbrella trait that Dict and Set require — it composes Hashable + EqualityComparable (plus the storage requirements like Copyable & Movable). You can either declare KeyElement directly, or declare its constituent traits and let the type satisfy KeyElement implicitly. Implement Hashable via the Hasher protocol and EqualityComparable via __eq__.",
+      "code_snippet": "from std.hashlib import Hasher\n\n# Conforming to Hashable + EqualityComparable\n# satisfies KeyElement — usable as a Dict key / Set element.\n@fieldwise_init\nstruct UserId(Copyable, Movable,\n              Hashable, EqualityComparable):\n    var id: Int\n\n    # Hashable: feed your fields into the Hasher.\n    def __hash__[H: Hasher](self,\n        mut hasher: H):\n        hasher.update(self.id)\n\n    # EqualityComparable: define __eq__.\n    def __eq__(self, other: Self) -> Bool:\n        return self.id == other.id\n\nvar users = Dict[UserId, String]()\nusers[UserId(42)] = \"alice\"",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -3624,10 +3632,11 @@
           "Hashable",
           "__hash__",
           "Hasher",
-          "KeyElement"
+          "KeyElement",
+          "EqualityComparable"
         ]
       },
-      "markdown": "## Implement the `Hashable` trait using the `Hasher` protocol\n\nDict keys and Set elements must also be EqualityComparable. Together these form `KeyElement`.\n\n```\nfrom std.hashlib import Hasher\n\nstruct UserId(Hashable, EqualityComparable):\n    var id: Int\n\n    def __hash__[H: Hasher](self,\n        mut hasher: H):\n        hasher.update(self.id)\n\n    def __eq__(self, other: Self) -> Bool:\n        return self.id == other.id\n```"
+      "markdown": "## Conform to `KeyElement` — the umbrella trait Dict keys and Set elements require\n\n{#0F766E}**`KeyElement` is a trait** — specifically the umbrella trait the Dict / Set APIs require. It composes `Hashable` + `EqualityComparable` (plus the storage requirements `Copyable` & `Movable`).{/}\n\nDeclaring all of those (as below) is enough — the type then satisfies `KeyElement`. Implement `Hashable` via the `Hasher` protocol and `EqualityComparable` via `__eq__`.\n\n```\nfrom std.hashlib import Hasher\n\n@fieldwise_init\nstruct UserId(Copyable, Movable,\n              Hashable, EqualityComparable):\n    var id: Int\n\n    def __hash__[H: Hasher](self,\n        mut hasher: H):\n        hasher.update(self.id)\n\n    def __eq__(self, other: Self) -> Bool:\n        return self.id == other.id\n\nvar users = Dict[UserId, String]()\nusers[UserId(42)] = \"alice\"\n```"
     }
   },
   {
@@ -3723,8 +3732,8 @@
       "markdown": "What states can an `UnsafePointer` **and its pointee** be in?"
     },
     "back": {
-      "text": "Two separate axes. The pointer variable: 1) Uninitialized — declared, holds no address. 2) Holds an address. The memory it addresses (the pointee): 3) Allocated, uninitialized — alloc() returned storage, no value lives there yet. 4) Initialized — a value lives at the address. 5) Dangling — free() was called; pointer still holds the old address. Dereferencing in states 1, 3, or 5 is undefined behavior. UnsafePointer is non-nullable; wrap it in Optional to model null.",
-      "code_snippet": "from std.memory import alloc\n\nvar p: UnsafePointer[Int]      # 1: pointer uninitialized\n\nvar r = alloc[Int](1)          # 2 + 3: pointer holds an address;\n                               #         memory allocated, uninitialized\nr.init_pointee_copy(42)        # 4: initialized\nprint(r[])                     # safe read\nr.destroy_pointee()            # back to 3 (alloc'd, uninit)\nr.free()                       # 5: pointer now dangling\n\n# UnsafePointer is non-nullable. To model null:\nvar maybe: Optional[UnsafePointer[Int]] = None",
+      "text": "Two independent axes. The POINTER variable: P1) Unbound — declared with no address. P2) Has an address. The MEMORY at that address (the pointee): M1) Allocated, no value — alloc() returned storage but nothing lives in it yet. M2) Initialized — a value lives at the address. M3) Freed (dangling) — free() was called; pointer still holds the old address. Dereferencing is UB unless the pointer is in P2 AND the memory is in M2. UnsafePointer is non-nullable; wrap it in Optional to model null.",
+      "code_snippet": "from std.memory import alloc\n\nvar p: UnsafePointer[Int]      # P1: pointer has no address\n\nvar r = alloc[Int](1)          # P2 + M1: pointer has an address;\n                               #          memory allocated, no value\nr.init_pointee_copy(42)        # M2: initialized\nprint(r[])                     # safe read\nr.destroy_pointee()            # back to M1 (alloc'd, no value)\nr.free()                       # M3: pointer now dangling\n\n# UnsafePointer is non-nullable. To model null:\nvar maybe: Optional[UnsafePointer[Int]] = None",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -3738,7 +3747,7 @@
           "Optional"
         ]
       },
-      "markdown": "{#0F766E}**Pointer state and pointee state are independent.**{/}\n\n**The pointer variable**\n\n1. **Uninitialized** — declared, holds no address yet (e.g. `var p: UnsafePointer[Int]`). Any use is {#C62828}**UB**{/}.\n2. **Holds an address** — has been assigned a pointer value. Whether dereference is safe depends on the pointee state below.\n\n**The memory at that address (the pointee)**\n\n3. **Allocated, uninitialized** — `alloc[T](n)` returned storage, but no value lives there yet. Safe: `init_pointee_copy` / `init_pointee_move`, pointer arithmetic. {#C62828}UB to dereference, `destroy_pointee`, or `take_pointee`.{/}\n4. **Initialized** — a value lives at the address. Safe: `[]` read/write, `destroy_pointee`, `take_pointee` (both return the memory to state 3).\n5. **Dangling** — `free()` was called or the memory went out of scope. The pointer still holds the old address. {#C62828}Any access is UB.{/}\n\n{#C62828}**Note:**{/} `UnsafePointer` is **non-nullable** — there's no separate \"null\" state. To model null, wrap it in `Optional[UnsafePointer[T]]`.\n\n```\nfrom std.memory import alloc\n\nvar p: UnsafePointer[Int]      # 1: pointer uninitialized\n\nvar r = alloc[Int](1)          # 2 + 3: pointer holds an address;\n                               #         memory allocated, uninitialized\nr.init_pointee_copy(42)        # 4: initialized\nprint(r[])                     # safe read\nr.destroy_pointee()            # back to 3 (alloc'd, uninit)\nr.free()                       # 5: pointer now dangling\n\n# UnsafePointer is non-nullable. To model null:\nvar maybe: Optional[UnsafePointer[Int]] = None\n```"
+      "markdown": "{#0F766E}**Pointer state and pointee state are independent axes** — keep them separate.{/}\n\n**P · The pointer variable**\n\n- **P1 · Unbound** — declared, no address (`var p: UnsafePointer[Int]`). Any use is {#C62828}**UB**{/}.\n- **P2 · Has an address** — has been assigned a pointer value. Safety of `[]` then depends on the memory state below.\n\n**M · The memory at that address (the pointee)**\n\n- **M1 · Allocated, no value** — `alloc[T](n)` returned storage, but nothing lives there yet. Safe: `init_pointee_copy` / `init_pointee_move`, pointer arithmetic. {#C62828}UB to dereference, `destroy_pointee`, or `take_pointee`.{/}\n- **M2 · Initialized** — a value lives at the address. Safe: `[]` read/write, `destroy_pointee`, `take_pointee` (both return the memory to **M1**).\n- **M3 · Freed (dangling)** — `free()` was called or the memory went out of scope. The pointer still holds the old address. {#C62828}Any access is UB.{/}\n\n{#0F766E}Dereferencing is safe **only** when the pointer is in **P2** and the memory is in **M2**.{/}\n\n{#C62828}**Note:**{/} `UnsafePointer` is **non-nullable** — there's no separate \"null\" state. To model null, wrap it in `Optional[UnsafePointer[T]]`.\n\n```\nfrom std.memory import alloc\n\nvar p: UnsafePointer[Int]      # P1: pointer has no address\n\nvar r = alloc[Int](1)          # P2 + M1: pointer has an address;\n                               #          memory allocated, no value\nr.init_pointee_copy(42)        # M2: initialized\nprint(r[])                     # safe read\nr.destroy_pointee()            # back to M1 (alloc'd, no value)\nr.free()                       # M3: pointer now dangling\n\n# UnsafePointer is non-nullable. To model null:\nvar maybe: Optional[UnsafePointer[Int]] = None\n```"
     }
   },
   {
@@ -3850,18 +3859,19 @@
       "markdown": "How do you load or store a `SIMD` vector through an UnsafePointer?"
     },
     "back": {
-      "text": "ptr.load[width=N]() reads N contiguous values into a SIMD vector. ptr.store(simd_value) writes them back. This is the core vectorization primitive for contiguous memory.",
-      "code_snippet": "from std.memory import alloc\n\nvar ptr = alloc[Float32](8)\n# ... fill ptr[0..7] ...\n\nvar vec = ptr.load[width=4]()\n# SIMD[Float32, 4] from ptr[0..3]\n\nptr.store(vec * 2.0)  # writes 4 values\nptr.free()",
+      "text": "ptr.load[width=N]() reads N contiguous values into a SIMD vector. ptr.store(simd_value) writes one back. The SIMD's element dtype matches the pointer's pointee type — it's not written explicitly at the call site. This is the core vectorization primitive for contiguous memory.",
+      "code_snippet": "from std.memory import alloc\n\nvar ptr = alloc[Float32](8)\n# ... fill ptr[0..7] ...\n\n# Element dtype is inferred from ptr's pointee type (Float32).\n# Equivalent to declaring the type explicitly:\nvar vec: SIMD[DType.float32, 4] = ptr.load[width=4]()\n# vec holds ptr[0..3] as a SIMD[DType.float32, 4]\n\nptr.store(vec * 2.0)  # writes the 4 lanes of `vec` to ptr[0..3]\nptr.free()",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
           "load[width=]",
           "store()",
-          "SIMD"
+          "SIMD",
+          "DType.float32"
         ]
       },
-      "markdown": "ptr.load[width=N]() reads N contiguous values into a `SIMD` vector. ptr.store(simd_value) writes them back. This is the core vectorization primitive for contiguous memory.\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[Float32](8)\n# ... fill ptr[0..7] ...\n\nvar vec = ptr.load[width=4]()\n# SIMD[Float32, 4] from ptr[0..3]\n\nptr.store(vec * 2.0)  # writes 4 values\nptr.free()\n```"
+      "markdown": "## Use `ptr.load[width=N]()` and `ptr.store(vec)` for contiguous SIMD I/O\n\n`ptr.load[width=N]()` reads N contiguous values into a `SIMD` vector. `ptr.store(simd_value)` writes one back.\n\n{#0F766E}The element dtype is **inferred from the pointer's pointee type** — it isn't written at the call site. The example below makes the inferred `SIMD[DType.float32, 4]` type explicit.{/}\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[Float32](8)\n# ... fill ptr[0..7] ...\n\n# Element dtype inferred from ptr's pointee (Float32).\n# Annotation here just spells out the inferred type:\nvar vec: SIMD[DType.float32, 4] = ptr.load[width=4]()\n# vec = ptr[0..3] as a SIMD[DType.float32, 4]\n\nptr.store(vec * 2.0)  # writes 4 lanes back to ptr[0..3]\nptr.free()\n```"
     }
   },
   {
@@ -3886,7 +3896,7 @@
           "stride"
         ]
       },
-      "markdown": "Use `strided_load`[width=N](`stride`) and `strided_store`[width=N](vec, `stride`). Useful for interleaved data — e.g. reading every 3rd byte of RGB pixel data to pull out just the red channel.\n\n```\n# Interleaved RGB bytes (3 bytes per pixel):\nvar bpp = 3\n\n# Load 4 red values at offsets 0, 3, 6, 9:\nvar reds = ptr.strided_load[width=4](bpp)\n\n# Write modified reds back:\nptr.strided_store[width=4](\n    reds + 10, bpp)\n```"
+      "markdown": "## Use `strided_load[width=N](stride)` and `strided_store[width=N](vec, stride)`\n\nUseful for interleaved data — e.g. reading every 3rd byte of RGB pixel data to pull out just the red channel.\n\n```\n# Interleaved RGB bytes (3 bytes per pixel):\nvar bpp = 3\n\n# Load 4 red values at offsets 0, 3, 6, 9:\nvar reds = ptr.strided_load[width=4](bpp)\n\n# Write modified reds back:\nptr.strided_store[width=4](\n    reds + 10, bpp)\n```"
     }
   },
   {
@@ -3910,7 +3920,7 @@
           "scatter"
         ]
       },
-      "markdown": "ptr.`gather`(offsets) reads values at each offset in the SIMD index vector. ptr.`scatter`(values, offsets) writes values at each offset. Used for fully random-access patterns like indexed table lookups.\n\n```\n# Read ptr[1], ptr[5], ptr[2], ptr[8]:\nvar offs = SIMD[DType.index, 4](1, 5, 2, 8)\nvar vals = ptr.gather(offs)\n\n# Write vals to different offsets:\nptr.scatter(\n    vals,\n    SIMD[DType.index, 4](0, 2, 4, 6))\n```"
+      "markdown": "## Use `ptr.gather(offsets)` and `ptr.scatter(values, offsets)`\n\n`ptr.gather(offsets)` reads values at each offset in the SIMD index vector. `ptr.scatter(values, offsets)` writes values at each offset. Used for fully random-access patterns like indexed table lookups.\n\n```\n# Read ptr[1], ptr[5], ptr[2], ptr[8]:\nvar offs = SIMD[DType.index, 4](1, 5, 2, 8)\nvar vals = ptr.gather(offs)\n\n# Write vals to different offsets:\nptr.scatter(\n    vals,\n    SIMD[DType.index, 4](0, 2, 4, 6))\n```"
     }
   },
   {
@@ -3924,17 +3934,18 @@
       "markdown": "How do you safely expose an UnsafePointer from a struct field?"
     },
     "back": {
-      "text": "Return the pointer with its origin bound to self: origin_of(self). The compiler then ties the pointer's lifetime to the struct so callers cannot use it after the struct is destroyed. Use unsafe_origin_cast to rebind an existing pointer's origin.",
-      "code_snippet": "struct Buffer:\n    var data: UnsafePointer[Int]\n\n    def unsafe_ptr(ref self) ->\n        UnsafePointer[Int, origin_of(self)]:\n        return self.data.unsafe_origin_cast[\n            origin_of(self)]()",
+      "text": "Take the receiver as 'ref self' and return the pointer with its origin bound to origin_of(self). 'ref self' is the receiver convention for parametric mutability — it works for both mutable and immutable callers, and the returned reference's mutability follows the caller's. Use unsafe_origin_cast to rebind an existing pointer's origin to self's. The compiler then ties the pointer's lifetime to the struct so callers cannot use it after the struct is destroyed.",
+      "code_snippet": "struct Buffer:\n    var data: UnsafePointer[Int]\n\n    # `ref self` = parametric-mutability receiver — usable from\n    # both mutable and immutable callers; the returned pointer's\n    # mutability matches the caller's.\n    def unsafe_ptr(ref self) ->\n        UnsafePointer[Int, origin_of(self)]:\n        return self.data.unsafe_origin_cast[\n            origin_of(self)]()",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
+          "ref self",
           "origin_of(self)",
           "unsafe_origin_cast"
         ]
       },
-      "markdown": "## Return the pointer with its origin bound to self: `origin_of(self)`\n\nThe compiler then ties the pointer's lifetime to the struct so callers cannot use it after the struct is destroyed.\n\nUse `unsafe_origin_cast` to rebind an existing pointer's origin.\n\n```\nstruct Buffer:\n    var data: UnsafePointer[Int]\n\n    def unsafe_ptr(ref self) ->\n        UnsafePointer[Int, origin_of(self)]:\n        return self.data.unsafe_origin_cast[\n            origin_of(self)]()\n```"
+      "markdown": "## Take `ref self` and return `UnsafePointer[T, origin_of(self)]`\n\nTwo pieces working together:\n\n- {#0F766E}**`ref self`**{/} — the **parametric-mutability** receiver convention. The method works for both mutable and immutable callers, and the returned reference inherits the caller's mutability. (See the cards on argument conventions and origins.)\n- {#0F766E}**`origin_of(self)`**{/} — binds the pointer's origin to `self`, so the compiler ties the pointer's lifetime to the struct. Callers cannot use it after the struct is destroyed.\n\nUse `unsafe_origin_cast[origin_of(self)]()` to rebind an existing pointer's origin to `self`'s.\n\n```\nstruct Buffer:\n    var data: UnsafePointer[Int]\n\n    def unsafe_ptr(ref self) ->\n        UnsafePointer[Int, origin_of(self)]:\n        return self.data.unsafe_origin_cast[\n            origin_of(self)]()\n```"
     }
   },
   {
