@@ -3,300 +3,1500 @@
     "id": 1,
     "front": {
       "text": "How many US states begin with the letter M?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **M**?"
     },
     "back": {
       "text": "8 — Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana",
+      "markdown": "## 8 States\n\n{#1A3A6B}Tied with **N** for the most starting letters.{/}\n\nThe states:\n\n1. **Maine**\n2. **Maryland**\n3. **Massachusetts**\n4. **Michigan**\n5. **Minnesota**\n6. **Mississippi**\n7. **Missouri**\n8. **Montana**",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 2,
     "front": {
       "text": "How many US states begin with the letter N?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **N**?"
     },
     "back": {
       "text": "8 — Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota",
+      "markdown": "## 8 States\n\n{#1A3A6B}Tied with **M** for the most starting letters.{/}\n\nThe states:\n\n1. **Nebraska**\n2. **Nevada**\n3. **New Hampshire**\n4. **New Jersey**\n5. **New Mexico**\n6. **New York**\n7. **North Carolina**\n8. **North Dakota**",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 3,
     "front": {
       "text": "How many US states begin with the letter A?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **A**?"
     },
     "back": {
       "text": "4 — Alabama, Alaska, Arizona, Arkansas",
+      "markdown": "## 4 States\n\n{#1A3A6B}The only letter with four consecutive states in alphabetical order.{/}\n\nThe states:\n\n1. **Alabama**\n2. **Alaska**\n3. **Arizona**\n4. **Arkansas**",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 4,
     "front": {
       "text": "How many US states begin with the letter W?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **W**?"
     },
     "back": {
       "text": "4 — Washington, West Virginia, Wisconsin, Wyoming",
+      "markdown": "## 4 States\n\n{#1A3A6B}All four cluster toward the end of the alphabet.{/}\n\nThe states:\n\n1. **Washington**\n2. **West Virginia**\n3. **Wisconsin**\n4. **Wyoming**",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 5,
     "front": {
       "text": "How many US states begin with the letter I?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **I**?"
     },
     "back": {
       "text": "4 — Idaho, Illinois, Indiana, Iowa",
+      "markdown": "## 4 States\n\n{#1A3A6B}All four are Midwestern states.{/}\n\nThe states:\n\n1. **Idaho**\n2. **Illinois**\n3. **Indiana**\n4. **Iowa**",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 6,
     "front": {
       "text": "How many US states begin with the letter C?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **C**?"
     },
     "back": {
       "text": "3 — California, Colorado, Connecticut",
+      "markdown": "## 3 States\n\n{#1A3A6B}Two Western states and one New England state.{/}\n\nThe states:\n\n1. **California**\n2. **Colorado**\n3. **Connecticut**",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 7,
     "front": {
       "text": "How many US states begin with the letter O?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **O**?"
     },
     "back": {
       "text": "3 — Ohio, Oklahoma, Oregon",
+      "markdown": "## 3 States\n\n{#1A3A6B}Spans Midwest, South, and Pacific Northwest.{/}\n\nThe states:\n\n1. **Ohio**\n2. **Oklahoma**\n3. **Oregon**",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 8,
     "front": {
       "text": "How many US states begin with the letter K?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **K**?"
     },
     "back": {
       "text": "2 — Kansas, Kentucky",
+      "markdown": "## 2 States\n\n{#1A3A6B}Both begin with *Kan-* or *Ken-*.{/}\n\nThe states:\n\n1. **Kansas**\n2. **Kentucky**",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 9,
     "front": {
       "text": "How many US states begin with the letter T?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **T**?"
     },
     "back": {
       "text": "2 — Tennessee, Texas",
+      "markdown": "## 2 States\n\n{#1A3A6B}Tennessee is *older*; Texas is *bigger*.{/}\n\nThe states:\n\n1. **Tennessee**\n2. **Texas**",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 10,
     "front": {
       "text": "How many US states begin with the letter V?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **V**?"
     },
     "back": {
       "text": "2 — Vermont, Virginia",
+      "markdown": "## 2 States\n\n{#1A3A6B}One northern New England, one mid-Atlantic.{/}\n\nThe states:\n\n1. **Vermont**\n2. **Virginia**",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 11,
     "front": {
       "text": "How many US states begin with the letter S?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **S**?"
     },
     "back": {
       "text": "2 — South Carolina, South Dakota",
+      "markdown": "## 2 States\n\n{#1A3A6B}Both are *South*-prefixed.{/}\n\nThe states:\n\n1. **South Carolina**\n2. **South Dakota**",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 12,
     "front": {
       "text": "How many US states begin with the letter D?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **D**?"
     },
     "back": {
       "text": "1 — Delaware",
+      "markdown": "## Delaware\n\nThe **only** US state starting with D.\n\nThe **first state** — ratified the Constitution in *1787*.",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 13,
     "front": {
       "text": "How many US states begin with the letter F?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **F**?"
     },
     "back": {
       "text": "1 — Florida",
+      "markdown": "## Florida\n\nThe **only** US state starting with F.\n\nThe **Sunshine State** — admitted *1845*.",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 14,
     "front": {
       "text": "How many US states begin with the letter G?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **G**?"
     },
     "back": {
       "text": "1 — Georgia",
+      "markdown": "## Georgia\n\nThe **only** US state starting with G.\n\nNamed for King **George II** of Great Britain.",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 15,
     "front": {
       "text": "How many US states begin with the letter H?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **H**?"
     },
     "back": {
       "text": "1 — Hawaii",
+      "markdown": "## Hawaii\n\nThe **only** US state starting with H.\n\nThe **50th state** — admitted *1959*.",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 16,
     "front": {
       "text": "How many US states begin with the letter L?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **L**?"
     },
     "back": {
       "text": "1 — Louisiana",
+      "markdown": "## Louisiana\n\nThe **only** US state starting with L.\n\nNamed for King **Louis XIV** of France.",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 17,
     "front": {
       "text": "How many US states begin with the letter P?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **P**?"
     },
     "back": {
       "text": "1 — Pennsylvania",
+      "markdown": "## Pennsylvania\n\nThe **only** US state starting with P.\n\nNamed for **William Penn**'s father — *Penn's Woods*.",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 18,
     "front": {
       "text": "How many US states begin with the letter R?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **R**?"
     },
     "back": {
       "text": "1 — Rhode Island",
+      "markdown": "## Rhode Island\n\nThe **only** US state starting with R.\n\nThe **smallest state** by area.",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 19,
     "front": {
       "text": "How many US states begin with the letter U?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the letter **U**?"
     },
     "back": {
       "text": "1 — Utah",
+      "markdown": "## Utah\n\nThe **only** US state starting with U.\n\nNamed for the **Ute** people.",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 20,
     "front": {
       "text": "Which two letters are tied for the most US states starting with them?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "Which two letters are tied for the most US states starting with them?"
     },
     "back": {
-      "text": "M and N — 8 states each",
+      "text": "M and N — each with 8 states.",
+      "markdown": "## M and N\n\nBoth letters start **8 states** each:\n\n- {#BF0A30}**M**: Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana{/}\n- {#1A3A6B}**N**: Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota{/}",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 21,
     "front": {
       "text": "How many letters of the alphabet have no US state starting with them?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many letters of the alphabet have **no** US state starting with them?"
     },
     "back": {
-      "text": "7 — B, E, J, Q, X, Y, Z",
+      "text": "7 letters — B, E, J, Q, X, Y, Z.",
+      "markdown": "## 7 Letters\n\n{#BF0A30}**Letters with zero states:**{/}\n\n- **B**\n- **E**\n- **J**\n- **Q**\n- **X**\n- **Y**\n- **Z**",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 22,
     "front": {
       "text": "Can you name all 7 letters that no US state begins with?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "Can you name all **7 letters** that no US state begins with?"
     },
     "back": {
-      "text": "B, E, J, Q, X, Y, Z",
+      "text": "B, E, J, Q, X, Y, Z.",
+      "markdown": "## The Missing Seven\n\n- **B**\n- **E**\n- **J**\n- **Q**\n- **X**\n- **Y**\n- **Z**\n\n*Tip: Q, X, Y, Z are the tail of the alphabet; B, E, J are the surprises.*",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 23,
     "front": {
       "text": "How many US states begin with the word \"New\"?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with the word **\"New\"**?"
     },
     "back": {
-      "text": "4 — New Hampshire, New Jersey, New Mexico, New York",
+      "text": "4 — New Hampshire, New Jersey, New Mexico, New York.",
+      "markdown": "## 4 States\n\n1. **New Hampshire**\n2. **New Jersey**\n3. **New Mexico**\n4. **New York**\n\n*All four are named after places or people from the Old World.*",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 24,
     "front": {
       "text": "How many US states begin with \"North\" or \"South\"?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "How many US states begin with **\"North\"** or **\"South\"**?"
     },
     "back": {
-      "text": "4 — North Carolina, North Dakota, South Carolina, South Dakota",
+      "text": "4 — North Carolina, North Dakota, South Carolina, South Dakota.",
+      "markdown": "## 4 States — 2 Pairs\n\n{#1A3A6B}**Northern pair:**{/}\n\n- North Carolina\n- North Dakota\n\n{#BF0A30}**Southern pair:**{/}\n\n- South Carolina\n- South Dakota",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   },
   {
     "id": 25,
     "front": {
       "text": "Only one US state begins with the word \"West\". Which is it?",
-      "formatting": ["bold", "center_align"]
+      "markdown": "Only **one** US state begins with the word **\"West\"**. Which is it?"
     },
     "back": {
-      "text": "West Virginia",
+      "text": "West Virginia — split from Virginia during the Civil War in 1863.",
+      "markdown": "## West Virginia\n\n{#1A3A6B}**Split from Virginia** during the *Civil War* in **1863**.{/}\n\nThe only state to begin with **\"West\"**.",
       "code_snippet": null,
-      "formatting": { "inline_code_terms": [] }
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 26,
+    "front": {
+      "text": "What is the capital of Alabama?",
+      "markdown": "What is the capital of **Alabama**?"
+    },
+    "back": {
+      "text": "Montgomery — Named after Revolutionary War general Richard Montgomery.",
+      "markdown": "## Montgomery\n\n{#1A3A6B}**Capital of Alabama**{/}\n\nNamed after Revolutionary War general Richard Montgomery.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 27,
+    "front": {
+      "text": "What is the capital of Alaska?",
+      "markdown": "What is the capital of **Alaska**?"
+    },
+    "back": {
+      "text": "Juneau — The only US state capital not reachable by road.",
+      "markdown": "## Juneau\n\n{#1A3A6B}**Capital of Alaska**{/}\n\nThe only US state capital *not reachable by road*.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 28,
+    "front": {
+      "text": "What is the capital of Arizona?",
+      "markdown": "What is the capital of **Arizona**?"
+    },
+    "back": {
+      "text": "Phoenix — Named after the mythical bird that rises from its own ashes.",
+      "markdown": "## Phoenix\n\n{#1A3A6B}**Capital of Arizona**{/}\n\nNamed after the mythical bird that rises from its own ashes.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 29,
+    "front": {
+      "text": "What is the capital of Arkansas?",
+      "markdown": "What is the capital of **Arkansas**?"
+    },
+    "back": {
+      "text": "Little Rock — Named for a small rock on the Arkansas River.",
+      "markdown": "## Little Rock\n\n{#1A3A6B}**Capital of Arkansas**{/}\n\nNamed for a *small rock* on the Arkansas River.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 30,
+    "front": {
+      "text": "What is the capital of California?",
+      "markdown": "What is the capital of **California**?"
+    },
+    "back": {
+      "text": "Sacramento — Founded during the California Gold Rush.",
+      "markdown": "## Sacramento\n\n{#1A3A6B}**Capital of California**{/}\n\nFounded during the *California Gold Rush*.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 31,
+    "front": {
+      "text": "What is the capital of Colorado?",
+      "markdown": "What is the capital of **Colorado**?"
+    },
+    "back": {
+      "text": "Denver — Known as the Mile High City — exactly one mile above sea level.",
+      "markdown": "## Denver\n\n{#1A3A6B}**Capital of Colorado**{/}\n\nKnown as the **Mile High City** — exactly one mile above sea level.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 32,
+    "front": {
+      "text": "What is the capital of Connecticut?",
+      "markdown": "What is the capital of **Connecticut**?"
+    },
+    "back": {
+      "text": "Hartford — The Insurance Capital of the World.",
+      "markdown": "## Hartford\n\n{#1A3A6B}**Capital of Connecticut**{/}\n\nThe **Insurance Capital of the World**.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 33,
+    "front": {
+      "text": "What is the capital of Delaware?",
+      "markdown": "What is the capital of **Delaware**?"
+    },
+    "back": {
+      "text": "Dover — Home to Dover Air Force Base.",
+      "markdown": "## Dover\n\n{#1A3A6B}**Capital of Delaware**{/}\n\nHome to **Dover Air Force Base**.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 34,
+    "front": {
+      "text": "What is the capital of Florida?",
+      "markdown": "What is the capital of **Florida**?"
+    },
+    "back": {
+      "text": "Tallahassee — From a Muskogean word meaning \"old fields\".",
+      "markdown": "## Tallahassee\n\n{#1A3A6B}**Capital of Florida**{/}\n\nFrom a Muskogean word meaning *\"old fields\"*.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 35,
+    "front": {
+      "text": "What is the capital of Georgia?",
+      "markdown": "What is the capital of **Georgia**?"
+    },
+    "back": {
+      "text": "Atlanta — Nicknamed the City in a Forest for its urban tree canopy.",
+      "markdown": "## Atlanta\n\n{#1A3A6B}**Capital of Georgia**{/}\n\nNicknamed the **City in a Forest** for its urban tree canopy.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 36,
+    "front": {
+      "text": "What is the capital of Hawaii?",
+      "markdown": "What is the capital of **Hawaii**?"
+    },
+    "back": {
+      "text": "Honolulu — Meaning \"sheltered harbor\" in Hawaiian.",
+      "markdown": "## Honolulu\n\n{#1A3A6B}**Capital of Hawaii**{/}\n\nMeaning *\"sheltered harbor\"* in Hawaiian.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 37,
+    "front": {
+      "text": "What is the capital of Idaho?",
+      "markdown": "What is the capital of **Idaho**?"
+    },
+    "back": {
+      "text": "Boise — Named by French-Canadian fur trappers — \"les bois\" means the woods.",
+      "markdown": "## Boise\n\n{#1A3A6B}**Capital of Idaho**{/}\n\nNamed by French-Canadian fur trappers — *\"les bois\"* means *the woods*.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 38,
+    "front": {
+      "text": "What is the capital of Illinois?",
+      "markdown": "What is the capital of **Illinois**?"
+    },
+    "back": {
+      "text": "Springfield — Abraham Lincoln's home for 24 years.",
+      "markdown": "## Springfield\n\n{#1A3A6B}**Capital of Illinois**{/}\n\n**Abraham Lincoln's** home for 24 years.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 39,
+    "front": {
+      "text": "What is the capital of Indiana?",
+      "markdown": "What is the capital of **Indiana**?"
+    },
+    "back": {
+      "text": "Indianapolis — Home of the Indianapolis 500.",
+      "markdown": "## Indianapolis\n\n{#1A3A6B}**Capital of Indiana**{/}\n\nHome of the **Indianapolis 500**.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 40,
+    "front": {
+      "text": "What is the capital of Iowa?",
+      "markdown": "What is the capital of **Iowa**?"
+    },
+    "back": {
+      "text": "Des Moines — From the French \"rivière des Moines\" — river of the monks.",
+      "markdown": "## Des Moines\n\n{#1A3A6B}**Capital of Iowa**{/}\n\nFrom the French *\"rivière des Moines\"* — *river of the monks*.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 41,
+    "front": {
+      "text": "What is the capital of Kansas?",
+      "markdown": "What is the capital of **Kansas**?"
+    },
+    "back": {
+      "text": "Topeka — From a Kansa word meaning \"a good place to dig potatoes\".",
+      "markdown": "## Topeka\n\n{#1A3A6B}**Capital of Kansas**{/}\n\nFrom a Kansa word meaning *\"a good place to dig potatoes\"*.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 42,
+    "front": {
+      "text": "What is the capital of Kentucky?",
+      "markdown": "What is the capital of **Kentucky**?"
+    },
+    "back": {
+      "text": "Frankfort — One of the smallest state capitals by population.",
+      "markdown": "## Frankfort\n\n{#1A3A6B}**Capital of Kentucky**{/}\n\nOne of the *smallest* state capitals by population.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 43,
+    "front": {
+      "text": "What is the capital of Louisiana?",
+      "markdown": "What is the capital of **Louisiana**?"
+    },
+    "back": {
+      "text": "Baton Rouge — French for \"red stick\".",
+      "markdown": "## Baton Rouge\n\n{#1A3A6B}**Capital of Louisiana**{/}\n\nFrench for *\"red stick\"*.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 44,
+    "front": {
+      "text": "What is the capital of Maine?",
+      "markdown": "What is the capital of **Maine**?"
+    },
+    "back": {
+      "text": "Augusta — Named after the daughter of a Revolutionary War general.",
+      "markdown": "## Augusta\n\n{#1A3A6B}**Capital of Maine**{/}\n\nNamed after the daughter of a Revolutionary War general.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 45,
+    "front": {
+      "text": "What is the capital of Maryland?",
+      "markdown": "What is the capital of **Maryland**?"
+    },
+    "back": {
+      "text": "Annapolis — Home to the US Naval Academy.",
+      "markdown": "## Annapolis\n\n{#1A3A6B}**Capital of Maryland**{/}\n\nHome to the **US Naval Academy**.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 46,
+    "front": {
+      "text": "What is the capital of Massachusetts?",
+      "markdown": "What is the capital of **Massachusetts**?"
+    },
+    "back": {
+      "text": "Boston — Site of the Boston Tea Party — 1773.",
+      "markdown": "## Boston\n\n{#1A3A6B}**Capital of Massachusetts**{/}\n\nSite of the **Boston Tea Party** — 1773.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 47,
+    "front": {
+      "text": "What is the capital of Michigan?",
+      "markdown": "What is the capital of **Michigan**?"
+    },
+    "back": {
+      "text": "Lansing — Named after Lansing, New York.",
+      "markdown": "## Lansing\n\n{#1A3A6B}**Capital of Michigan**{/}\n\nNamed after *Lansing, New York*.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 48,
+    "front": {
+      "text": "What is the capital of Minnesota?",
+      "markdown": "What is the capital of **Minnesota**?"
+    },
+    "back": {
+      "text": "Saint Paul — Twin city with Minneapolis.",
+      "markdown": "## Saint Paul\n\n{#1A3A6B}**Capital of Minnesota**{/}\n\nTwin city with **Minneapolis**.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 49,
+    "front": {
+      "text": "What is the capital of Mississippi?",
+      "markdown": "What is the capital of **Mississippi**?"
+    },
+    "back": {
+      "text": "Jackson — Named after Andrew Jackson.",
+      "markdown": "## Jackson\n\n{#1A3A6B}**Capital of Mississippi**{/}\n\nNamed after **Andrew Jackson**.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 50,
+    "front": {
+      "text": "What is the capital of Missouri?",
+      "markdown": "What is the capital of **Missouri**?"
+    },
+    "back": {
+      "text": "Jefferson City — Named after Thomas Jefferson.",
+      "markdown": "## Jefferson City\n\n{#1A3A6B}**Capital of Missouri**{/}\n\nNamed after **Thomas Jefferson**.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 51,
+    "front": {
+      "text": "What is the capital of Montana?",
+      "markdown": "What is the capital of **Montana**?"
+    },
+    "back": {
+      "text": "Helena — Founded during the Montana Gold Rush of 1864.",
+      "markdown": "## Helena\n\n{#1A3A6B}**Capital of Montana**{/}\n\nFounded during the **Montana Gold Rush** of 1864.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 52,
+    "front": {
+      "text": "What is the capital of Nebraska?",
+      "markdown": "What is the capital of **Nebraska**?"
+    },
+    "back": {
+      "text": "Lincoln — Named after Abraham Lincoln — originally called Lancaster.",
+      "markdown": "## Lincoln\n\n{#1A3A6B}**Capital of Nebraska**{/}\n\nNamed after **Abraham Lincoln** — originally called *Lancaster*.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 53,
+    "front": {
+      "text": "What is the capital of Nevada?",
+      "markdown": "What is the capital of **Nevada**?"
+    },
+    "back": {
+      "text": "Carson City — Named after frontiersman Kit Carson.",
+      "markdown": "## Carson City\n\n{#1A3A6B}**Capital of Nevada**{/}\n\nNamed after frontiersman **Kit Carson**.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 54,
+    "front": {
+      "text": "What is the capital of New Hampshire?",
+      "markdown": "What is the capital of **New Hampshire**?"
+    },
+    "back": {
+      "text": "Concord — Home to the primary that kicks off each presidential election year.",
+      "markdown": "## Concord\n\n{#1A3A6B}**Capital of New Hampshire**{/}\n\nHome to the *primary that kicks off each presidential election year*.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 55,
+    "front": {
+      "text": "What is the capital of New Jersey?",
+      "markdown": "What is the capital of **New Jersey**?"
+    },
+    "back": {
+      "text": "Trenton — Site of Washington's famous Christmas 1776 crossing of the Delaware.",
+      "markdown": "## Trenton\n\n{#1A3A6B}**Capital of New Jersey**{/}\n\nSite of **Washington's** famous Christmas 1776 crossing of the Delaware.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 56,
+    "front": {
+      "text": "What is the capital of New Mexico?",
+      "markdown": "What is the capital of **New Mexico**?"
+    },
+    "back": {
+      "text": "Santa Fe — Founded in 1610 — the oldest state capital in the US.",
+      "markdown": "## Santa Fe\n\n{#1A3A6B}**Capital of New Mexico**{/}\n\nFounded in *1610* — the **oldest state capital** in the US.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 57,
+    "front": {
+      "text": "What is the capital of New York?",
+      "markdown": "What is the capital of **New York**?"
+    },
+    "back": {
+      "text": "Albany — One of the oldest surviving European settlements in the US.",
+      "markdown": "## Albany\n\n{#1A3A6B}**Capital of New York**{/}\n\nOne of the **oldest surviving European settlements** in the US.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 58,
+    "front": {
+      "text": "What is the capital of North Carolina?",
+      "markdown": "What is the capital of **North Carolina**?"
+    },
+    "back": {
+      "text": "Raleigh — Named after Sir Walter Raleigh.",
+      "markdown": "## Raleigh\n\n{#1A3A6B}**Capital of North Carolina**{/}\n\nNamed after **Sir Walter Raleigh**.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 59,
+    "front": {
+      "text": "What is the capital of North Dakota?",
+      "markdown": "What is the capital of **North Dakota**?"
+    },
+    "back": {
+      "text": "Bismarck — Named after the German Chancellor Otto von Bismarck.",
+      "markdown": "## Bismarck\n\n{#1A3A6B}**Capital of North Dakota**{/}\n\nNamed after the German Chancellor **Otto von Bismarck**.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 60,
+    "front": {
+      "text": "What is the capital of Ohio?",
+      "markdown": "What is the capital of **Ohio**?"
+    },
+    "back": {
+      "text": "Columbus — Named after Christopher Columbus.",
+      "markdown": "## Columbus\n\n{#1A3A6B}**Capital of Ohio**{/}\n\nNamed after **Christopher Columbus**.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 61,
+    "front": {
+      "text": "What is the capital of Oklahoma?",
+      "markdown": "What is the capital of **Oklahoma**?"
+    },
+    "back": {
+      "text": "Oklahoma City — The only US state capital that shares its name with its state.",
+      "markdown": "## Oklahoma City\n\n{#1A3A6B}**Capital of Oklahoma**{/}\n\nThe only US state capital that shares its name with its state.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 62,
+    "front": {
+      "text": "What is the capital of Oregon?",
+      "markdown": "What is the capital of **Oregon**?"
+    },
+    "back": {
+      "text": "Salem — From the Hebrew \"shalom\" — meaning peace.",
+      "markdown": "## Salem\n\n{#1A3A6B}**Capital of Oregon**{/}\n\nFrom the Hebrew *\"shalom\"* — meaning *peace*.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 63,
+    "front": {
+      "text": "What is the capital of Pennsylvania?",
+      "markdown": "What is the capital of **Pennsylvania**?"
+    },
+    "back": {
+      "text": "Harrisburg — Home to Three Mile Island nuclear plant.",
+      "markdown": "## Harrisburg\n\n{#1A3A6B}**Capital of Pennsylvania**{/}\n\nHome to **Three Mile Island** nuclear plant.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 64,
+    "front": {
+      "text": "What is the capital of Rhode Island?",
+      "markdown": "What is the capital of **Rhode Island**?"
+    },
+    "back": {
+      "text": "Providence — Founded by Roger Williams as a refuge for religious dissenters.",
+      "markdown": "## Providence\n\n{#1A3A6B}**Capital of Rhode Island**{/}\n\nFounded by **Roger Williams** as a refuge for religious dissenters.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 65,
+    "front": {
+      "text": "What is the capital of South Carolina?",
+      "markdown": "What is the capital of **South Carolina**?"
+    },
+    "back": {
+      "text": "Columbia — Named after Christopher Columbus.",
+      "markdown": "## Columbia\n\n{#1A3A6B}**Capital of South Carolina**{/}\n\nNamed after **Christopher Columbus**.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 66,
+    "front": {
+      "text": "What is the capital of South Dakota?",
+      "markdown": "What is the capital of **South Dakota**?"
+    },
+    "back": {
+      "text": "Pierre — One of the smallest state capitals by population — about 14,000.",
+      "markdown": "## Pierre\n\n{#1A3A6B}**Capital of South Dakota**{/}\n\nOne of the *smallest* state capitals by population — about 14,000.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 67,
+    "front": {
+      "text": "What is the capital of Tennessee?",
+      "markdown": "What is the capital of **Tennessee**?"
+    },
+    "back": {
+      "text": "Nashville — The Music City — home of country music.",
+      "markdown": "## Nashville\n\n{#1A3A6B}**Capital of Tennessee**{/}\n\nThe **Music City** — home of country music.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 68,
+    "front": {
+      "text": "What is the capital of Texas?",
+      "markdown": "What is the capital of **Texas**?"
+    },
+    "back": {
+      "text": "Austin — Named after Stephen F. Austin, the Father of Texas.",
+      "markdown": "## Austin\n\n{#1A3A6B}**Capital of Texas**{/}\n\nNamed after **Stephen F. Austin**, the *Father of Texas*.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 69,
+    "front": {
+      "text": "What is the capital of Utah?",
+      "markdown": "What is the capital of **Utah**?"
+    },
+    "back": {
+      "text": "Salt Lake City — Founded by Mormon pioneers in 1847.",
+      "markdown": "## Salt Lake City\n\n{#1A3A6B}**Capital of Utah**{/}\n\nFounded by **Mormon pioneers** in 1847.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 70,
+    "front": {
+      "text": "What is the capital of Vermont?",
+      "markdown": "What is the capital of **Vermont**?"
+    },
+    "back": {
+      "text": "Montpelier — The least populous state capital in the US — about 8,000.",
+      "markdown": "## Montpelier\n\n{#1A3A6B}**Capital of Vermont**{/}\n\nThe *least populous* state capital in the US — about 8,000.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 71,
+    "front": {
+      "text": "What is the capital of Virginia?",
+      "markdown": "What is the capital of **Virginia**?"
+    },
+    "back": {
+      "text": "Richmond — Former capital of the Confederacy during the Civil War.",
+      "markdown": "## Richmond\n\n{#1A3A6B}**Capital of Virginia**{/}\n\nFormer capital of the **Confederacy** during the Civil War.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 72,
+    "front": {
+      "text": "What is the capital of Washington?",
+      "markdown": "What is the capital of **Washington**?"
+    },
+    "back": {
+      "text": "Olympia — Named after the nearby Olympic Mountains.",
+      "markdown": "## Olympia\n\n{#1A3A6B}**Capital of Washington**{/}\n\nNamed after the nearby **Olympic Mountains**.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 73,
+    "front": {
+      "text": "What is the capital of West Virginia?",
+      "markdown": "What is the capital of **West Virginia**?"
+    },
+    "back": {
+      "text": "Charleston — Located where the Elk and Kanawha rivers meet.",
+      "markdown": "## Charleston\n\n{#1A3A6B}**Capital of West Virginia**{/}\n\nLocated where the **Elk** and **Kanawha** rivers meet.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 74,
+    "front": {
+      "text": "What is the capital of Wisconsin?",
+      "markdown": "What is the capital of **Wisconsin**?"
+    },
+    "back": {
+      "text": "Madison — Named after James Madison, the 4th US President.",
+      "markdown": "## Madison\n\n{#1A3A6B}**Capital of Wisconsin**{/}\n\nNamed after **James Madison**, the *4th US President*.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 75,
+    "front": {
+      "text": "What is the capital of Wyoming?",
+      "markdown": "What is the capital of **Wyoming**?"
+    },
+    "back": {
+      "text": "Cheyenne — Named after the Cheyenne people.",
+      "markdown": "## Cheyenne\n\n{#1A3A6B}**Capital of Wyoming**{/}\n\nNamed after the **Cheyenne** people.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 76,
+    "front": {
+      "text": "Which national park is known for: The world's first national park.",
+      "markdown": "Which national park is known for:\n\n*\"The **world's first** national park.\"*"
+    },
+    "back": {
+      "text": "Yellowstone (Wyoming, Montana, Idaho) — established 1872. The world's first national park. Area: 2.2 million acres.",
+      "markdown": "## Yellowstone\n\n{#1A3A6B}**Wyoming, Montana, Idaho**{/} · established **1872**\n\nThe **world's first** national park.\n\nFeatures:\n\n- Old Faithful geyser\n- Grand Prismatic Spring\n- Bison, wolves, grizzly bears\n\nArea: {#2E7D32}**2.2 million acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 77,
+    "front": {
+      "text": "Which national park is known for: Granite cliffs, waterfalls, and giant sequoias.",
+      "markdown": "Which national park is known for:\n\n*\"Granite cliffs, waterfalls, and giant sequoias.\"*"
+    },
+    "back": {
+      "text": "Yosemite (California) — established 1890. Granite cliffs, waterfalls, and giant sequoias. Area: 759,000 acres.",
+      "markdown": "## Yosemite\n\n{#1A3A6B}**California**{/} · established **1890**\n\nGranite cliffs, waterfalls, and giant sequoias.\n\nFeatures:\n\n- El Capitan\n- Half Dome\n- Yosemite Falls\n\nArea: {#2E7D32}**759,000 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 78,
+    "front": {
+      "text": "Which national park is known for: A mile-deep river gorge carved by the Colorado River.",
+      "markdown": "Which national park is known for:\n\n*\"A mile-deep river gorge carved by the Colorado River.\"*"
+    },
+    "back": {
+      "text": "Grand Canyon (Arizona) — established 1919. A mile-deep river gorge carved by the Colorado River. Area: 1.2 million acres.",
+      "markdown": "## Grand Canyon\n\n{#1A3A6B}**Arizona**{/} · established **1919**\n\nA mile-deep river gorge carved by the Colorado River.\n\nFeatures:\n\n- South Rim viewpoints\n- Bright Angel Trail\n- Colorado River rafting\n\nArea: {#2E7D32}**1.2 million acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 79,
+    "front": {
+      "text": "Which national park is known for: Red sandstone canyons and narrow slot canyons.",
+      "markdown": "Which national park is known for:\n\n*\"Red sandstone canyons and narrow slot canyons.\"*"
+    },
+    "back": {
+      "text": "Zion (Utah) — established 1919. Red sandstone canyons and narrow slot canyons. Area: 147,000 acres.",
+      "markdown": "## Zion\n\n{#1A3A6B}**Utah**{/} · established **1919**\n\nRed sandstone canyons and narrow slot canyons.\n\nFeatures:\n\n- The Narrows\n- Angels Landing\n- Emerald Pools\n\nArea: {#2E7D32}**147,000 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 80,
+    "front": {
+      "text": "Which national park is known for: The most-visited national park in the US.",
+      "markdown": "Which national park is known for:\n\n*\"The **most-visited** national park in the US.\"*"
+    },
+    "back": {
+      "text": "Great Smoky Mountains (Tennessee, North Carolina) — established 1934. The most-visited national park in the US. Area: 522,000 acres.",
+      "markdown": "## Great Smoky Mountains\n\n{#1A3A6B}**Tennessee, North Carolina**{/} · established **1934**\n\nThe **most-visited** national park in the US.\n\nFeatures:\n\n- Cades Cove\n- Clingmans Dome\n- Synchronous fireflies\n\nArea: {#2E7D32}**522,000 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 81,
+    "front": {
+      "text": "Which national park is known for: Alpine tundra and over 300 miles of hiking trails.",
+      "markdown": "Which national park is known for:\n\n*\"Alpine tundra and over 300 miles of hiking trails.\"*"
+    },
+    "back": {
+      "text": "Rocky Mountain (Colorado) — established 1915. Alpine tundra and over 300 miles of hiking trails. Area: 265,000 acres.",
+      "markdown": "## Rocky Mountain\n\n{#1A3A6B}**Colorado**{/} · established **1915**\n\nAlpine tundra and over 300 miles of hiking trails.\n\nFeatures:\n\n- Trail Ridge Road\n- Longs Peak\n- Bear Lake\n\nArea: {#2E7D32}**265,000 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 82,
+    "front": {
+      "text": "Which national park is known for: The first national park east of the Mississippi.",
+      "markdown": "Which national park is known for:\n\n*\"The first national park east of the Mississippi.\"*"
+    },
+    "back": {
+      "text": "Acadia (Maine) — established 1919. The first national park east of the Mississippi. Area: 49,000 acres.",
+      "markdown": "## Acadia\n\n{#1A3A6B}**Maine**{/} · established **1919**\n\nThe first national park east of the Mississippi.\n\nFeatures:\n\n- Cadillac Mountain\n- Jordan Pond\n- Rocky Atlantic coastline\n\nArea: {#2E7D32}**49,000 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 83,
+    "front": {
+      "text": "Which national park is known for: Three distinct ecosystems in one park.",
+      "markdown": "Which national park is known for:\n\n*\"Three distinct ecosystems in one park.\"*"
+    },
+    "back": {
+      "text": "Olympic (Washington) — established 1938. Three distinct ecosystems in one park. Area: 922,000 acres.",
+      "markdown": "## Olympic\n\n{#1A3A6B}**Washington**{/} · established **1938**\n\nThree distinct ecosystems in one park.\n\nFeatures:\n\n- Hoh Rainforest\n- Hurricane Ridge\n- Pacific coastline\n\nArea: {#2E7D32}**922,000 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 84,
+    "front": {
+      "text": "Which national park is known for: Known as the Crown of the Continent.",
+      "markdown": "Which national park is known for:\n\n*\"Known as the **Crown of the Continent**.\"*"
+    },
+    "back": {
+      "text": "Glacier (Montana) — established 1910. Known as the Crown of the Continent. Area: 1 million acres.",
+      "markdown": "## Glacier\n\n{#1A3A6B}**Montana**{/} · established **1910**\n\nKnown as the **Crown of the Continent**.\n\nFeatures:\n\n- Going-to-the-Sun Road\n- Grinnell Glacier\n- Mountain goats\n\nArea: {#2E7D32}**1 million acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 85,
+    "front": {
+      "text": "Which national park is known for: Home to North America's tallest peak — 20,310 ft.",
+      "markdown": "Which national park is known for:\n\n*\"Home to **North America's tallest peak** — 20,310 ft.\"*"
+    },
+    "back": {
+      "text": "Denali (Alaska) — established 1917. Home to North America's tallest peak — 20,310 ft. Area: 6 million acres.",
+      "markdown": "## Denali\n\n{#1A3A6B}**Alaska**{/} · established **1917**\n\nHome to **North America's tallest peak** — 20,310 ft.\n\nFeatures:\n\n- Mount Denali\n- Wonder Lake\n- Wildlife viewing\n\nArea: {#2E7D32}**6 million acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 86,
+    "front": {
+      "text": "Which national park is known for: The largest collection of hoodoos on Earth.",
+      "markdown": "Which national park is known for:\n\n*\"The largest collection of *hoodoos* on Earth.\"*"
+    },
+    "back": {
+      "text": "Bryce Canyon (Utah) — established 1928. The largest collection of hoodoos on Earth. Area: 35,835 acres.",
+      "markdown": "## Bryce Canyon\n\n{#1A3A6B}**Utah**{/} · established **1928**\n\nThe largest collection of *hoodoos* on Earth.\n\nFeatures:\n\n- Sunrise Point\n- Thor's Hammer\n- Navajo Loop\n\nArea: {#2E7D32}**35,835 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 87,
+    "front": {
+      "text": "Which national park is known for: Over 2,000 natural stone arches.",
+      "markdown": "Which national park is known for:\n\n*\"Over **2,000 natural stone arches**.\"*"
+    },
+    "back": {
+      "text": "Arches (Utah) — established 1971. Over 2,000 natural stone arches. Area: 76,679 acres.",
+      "markdown": "## Arches\n\n{#1A3A6B}**Utah**{/} · established **1971**\n\nOver **2,000 natural stone arches**.\n\nFeatures:\n\n- Delicate Arch\n- Landscape Arch\n- Double Arch\n\nArea: {#2E7D32}**76,679 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 88,
+    "front": {
+      "text": "Which national park is known for: A dramatic mountain range rising abruptly from the valley floor.",
+      "markdown": "Which national park is known for:\n\n*\"A dramatic mountain range rising abruptly from the valley floor.\"*"
+    },
+    "back": {
+      "text": "Grand Teton (Wyoming) — established 1929. A dramatic mountain range rising abruptly from the valley floor. Area: 310,000 acres.",
+      "markdown": "## Grand Teton\n\n{#1A3A6B}**Wyoming**{/} · established **1929**\n\nA dramatic mountain range rising abruptly from the valley floor.\n\nFeatures:\n\n- Grand Teton peak\n- Jenny Lake\n- Snake River\n\nArea: {#2E7D32}**310,000 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 89,
+    "front": {
+      "text": "Which national park is known for: A vast subtropical wetland — a UNESCO World Heritage Site.",
+      "markdown": "Which national park is known for:\n\n*\"A vast *subtropical wetland* — a UNESCO World Heritage Site.\"*"
+    },
+    "back": {
+      "text": "Everglades (Florida) — established 1934. A vast subtropical wetland — a UNESCO World Heritage Site. Area: 1.5 million acres.",
+      "markdown": "## Everglades\n\n{#1A3A6B}**Florida**{/} · established **1934**\n\nA vast *subtropical wetland* — a UNESCO World Heritage Site.\n\nFeatures:\n\n- Anhinga Trail\n- Shark Valley\n- Alligators and crocodiles\n\nArea: {#2E7D32}**1.5 million acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 90,
+    "front": {
+      "text": "Which national park is known for: Two of the world's most active volcanoes.",
+      "markdown": "Which national park is known for:\n\n*\"Two of the world's most active volcanoes.\"*"
+    },
+    "back": {
+      "text": "Hawaii Volcanoes (Hawaii) — established 1916. Two of the world's most active volcanoes. Area: 323,000 acres.",
+      "markdown": "## Hawaii Volcanoes\n\n{#1A3A6B}**Hawaii**{/} · established **1916**\n\nTwo of the world's most active volcanoes.\n\nFeatures:\n\n- Kīlauea crater\n- Mauna Loa\n- Lava tube walks\n\nArea: {#2E7D32}**323,000 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 91,
+    "front": {
+      "text": "Which national park is known for: Home to General Sherman — the largest tree on Earth by volume.",
+      "markdown": "Which national park is known for:\n\n*\"Home to **General Sherman** — the largest tree on Earth by volume.\"*"
+    },
+    "back": {
+      "text": "Sequoia (California) — established 1890. Home to General Sherman — the largest tree on Earth by volume. Area: 404,000 acres.",
+      "markdown": "## Sequoia\n\n{#1A3A6B}**California**{/} · established **1890**\n\nHome to **General Sherman** — the largest tree on Earth by volume.\n\nFeatures:\n\n- General Sherman tree\n- Moro Rock\n- Crystal Cave\n\nArea: {#2E7D32}**404,000 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 92,
+    "front": {
+      "text": "Which national park is known for: The deepest lake in the United States — 1,949 ft.",
+      "markdown": "Which national park is known for:\n\n*\"The **deepest lake** in the United States — 1,949 ft.\"*"
+    },
+    "back": {
+      "text": "Crater Lake (Oregon) — established 1902. The deepest lake in the United States — 1,949 ft. Area: 183,000 acres.",
+      "markdown": "## Crater Lake\n\n{#1A3A6B}**Oregon**{/} · established **1902**\n\nThe **deepest lake** in the United States — 1,949 ft.\n\nFeatures:\n\n- Rim Drive\n- Wizard Island\n- Phantom Ship\n\nArea: {#2E7D32}**183,000 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 93,
+    "front": {
+      "text": "Which national park is known for: The hottest and driest national park — and lowest point in North America.",
+      "markdown": "Which national park is known for:\n\n*\"The **hottest and driest** national park — and lowest point in North America.\"*"
+    },
+    "back": {
+      "text": "Death Valley (California, Nevada) — established 1994. The hottest and driest national park — and lowest point in North America. Area: 3.4 million acres.",
+      "markdown": "## Death Valley\n\n{#1A3A6B}**California, Nevada**{/} · established **1994**\n\nThe **hottest and driest** national park — and lowest point in North America.\n\nFeatures:\n\n- Badwater Basin\n- Zabriskie Point\n- Racetrack Playa\n\nArea: {#2E7D32}**3.4 million acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 94,
+    "front": {
+      "text": "Which national park is known for: Where the Mojave and Colorado deserts meet.",
+      "markdown": "Which national park is known for:\n\n*\"Where the Mojave and Colorado deserts meet.\"*"
+    },
+    "back": {
+      "text": "Joshua Tree (California) — established 1994. Where the Mojave and Colorado deserts meet. Area: 795,000 acres.",
+      "markdown": "## Joshua Tree\n\n{#1A3A6B}**California**{/} · established **1994**\n\nWhere the Mojave and Colorado deserts meet.\n\nFeatures:\n\n- Joshua trees\n- Keys View\n- Skull Rock\n\nArea: {#2E7D32}**795,000 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 95,
+    "front": {
+      "text": "Which national park is known for: An active stratovolcano and the most glaciated peak in the lower 48.",
+      "markdown": "Which national park is known for:\n\n*\"An **active stratovolcano** and the most glaciated peak in the lower 48.\"*"
+    },
+    "back": {
+      "text": "Mount Rainier (Washington) — established 1899. An active stratovolcano and the most glaciated peak in the lower 48. Area: 236,000 acres.",
+      "markdown": "## Mount Rainier\n\n{#1A3A6B}**Washington**{/} · established **1899**\n\nAn **active stratovolcano** and the most glaciated peak in the lower 48.\n\nFeatures:\n\n- Paradise meadows\n- Wonderland Trail\n- Nisqually Glacier\n\nArea: {#2E7D32}**236,000 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 96,
+    "front": {
+      "text": "Which national park is known for: Features the famous Skyline Drive along the Blue Ridge Mountains.",
+      "markdown": "Which national park is known for:\n\n*\"Features the famous **Skyline Drive** along the Blue Ridge Mountains.\"*"
+    },
+    "back": {
+      "text": "Shenandoah (Virginia) — established 1935. Features the famous Skyline Drive along the Blue Ridge Mountains. Area: 200,000 acres.",
+      "markdown": "## Shenandoah\n\n{#1A3A6B}**Virginia**{/} · established **1935**\n\nFeatures the famous **Skyline Drive** along the Blue Ridge Mountains.\n\nFeatures:\n\n- Skyline Drive\n- Old Rag Mountain\n- Dark Hollow Falls\n\nArea: {#2E7D32}**200,000 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 97,
+    "front": {
+      "text": "Which national park is known for: A remote desert park along the Rio Grande.",
+      "markdown": "Which national park is known for:\n\n*\"A remote desert park along the **Rio Grande**.\"*"
+    },
+    "back": {
+      "text": "Big Bend (Texas) — established 1944. A remote desert park along the Rio Grande. Area: 801,000 acres.",
+      "markdown": "## Big Bend\n\n{#1A3A6B}**Texas**{/} · established **1944**\n\nA remote desert park along the **Rio Grande**.\n\nFeatures:\n\n- Santa Elena Canyon\n- Chisos Mountains\n- Rio Grande rafting\n\nArea: {#2E7D32}**801,000 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 98,
+    "front": {
+      "text": "Which national park is known for: The longest known cave system in the world — over 420 miles mapped.",
+      "markdown": "Which national park is known for:\n\n*\"The **longest known cave system** in the world — over 420 miles mapped.\"*"
+    },
+    "back": {
+      "text": "Mammoth Cave (Kentucky) — established 1941. The longest known cave system in the world — over 420 miles mapped. Area: 52,830 acres.",
+      "markdown": "## Mammoth Cave\n\n{#1A3A6B}**Kentucky**{/} · established **1941**\n\nThe **longest known cave system** in the world — over 420 miles mapped.\n\nFeatures:\n\n- Historic Tour\n- Frozen Niagara\n- Underground rivers\n\nArea: {#2E7D32}**52,830 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 99,
+    "front": {
+      "text": "Which national park is known for: Home to the tallest trees on Earth — coast redwoods over 370 ft.",
+      "markdown": "Which national park is known for:\n\n*\"Home to the **tallest trees on Earth** — coast redwoods over 370 ft.\"*"
+    },
+    "back": {
+      "text": "Redwood (California) — established 1968. Home to the tallest trees on Earth — coast redwoods over 370 ft. Area: 139,000 acres.",
+      "markdown": "## Redwood\n\n{#1A3A6B}**California**{/} · established **1968**\n\nHome to the **tallest trees on Earth** — coast redwoods over 370 ft.\n\nFeatures:\n\n- Tall Trees Grove\n- Fern Canyon\n- Roosevelt elk herds\n\nArea: {#2E7D32}**139,000 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 100,
+    "front": {
+      "text": "Which national park is known for: Vast limestone caves with a famous bat flight.",
+      "markdown": "Which national park is known for:\n\n*\"Vast limestone caves with a famous bat flight.\"*"
+    },
+    "back": {
+      "text": "Carlsbad Caverns (New Mexico) — established 1930. Vast limestone caves with a famous bat flight. Area: 46,766 acres.",
+      "markdown": "## Carlsbad Caverns\n\n{#1A3A6B}**New Mexico**{/} · established **1930**\n\nVast limestone caves with a famous bat flight.\n\nFeatures:\n\n- Big Room\n- King's Palace\n- Bat flight program\n\nArea: {#2E7D32}**46,766 acres**{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
     }
   }
 ]

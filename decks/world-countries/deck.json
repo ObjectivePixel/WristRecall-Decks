@@ -1,0 +1,25 @@
+{
+  "id": "world-countries",
+  "uuid": "459F82B9-B466-4B82-8DE9-C3940D1E554F",
+  "name": "Countries of the World",
+  "description": "How many countries, continents, oceans, and landmasses make up our world — plus capitals and flags from every region.",
+  "storeFileName": "world_countries",
+  "imageName": "world_countries_deck",
+  "gradientColors": ["#1E3A8AFF", "#10A37FCC"],
+  "cardCount": 60,
+  "topicCount": 9,
+  "category": "Geography",
+  "version": "1.0.2",
+  "sourceFileName": "cards.json",
+  "topicDefinitions": [
+    { "name": "World Overview", "cardIDs": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] },
+    { "name": "Countries per Continent", "cardIDs": [11, 12, 13, 14, 15, 16, 17] },
+    { "name": "Continents", "cardIDs": [18, 19, 20, 21, 22] },
+    { "name": "Oceans", "cardIDs": [23, 24, 25, 26, 27] },
+    { "name": "European Capitals", "cardIDs": [28, 29, 30, 31, 32, 33, 34, 35, 36] },
+    { "name": "Asian Capitals", "cardIDs": [37, 38, 39, 40, 41, 42, 43, 44] },
+    { "name": "African Capitals", "cardIDs": [45, 46, 47, 48, 49, 50] },
+    { "name": "American Capitals", "cardIDs": [51, 52, 53, 54, 55, 56] },
+    { "name": "Oceanian Capitals", "cardIDs": [57, 58, 59, 60] }
+  ]
+}

@@ -1,20 +1,154 @@
 {
   "id": "us-states",
   "uuid": "B7DC47D2-47ED-4953-BB03-9E9B758A65FE",
-  "name": "US States by Letter",
-  "description": "Test your knowledge of how many US states begin with each letter of the alphabet.",
+  "name": "United States",
+  "description": "States and letters, capitals, and national parks — test your knowledge of the US.",
   "storeFileName": "us_states",
   "imageName": "us_states_deck",
-  "gradientColors": ["#1A3A6BFF", "#4A90D9FF"],
-  "cardCount": 25,
-  "topicCount": 4,
+  "gradientColors": [
+    "#1A3A6BFF",
+    "#BF0A30CC"
+  ],
+  "cardCount": 100,
+  "topicCount": 7,
   "category": "Geography",
-  "version": "1.0.0",
+  "version": "2.0.2",
   "sourceFileName": "cards.json",
   "topicDefinitions": [
-    { "name": "Most Common Letters", "cardIDs": [1, 2, 3, 4, 5, 6, 7] },
-    { "name": "Two of a Kind", "cardIDs": [8, 9, 10, 11] },
-    { "name": "One and Only", "cardIDs": [12, 13, 14, 15, 16, 17, 18, 19] },
-    { "name": "State Name Trivia", "cardIDs": [20, 21, 22, 23, 24, 25] }
+    {
+      "name": "Most Common Letters",
+      "cardIDs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "name": "Two of a Kind",
+      "cardIDs": [
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "name": "One and Only",
+      "cardIDs": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ]
+    },
+    {
+      "name": "State Name Trivia",
+      "cardIDs": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ]
+    },
+    {
+      "name": "Capitals A–M",
+      "cardIDs": [
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ]
+    },
+    {
+      "name": "Capitals N–Z",
+      "cardIDs": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75
+      ]
+    },
+    {
+      "name": "National Parks",
+      "cardIDs": [
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100
+      ]
+    }
   ]
 }
