@@ -359,8 +359,8 @@
       "markdown": "How do you define a **consuming move** constructor for a struct?"
     },
     "back": {
-      "text": "Conform to the Movable trait and define __init__ with a keyword-only 'take' parameter. The compiler routes the ^ transfer sigil through this constructor to consume the source value. With Movable alone the compiler synthesizes a fieldwise move; write the constructor manually only when you need custom behaviour.",
-      "code_snippet": "# Trivial: trait + synthesized fieldwise move\n@fieldwise_init\nstruct Point(Movable):\n    var x: Int\n    var y: Int\n\n# Custom: take ownership of an allocated buffer\nstruct HeapArray(Movable):\n    var size: Int\n    var data: UnsafePointer[Int]\n\n    def __init__(out self, *, take: Self):\n        self.size = take.size\n        self.data = take.data   # transfer the address; source's destructor is skipped\n\nvar a = HeapArray(...)\nvar b = a^                      # consumes a; routes through take:",
+      "text": "Conform to the Movable trait and define __init__(out self, *, deinit take: Self). The deinit convention is what makes take a consuming parameter — it ends the source's lifetime so its destructor is skipped. The compiler routes the ^ transfer sigil through this constructor. With Movable alone the compiler synthesizes a fieldwise move; write the constructor manually only when you need custom behaviour.",
+      "code_snippet": "# Trivial: trait + synthesized fieldwise move\n@fieldwise_init\nstruct Point(Movable):\n    var x: Int\n    var y: Int\n\n# Custom: take ownership of an allocated buffer\nstruct HeapArray(Movable):\n    var size: Int\n    var data: UnsafePointer[Int]\n\n    # `deinit take` consumes the source — its destructor is skipped.\n    def __init__(out self, *, deinit take: Self):\n        self.size = take.size\n        self.data = take.data   # transfer the address\n\nvar a = HeapArray(...)\nvar b = a^                      # consumes a; routes through `deinit take:`",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -371,7 +371,7 @@
           "^"
         ]
       },
-      "markdown": "## Conform to `Movable`, and (optionally) define `__init__(out self, *, take: Self)`\n\nThe compiler routes the `^` transfer sigil through this constructor to consume the source value.\n\nWith just `Movable` and no custom `__init__(*, take:)`, the compiler synthesizes a fieldwise move. Write it manually only when you need custom behaviour.\n\n```\n# Trivial: trait + synthesized fieldwise move\n@fieldwise_init\nstruct Point(Movable):\n    var x: Int\n    var y: Int\n\n# Custom: take ownership of an allocated buffer\nstruct HeapArray(Movable):\n    var size: Int\n    var data: UnsafePointer[Int]\n\n    def __init__(out self, *, take: Self):\n        self.size = take.size\n        self.data = take.data   # transfer the address; source's destructor is skipped\n\nvar a = HeapArray(...)\nvar b = a^                      # consumes a; routes through take:\n```"
+      "markdown": "## Conform to `Movable`, and (optionally) define `__init__(out self, *, deinit take: Self)`\n\n{#0F766E}The **`deinit`** convention is what makes `take` a *consuming* parameter — it ends the source's lifetime, so its destructor is skipped. Without `deinit`, the parameter would just borrow.{/}\n\nThe compiler routes the `^` transfer sigil through this constructor. With just `Movable` and no custom `__init__(*, deinit take:)`, the compiler synthesizes a fieldwise move. Write it manually only when you need custom behaviour.\n\n```\n# Trivial: trait + synthesized fieldwise move\n@fieldwise_init\nstruct Point(Movable):\n    var x: Int\n    var y: Int\n\n# Custom: take ownership of an allocated buffer\nstruct HeapArray(Movable):\n    var size: Int\n    var data: UnsafePointer[Int]\n\n    # `deinit take` consumes the source — its destructor is skipped.\n    def __init__(out self, *, deinit take: Self):\n        self.size = take.size\n        self.data = take.data   # transfer the address\n\nvar a = HeapArray(...)\nvar b = a^                      # consumes a; routes through `deinit take:`\n```"
     }
   },
   {
@@ -1739,7 +1739,7 @@
       "markdown": "How do you auto-generate copy and move constructors for a struct?"
     },
     "back": {
-      "text": "Add the Copyable and/or Movable traits to the struct's conformance list, and pair with @fieldwise_init to synthesize the fieldwise constructor. The compiler then synthesizes unified __init__(*, copy: Self) and __init__(*, take: Self) constructors fieldwise.",
+      "text": "Add the Copyable and/or Movable traits to the struct's conformance list, and pair with @fieldwise_init to synthesize the fieldwise constructor. The compiler then synthesizes unified __init__(*, copy: Self) and __init__(*, deinit take: Self) constructors fieldwise.",
       "code_snippet": "@fieldwise_init\nstruct MyPair(Copyable, Movable):\n    var a: Int\n    var b: Int\n\nvar x = MyPair(1, 2)\nvar y = x.copy()    # uses synthesized copy\nvar z = x^          # uses synthesized move",
       "formatting": {
         "text_font": "system_sans_serif",
@@ -1751,7 +1751,7 @@
           "__init__"
         ]
       },
-      "markdown": "## Add the `Copyable` and/or `Movable` traits\n\nThe compiler synthesizes unified `__init__(*, copy: Self)` and `__init__(*, take: Self)` constructors fieldwise. Pair with `@fieldwise_init` to also get the fieldwise positional initializer.\n\n```\n@fieldwise_init\nstruct MyPair(Copyable, Movable):\n    var a: Int\n    var b: Int\n\nvar x = MyPair(1, 2)\nvar y = x.copy()    # uses synthesized copy\nvar z = x^          # uses synthesized move\n```"
+      "markdown": "## Add the `Copyable` and/or `Movable` traits\n\nThe compiler synthesizes unified `__init__(*, copy: Self)` and `__init__(*, deinit take: Self)` constructors fieldwise. Pair with `@fieldwise_init` to also get the fieldwise positional initializer.\n\n```\n@fieldwise_init\nstruct MyPair(Copyable, Movable):\n    var a: Int\n    var b: Int\n\nvar x = MyPair(1, 2)\nvar y = x.copy()    # uses synthesized copy\nvar z = x^          # uses synthesized move\n```"
     }
   },
   {
