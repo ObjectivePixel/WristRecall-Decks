@@ -10,17 +10,21 @@
       "markdown": "What keyword is used to define all functions in Mojo?"
     },
     "back": {
-      "text": "Use 'def' for all functions. The legacy 'fn' keyword is deprecated as of 26.2. All arguments are typed and immutable (read) by default.",
+      "text": "Use 'def' for all functions in Mojo. All arguments are typed and immutable by default; declare another convention (mut, var, ref, out, deinit) on the parameter if you need different semantics.",
       "code_snippet": "def add(a: Int, b: Int) -> Int:\n    return a + b",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
           "def",
-          "fn"
+          "mut",
+          "var",
+          "ref",
+          "out",
+          "deinit"
         ]
       },
-      "markdown": "## Use `def` for all functions\n\nThe legacy `fn` keyword is {#C62828}**deprecated as of 26.2.**{/} All arguments are typed and immutable (read) by default.\n\n```\ndef add(a: Int, b: Int) -> Int:\n    return a + b\n```"
+      "markdown": "## Use `def` for all functions\n\nAll arguments are typed and **immutable by default**. Declare another convention (`mut`, `var`, `ref`, `out`, `deinit`) on the parameter when you need different semantics.\n\n```\ndef add(a: Int, b: Int) -> Int:\n    return a + b\n```"
     }
   },
   {
@@ -58,13 +62,12 @@
       "markdown": "What are the six argument conventions in Mojo?"
     },
     "back": {
-      "text": "read: immutable borrow, no copy (default). mut: mutable reference, caller sees changes. var: takes ownership — copies the value unless caller uses ^ to transfer. ref: borrows with origin tracking, adapts to caller's mutability. out: uninitialized slot the function must fill (used in __init__). deinit: value is consumed and destroyed (used in __del__ and moves).",
-      "code_snippet": "def show(read s: String):     # borrows, no copy\n    print(s)\ndef update(mut s: String):    # caller sees changes\n    s += \"!\"\ndef consume(var s: String):   # copies s in\n    print(s)\ndef take(var s: String):      # no copy with ^\n    print(s)\ndef peek(ref s: String):      # borrows, adapts\n    print(s)                   # mutability + origin\n\nvar msg = String(\"hi\")\nconsume(msg)    # msg copied, still usable\ntake(msg^)      # msg moved, no longer usable\n\n# out — used in __init__:\ndef __init__(out self): ...\n# deinit — consumed on exit:\ndef __del__(deinit self): ...",
+      "text": "Six conventions controlling how a function receives its arguments. Default (no keyword): immutable borrow, no copy. mut: mutable reference, caller sees changes. var: takes ownership — copies the value unless caller uses ^ to transfer. ref: reference with parametric mutability, adapts to caller's mutability. out: uninitialized slot the function must fill (used in __init__). deinit: value is consumed and destroyed (used in __del__ and consuming methods).",
+      "code_snippet": "def show(s: String):           # default — borrows, no copy\n    print(s)\ndef update(mut s: String):     # caller sees changes\n    s += \"!\"\ndef consume(var s: String):    # copies s in\n    print(s)\ndef take(var s: String):       # no copy when caller uses ^\n    print(s)\ndef peek(ref s: String):       # parametric mutability + origin\n    print(s)\n\nvar msg = String(\"hi\")\nconsume(msg)    # msg copied, still usable\ntake(msg^)      # msg moved, no longer usable\n\n# out — used in __init__:\ndef __init__(out self): ...\n# deinit — consumed on exit:\ndef __del__(deinit self): ...",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
-          "read",
           "mut",
           "var",
           "ref",
@@ -72,7 +75,7 @@
           "deinit"
         ]
       },
-      "markdown": "- **`read`**: immutable borrow, no copy (default)\n- **`mut`**: mutable reference, caller sees changes\n- **`var`**: takes ownership — copies the value unless caller uses ^ to transfer\n- **`ref`**: borrows with origin tracking, adapts to caller's mutability\n- **`out`**: uninitialized slot the function must fill (used in __init__)\n- **`deinit`**: value is consumed and destroyed (used in __del__ and moves)\n\n```\ndef show(read s: String):     # borrows, no copy\n    print(s)\ndef update(mut s: String):    # caller sees changes\n    s += \"!\"\ndef consume(var s: String):   # copies s in\n    print(s)\ndef take(var s: String):      # no copy with ^\n    print(s)\ndef peek(ref s: String):      # borrows, adapts\n    print(s)                   # mutability + origin\n\nvar msg = String(\"hi\")\nconsume(msg)    # msg copied, still usable\ntake(msg^)      # msg moved, no longer usable\n\n# out — used in __init__:\ndef __init__(out self): ...\n# deinit — consumed on exit:\ndef __del__(deinit self): ...\n```"
+      "markdown": "## Six conventions for how an argument is passed\n\n- **(default — no keyword)** — immutable borrow, no copy\n- **`mut`** — mutable reference, caller sees changes\n- **`var`** — takes ownership; copies unless caller uses `^` to transfer\n- **`ref`** — reference with **parametric mutability**, adapts to the caller\n- **`out`** — uninitialized slot the function must fill (used in `__init__`)\n- **`deinit`** — value is consumed and destroyed (used in `__del__` and consuming methods)\n\n```\ndef show(s: String):           # default — borrows, no copy\n    print(s)\ndef update(mut s: String):     # caller sees changes\n    s += \"!\"\ndef consume(var s: String):    # copies s in\n    print(s)\ndef take(var s: String):       # no copy when caller uses ^\n    print(s)\ndef peek(ref s: String):       # parametric mutability + origin\n    print(s)\n\nvar msg = String(\"hi\")\nconsume(msg)    # msg copied, still usable\ntake(msg^)      # msg moved, no longer usable\n\n# out — used in __init__:\ndef __init__(out self): ...\n# deinit — consumed on exit:\ndef __del__(deinit self): ...\n```"
     }
   },
   {
@@ -207,18 +210,19 @@
       "markdown": "What is `UnsafePointer` and how do you access its `pointee`?"
     },
     "back": {
-      "text": "UnsafePointer holds a memory address. The value stored at that address is the pointee. Read or write it with ptr[]. Unsafe means you manage allocation and lifetime manually, with no bounds or lifetime checks.",
-      "code_snippet": "var x = 42\nvar ptr = UnsafePointer(to=x)\nprint(ptr[])    # read pointee: 42\nptr[] = 99      # write pointee\nprint(x)        # 99 (same memory)",
+      "text": "UnsafePointer[T] is a low-level, non-null pointer to a value of type T. Access the value via the [] subscript (or .pointee). Allocate raw memory with the free function alloc[T](n) from std.memory.unsafe_pointer. Use Optional[UnsafePointer[T]] to model nullability.",
+      "code_snippet": "from std.memory.unsafe_pointer import alloc\n\nvar p = alloc[Int](1)\np.init_pointee_copy(42)\nprint(p[])                  # 42\nprint(p.pointee)            # 42 (same thing)\n\n# Nullable form:\nvar maybe: Optional[UnsafePointer[Int]] = None",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
           "UnsafePointer",
-          "ptr[]",
-          "pointee"
+          "alloc",
+          "pointee",
+          "Optional"
         ]
       },
-      "markdown": "## `UnsafePointer` holds a memory address\n\nThe value stored at that address is the `pointee`. Read or write it with `ptr[]`.\n\nUnsafe means you manage allocation and lifetime manually, with {#C62828}**no bounds or lifetime checks**{/}.\n\n```\nvar x = 42\nvar ptr = UnsafePointer(to=x)\nprint(ptr[])    # read pointee: 42\nptr[] = 99      # write pointee\nprint(x)        # 99 (same memory)\n```"
+      "markdown": "## `UnsafePointer[T]` — non-null, low-level pointer\n\nAccess the value via `ptr[]` (or `ptr.pointee`). Allocate raw memory with the free function `alloc[T](n)` from `std.memory.unsafe_pointer`.\n\n{#C62828}`UnsafePointer` is **non-null by design**. Wrap it in `Optional[UnsafePointer[T]]` to model nullability.{/}\n\n```\nfrom std.memory.unsafe_pointer import alloc\n\nvar p = alloc[Int](1)\np.init_pointee_copy(42)\nprint(p[])                  # 42\nprint(p.pointee)            # 42 (same thing)\n\n# Nullable form:\nvar maybe: Optional[UnsafePointer[Int]] = None\n```"
     }
   },
   {
@@ -330,8 +334,8 @@
       "markdown": "How do you define the logic for explicit `.copy()` calls?"
     },
     "back": {
-      "text": "The struct must conform to the Copyable trait, AND you define __init__ with a keyword-only 'copy' parameter to provide the actual copy logic. With Copyable alone (and no manual __init__), the compiler synthesizes a default fieldwise copy. Write the __init__ when you need custom behaviour — e.g. deep-copying an UnsafePointer instead of duplicating the address.",
-      "code_snippet": "# Copyable conformance is required.\n# Without a custom __init__(*, copy:), the compiler\n# synthesizes a fieldwise copy automatically.\n@fieldwise_init\nstruct Point(Copyable):\n    var x: Int\n    var y: Int\n\n# Provide a custom __init__(*, copy:) for non-trivial copy logic\n# (e.g. deep-copying owned heap memory):\nstruct HeapArray(Copyable):\n    var size: Int\n    var data: UnsafePointer[Int]\n\n    def __init__(out self, *, copy: Self):\n        self.size = copy.size\n        self.data = alloc[Int](self.size)\n        for i in range(self.size):\n            (self.data + i).init_pointee_copy(copy.data[i])",
+      "text": "Conform to the Copyable trait, and (optionally) define __init__ with a keyword-only 'copy' parameter to provide custom logic. With Copyable alone (no manual __init__), the compiler synthesizes a fieldwise copy. Write the manual constructor when you need non-trivial behaviour — e.g. deep-copying an UnsafePointer field instead of duplicating the address.",
+      "code_snippet": "from std.memory.unsafe_pointer import alloc\n\n# Trivial: trait + synthesized fieldwise copy\n@fieldwise_init\nstruct Point(Copyable):\n    var x: Int\n    var y: Int\n\n# Custom: trait + manual deep copy\nstruct HeapArray(Copyable):\n    var size: Int\n    var data: UnsafePointer[Int]\n\n    def __init__(out self, *, copy: Self):\n        self.size = copy.size\n        self.data = alloc[Int](self.size)\n        for i in range(self.size):\n            (self.data + i).init_pointee_copy(copy.data[i])",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -341,7 +345,7 @@
           ".copy()"
         ]
       },
-      "markdown": "## Conform to `Copyable`, and (optionally) define `__init__(out self, *, copy: Self)`\n\n{#0F766E}**Yes — you need both.** The trait declares the type is copyable; the keyword-only `copy:` constructor provides the logic.{/}\n\nWith just `Copyable` and no custom `__init__(*, copy:)`, the compiler **synthesizes** a fieldwise copy. Write the constructor manually only when you need custom behaviour — e.g. deep-copying an `UnsafePointer` field instead of duplicating the bare address.\n\n```\n# Trivial: trait + synthesized fieldwise copy\n@fieldwise_init\nstruct Point(Copyable):\n    var x: Int\n    var y: Int\n\n# Custom: trait + manual deep copy\nstruct HeapArray(Copyable):\n    var size: Int\n    var data: UnsafePointer[Int]\n\n    def __init__(out self, *, copy: Self):\n        self.size = copy.size\n        self.data = alloc[Int](self.size)\n        for i in range(self.size):\n            (self.data + i).init_pointee_copy(copy.data[i])\n```"
+      "markdown": "## Conform to `Copyable`, and (optionally) define `__init__(out self, *, copy: Self)`\n\n{#0F766E}**Yes — you need both.** The trait declares the type is copyable; the keyword-only `copy:` constructor provides the logic.{/}\n\nWith just `Copyable` and no custom `__init__(*, copy:)`, the compiler **synthesizes** a fieldwise copy. Write the constructor manually only when you need custom behaviour — e.g. deep-copying an `UnsafePointer` field instead of duplicating the bare address.\n\n```\nfrom std.memory.unsafe_pointer import alloc\n\n# Trivial: trait + synthesized fieldwise copy\n@fieldwise_init\nstruct Point(Copyable):\n    var x: Int\n    var y: Int\n\n# Custom: trait + manual deep copy\nstruct HeapArray(Copyable):\n    var size: Int\n    var data: UnsafePointer[Int]\n\n    def __init__(out self, *, copy: Self):\n        self.size = copy.size\n        self.data = alloc[Int](self.size)\n        for i in range(self.size):\n            (self.data + i).init_pointee_copy(copy.data[i])\n```"
     }
   },
   {
@@ -352,21 +356,22 @@
         "bold",
         "center_align"
       ],
-      "markdown": "How do you define a consuming move constructor for a struct?"
+      "markdown": "How do you define a **consuming move** constructor for a struct?"
     },
     "back": {
-      "text": "Implement __init__ with a keyword-only 'deinit take' parameter. The 'deinit' convention consumes the original.",
-      "code_snippet": "def __init__(out self, *, deinit take: Self):\n    self.val = take.val",
+      "text": "Conform to the Movable trait and define __init__(out self, *, deinit take: Self). The deinit convention is what makes take a consuming parameter — it ends the source's lifetime so its destructor is skipped. The compiler routes the ^ transfer sigil through this constructor. With Movable alone the compiler synthesizes a fieldwise move; write the constructor manually only when you need custom behaviour.",
+      "code_snippet": "# Trivial: trait + synthesized fieldwise move\n@fieldwise_init\nstruct Point(Movable):\n    var x: Int\n    var y: Int\n\n# Custom: take ownership of an allocated buffer\nstruct HeapArray(Movable):\n    var size: Int\n    var data: UnsafePointer[Int]\n\n    # `deinit take` consumes the source — its destructor is skipped.\n    def __init__(out self, *, deinit take: Self):\n        self.size = take.size\n        self.data = take.data   # transfer the address\n\nvar a = HeapArray(...)\nvar b = a^                      # consumes a; routes through `deinit take:`",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
           "__init__",
-          "deinit",
-          "take"
+          "Movable",
+          "take",
+          "^"
         ]
       },
-      "markdown": "## Implement `__init__` with a keyword-only `deinit` `take` parameter\n\nThe `deinit` convention consumes the original.\n\n```\ndef __init__(out self, *, deinit take: Self):\n    self.val = take.val\n```"
+      "markdown": "## Conform to `Movable`, and (optionally) define `__init__(out self, *, deinit take: Self)`\n\n{#0F766E}The **`deinit`** convention is what makes `take` a *consuming* parameter — it ends the source's lifetime, so its destructor is skipped. Without `deinit`, the parameter would just borrow.{/}\n\nThe compiler routes the `^` transfer sigil through this constructor. With just `Movable` and no custom `__init__(*, deinit take:)`, the compiler synthesizes a fieldwise move. Write it manually only when you need custom behaviour.\n\n```\n# Trivial: trait + synthesized fieldwise move\n@fieldwise_init\nstruct Point(Movable):\n    var x: Int\n    var y: Int\n\n# Custom: take ownership of an allocated buffer\nstruct HeapArray(Movable):\n    var size: Int\n    var data: UnsafePointer[Int]\n\n    # `deinit take` consumes the source — its destructor is skipped.\n    def __init__(out self, *, deinit take: Self):\n        self.size = take.size\n        self.data = take.data   # transfer the address\n\nvar a = HeapArray(...)\nvar b = a^                      # consumes a; routes through `deinit take:`\n```"
     }
   },
   {
@@ -573,18 +578,19 @@
       "markdown": "How do you allocate raw memory with `UnsafePointer`?"
     },
     "back": {
-      "text": "Call alloc[T](n) to reserve space for n values. The memory is uninitialized — reading it is undefined behavior until you write or init_pointee_copy/move.",
-      "code_snippet": "from std.memory import alloc\n\nvar ptr = alloc[Int](10)   # 10 uninit Ints\n# ... initialize before reading ...\nptr.free()                 # release later",
+      "text": "Use the free function alloc[T](n) imported from std.memory.unsafe_pointer. It returns an UnsafePointer[T] pointing to n uninitialized contiguous values. Call init_pointee_copy / init_pointee_move on each slot before reading, and free() when done.",
+      "code_snippet": "from std.memory.unsafe_pointer import alloc\n\nvar ptr = alloc[Int](10)   # 10 uninit Ints\nfor i in range(10):\n    (ptr + i).init_pointee_copy(i * i)\nprint(ptr[3])              # 9\nptr.free()                 # release the allocation",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
           "alloc",
           "UnsafePointer",
+          "init_pointee_copy",
           "free()"
         ]
       },
-      "markdown": "## Call `alloc`[T](n) to reserve space for n values\n\nThe memory is uninitialized — reading it is {#C62828}**undefined behavior**{/} until you write or init_pointee_copy/move.\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[Int](10)   # 10 uninit Ints\n# ... initialize before reading ...\nptr.free()                 # release later\n```"
+      "markdown": "## Use `alloc[T](n)` from `std.memory.unsafe_pointer`\n\n```\nfrom std.memory.unsafe_pointer import alloc\n\nvar ptr = alloc[Int](10)   # 10 uninit Ints\nfor i in range(10):\n    (ptr + i).init_pointee_copy(i * i)\nprint(ptr[3])              # 9\nptr.free()                 # release the allocation\n```"
     }
   },
   {
@@ -1019,18 +1025,20 @@
       "markdown": "Does Mojo have a 'switch' or 'match' statement?"
     },
     "back": {
-      "text": "Not natively yet. Use standard if, elif, else blocks.",
-      "code_snippet": "if x == 1:\n    print(\"One\")\nelif x == 2:\n    print(\"Two\")",
+      "text": "Mojo does not have a switch or match statement. Use chained if / elif / else for multi-way branching, or match on type with `comptime if conforms_to[T, Trait]()` patterns when you need type-driven dispatch.",
+      "code_snippet": "def grade(score: Int) -> String:\n    if score >= 90:\n        return \"A\"\n    elif score >= 80:\n        return \"B\"\n    elif score >= 70:\n        return \"C\"\n    else:\n        return \"F\"",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
           "if",
           "elif",
-          "else"
+          "else",
+          "match",
+          "switch"
         ]
       },
-      "markdown": "## Not natively yet\n\nUse standard `if`, `elif`, `else` blocks.\n\n```\nif x == 1:\n    print(\"One\")\nelif x == 2:\n    print(\"Two\")\n```"
+      "markdown": "## No — Mojo has no `switch` / `match` statement\n\nUse chained `if` / `elif` / `else` for multi-way branching.\n\n```\ndef grade(score: Int) -> String:\n    if score >= 90:\n        return \"A\"\n    elif score >= 80:\n        return \"B\"\n    elif score >= 70:\n        return \"C\"\n    else:\n        return \"F\"\n```\n\n{#0F766E}For type-driven dispatch, use `comptime if conforms_to[T, SomeTrait]()` — see the type-refinement card.{/}"
     }
   },
   {
@@ -1330,17 +1338,19 @@
       "markdown": "How do you accurately get the character length of a UTF-8 String?"
     },
     "back": {
-      "text": "len(text) returns byte length. Use text.codepoints() for actual Unicode character count.",
-      "code_snippet": "var text = \"café\"\nprint(len(text)) # 5 bytes\nprint(len(text.codepoints())) # 4 characters",
+      "text": "len(s) returns the number of UTF-8 bytes, not characters. For the visual character count (extended grapheme clusters per UAX #29), use count_graphemes(s). For Unicode codepoints, iterate the codepoints view. The [grapheme=...] slicing syntax indexes by grapheme too.",
+      "code_snippet": "var s = String(\"café 👩‍💻\")\nprint(len(s))                # bytes (varies — multibyte chars + ZWJ)\nprint(count_graphemes(s))    # 5 — visual characters\n\n# Slice by grapheme:\nprint(s[grapheme=0:4])       # \"café\"",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
           "len()",
-          ".codepoints()"
+          "count_graphemes",
+          "codepoints",
+          "grapheme"
         ]
       },
-      "markdown": "## len(text) returns byte length\n\nUse text.codepoints() for actual Unicode character count.\n\n```\nvar text = \"café\"\nprint(len(text)) # 5 bytes\nprint(len(text.codepoints())) # 4 characters\n```"
+      "markdown": "## Three different meanings of \"length\"\n\n- **Bytes:** `len(s)` — number of UTF-8 bytes.\n- **Codepoints:** iterate `s.codepoints` for Unicode codepoints.\n- **Graphemes:** `count_graphemes(s)` — visual characters per UAX #29 (the user-facing notion of a character).\n\n```\nvar s = String(\"café 👩‍💻\")\nprint(len(s))                # bytes (varies — multibyte chars + ZWJ)\nprint(count_graphemes(s))    # 5 — visual characters\n\n# Slice by grapheme:\nprint(s[grapheme=0:4])       # \"café\"\n```"
     }
   },
   {
@@ -1729,18 +1739,19 @@
       "markdown": "How do you auto-generate copy and move constructors for a struct?"
     },
     "back": {
-      "text": "Pass the Copyable or Movable trait to the struct. Mojo synthesizes unified __init__ constructors with 'copy' and 'take' parameters (legacy __copyinit__/__moveinit__ are deprecated).",
-      "code_snippet": "@fieldwise_init\nstruct MyPair(Copyable):\n    var a: Int\n    var b: Int",
+      "text": "Add the Copyable and/or Movable traits to the struct's conformance list, and pair with @fieldwise_init to synthesize the fieldwise constructor. The compiler then synthesizes unified __init__(*, copy: Self) and __init__(*, deinit take: Self) constructors fieldwise.",
+      "code_snippet": "@fieldwise_init\nstruct MyPair(Copyable, Movable):\n    var a: Int\n    var b: Int\n\nvar x = MyPair(1, 2)\nvar y = x.copy()    # uses synthesized copy\nvar z = x^          # uses synthesized move",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
+          "@fieldwise_init",
           "Copyable",
           "Movable",
           "__init__"
         ]
       },
-      "markdown": "## Pass the `Copyable` or `Movable` trait to the struct\n\nMojo synthesizes unified `__init__` constructors with copy and take parameters (legacy __copyinit__/__moveinit__ are {#C62828}**deprecated**{/}).\n\n```\n@fieldwise_init\nstruct MyPair(Copyable):\n    var a: Int\n    var b: Int\n```"
+      "markdown": "## Add the `Copyable` and/or `Movable` traits\n\nThe compiler synthesizes unified `__init__(*, copy: Self)` and `__init__(*, deinit take: Self)` constructors fieldwise. Pair with `@fieldwise_init` to also get the fieldwise positional initializer.\n\n```\n@fieldwise_init\nstruct MyPair(Copyable, Movable):\n    var a: Int\n    var b: Int\n\nvar x = MyPair(1, 2)\nvar y = x.copy()    # uses synthesized copy\nvar z = x^          # uses synthesized move\n```"
     }
   },
   {
@@ -1871,8 +1882,8 @@
       "markdown": "How do you declare a struct that is passed in CPU registers instead of by pointer?"
     },
     "back": {
-      "text": "Conform to RegisterPassable (or TrivialRegisterPassable for trivial types). These types live in registers, avoiding memory indirection. The @register_passable decorator is deprecated.",
-      "code_snippet": "struct Flags(TrivialRegisterPassable):\n    var bits: UInt8\n\n# Passed directly in a CPU register,\n# not by pointer",
+      "text": "Conform to the RegisterPassable trait (or TrivialRegisterPassable for trivial types). These types live in registers, avoiding memory indirection. Register-passable structs must be small and their fields must themselves be register-passable.",
+      "code_snippet": "struct Flags(TrivialRegisterPassable):\n    var bits: UInt8\n\n# Passed directly in a CPU register, not by pointer.",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -1881,7 +1892,7 @@
           "TrivialRegisterPassable"
         ]
       },
-      "markdown": "Conform to `RegisterPassable` (or `TrivialRegisterPassable` for trivial types). These types live in registers, avoiding memory indirection. The @register_passable decorator is {#C62828}**deprecated**{/}.\n\n```\nstruct Flags(TrivialRegisterPassable):\n    var bits: UInt8\n\n# Passed directly in a CPU register,\n# not by pointer\n```"
+      "markdown": "## Conform to `RegisterPassable` (or `TrivialRegisterPassable`)\n\nThese types live in CPU registers, avoiding memory indirection. They must be small, and every field must itself be register-passable.\n\n- **`TrivialRegisterPassable`** — also bit-wise copyable and destructorless (POD-like)\n- **`RegisterPassable`** — register-passable but may have non-trivial copy/move/destroy\n\n```\nstruct Flags(TrivialRegisterPassable):\n    var bits: UInt8\n\n# Passed directly in a CPU register, not by pointer.\n```"
     }
   },
   {
@@ -1895,18 +1906,17 @@
       "markdown": "What is the `ref` argument convention?"
     },
     "back": {
-      "text": "A reference with parametric mutability. It generalizes 'read' and 'mut', allowing the reference to be either mutable or immutable depending on the caller's context.",
-      "code_snippet": "def generic_process(ref x: Int):\n    # 'x' adapts to the mutability of the input",
+      "text": "ref is the argument convention for a reference with parametric mutability. The reference adapts to the caller's mutability — mutable when the caller has a mutable value, immutable otherwise. Use it when one function should work for both. ref carries an origin so the compiler can track the referenced value's lifetime.",
+      "code_snippet": "def bump_or_read(ref x: Int):\n    # Inside, `x`'s mutability follows the caller.\n    # If the caller had a mutable Int, we can write x += 1.\n    # If immutable, we can only read.\n    print(x)",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
           "ref",
-          "read",
-          "mut"
+          "origin"
         ]
       },
-      "markdown": "## A reference with parametric mutability\n\nIt generalizes `read` and `mut`, allowing the reference to be either mutable or immutable depending on the caller's context.\n\n```\ndef generic_process(ref x: Int):\n    # 'x' adapts to the mutability of the input\n```"
+      "markdown": "## A reference with **parametric mutability**\n\nA `ref` argument adapts to the caller's mutability — mutable when the caller has a mutable value, immutable otherwise. The compiler tracks its lifetime through an `origin`, inferred from the caller.\n\n```\ndef bump_or_read(ref x: Int):\n    # Inside, `x`'s mutability follows the caller.\n    # If the caller had a mutable Int, we can write x += 1.\n    # If immutable, we can only read.\n    print(x)\n```"
     }
   },
   {
@@ -1959,26 +1969,27 @@
   {
     "id": 84,
     "front": {
-      "text": "How do you use pop(), len(), and negative indexing on a List?",
+      "text": "How do you use pop() and len() on a List, and how do you access the last element?",
       "formatting": [
         "bold",
         "center_align"
       ],
-      "markdown": "How do you use `pop()`, `len()`, and negative indexing on a List?"
+      "markdown": "How do you use `pop()` and `len()` on a `List`, and how do you access the **last** element?"
     },
     "back": {
-      "text": "pop() removes and returns the last element. len() returns the count. Negative indices count from the end.",
-      "code_snippet": "nums = [12, -7, 64]\nnums.append(-937)\nprint(nums.pop())  # -937\nprint(len(nums))   # 3\nprint(nums[-1])    # 64",
+      "text": "pop() removes and returns the last element (or pop(i) for index i). len() returns the count. Indexing with a negative index is undefined behavior — to get the last element, use lst[len(lst) - 1] explicitly, or call pop() if you want to consume it.",
+      "code_snippet": "var nums = [12, -7, 64]\nnums.append(-937)\n\nprint(nums.pop())             # -937 (removed)\nprint(len(nums))              # 3\nprint(nums[len(nums) - 1])    # 64 — last element",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
           "pop()",
           "len()",
-          "[-1]"
+          "List",
+          "Span"
         ]
       },
-      "markdown": "- **`pop()`** removes and returns the last element\n- **`len()`** returns the count. Negative indices count from the end\n\n```\nnums = [12, -7, 64]\nnums.append(-937)\nprint(nums.pop())  # -937\nprint(len(nums))   # 3\nprint(nums[-1])    # 64\n```"
+      "markdown": "- **`pop()`** removes and returns the last element. `pop(i)` removes at index `i`.\n- **`len(lst)`** returns the count.\n- **No negative indexing** — `lst[-1]` is undefined behaviour on `List`/`String`/`Span`/`InlineArray`/`Deque`/`StringSlice`. Index from `len(lst) - 1` instead.\n\n```\nvar nums = [12, -7, 64]\nnums.append(-937)\n\nprint(nums.pop())             # -937 (removed)\nprint(len(nums))              # 3\nprint(nums[len(nums) - 1])    # 64 — last element\n```\n\n{#C62828}`lst[-1]` is **UB**, not \"the last element.\" Always index from `len(lst) - 1`.{/}"
     }
   },
   {
@@ -2305,7 +2316,7 @@
     },
     "back": {
       "text": "Use memcpy to copy between buffers and memset_zero to fill with zeros. Import from std.memory.",
-      "code_snippet": "from std.memory import alloc, memcpy,\n    memset_zero\n\nvar src = alloc[Int8](n)\nvar dest = alloc[Int8](n)\nmemset_zero(dest, n)\nmemcpy(dest=dest, src=src, count=n)",
+      "code_snippet": "from std.memory.unsafe_pointer import alloc\nfrom std.memory import memcpy,\n    memset_zero\n\nvar src = alloc[Int8](n)\nvar dest = alloc[Int8](n)\nmemset_zero(dest, n)\nmemcpy(dest=dest, src=src, count=n)",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -2315,7 +2326,7 @@
           "std.memory"
         ]
       },
-      "markdown": "Use `memcpy` to copy between buffers and `memset_zero` to fill with zeros. Import from `std.memory`.\n\n```\nfrom std.memory import alloc, memcpy,\n    memset_zero\n\nvar src = alloc[Int8](n)\nvar dest = alloc[Int8](n)\nmemset_zero(dest, n)\nmemcpy(dest=dest, src=src, count=n)\n```"
+      "markdown": "Use `memcpy` to copy between buffers and `memset_zero` to fill with zeros. Import from `std.memory`.\n\n```\nfrom std.memory.unsafe_pointer import alloc\nfrom std.memory import memcpy,\n    memset_zero\n\nvar src = alloc[Int8](n)\nvar dest = alloc[Int8](n)\nmemset_zero(dest, n)\nmemcpy(dest=dest, src=src, count=n)\n```"
     }
   },
   {
@@ -2750,7 +2761,7 @@
     },
     "back": {
       "text": "take_pointee() moves the value out (leaves memory uninitialized). destroy_pointee() calls the destructor in place. Always do one or the other before calling free().",
-      "code_snippet": "from std.memory import alloc\n\nvar ptr = alloc[String](1)\nptr.init_pointee_move(String(\"hello\"))\n\n# Option A: move value out\nvar s = ptr.take_pointee()\n\n# Option B: destroy in place\n# ptr.destroy_pointee()\n\nptr.free()  # release the allocation",
+      "code_snippet": "from std.memory.unsafe_pointer import alloc\n\nvar ptr = alloc[String](1)\nptr.init_pointee_move(String(\"hello\"))\n\n# Option A: move value out\nvar s = ptr.take_pointee()\n\n# Option B: destroy in place\n# ptr.destroy_pointee()\n\nptr.free()  # release the allocation",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -2760,7 +2771,7 @@
           "free()"
         ]
       },
-      "markdown": "- **`take_pointee()`** moves the value out (leaves memory uninitialized)\n- **`destroy_pointee()`** calls the destructor in place. Always do one or the other before calling `free()`\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[String](1)\nptr.init_pointee_move(String(\"hello\"))\n\n# Option A: move value out\nvar s = ptr.take_pointee()\n\n# Option B: destroy in place\n# ptr.destroy_pointee()\n\nptr.free()  # release the allocation\n```"
+      "markdown": "- **`take_pointee()`** moves the value out (leaves memory uninitialized)\n- **`destroy_pointee()`** calls the destructor in place. Always do one or the other before calling `free()`\n\n```\nfrom std.memory.unsafe_pointer import alloc\n\nvar ptr = alloc[String](1)\nptr.init_pointee_move(String(\"hello\"))\n\n# Option A: move value out\nvar s = ptr.take_pointee()\n\n# Option B: destroy in place\n# ptr.destroy_pointee()\n\nptr.free()  # release the allocation\n```"
     }
   },
   {
@@ -3732,8 +3743,8 @@
       "markdown": "What states can an `UnsafePointer` **and its pointee** be in?"
     },
     "back": {
-      "text": "Two independent axes. The POINTER variable: P1) Unbound — declared with no address. P2) Has an address. The MEMORY at that address (the pointee): M1) Allocated, no value — alloc() returned storage but nothing lives in it yet. M2) Initialized — a value lives at the address. M3) Freed (dangling) — free() was called; pointer still holds the old address. Dereferencing is UB unless the pointer is in P2 AND the memory is in M2. UnsafePointer is non-nullable; wrap it in Optional to model null.",
-      "code_snippet": "from std.memory import alloc\n\nvar p: UnsafePointer[Int]      # P1: pointer has no address\n\nvar r = alloc[Int](1)          # P2 + M1: pointer has an address;\n                               #          memory allocated, no value\nr.init_pointee_copy(42)        # M2: initialized\nprint(r[])                     # safe read\nr.destroy_pointee()            # back to M1 (alloc'd, no value)\nr.free()                       # M3: pointer now dangling\n\n# UnsafePointer is non-nullable. To model null:\nvar maybe: Optional[UnsafePointer[Int]] = None",
+      "text": "Two independent axes. Pointer: P1) Has no address — declared but unbound (use cautiously; consider unsafe_dangling() for explicit lazy init). P2) Has an address. Memory at that address: M1) Allocated, no value — alloc() returned storage but nothing lives in it yet. M2) Initialized — a value lives at the address. M3) Freed (dangling) — free() was called; pointer still holds the old address. Dereferencing is UB unless the pointer is in P2 AND the memory is in M2. UnsafePointer is non-null by design; wrap it in Optional to model null.",
+      "code_snippet": "from std.memory.unsafe_pointer import alloc\n\nvar r = alloc[Int](1)          # P2 + M1: pointer has an address;\n                               #          memory allocated, no value\nr.init_pointee_copy(42)        # M2: initialized\nprint(r[])                     # safe read\nr.destroy_pointee()            # back to M1 (alloc'd, no value)\nr.free()                       # M3: pointer now dangling\n\n# Nullable form:\nvar maybe: Optional[UnsafePointer[Int]] = None",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -3743,11 +3754,11 @@
           "free()",
           "init_pointee_copy",
           "destroy_pointee",
-          "dangling",
-          "Optional"
+          "Optional",
+          "unsafe_dangling"
         ]
       },
-      "markdown": "{#0F766E}**Pointer state and pointee state are independent axes** — keep them separate.{/}\n\n**P · The pointer variable**\n\n- **P1 · Unbound** — declared, no address (`var p: UnsafePointer[Int]`). Any use is {#C62828}**UB**{/}.\n- **P2 · Has an address** — has been assigned a pointer value. Safety of `[]` then depends on the memory state below.\n\n**M · The memory at that address (the pointee)**\n\n- **M1 · Allocated, no value** — `alloc[T](n)` returned storage, but nothing lives there yet. Safe: `init_pointee_copy` / `init_pointee_move`, pointer arithmetic. {#C62828}UB to dereference, `destroy_pointee`, or `take_pointee`.{/}\n- **M2 · Initialized** — a value lives at the address. Safe: `[]` read/write, `destroy_pointee`, `take_pointee` (both return the memory to **M1**).\n- **M3 · Freed (dangling)** — `free()` was called or the memory went out of scope. The pointer still holds the old address. {#C62828}Any access is UB.{/}\n\n{#0F766E}Dereferencing is safe **only** when the pointer is in **P2** and the memory is in **M2**.{/}\n\n{#C62828}**Note:**{/} `UnsafePointer` is **non-nullable** — there's no separate \"null\" state. To model null, wrap it in `Optional[UnsafePointer[T]]`.\n\n```\nfrom std.memory import alloc\n\nvar p: UnsafePointer[Int]      # P1: pointer has no address\n\nvar r = alloc[Int](1)          # P2 + M1: pointer has an address;\n                               #          memory allocated, no value\nr.init_pointee_copy(42)        # M2: initialized\nprint(r[])                     # safe read\nr.destroy_pointee()            # back to M1 (alloc'd, no value)\nr.free()                       # M3: pointer now dangling\n\n# UnsafePointer is non-nullable. To model null:\nvar maybe: Optional[UnsafePointer[Int]] = None\n```"
+      "markdown": "{#0F766E}**Pointer state and pointee state are independent axes** — keep them separate.{/}\n\n**P · The pointer variable**\n\n- **P1 · No address** — declared but unbound. Prefer `UnsafePointer[T].unsafe_dangling()` when you intentionally want this state.\n- **P2 · Has an address** — has been assigned a pointer value.\n\n**M · The memory at that address (the pointee)**\n\n- **M1 · Allocated, no value** — `alloc[T](n)` returned storage, but nothing lives there yet. Safe: `init_pointee_copy` / `init_pointee_move`, pointer arithmetic. {#C62828}UB to dereference, `destroy_pointee`, or `take_pointee`.{/}\n- **M2 · Initialized** — a value lives at the address. Safe: `[]` read/write, `destroy_pointee`, `take_pointee` (both return the memory to **M1**).\n- **M3 · Freed (dangling)** — `free()` was called or the memory went out of scope. The pointer still holds the old address. {#C62828}Any access is UB.{/}\n\n{#0F766E}Dereferencing is safe **only** when the pointer is in **P2** and the memory is in **M2**.{/}\n\n{#C62828}**Note:**{/} `UnsafePointer` is **non-null by design** — there's no separate \"null\" state. To model null, wrap it in `Optional[UnsafePointer[T]]`.\n\n```\nfrom std.memory.unsafe_pointer import alloc\n\nvar r = alloc[Int](1)          # P2 + M1: pointer has an address;\n                               #          memory allocated, no value\nr.init_pointee_copy(42)        # M2: initialized\nprint(r[])                     # safe read\nr.destroy_pointee()            # back to M1 (alloc'd, no value)\nr.free()                       # M3: pointer now dangling\n\n# Nullable form:\nvar maybe: Optional[UnsafePointer[Int]] = None\n```"
     }
   },
   {
@@ -3762,7 +3773,7 @@
     },
     "back": {
       "text": "init_pointee_copy copies the value in (requires Copyable). init_pointee_move transfers ownership — use ^ for an owned variable, or pass a literal/temporary directly. Always initialize before reading.",
-      "code_snippet": "from std.memory import alloc\n\nvar ptr = alloc[String](1)\n\n# copy the value in:\nptr.init_pointee_copy(String(\"hi\"))\n\n# OR move a literal:\nptr.init_pointee_move(String(\"hi\"))\n\n# OR transfer an owned variable:\nvar s = String(\"hi\")\nptr.init_pointee_move(s^)",
+      "code_snippet": "from std.memory.unsafe_pointer import alloc\n\nvar ptr = alloc[String](1)\n\n# copy the value in:\nptr.init_pointee_copy(String(\"hi\"))\n\n# OR move a literal:\nptr.init_pointee_move(String(\"hi\"))\n\n# OR transfer an owned variable:\nvar s = String(\"hi\")\nptr.init_pointee_move(s^)",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -3772,7 +3783,7 @@
           "^"
         ]
       },
-      "markdown": "- **`init_pointee_copy`** copies the value in (requires Copyable)\n- **`init_pointee_move`** transfers ownership — use `^` for an owned variable, or pass a literal/temporary directly. Always initialize before reading\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[String](1)\n\n# copy the value in:\nptr.init_pointee_copy(String(\"hi\"))\n\n# OR move a literal:\nptr.init_pointee_move(String(\"hi\"))\n\n# OR transfer an owned variable:\nvar s = String(\"hi\")\nptr.init_pointee_move(s^)\n```"
+      "markdown": "- **`init_pointee_copy`** copies the value in (requires Copyable)\n- **`init_pointee_move`** transfers ownership — use `^` for an owned variable, or pass a literal/temporary directly. Always initialize before reading\n\n```\nfrom std.memory.unsafe_pointer import alloc\n\nvar ptr = alloc[String](1)\n\n# copy the value in:\nptr.init_pointee_copy(String(\"hi\"))\n\n# OR move a literal:\nptr.init_pointee_move(String(\"hi\"))\n\n# OR transfer an owned variable:\nvar s = String(\"hi\")\nptr.init_pointee_move(s^)\n```"
     }
   },
   {
@@ -3811,7 +3822,7 @@
     },
     "back": {
       "text": "ptr[] reads or writes the single pointee. ptr[i] accesses the i-th element in an array-style allocation — equivalent to (ptr + i)[]. Dereferencing uninitialized or freed memory is undefined behavior.",
-      "code_snippet": "from std.memory import alloc\n\nvar ptr = alloc[Int](3)\nptr[0] = 10      # write index 0\nptr[1] = 20\nptr[2] = 30\nprint(ptr[])     # 10 (same as ptr[0])\nprint(ptr[1])    # 20\nptr.free()",
+      "code_snippet": "from std.memory.unsafe_pointer import alloc\n\nvar ptr = alloc[Int](3)\nptr[0] = 10      # write index 0\nptr[1] = 20\nptr[2] = 30\nprint(ptr[])     # 10 (same as ptr[0])\nprint(ptr[1])    # 20\nptr.free()",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -3820,7 +3831,7 @@
           "ptr[i]"
         ]
       },
-      "markdown": "- **`ptr[]`** reads or writes the single pointee\n- **`ptr[i]`** accesses the i-th element in an array-style allocation — equivalent to (ptr + i)[]. Dereferencing uninitialized or freed memory is {#C62828}**undefined behavior**{/}\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[Int](3)\nptr[0] = 10      # write index 0\nptr[1] = 20\nptr[2] = 30\nprint(ptr[])     # 10 (same as ptr[0])\nprint(ptr[1])    # 20\nptr.free()\n```"
+      "markdown": "- **`ptr[]`** reads or writes the single pointee\n- **`ptr[i]`** accesses the i-th element in an array-style allocation — equivalent to (ptr + i)[]. Dereferencing uninitialized or freed memory is {#C62828}**undefined behavior**{/}\n\n```\nfrom std.memory.unsafe_pointer import alloc\n\nvar ptr = alloc[Int](3)\nptr[0] = 10      # write index 0\nptr[1] = 20\nptr[2] = 30\nprint(ptr[])     # 10 (same as ptr[0])\nprint(ptr[1])    # 20\nptr.free()\n```"
     }
   },
   {
@@ -3835,7 +3846,7 @@
     },
     "back": {
       "text": "ptr.load() reads the pointee, ptr.store(val) writes. Equivalent to ptr[] for scalar types but supports compile-time flags — most notably volatile=True for memory-mapped I/O where the compiler must not cache or reorder the access.",
-      "code_snippet": "from std.memory import alloc\n\nvar ptr = alloc[Int32](1)\nptr.store(42)\nvar v = ptr.load()   # 42\n\n# For memory-mapped I/O:\nptr.store[volatile=True](99)\nvar r = ptr.load[volatile=True]()\nptr.free()",
+      "code_snippet": "from std.memory.unsafe_pointer import alloc\n\nvar ptr = alloc[Int32](1)\nptr.store(42)\nvar v = ptr.load()   # 42\n\n# For memory-mapped I/O:\nptr.store[volatile=True](99)\nvar r = ptr.load[volatile=True]()\nptr.free()",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -3845,7 +3856,7 @@
           "volatile"
         ]
       },
-      "markdown": "## ptr.`load()` reads the pointee, ptr.store(val) writes\n\nEquivalent to ptr[] for scalar types but supports compile-time flags — most notably `volatile`=True for memory-mapped I/O where the compiler must not cache or reorder the access.\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[Int32](1)\nptr.store(42)\nvar v = ptr.load()   # 42\n\n# For memory-mapped I/O:\nptr.store[volatile=True](99)\nvar r = ptr.load[volatile=True]()\nptr.free()\n```"
+      "markdown": "## ptr.`load()` reads the pointee, ptr.store(val) writes\n\nEquivalent to ptr[] for scalar types but supports compile-time flags — most notably `volatile`=True for memory-mapped I/O where the compiler must not cache or reorder the access.\n\n```\nfrom std.memory.unsafe_pointer import alloc\n\nvar ptr = alloc[Int32](1)\nptr.store(42)\nvar v = ptr.load()   # 42\n\n# For memory-mapped I/O:\nptr.store[volatile=True](99)\nvar r = ptr.load[volatile=True]()\nptr.free()\n```"
     }
   },
   {
@@ -3860,7 +3871,7 @@
     },
     "back": {
       "text": "ptr.load[width=N]() reads N contiguous values into a SIMD vector. ptr.store(simd_value) writes one back. The SIMD's element dtype matches the pointer's pointee type — it's not written explicitly at the call site. This is the core vectorization primitive for contiguous memory.",
-      "code_snippet": "from std.memory import alloc\n\nvar ptr = alloc[Float32](8)\n# ... fill ptr[0..7] ...\n\n# Element dtype is inferred from ptr's pointee type (Float32).\n# Equivalent to declaring the type explicitly:\nvar vec: SIMD[DType.float32, 4] = ptr.load[width=4]()\n# vec holds ptr[0..3] as a SIMD[DType.float32, 4]\n\nptr.store(vec * 2.0)  # writes the 4 lanes of `vec` to ptr[0..3]\nptr.free()",
+      "code_snippet": "from std.memory.unsafe_pointer import alloc\n\nvar ptr = alloc[Float32](8)\n# ... fill ptr[0..7] ...\n\n# Element dtype is inferred from ptr's pointee type (Float32).\n# Equivalent to declaring the type explicitly:\nvar vec: SIMD[DType.float32, 4] = ptr.load[width=4]()\n# vec holds ptr[0..3] as a SIMD[DType.float32, 4]\n\nptr.store(vec * 2.0)  # writes the 4 lanes of `vec` to ptr[0..3]\nptr.free()",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -3871,7 +3882,7 @@
           "DType.float32"
         ]
       },
-      "markdown": "## Use `ptr.load[width=N]()` and `ptr.store(vec)` for contiguous SIMD I/O\n\n`ptr.load[width=N]()` reads N contiguous values into a `SIMD` vector. `ptr.store(simd_value)` writes one back.\n\n{#0F766E}The element dtype is **inferred from the pointer's pointee type** — it isn't written at the call site. The example below makes the inferred `SIMD[DType.float32, 4]` type explicit.{/}\n\n```\nfrom std.memory import alloc\n\nvar ptr = alloc[Float32](8)\n# ... fill ptr[0..7] ...\n\n# Element dtype inferred from ptr's pointee (Float32).\n# Annotation here just spells out the inferred type:\nvar vec: SIMD[DType.float32, 4] = ptr.load[width=4]()\n# vec = ptr[0..3] as a SIMD[DType.float32, 4]\n\nptr.store(vec * 2.0)  # writes 4 lanes back to ptr[0..3]\nptr.free()\n```"
+      "markdown": "## Use `ptr.load[width=N]()` and `ptr.store(vec)` for contiguous SIMD I/O\n\n`ptr.load[width=N]()` reads N contiguous values into a `SIMD` vector. `ptr.store(simd_value)` writes one back.\n\n{#0F766E}The element dtype is **inferred from the pointer's pointee type** — it isn't written at the call site. The example below makes the inferred `SIMD[DType.float32, 4]` type explicit.{/}\n\n```\nfrom std.memory.unsafe_pointer import alloc\n\nvar ptr = alloc[Float32](8)\n# ... fill ptr[0..7] ...\n\n# Element dtype inferred from ptr's pointee (Float32).\n# Annotation here just spells out the inferred type:\nvar vec: SIMD[DType.float32, 4] = ptr.load[width=4]()\n# vec = ptr[0..3] as a SIMD[DType.float32, 4]\n\nptr.store(vec * 2.0)  # writes 4 lanes back to ptr[0..3]\nptr.free()\n```"
     }
   },
   {
@@ -3910,17 +3921,19 @@
       "markdown": "How do you read or write SIMD values at arbitrary offsets?"
     },
     "back": {
-      "text": "ptr.gather(offsets) reads values at each offset in the SIMD index vector. ptr.scatter(values, offsets) writes values at each offset. Used for fully random-access patterns like indexed table lookups.",
-      "code_snippet": "# Read ptr[1], ptr[5], ptr[2], ptr[8]:\nvar offs = SIMD[DType.index, 4](1, 5, 2, 8)\nvar vals = ptr.gather(offs)\n\n# Write vals to different offsets:\nptr.scatter(\n    vals,\n    SIMD[DType.index, 4](0, 2, 4, 6))",
+      "text": "ptr.gather(offsets) reads values at each offset in the SIMD index vector. ptr.scatter(offsets, values) writes values at each offset. Both accept optional mask (which lanes participate) and gather() also takes default (value for masked-off lanes). Used for fully random-access patterns like indexed table lookups.",
+      "code_snippet": "# Read ptr[1], ptr[5], ptr[2], ptr[8]:\nvar offs = SIMD[DType.index, 4](1, 5, 2, 8)\nvar vals = ptr.gather(offs)\n\n# Write to different offsets, only lanes 0 and 2:\nvar mask = SIMD[DType.bool, 4](True, False, True, False)\nptr.scatter(\n    SIMD[DType.index, 4](0, 2, 4, 6),\n    vals,\n    mask)",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
           "gather",
-          "scatter"
+          "scatter",
+          "mask",
+          "default"
         ]
       },
-      "markdown": "## Use `ptr.gather(offsets)` and `ptr.scatter(values, offsets)`\n\n`ptr.gather(offsets)` reads values at each offset in the SIMD index vector. `ptr.scatter(values, offsets)` writes values at each offset. Used for fully random-access patterns like indexed table lookups.\n\n```\n# Read ptr[1], ptr[5], ptr[2], ptr[8]:\nvar offs = SIMD[DType.index, 4](1, 5, 2, 8)\nvar vals = ptr.gather(offs)\n\n# Write vals to different offsets:\nptr.scatter(\n    vals,\n    SIMD[DType.index, 4](0, 2, 4, 6))\n```"
+      "markdown": "## Use `ptr.gather(offsets)` and `ptr.scatter(offsets, values)`\n\n`ptr.gather(offsets)` reads values at each offset in the SIMD index vector. `ptr.scatter(offsets, values)` writes them.\n\nBoth take an optional `mask: SIMD[DType.bool, width]` — masked-off lanes are skipped (in `scatter`) or replaced with `default` (in `gather`).\n\n```\n# Read ptr[1], ptr[5], ptr[2], ptr[8]:\nvar offs = SIMD[DType.index, 4](1, 5, 2, 8)\nvar vals = ptr.gather(offs)\n\n# Write to different offsets, only lanes 0 and 2:\nvar mask = SIMD[DType.bool, 4](True, False, True, False)\nptr.scatter(\n    SIMD[DType.index, 4](0, 2, 4, 6),\n    vals,\n    mask)\n```"
     }
   },
   {
@@ -3985,7 +3998,7 @@
     },
     "back": {
       "text": "1) Manual memory management — leaks, double-free, use-after-free. 2) Nullable and uninitialized — dereferencing is undefined behavior. 3) Unchecked arithmetic — offsets beyond the allocation are allowed but unsafe. Discipline: allocate → initialize → use → destroy → free.",
-      "code_snippet": "from std.memory import alloc\n\n# UB: use after free\nvar p = alloc[Int](1)\np.init_pointee_copy(1)\np.destroy_pointee()\np.free()\n# print(p[])  # dangling — UB\n\n# UB: uninitialized read\nvar q = alloc[Int](1)\n# print(q[])  # never initialized — UB\nq.free()",
+      "code_snippet": "from std.memory.unsafe_pointer import alloc\n\n# UB: use after free\nvar p = alloc[Int](1)\np.init_pointee_copy(1)\np.destroy_pointee()\np.free()\n# print(p[])  # dangling — UB\n\n# UB: uninitialized read\nvar q = alloc[Int](1)\n# print(q[])  # never initialized — UB\nq.free()",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
@@ -3995,7 +4008,380 @@
           "UB"
         ]
       },
-      "markdown": "1. Manual memory management — leaks, double-free, `use-after-free`\n2. Nullable and `uninitialized` — dereferencing is {#C62828}**undefined behavior**{/}\n3. Unchecked arithmetic — offsets beyond the allocation are allowed but unsafe. Discipline: allocate → initialize → use → destroy → free\n\n```\nfrom std.memory import alloc\n\n# UB: use after free\nvar p = alloc[Int](1)\np.init_pointee_copy(1)\np.destroy_pointee()\np.free()\n# print(p[])  # dangling — UB\n\n# UB: uninitialized read\nvar q = alloc[Int](1)\n# print(q[])  # never initialized — UB\nq.free()\n```"
+      "markdown": "1. Manual memory management — leaks, double-free, `use-after-free`\n2. Nullable and `uninitialized` — dereferencing is {#C62828}**undefined behavior**{/}\n3. Unchecked arithmetic — offsets beyond the allocation are allowed but unsafe. Discipline: allocate → initialize → use → destroy → free\n\n```\nfrom std.memory.unsafe_pointer import alloc\n\n# UB: use after free\nvar p = alloc[Int](1)\np.init_pointee_copy(1)\np.destroy_pointee()\np.free()\n# print(p[])  # dangling — UB\n\n# UB: uninitialized read\nvar q = alloc[Int](1)\n# print(q[])  # never initialized — UB\nq.free()\n```"
+    }
+  },
+  {
+    "id": 167,
+    "front": {
+      "text": "How do you declare that a function uses the C calling convention?",
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you declare that a function uses the **C calling convention**?"
+    },
+    "back": {
+      "text": "Apply the abi(\"C\") function effect to the declaration. Combined with the thin effect, this makes the function callable from C and gives it a plain-function-pointer type with no captures.",
+      "code_snippet": "def my_callback(x: Int) -> Int abi(\"C\") thin:\n    return x * 2",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": [
+          "abi(\"C\")",
+          "thin",
+          "FFI"
+        ]
+      },
+      "markdown": "## Use the `abi(\"C\")` function effect\n\nCombine with `thin` for a plain function-pointer type (no captures), which is what C ABIs expect.\n\n```\ndef my_callback(x: Int) -> Int abi(\"C\") thin:\n    return x * 2\n```\n\n{#0F766E}`abi(\"C\")` makes the symbol callable from C and uses the C calling convention. Use it for FFI exports and registering callbacks with C libraries.{/}"
+    }
+  },
+  {
+    "id": 168,
+    "front": {
+      "text": "What is the `thin` function effect?",
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What is the **`thin`** function effect?"
+    },
+    "back": {
+      "text": "The thin effect declares that a function is a plain function pointer — it captures no surrounding scope, so it can be passed around at zero overhead and used as a C-style callback. Closures default to capturing state; mark them thin when you want a bare pointer type.",
+      "code_snippet": "# Top-level def is implicitly thin:\ndef double(x: Int) -> Int thin:\n    return x * 2\n\n# Function-pointer type, capture-free:\nvar fn_ptr: def(Int) -> Int thin = double\nprint(fn_ptr(21))   # 42",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": [
+          "thin"
+        ]
+      },
+      "markdown": "## `thin` — a plain function pointer, no captures\n\nA `thin` function has **no environment**: it's a bare code pointer with no closure state. Use it for C-style callbacks and for any function pointer type that must be passable through an FFI boundary.\n\nStateless closures auto-lift to top-level functions, but adding `thin` makes the constraint explicit (and produces a compiler warning if it ever starts capturing).\n\n```\n# Top-level def is implicitly thin:\ndef double(x: Int) -> Int thin:\n    return x * 2\n\n# Function-pointer type, capture-free:\nvar fn_ptr: def(Int) -> Int thin = double\nprint(fn_ptr(21))   # 42\n```"
+    }
+  },
+  {
+    "id": 169,
+    "front": {
+      "text": "How do you declare a closure that captures surrounding variables?",
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you declare a closure that **captures** surrounding variables?"
+    },
+    "back": {
+      "text": "Use an explicit capture list in {...} after the function signature, listing each captured name. Conventions on captures are written like argument conventions: bare name (default — captured by copy), 'ref name' (by reference), etc. A closure with no captures is implicitly thin.",
+      "code_snippet": "def make_counter(start: Int) -> def() -> Int:\n    var count = start\n    # Capture `count` by reference so updates persist between calls:\n    def step() -> Int {ref count}:\n        count += 1\n        return count\n    return step\n\nvar c = make_counter(10)\nprint(c())  # 11\nprint(c())  # 12",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": [
+          "capture list",
+          "ref",
+          "thin"
+        ]
+      },
+      "markdown": "## Explicit `{capture_list}` after the signature\n\nList every captured name in `{...}` after the signature (after any function effects like `raises`). Each capture can take a convention (default = by copy; `ref name` = by reference).\n\n```\ndef make_counter(start: Int) -> def() -> Int:\n    var count = start\n    # Capture `count` by reference so updates persist between calls:\n    def step() -> Int {ref count}:\n        count += 1\n        return count\n    return step\n\nvar c = make_counter(10)\nprint(c())  # 11\nprint(c())  # 12\n```\n\n{#0F766E}A closure with no captures auto-lifts to a top-level function and gets the `thin` effect.{/}"
+    }
+  },
+  {
+    "id": 170,
+    "front": {
+      "text": "How does the compiler narrow generic types at compile time?",
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How does the compiler **narrow** generic types at compile time?"
+    },
+    "back": {
+      "text": "Type refinement: the compiler tightens a generic parameter's type within branches guarded by where clauses, comptime if statements, or comptime assert statements that establish trait conformance via conforms_to[T, Trait](). Inside a refined branch, the compiler treats T as conforming, unlocking the corresponding methods without a runtime check.",
+      "code_snippet": "def render[T](value: T):\n    comptime if conforms_to[T, Writable]():\n        # `value` is statically known to be Writable here.\n        print(value)\n    else:\n        print(\"<unprintable>\")",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": [
+          "comptime if",
+          "conforms_to",
+          "where",
+          "type refinement"
+        ]
+      },
+      "markdown": "## Type refinement — the compiler tightens `T` inside conformance-guarded branches\n\n`where`, `comptime if`, and `comptime assert` paired with `conforms_to[T, Trait]()` let the compiler narrow a generic type. Inside the guarded branch, `T` is treated as conforming and the trait's methods become available.\n\n```\ndef render[T](value: T):\n    comptime if conforms_to[T, Writable]():\n        # `value` is statically known to be Writable here.\n        print(value)\n    else:\n        print(\"<unprintable>\")\n```\n\nUse `where` on signatures and `comptime assert` for postconditions that should refine inferred types."
+    }
+  },
+  {
+    "id": 171,
+    "front": {
+      "text": "How do you accept a heterogeneous variadic pack of types?",
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you accept a **heterogeneous** variadic pack of types?"
+    },
+    "back": {
+      "text": "Take *Ts: SomeTypeList — the SomeTypeList helper represents a heterogeneous list of types. Inside, *Ts can be expanded into argument positions and reflected on element-by-element.",
+      "code_snippet": "def print_all[*Ts: SomeTypeList](*values: *Ts):\n    @parameter\n    for i in range(len(VariadicList(Ts))):\n        print(values[i])\n\nprint_all(1, \"two\", 3.0)   # mixed types",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": [
+          "SomeTypeList",
+          "*Ts",
+          "variadic"
+        ]
+      },
+      "markdown": "## Use `*Ts: SomeTypeList`\n\nA homogeneous variadic is `*values: Int`. For a **heterogeneous** pack of types, declare `*Ts: SomeTypeList` and accept the matching values.\n\n```\ndef print_all[*Ts: SomeTypeList](*values: *Ts):\n    @parameter\n    for i in range(len(VariadicList(Ts))):\n        print(values[i])\n\nprint_all(1, \"two\", 3.0)   # mixed types\n```"
+    }
+  },
+  {
+    "id": 172,
+    "front": {
+      "text": "How do you split or slice a String by visual characters?",
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you split or slice a `String` by **visual characters**?"
+    },
+    "back": {
+      "text": "Use grapheme cluster APIs: count_graphemes(s) for the visual character count, graphemes(s) to iterate them, and the [grapheme=start:end] slicing syntax to slice by grapheme rather than by byte. Follows UAX #29 so emoji with ZWJ sequences and combining marks count as one character.",
+      "code_snippet": "var s = String(\"👩‍💻 café\")\n\nprint(count_graphemes(s))    # 6\n\nfor g in graphemes(s):\n    print(g)\n\nprint(s[grapheme=0:1])       # \"👩‍💻\" (one cluster)",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": [
+          "count_graphemes",
+          "graphemes",
+          "grapheme"
+        ]
+      },
+      "markdown": "## Use the grapheme cluster APIs\n\nGrapheme clusters follow **UAX #29** — what a human sees as one character, including emoji built from ZWJ sequences and characters with combining marks.\n\n- `count_graphemes(s)` — visual character count\n- `graphemes(s)` — iterate visual characters\n- `s[grapheme=start:end]` — slice by grapheme, not bytes\n\n```\nvar s = String(\"👩‍💻 café\")\n\nprint(count_graphemes(s))    # 6\n\nfor g in graphemes(s):\n    print(g)\n\nprint(s[grapheme=0:1])       # \"👩‍💻\" (one cluster)\n```"
+    }
+  },
+  {
+    "id": 173,
+    "front": {
+      "text": "How do you chain operations on an `Optional` without unwrapping it?",
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you chain operations on an `Optional` without unwrapping it?"
+    },
+    "back": {
+      "text": "Use map() to transform the contained value, and_then() to chain Optional-returning operations (flat-map), or_else() to provide a default, and destroy_with() to clean up when the Optional holds an @explicit_destroy value.",
+      "code_snippet": "def double(x: Int) -> Int: return x * 2\ndef positive(x: Int) -> Optional[Int]:\n    return x if x > 0 else None\n\nvar a: Optional[Int] = 5\nprint(a.map(double).or_else(0))           # 10\n\nvar b: Optional[Int] = -3\nprint(b.and_then(positive).or_else(0))    # 0",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": [
+          "Optional",
+          "map",
+          "and_then",
+          "or_else",
+          "destroy_with"
+        ]
+      },
+      "markdown": "## `map`, `and_then`, `or_else` — chain instead of unwrap\n\n- **`opt.map[U](fn)`** — `Optional[T] -> Optional[U]` via `fn(T) -> U`.\n- **`opt.and_then[U](fn)`** — flat-map: `Optional[T] -> Optional[U]` via `fn(T) -> Optional[U]`.\n- **`opt.or_else(default)`** — return the inner value, or `default` if empty.\n- **`opt.destroy_with(fn)`** — destroy the wrapped value with a custom function (use with `@explicit_destroy` types).\n\n```\ndef double(x: Int) -> Int: return x * 2\ndef positive(x: Int) -> Optional[Int]:\n    return x if x > 0 else None\n\nvar a: Optional[Int] = 5\nprint(a.map(double).or_else(0))           # 10\n\nvar b: Optional[Int] = -3\nprint(b.and_then(positive).or_else(0))    # 0\n```"
+    }
+  },
+  {
+    "id": 174,
+    "front": {
+      "text": "How do you iterate a `List` mutably or consume it?",
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you iterate a `List` **mutably**, or **consume** it?"
+    },
+    "back": {
+      "text": "Three forms of for-iteration: 'for x in lst' yields immutable references; 'for ref x in lst' yields mutable references (you can assign through x); 'for x in lst^' consumes the list — each element is moved out, and the list is empty afterwards.",
+      "code_snippet": "var nums = [1, 2, 3]\n\nfor n in nums:\n    print(n)             # read-only\n\nfor ref n in nums:\n    n *= 10              # nums becomes [10, 20, 30]\n\nfor n in nums^:\n    consume(n)           # moves each element out; nums no longer usable",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": [
+          "for ref",
+          "for x in lst^",
+          "List"
+        ]
+      },
+      "markdown": "## Three iteration forms\n\n- **`for x in lst:`** — immutable references (read-only).\n- **`for ref x in lst:`** — **mutable** references; assignments through `x` modify the list in place.\n- **`for x in lst^:`** — **consuming**; each element is moved out, `lst`'s lifetime ends.\n\n```\nvar nums = [1, 2, 3]\n\nfor n in nums:\n    print(n)             # read-only\n\nfor ref n in nums:\n    n *= 10              # nums becomes [10, 20, 30]\n\nfor n in nums^:\n    consume(n)           # moves each element out; nums no longer usable\n```"
+    }
+  },
+  {
+    "id": 175,
+    "front": {
+      "text": "How do you create an `UnsafePointer` for lazy initialization?",
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you create an `UnsafePointer` for **lazy** initialization?"
+    },
+    "back": {
+      "text": "Use UnsafePointer[T].unsafe_dangling() to obtain a pointer that holds no valid address. It's a deliberate placeholder for deferred initialization — distinct from null (which UnsafePointer cannot represent). Reading or dereferencing it is undefined behavior until you assign a real pointer value.",
+      "code_snippet": "struct LateBuffer:\n    var data: UnsafePointer[Int]\n\n    def __init__(out self):\n        # Reserve the field; we'll allocate on first use.\n        self.data = UnsafePointer[Int].unsafe_dangling()\n\n    def ensure_capacity(mut self, n: Int):\n        if not self._ready:\n            self.data = alloc[Int](n)",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": [
+          "unsafe_dangling",
+          "UnsafePointer"
+        ]
+      },
+      "markdown": "## `UnsafePointer[T].unsafe_dangling()` — placeholder for deferred init\n\nReturns an `UnsafePointer[T]` that **does not point at valid memory**. Use it when you need to declare a pointer field before you have storage for it; assign a real allocation later.\n\n```\nstruct LateBuffer:\n    var data: UnsafePointer[Int]\n\n    def __init__(out self):\n        # Reserve the field; we'll allocate on first use.\n        self.data = UnsafePointer[Int].unsafe_dangling()\n\n    def ensure_capacity(mut self, n: Int):\n        if not self._ready:\n            self.data = alloc[Int](n)\n```\n\n{#C62828}Dereferencing a dangling pointer is **UB**. `unsafe_dangling()` only makes the placeholder construction explicit.{/}"
+    }
+  },
+  {
+    "id": 176,
+    "front": {
+      "text": "How do you skip running a destructor on a value?",
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you **skip** running a destructor on a value?"
+    },
+    "back": {
+      "text": "Call std.memory.forget_deinit(value) to take ownership of a value and drop it on the floor without running its destructor. Used in low-level code when you've transferred a resource out via an alternate path and need to suppress the default cleanup.",
+      "code_snippet": "from std.memory import forget_deinit\n\nvar buf = HeapArray(...)\nhand_off_to_c(buf.data)   # C now owns the allocation\nforget_deinit(buf^)        # suppress HeapArray's __del__ (avoid double-free)",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": [
+          "forget_deinit",
+          "__del__"
+        ]
+      },
+      "markdown": "## `forget_deinit(value)` — consume without running `__del__`\n\nTransfers ownership of `value` into the call and discards it **without running its destructor**. Useful when you've already transferred the underlying resource through another mechanism (e.g. handed the buffer to C) and need to suppress the default cleanup.\n\n```\nfrom std.memory import forget_deinit\n\nvar buf = HeapArray(...)\nhand_off_to_c(buf.data)   # C now owns the allocation\nforget_deinit(buf^)        # suppress HeapArray's __del__ (avoid double-free)\n```\n\n{#C62828}Only use when you've transferred the resource elsewhere. Forgetting a value with no alternative cleanup leaks it.{/}"
+    }
+  },
+  {
+    "id": 177,
+    "front": {
+      "text": "How do you perform atomic operations in Mojo?",
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you perform **atomic** operations in Mojo?"
+    },
+    "back": {
+      "text": "Use Atomic from std.atomic. Read with .load(ordering) and write with .store(value, ordering). The ordering is an Ordering enum (RELAXED, ACQUIRE, RELEASE, ACQ_REL, SEQ_CST). Compare-and-swap, fetch-add, and other RMW operations are methods on Atomic.",
+      "code_snippet": "from std.atomic import Atomic, Ordering\n\nvar counter = Atomic[Int](0)\n\ncounter.store(1, Ordering.RELEASE)\nvar value = counter.load(Ordering.ACQUIRE)\n\ncounter.fetch_add(1, Ordering.RELAXED)",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": [
+          "Atomic",
+          "Ordering",
+          "std.atomic"
+        ]
+      },
+      "markdown": "## Use `Atomic` from `std.atomic`\n\nLoad / store / RMW operations are methods on `Atomic`. The memory ordering is the `Ordering` enum (`RELAXED`, `ACQUIRE`, `RELEASE`, `ACQ_REL`, `SEQ_CST`).\n\n```\nfrom std.atomic import Atomic, Ordering\n\nvar counter = Atomic[Int](0)\n\ncounter.store(1, Ordering.RELEASE)\nvar value = counter.load(Ordering.ACQUIRE)\n\ncounter.fetch_add(1, Ordering.RELAXED)\n```"
+    }
+  },
+  {
+    "id": 178,
+    "front": {
+      "text": "How do you introspect a type at compile time?",
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you **introspect** a type at compile time?"
+    },
+    "back": {
+      "text": "Call reflect[T]() to get a Reflected[T] handle. It exposes the type's name, base type name, fields (with names and types), and trait conformance — all queried at compile time.",
+      "code_snippet": "@fieldwise_init\nstruct Point(Copyable):\n    var x: Int\n    var y: Int\n\ncomptime:\n    var r = reflect[Point]()\n    print(r.get_type_name())          # \"Point\"\n    for f in r.fields():\n        print(f.name, f.type_name)    # x Int, y Int",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": [
+          "reflect",
+          "Reflected"
+        ]
+      },
+      "markdown": "## Use `reflect[T]()` to get a `Reflected[T]` handle\n\nThe unified reflection API: `reflect[T]()` returns a `Reflected[T]` that exposes the type's name, base type name, fields, and conformance — all queried at `comptime`.\n\n```\n@fieldwise_init\nstruct Point(Copyable):\n    var x: Int\n    var y: Int\n\ncomptime:\n    var r = reflect[Point]()\n    print(r.get_type_name())          # \"Point\"\n    for f in r.fields():\n        print(f.name, f.type_name)    # x Int, y Int\n```"
+    }
+  },
+  {
+    "id": 179,
+    "front": {
+      "text": "How do you mark an API as deprecated?",
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you mark an API as **deprecated**?"
+    },
+    "back": {
+      "text": "Apply @deprecated to a struct, function, trait, or comptime value. Two forms: @deprecated(\"message\") provides a custom warning, and @deprecated(use=replacement) points to the recommended replacement. Calls still compile — the compiler emits a warning.",
+      "code_snippet": "@deprecated(use=new_open)\ndef old_open(path: String): ...\n\n@deprecated(\"Use chunked_read for large files\")\ndef read_all(path: String): ...\n\ndef new_open(path: String): ...",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": [
+          "@deprecated",
+          "use="
+        ]
+      },
+      "markdown": "## `@deprecated` — surface migration guidance at compile time\n\nTwo forms:\n\n- `@deprecated(\"message\")` — custom warning text.\n- `@deprecated(use=replacement)` — point at the recommended replacement symbol.\n\nThe code still compiles; the compiler emits a warning at every call site.\n\n```\n@deprecated(use=new_open)\ndef old_open(path: String): ...\n\n@deprecated(\"Use chunked_read for large files\")\ndef read_all(path: String): ...\n\ndef new_open(path: String): ...\n```"
+    }
+  },
+  {
+    "id": 180,
+    "front": {
+      "text": "How do you control the alignment of a struct?",
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "How do you control the **alignment** of a struct?"
+    },
+    "back": {
+      "text": "Apply @align(bytes) to the struct declaration. It sets a minimum alignment for the struct in bytes — useful for matching hardware requirements (e.g. SIMD vectors, GPU buffers, cache lines).",
+      "code_snippet": "@align(64)\nstruct CacheLine:\n    var data: SIMD[DType.float32, 16]\n\n# CacheLine values always live on 64-byte boundaries.",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": [
+          "@align",
+          "alignment"
+        ]
+      },
+      "markdown": "## `@align(bytes)` — set the struct's minimum alignment\n\nThe compiler then guarantees that any value of the struct begins on a `bytes`-aligned address. Use for hardware-imposed requirements: SIMD vector boundaries, GPU buffers, cache-line alignment.\n\n```\n@align(64)\nstruct CacheLine:\n    var data: SIMD[DType.float32, 16]\n\n# CacheLine values always live on 64-byte boundaries.\n```"
+    }
+  },
+  {
+    "id": 181,
+    "front": {
+      "text": "What characterises Mojo 1.0?",
+      "formatting": [
+        "bold",
+        "center_align"
+      ],
+      "markdown": "What characterises **Mojo 1.0**?"
+    },
+    "back": {
+      "text": "Mojo 1.0 is a Python-flavored systems language with: def-only function declarations; explicit ownership conventions (mut, var, ref, out, deinit); compile-time metaprogramming via comptime and parameter lists; trait-based static polymorphism; non-null UnsafePointer plus typed Pointer / OwnedPointer / ArcPointer; SIMD-first numeric types; native Python interop; and zero-cost abstractions targeting CPU and GPU.",
+      "code_snippet": "",
+      "formatting": {
+        "text_font": "system_sans_serif",
+        "code_font": "monospace",
+        "inline_code_terms": [
+          "Mojo",
+          "comptime",
+          "SIMD",
+          "trait",
+          "UnsafePointer"
+        ]
+      },
+      "markdown": "## Mojo 1.0 in one card\n\n- **Python-flavored syntax** — `def`, indentation, `import`. No `class`; structs only.\n- **Ownership built in** — `mut`, `var`, `ref`, `out`, `deinit` argument conventions; `^` transfer sigil.\n- **Compile-time metaprogramming** — `comptime` blocks, parameter lists `[...]`, `@parameter` closures, `comptime if`, type refinement via `where` + `conforms_to`.\n- **Traits, not inheritance** — `Copyable`, `Movable`, `Writable`, `Hashable`, `KeyElement`, `RegisterPassable`, …\n- **Pointers, typed** — non-null `UnsafePointer`, plus `Pointer`, `OwnedPointer`, `ArcPointer`.\n- **SIMD-first numerics** — `SIMD[DType, width]`, `Scalar`, `DType.*`.\n- **Native Python interop** — `from std.python import Python`.\n- **CPU and GPU targets** — same source, different backends."
     }
   }
 ]

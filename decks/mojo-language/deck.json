@@ -2,19 +2,22 @@
   "id": "mojo-language",
   "uuid": "F7A1B2C3-D4E5-4F6A-B7C8-D9E0F1A2B3C4",
   "name": "Mojo Language",
-  "description": "Core concepts of the Mojo programming language (v26.2, Mar 2026)",
+  "description": "Core concepts of the Mojo programming language (v1.0.0b1, May 2026)",
   "storeFileName": "mojo_language",
   "imageName": "mojo_deck",
   "gradientColors": ["#FBD667FF", "#D72F0FCC"],
-  "cardCount": 165,
+  "cardCount": 180,
   "topicCount": 15,
   "category": "Programming",
-  "version": "1.0.9",
-  "moreInfoURL": "https://docs.modular.com/mojo/",
+  "version": "1.1.1",
+  "moreInfoURL": "https://mojolang.org/docs/reference/",
   "aboutURL": "https://github.com/objectivepixel/wristrecall-decks",
   "sourceFileName": "mojophrases.json",
   "topicDefinitions": [
-    { "name": "Functions", "cardIDs": [1, 5, 19, 26, 64, 71, 91, 92, 93, 110, 135, 136] },
+    {
+      "name": "Functions",
+      "cardIDs": [1, 5, 19, 26, 64, 71, 91, 92, 93, 110, 135, 136, 167, 168, 169]
+    },
     {
       "name": "Variables & Types",
       "cardIDs": [2, 21, 23, 25, 27, 31, 35, 46, 72, 105]
@@ -26,7 +29,7 @@
     {
       "name": "Structs",
       "cardIDs": [
-        6, 7, 22, 32, 33, 34, 53, 55, 59, 62, 87, 88, 89, 95, 96, 101, 102, 155
+        6, 7, 22, 32, 33, 34, 53, 55, 59, 62, 87, 88, 89, 95, 96, 101, 102, 155, 180
       ]
     },
     {
@@ -35,11 +38,11 @@
     },
     {
       "name": "Value Lifecycle",
-      "cardIDs": [14, 15, 16, 74, 86, 118, 119, 120, 154]
+      "cardIDs": [14, 15, 16, 74, 86, 118, 119, 120, 154, 176]
     },
     {
       "name": "Pointers",
-      "cardIDs": [9, 24, 54, 97, 98, 111, 112, 113, 114, 115, 116, 117, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166]
+      "cardIDs": [9, 24, 54, 97, 98, 111, 112, 113, 114, 115, 116, 117, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 175]
     },
     {
       "name": "Traits & Generics",
@@ -47,19 +50,19 @@
     },
     {
       "name": "Compile-Time Metaprogramming",
-      "cardIDs": [17, 37, 38, 39, 68, 99, 125, 126]
+      "cardIDs": [17, 37, 38, 39, 68, 99, 125, 126, 170, 171]
     },
     {
       "name": "Strings & Collections",
-      "cardIDs": [28, 30, 40, 41, 42, 56, 57, 58, 66, 82, 83, 84]
+      "cardIDs": [28, 30, 40, 41, 42, 56, 57, 58, 66, 82, 83, 84, 172, 173, 174]
     },
     { "name": "Modules & Imports", "cardIDs": [11, 69, 85, 127, 128, 129] },
     { "name": "Python Interop", "cardIDs": [10, 36, 100, 130, 131, 132] },
     {
       "name": "Standard Library",
-      "cardIDs": [47, 48, 49, 50, 60, 65, 104, 106, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153]
+      "cardIDs": [47, 48, 49, 50, 60, 65, 104, 106, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 177, 178]
     },
-    { "name": "Tools & CLI", "cardIDs": [45, 67, 70, 75, 94, 133, 134] },
-    { "name": "Styles & Conventions", "cardIDs": [143] }
+    { "name": "Tools & CLI", "cardIDs": [45, 67, 70, 75, 94, 133, 134, 179] },
+    { "name": "Styles & Conventions", "cardIDs": [143, 181] }
   ]
 }
