@@ -14,33 +14,19 @@ fi
 
 mkdir -p "$OUTPUT_DIR"
 
-# Default to v2 output format. Callers can override with --format v1.
-FORMAT="v2"
-DECK_IDS=()
-while [ $# -gt 0 ]; do
-    case "$1" in
-        --format)
-            FORMAT="$2"
-            shift 2
-            ;;
-        *)
-            DECK_IDS+=("$1")
-            shift
-            ;;
-    esac
-done
+DECK_IDS=("$@")
 
 if [ "${#DECK_IDS[@]}" -gt 0 ]; then
     for deck_id in "${DECK_IDS[@]}"; do
-        echo "==> Compiling $deck_id (format: $FORMAT)..."
+        echo "==> Compiling $deck_id..."
         "$COMPILER" --standalone --decks-dir "$DECKS_DIR" --deck "$deck_id" \
-            --format "$FORMAT" --export-wristdeck --output-dir "$OUTPUT_DIR"
+            --format v2 --export-wristdeck --output-dir "$OUTPUT_DIR"
         echo ""
     done
 else
-    echo "==> Compiling all decks (format: $FORMAT)..."
+    echo "==> Compiling all decks..."
     "$COMPILER" --standalone --decks-dir "$DECKS_DIR" \
-        --format "$FORMAT" --export-wristdeck --output-dir "$OUTPUT_DIR"
+        --format v2 --export-wristdeck --output-dir "$OUTPUT_DIR"
     echo ""
 fi
 

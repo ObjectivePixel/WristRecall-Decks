@@ -84,7 +84,7 @@ Each deck is independently versioned in [Releases](https://github.com/ObjectiveP
 
 Decks are plain JSON plus an optional cover image. Run the bundled `DeckCompiler` and you get a `.wristdeck` file you can share or PR back to this repo.
 
-See **[AUTHORING.md](AUTHORING.md)** — covers the folder layout, the v2 markdown card format (headings, lists, code fences, color callouts), the compile script, and how to contribute your deck.
+See **[AUTHORING.md](AUTHORING.md)** — covers the folder layout, the markdown card format (headings, lists, code fences, color callouts), the compile script, and how to contribute your deck.
 
 ## License
 
