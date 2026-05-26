@@ -1,6 +1,6 @@
 # Authoring a WristRecall deck
 
-This guide walks through everything you need to author and ship a `.wristdeck` package — from folder layout to the v2 markdown card format to publishing a release. If you just want to *install* an existing deck, head back to the [README](README.md#install-a-deck).
+This guide walks through everything you need to author and ship a `.wristdeck` package — from folder layout to the markdown card format to publishing a release. If you just want to *install* an existing deck, head back to the [README](README.md#install-a-deck).
 
 ## Repository layout
 
@@ -78,12 +78,12 @@ Create `decks/<deck-id>/cards.json` (or whatever you set as `sourceFileName`):
 Each card has:
 
 - **`id`** — unique integer, referenced from `topicDefinitions` in the manifest.
-- **`front.text`** / **`back.text`** — plain-text fallback used by the v1 compiler path and as the accessibility label. Keep these short and self-contained.
-- **`front.markdown`** / **`back.markdown`** — the v2 rich-text format actually rendered in the app (see below).
-- **`back.code_snippet`** — legacy v1 field. With v2 markdown, embed code in fences inside `markdown` instead and leave this `null`.
-- **`back.formatting.inline_code_terms`** — legacy v1 hint list of identifiers to render as inline code. Empty array is fine for v2.
+- **`front.text`** / **`back.text`** — plain-text fallback used as the accessibility label and for cards that don't supply `markdown`. Keep these short and self-contained.
+- **`front.markdown`** / **`back.markdown`** — the rich-text format actually rendered in the app (see below).
+- **`back.code_snippet`** — legacy fallback field. Embed code in fences inside `markdown` instead and leave this `null`.
+- **`back.formatting.inline_code_terms`** — legacy fallback hint list. Use inline backticks inside `markdown` instead; an empty array is fine.
 
-## 3. The v2 markdown format
+## 3. The markdown format
 
 The card body supports a small subset of CommonMark plus one custom extension for color.
 
@@ -163,16 +163,10 @@ The app uses the cover image as the deck's tile in the deck browser, so make sur
 ./tools/compile.sh <deck-id>
 ```
 
-The script defaults to v2 markdown output. To compile every deck:
+To compile every deck:
 
 ```bash
 ./tools/compile.sh
-```
-
-To force v1 (legacy text/code-snippet) output for testing:
-
-```bash
-./tools/compile.sh <deck-id> --format v1
 ```
 
 The compiled package lands at `output/<deck-id>.wristdeck`.
@@ -181,7 +175,7 @@ For ad-hoc invocations you can call the binary directly:
 
 ```bash
 ./tools/DeckCompiler --standalone --decks-dir ./decks --deck <deck-id> \
-    --export-wristdeck --output-dir ./output
+    --format v2 --export-wristdeck --output-dir ./output
 
 ./tools/DeckCompiler --help   # full options
 ```
@@ -208,7 +202,7 @@ For deck requests or bug reports on existing decks, [open an issue](https://gith
 
 ## Reference: existing decks
 
-Browse the existing decks for working examples of the v2 markdown format:
+Browse the existing decks for working examples of the markdown format:
 
 - [`decks/mojo-language/`](decks/mojo-language/) — programming reference; heavy use of code fences, inline code, and red callouts for UB/deprecation.
 - [`decks/us-states/`](decks/us-states/) — short-answer trivia; ordered lists with bold leaders, blue accent callouts.
