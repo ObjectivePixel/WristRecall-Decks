@@ -6,10 +6,10 @@
   "storeFileName": "ai_terms",
   "imageName": "ai_terms_deck",
   "gradientColors": ["#6D28D9FF", "#06B6D4CC"],
-  "cardCount": 30,
-  "topicCount": 4,
+  "cardCount": 52,
+  "topicCount": 5,
   "category": "Programming",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "moreInfoURL": "https://www.modular.com/blog",
   "aboutURL": "https://github.com/objectivepixel/wristrecall-decks",
   "sourceFileName": "cards.json",
@@ -29,6 +29,10 @@
     {
       "name": "Training & Inference",
       "cardIDs": [24, 25, 26, 27, 28, 29, 30]
+    },
+    {
+      "name": "GPU & Kernels",
+      "cardIDs": [31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52]
     }
   ]
 }

@@ -388,5 +388,291 @@
       "formatting": { "inline_code_terms": [] },
       "markdown": "## Confident output that is simply wrong\n\nThe model optimizes for *plausible* next tokens, not verified facts — so it can fabricate fluently.\n\n{#0F766E}Grounding the model with retrieved sources (RAG) is the most common mitigation.{/}"
     }
+  },
+  {
+    "id": 31,
+    "front": {
+      "text": "What is matmul (GEMM)?",
+      "markdown": "What is **matmul** (GEMM)?"
+    },
+    "back": {
+      "text": "Matrix multiplication — multiplying two matrices to produce a third. GEMM (General Matrix Multiply, C = αAB + βC) is the BLAS name for it. It dominates the compute in neural networks, so a fast matmul kernel is the single most important GPU kernel to optimize.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## The matrix-multiply kernel — the heart of ML compute\n\n**GEMM** = General Matrix Multiply: `C = αAB + βC`. Dense layers and attention reduce to matmuls, so this one kernel dominates GPU time.\n\n{#0F766E}Fast matmul is the canonical kernel-optimization problem — tiling, tensor cores, and fusion all aim at it.{/}"
+    }
+  },
+  {
+    "id": 32,
+    "front": {
+      "text": "What is conv2d (2D convolution)?",
+      "markdown": "What is **conv2d** (2D convolution)?"
+    },
+    "back": {
+      "text": "The core operation of convolutional networks: a small learned filter slides over a 2D feature map (image), computing a weighted sum at each position. On GPUs it's usually lowered to a matmul (im2col / implicit GEMM) so it runs on the same fast hardware paths.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## A filter sliding over a 2D feature map\n\nThe core op of CNNs: a learned **kernel/filter** sweeps across an image, summing a weighted patch at each position.\n\n{#0F766E}On GPUs conv2d is typically turned into a matmul (im2col or *implicit GEMM*) to reuse the fastest paths.{/}"
+    }
+  },
+  {
+    "id": 33,
+    "front": {
+      "text": "What is CUTLASS?",
+      "markdown": "What is **CUTLASS**?"
+    },
+    "back": {
+      "text": "NVIDIA's open-source C++ template library of building blocks for high-performance GEMM and convolution kernels on CUDA GPUs, including tensor-core support. It exposes the tiling and pipelining patterns that hand-tuned matmul kernels rely on — and inspired kernel design in Mojo.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## NVIDIA's template library for fast GEMM kernels\n\nC++ building blocks for high-performance **matmul and convolution** on CUDA, including tensor cores — it codifies the tiling/pipelining tricks of hand-tuned kernels.\n\n{#0F766E}Mojo's kernel design took inspiration from CUTLASS, expressing the same patterns in MLIR.{/}"
+    }
+  },
+  {
+    "id": 34,
+    "front": {
+      "text": "What is PTX?",
+      "markdown": "What is **PTX**?"
+    },
+    "back": {
+      "text": "Parallel Thread Execution — NVIDIA's low-level virtual ISA for CUDA GPUs. Compilers emit PTX as a stable, hardware-independent intermediate step; the driver (via ptxas) then JIT-compiles it to the actual per-GPU machine code (SASS).",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## NVIDIA's virtual ISA for the GPU\n\n**P**arallel **T**hread e**X**ecution: a stable, machine-independent assembly that compilers emit, then `ptxas` lowers to the real per-GPU code (**SASS**).\n\n{#0F766E}PTX is portable across GPU generations; SASS is not — that's why PTX exists as the intermediate layer.{/}"
+    }
+  },
+  {
+    "id": 35,
+    "front": {
+      "text": "What is MLIR?",
+      "markdown": "What is **MLIR**?"
+    },
+    "back": {
+      "text": "Multi-Level Intermediate Representation — a compiler infrastructure (from the LLVM project) for building reusable, extensible IRs with multiple levels of abstraction. Mojo is built from the ground up on MLIR, which is what lets it target CPUs, GPUs, and accelerators from one language.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Multi-Level Intermediate Representation\n\nLLVM-family compiler infrastructure for **extensible IRs at multiple abstraction levels**, mixing high-level and hardware-specific dialects in one pipeline.\n\n{#0F766E}Mojo is the first language built from the ground up on MLIR — that foundation is how it spans CPUs, GPUs, and accelerators.{/}"
+    }
+  },
+  {
+    "id": 36,
+    "front": {
+      "text": "What is tiling (blocking) in a GPU kernel?",
+      "markdown": "What is **tiling** (blocking) in a GPU kernel?"
+    },
+    "back": {
+      "text": "Splitting a big computation into small sub-blocks ('tiles') that fit in fast on-chip memory (registers / shared memory), so each loaded value is reused many times before being evicted. It's the central technique for making matmul and convolution memory-efficient.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Work in cache-sized blocks to reuse data\n\nBreak the problem into **tiles** that fit in registers / shared memory, so each loaded value is reused many times before leaving fast memory.\n\n{#0F766E}Tiling is the key to fast matmul — it turns a memory-bound loop into a compute-bound one.{/}"
+    }
+  },
+  {
+    "id": 37,
+    "front": {
+      "text": "What is kernel autofusion?",
+      "markdown": "What is **kernel autofusion**?"
+    },
+    "back": {
+      "text": "When a graph compiler automatically merges multiple operations into a single GPU kernel, rather than you fusing them by hand. Intermediates stay in fast on-chip memory instead of round-tripping to global memory. MAX's graph compiler does this with Mojo kernels.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## The compiler fuses ops into one kernel for you\n\nAutomatic operator fusion: the graph compiler merges adjacent ops so intermediates stay on-chip instead of touching global memory — no hand-written fused kernel needed.\n\n{#0F766E}MAX's graph compiler reflects over Mojo kernels' MLIR to fuse them automatically — a headline win for memory-bound workloads.{/}"
+    }
+  },
+  {
+    "id": 38,
+    "front": {
+      "text": "What is HBM?",
+      "markdown": "What is **HBM**?"
+    },
+    "back": {
+      "text": "High Bandwidth Memory — the stacked DRAM that sits next to the GPU die and serves as its main ('global') memory. It offers huge bandwidth (TB/s) but is still far slower than on-chip registers and shared memory, which is why minimizing HBM traffic matters so much.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## High Bandwidth Memory — the GPU's main DRAM\n\nStacked DRAM beside the GPU die serving as **global memory**: enormous bandwidth (TB/s) but slow relative to on-chip storage.\n\n{#0F766E}Memory-bound kernels are bottlenecked on HBM traffic — fusion and tiling exist mainly to cut it.{/}"
+    }
+  },
+  {
+    "id": 39,
+    "front": {
+      "text": "What are registers on a GPU?",
+      "markdown": "What are **registers** on a GPU?"
+    },
+    "back": {
+      "text": "The fastest, smallest per-thread storage, private to each thread and living right in the streaming multiprocessor. Kernels keep hot values in registers to avoid slower memory. Using too many registers per thread limits how many threads can run at once (lower occupancy).",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## The fastest, per-thread on-chip storage\n\nPrivate to each thread and physically in the SM — kernels keep hot values here to dodge slower memory.\n\n{#0F766E}Registers are finite: heavy register use per thread caps how many threads fit, lowering occupancy.{/}"
+    }
+  },
+  {
+    "id": 40,
+    "front": {
+      "text": "What is a thread on a GPU?",
+      "markdown": "What is a **thread** on a GPU?"
+    },
+    "back": {
+      "text": "The smallest unit of execution in a GPU kernel — one instance of the kernel function, with its own registers and indices. Thousands run concurrently; each typically handles one element or a small slice of the data.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## The smallest unit of GPU execution\n\nOne instance of the kernel, with its own registers and index — usually responsible for a single element or small slice of the data.\n\n{#0F766E}You write the code for one thread; the GPU runs thousands of copies in parallel.{/}"
+    }
+  },
+  {
+    "id": 41,
+    "front": {
+      "text": "What is a warp?",
+      "markdown": "What is a **warp**?"
+    },
+    "back": {
+      "text": "A group of 32 threads (on NVIDIA hardware) that execute the same instruction in lockstep — the actual unit of scheduling on the GPU. If threads in a warp take different branches ('divergence'), the paths run serially, hurting performance.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## 32 threads executing in lockstep\n\nThe GPU's real scheduling unit: a warp's threads run the **same instruction together** (SIMT).\n\n{#0F766E}Branch **divergence** within a warp serializes the paths — keep threads in a warp on the same control flow.{/}"
+    }
+  },
+  {
+    "id": 42,
+    "front": {
+      "text": "What is a thread block?",
+      "markdown": "What is a **thread block**?"
+    },
+    "back": {
+      "text": "A group of threads that run together on one streaming multiprocessor, can share fast on-chip 'shared memory', and can synchronize with a barrier. The block is the level at which cooperative work (like loading a tile) is organized.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## A cooperating group of threads on one SM\n\nThreads in a block share **shared memory** and can synchronize at a **barrier** — it's the level where threads cooperate, e.g. loading a tile together.\n\n{#0F766E}Shared memory and barriers only work *within* a block; across blocks there's no such guarantee.{/}"
+    }
+  },
+  {
+    "id": 43,
+    "front": {
+      "text": "What is the grid in a GPU kernel launch?",
+      "markdown": "What is the **grid** in a GPU kernel launch?"
+    },
+    "back": {
+      "text": "The full collection of thread blocks launched for one kernel call. Threads → warps → blocks → grid form the GPU execution hierarchy. You choose the grid and block dimensions at launch to cover the whole problem.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## All the blocks of one kernel launch\n\nThe top of the hierarchy: **thread → warp → block → grid**. You pick grid and block dimensions to map threads across the whole problem.\n\n{#0F766E}The grid is logical — its blocks are scheduled onto SMs as they free up, so it can be far larger than the GPU.{/}"
+    }
+  },
+  {
+    "id": 44,
+    "front": {
+      "text": "What does row-major memory layout mean?",
+      "markdown": "What does **row-major** memory layout mean?"
+    },
+    "back": {
+      "text": "Storing a 2D array row by row in contiguous memory, so consecutive elements of a row are adjacent. (Column-major stores column by column.) Layout determines which access patterns are coalesced/cache-friendly, so it's central to writing fast kernels.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Rows laid out contiguously in memory\n\nElements of a row sit next to each other (C/NumPy default); **column-major** (Fortran/BLAS) stores columns instead.\n\n{#0F766E}Layout decides which accesses are coalesced — matching your loop order to the layout is a core perf concern.{/}"
+    }
+  },
+  {
+    "id": 45,
+    "front": {
+      "text": "What is a barrier (synchronization) in a GPU kernel?",
+      "markdown": "What is a **barrier** (synchronization) in a GPU kernel?"
+    },
+    "back": {
+      "text": "A synchronization point where all threads in a block must arrive before any proceeds. It's how you safely coordinate access to shared memory — e.g. ensuring every thread has finished writing a tile before others read it.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## A wait-for-everyone point within a block\n\nEvery thread in the block must reach the barrier before any continues — the way to safely coordinate **shared memory**.\n\n{#0F766E}Classic pattern: write a tile to shared memory, hit a barrier, then everyone reads it.{/}"
+    }
+  },
+  {
+    "id": 46,
+    "front": {
+      "text": "Kernel type: what is an elementwise (pointwise) kernel?",
+      "markdown": "Kernel type: what is an **elementwise** (pointwise) kernel?"
+    },
+    "back": {
+      "text": "A kernel that applies the same operation independently to each element of a tensor — adds, activations (ReLU/GELU), scaling, type casts. It's embarrassingly parallel and almost always memory-bound, so it's the prime candidate for fusion.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Same op on every element, independently\n\n**Use for:** activations (ReLU, GELU), adds, scaling, casts. Embarrassingly parallel, one thread per element.\n\n{#0F766E}Almost always memory-bound — which is exactly why these get fused into neighboring kernels.{/}"
+    }
+  },
+  {
+    "id": 47,
+    "front": {
+      "text": "Kernel type: what is a reduction kernel?",
+      "markdown": "Kernel type: what is a **reduction** kernel?"
+    },
+    "back": {
+      "text": "A kernel that collapses many values into fewer along an axis using an associative op — sum, max, mean, norm. It needs cross-thread cooperation (tree reductions, warp shuffles, shared memory) because threads must combine each other's partial results.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Collapse many values into few along an axis\n\n**Use for:** sum, max, mean, L2-norm. Needs threads to combine partials via **tree reductions / warp shuffles / shared memory**.\n\n{#0F766E}The classic parallel-cooperation kernel — unlike elementwise, threads must talk to each other.{/}"
+    }
+  },
+  {
+    "id": 48,
+    "front": {
+      "text": "Kernel type: what is a scan (prefix-sum) kernel?",
+      "markdown": "Kernel type: what is a **scan** (prefix-sum) kernel?"
+    },
+    "back": {
+      "text": "A kernel that computes running aggregates: each output is the combination of all inputs up to that position (e.g. a cumulative sum). It looks sequential but has well-known parallel algorithms, and underlies things like stream compaction and sorting.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Running aggregate over a sequence\n\n**Use for:** cumulative sum, stream compaction, sorting, allocation offsets. Each output folds in everything before it.\n\n{#0F766E}Looks inherently serial but parallel-scan algorithms make it fast — a staple GPU primitive.{/}"
+    }
+  },
+  {
+    "id": 49,
+    "front": {
+      "text": "Kernel type: what are gather and scatter kernels?",
+      "markdown": "Kernel type: what are **gather** and **scatter** kernels?"
+    },
+    "back": {
+      "text": "Indexed memory access. Gather reads elements from arbitrary positions given an index array (e.g. embedding lookup); scatter writes to arbitrary positions. The irregular, non-contiguous access makes them memory-bound and bandwidth-sensitive.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Indexed reads (gather) and writes (scatter)\n\n**Use for:** embedding lookups, sparse ops, indexing/`take`, MoE routing.\n\n- **Gather** — read from arbitrary indices\n- **Scatter** — write to arbitrary indices\n\n{#0F766E}Irregular, non-coalesced access makes these memory-bound — and scatter needs care to avoid write conflicts.{/}"
+    }
+  },
+  {
+    "id": 50,
+    "front": {
+      "text": "Kernel type: what is a transpose kernel?",
+      "markdown": "Kernel type: what is a **transpose** kernel?"
+    },
+    "back": {
+      "text": "A kernel that reorders a tensor's axes — most simply swapping rows and columns of a matrix. It moves no arithmetic but stresses memory: a naive transpose has terrible access patterns, so it's done via shared-memory tiling to keep reads and writes coalesced.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Reorder a tensor's axes (swap rows/columns)\n\n**Use for:** changing layout to feed the next op (e.g. matmul) efficiently.\n\n{#0F766E}Pure data movement, but a textbook case for **shared-memory tiling** — the naive version wrecks coalescing.{/}"
+    }
+  },
+  {
+    "id": 51,
+    "front": {
+      "text": "Kernel type: what is a normalization / softmax kernel?",
+      "markdown": "Kernel type: what is a **normalization / softmax** kernel?"
+    },
+    "back": {
+      "text": "A kernel that rescales a row using its own statistics: softmax (exponentiate and divide by the sum) or layer/RMS norm (subtract mean, divide by std). It's a reduction (to get the sum/mean) followed by an elementwise pass, so it's a prime fusion target.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Rescale a row by its own statistics\n\n**Use for:** softmax in attention, LayerNorm / RMSNorm in transformers.\n\nA **reduction** (sum or mean) followed by an **elementwise** rescale.\n\n{#0F766E}Because it pairs a reduction with a pointwise pass, it's a classic fusion target — and softmax uses a max-shift for numerical stability.{/}"
+    }
+  },
+  {
+    "id": 52,
+    "front": {
+      "text": "What are the common categories of GPU kernel?",
+      "markdown": "What are the common categories of **GPU kernel**?"
+    },
+    "back": {
+      "text": "A handful of recurring shapes cover most ML work: elementwise/pointwise, reduction, matmul/GEMM, convolution, scan/prefix-sum, gather/scatter, transpose, and normalization/softmax. Knowing which category an op falls into tells you its parallel pattern and whether it's compute- or memory-bound.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## The recurring kernel shapes of ML\n\n1. **Elementwise** — per-element ops\n2. **Reduction** — collapse along an axis\n3. **Matmul / GEMM** — the compute workhorse\n4. **Convolution** — sliding filters\n5. **Scan** — running aggregates\n6. **Gather / scatter** — indexed access\n7. **Transpose** — reorder axes\n8. **Norm / softmax** — rescale by statistics\n\n{#0F766E}Most kernels are matmul/conv (compute-bound) or one of the rest (usually memory-bound and fusion-friendly).{/}"
+    }
   }
 ]
