@@ -674,5 +674,291 @@
       "formatting": { "inline_code_terms": [] },
       "markdown": "## The recurring kernel shapes of ML\n\n1. **Elementwise** — per-element ops\n2. **Reduction** — collapse along an axis\n3. **Matmul / GEMM** — the compute workhorse\n4. **Convolution** — sliding filters\n5. **Scan** — running aggregates\n6. **Gather / scatter** — indexed access\n7. **Transpose** — reorder axes\n8. **Norm / softmax** — rescale by statistics\n\n{#0F766E}Most kernels are matmul/conv (compute-bound) or one of the rest (usually memory-bound and fusion-friendly).{/}"
     }
+  },
+  {
+    "id": 53,
+    "front": {
+      "text": "What is the scaled dot-product attention kernel?",
+      "markdown": "What is the **scaled dot-product attention** kernel?"
+    },
+    "back": {
+      "text": "The core attention computation: softmax(QKᵀ / √dₖ) · V. It scores every query against every key, scales by the square root of the head dimension, softmaxes the scores into weights, then takes a weighted sum of values. As written it materializes the full N×N score matrix, so cost grows with the square of sequence length.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## softmax(QKᵀ / √dₖ) · V\n\nScore each query against every key, scale by **√dₖ**, softmax into weights, then weight-sum the values.\n\n{#0F766E}The naive kernel materializes the full N×N score matrix — O(N²) memory and compute in sequence length.{/}"
+    }
+  },
+  {
+    "id": 54,
+    "front": {
+      "text": "What is the FlashAttention kernel?",
+      "markdown": "What is the **FlashAttention** kernel?"
+    },
+    "back": {
+      "text": "A fused, IO-aware attention kernel that never writes the full N×N score matrix to memory. It tiles Q, K, V into blocks and computes softmax online (streaming the running max and sum), keeping everything in on-chip SRAM. This turns attention from memory-bound to compute-bound and cuts memory from O(N²) to O(N).",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Fused, IO-aware attention — no N×N matrix in HBM\n\nTiles Q/K/V into blocks and runs an **online softmax** (streaming running max + sum) entirely in on-chip SRAM.\n\n{#0F766E}Drops attention memory from O(N²) to O(N) and makes it compute-bound — the kernel behind long-context transformers.{/}"
+    }
+  },
+  {
+    "id": 55,
+    "front": {
+      "text": "What is the paged attention (KV-cache) kernel?",
+      "markdown": "What is the **paged attention** (KV-cache) kernel?"
+    },
+    "back": {
+      "text": "An attention kernel that reads the KV-cache from non-contiguous 'pages' of GPU memory via a block table, the way an OS pages virtual memory. It removes the need to pre-allocate one big contiguous cache per sequence, slashing memory fragmentation and letting a server pack far more concurrent requests.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Attention over a paged, non-contiguous KV-cache\n\nReads keys/values from fixed-size **pages** via a block table — like OS virtual memory — instead of one contiguous buffer per sequence.\n\n{#0F766E}Pioneered by vLLM (PagedAttention): kills KV-cache fragmentation so a server fits many more concurrent requests.{/}"
+    }
+  },
+  {
+    "id": 56,
+    "front": {
+      "text": "What is the RoPE (rotary position embedding) kernel?",
+      "markdown": "What is the **RoPE** (rotary position embedding) kernel?"
+    },
+    "back": {
+      "text": "An elementwise kernel that injects position into attention by rotating pairs of dimensions of the query and key vectors by an angle proportional to their position. Because relative position falls out of the dot product, RoPE generalizes to longer sequences better than learned absolute embeddings. Often fused into the QKV projection.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Rotate Q/K dimension-pairs by position\n\nEncodes position by rotating pairs of dims of **query and key** by a position-dependent angle — relative position then drops out of the dot product.\n\n{#0F766E}MAX fuses RoPE with RMSNorm and QKV projection in its MLA attention path.{/}"
+    }
+  },
+  {
+    "id": 57,
+    "front": {
+      "text": "What is the LayerNorm kernel?",
+      "markdown": "What is the **LayerNorm** kernel?"
+    },
+    "back": {
+      "text": "Normalizes each sample across its feature dimension to zero mean and unit variance, then applies a learned scale (γ) and shift (β). It's a per-row reduction (mean + variance) followed by an elementwise rescale — the classic stabilizer in transformer blocks.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Normalize each sample over its features\n\nZero-mean, unit-variance across the feature axis, then learned **γ scale** and **β shift**. A per-row reduction + elementwise rescale.\n\n{#0F766E}Normalizes per-sample, so it's independent of batch size — unlike BatchNorm.{/}"
+    }
+  },
+  {
+    "id": 58,
+    "front": {
+      "text": "What is the RMSNorm kernel?",
+      "markdown": "What is the **RMSNorm** kernel?"
+    },
+    "back": {
+      "text": "A cheaper LayerNorm variant that divides each vector by its root-mean-square and applies a learned scale — skipping the mean-subtraction and the bias entirely. One reduction (sum of squares) instead of two, so it's faster. Used in Llama and most modern LLMs.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## LayerNorm without the mean subtraction\n\nDivide each vector by its **root-mean-square**, then apply a learned scale — no centering, no bias.\n\n{#0F766E}One reduction instead of two: cheaper than LayerNorm, which is why Llama-class models use it.{/}"
+    }
+  },
+  {
+    "id": 59,
+    "front": {
+      "text": "What are the BatchNorm and GroupNorm kernels?",
+      "markdown": "What are the **BatchNorm** and **GroupNorm** kernels?"
+    },
+    "back": {
+      "text": "Two more normalization kernels differing in which axes they reduce over. BatchNorm normalizes each channel across the batch (and spatial) dimensions — great for CNNs but batch-size-dependent and awkward at inference. GroupNorm splits channels into groups and normalizes within each group per sample, so it's independent of batch size.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Same idea, different reduction axes\n\n- **BatchNorm** — per-channel across the **batch** (and spatial); batch-size-dependent, CNN staple\n- **GroupNorm** — per-sample within channel **groups**; batch-independent\n\n{#0F766E}The norm family differs only in *which axes* it reduces over — batch, feature, channel, or group.{/}"
+    }
+  },
+  {
+    "id": 60,
+    "front": {
+      "text": "What is an activation-function kernel (ReLU, GELU, SiLU)?",
+      "markdown": "What is an **activation-function** kernel (ReLU, GELU, SiLU)?"
+    },
+    "back": {
+      "text": "An elementwise kernel applying a non-linearity to every element. ReLU = max(0, x) — trivial and fast. GELU weights x by its Gaussian CDF — smooth, standard in transformers. SiLU/Swish = x·sigmoid(x) — used in modern MLP/gated blocks. All are memory-bound and routinely fused into the preceding matmul's epilogue.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Per-element non-linearities\n\n- **ReLU** — `max(0, x)`; trivially cheap\n- **GELU** — `x · Φ(x)`; smooth, transformer default\n- **SiLU / Swish** — `x · sigmoid(x)`; gated MLPs\n\n{#0F766E}All elementwise and memory-bound — so they're fused into the matmul **epilogue** rather than launched alone.{/}"
+    }
+  },
+  {
+    "id": 61,
+    "front": {
+      "text": "What is a batched matmul kernel?",
+      "markdown": "What is a **batched matmul** kernel?"
+    },
+    "back": {
+      "text": "A kernel that performs many independent small/medium matmuls in one launch — one per batch entry or attention head — instead of looping over separate GEMM calls. Amortizes launch overhead and keeps the GPU saturated. Attention's per-head QKᵀ and score·V are batched matmuls.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Many independent matmuls in one launch\n\nRuns a GEMM per batch entry / per attention head together, amortizing launch overhead and keeping the GPU busy.\n\n{#0F766E}Attention is built on batched matmul: one QKᵀ and one score·V per head.{/}"
+    }
+  },
+  {
+    "id": 62,
+    "front": {
+      "text": "What is a grouped (segmented) GEMM kernel?",
+      "markdown": "What is a **grouped** (segmented) GEMM kernel?"
+    },
+    "back": {
+      "text": "A matmul kernel that handles many matmuls with different shapes in a single launch, scheduling all their tiles together. It's the standard way to run a Mixture-of-Experts layer efficiently: each expert is a differently-sized GEMM over its routed tokens, and grouped GEMM fuses them so no expert leaves the GPU idle.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Many differently-shaped matmuls, one launch\n\nSchedules tiles from GEMMs of **varying shapes** together — unlike batched matmul, the shapes can differ.\n\n{#0F766E}The MoE workhorse: one GEMM per expert over its routed tokens, fused so no expert stalls the GPU.{/}"
+    }
+  },
+  {
+    "id": 63,
+    "front": {
+      "text": "What is a GEMV kernel, and why does it dominate LLM decoding?",
+      "markdown": "What is a **GEMV** kernel, and why does it dominate LLM decoding?"
+    },
+    "back": {
+      "text": "General Matrix-Vector multiply — a matrix times a single vector (a GEMM with batch/sequence size 1). It has almost no data reuse, so it's memory-bandwidth-bound, not compute-bound. Autoregressive decoding generates one token at a time, turning the model's big matmuls into GEMVs — which is exactly why decoding is memory-bound.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Matrix × vector — the batch-1 matmul\n\nLittle to no data reuse, so it's **memory-bandwidth-bound**, not compute-bound.\n\n{#0F766E}One-token-at-a-time decoding makes every layer a GEMV — the root cause of memory-bound LLM inference.{/}"
+    }
+  },
+  {
+    "id": 64,
+    "front": {
+      "text": "What is im2col, and how does it relate to convolution kernels?",
+      "markdown": "What is **im2col**, and how does it relate to convolution kernels?"
+    },
+    "back": {
+      "text": "A data-layout kernel that unrolls each sliding receptive field of an image into a column of a big matrix, so a convolution becomes a single matmul against the reshaped filters. It trades extra memory for reusing the GPU's ultra-fast GEMM path. 'Implicit GEMM' does the same mapping without materializing the expanded matrix.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Unroll conv patches so it becomes a matmul\n\nLays each receptive field out as a matrix column, turning convolution into one **GEMM** against the reshaped filters.\n\n{#0F766E}*Implicit GEMM* does the same mapping on the fly — no expanded matrix in memory.{/}"
+    }
+  },
+  {
+    "id": 65,
+    "front": {
+      "text": "What is the Winograd convolution kernel?",
+      "markdown": "What is the **Winograd** convolution kernel?"
+    },
+    "back": {
+      "text": "A fast-convolution algorithm that uses clever transforms to compute small-filter convolutions (e.g. 3×3) with far fewer multiplications than the direct method, trading multiplies for cheaper additions. It speeds up compute-bound CNN layers, at the cost of more numerical error and extra transform work.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Fewer multiplies for small-filter conv\n\nTransform-based fast convolution (e.g. 3×3): trades expensive **multiplications** for cheaper additions.\n\n{#0F766E}Speeds up compute-bound CNN layers — but adds transform overhead and a bit more numerical error.{/}"
+    }
+  },
+  {
+    "id": 66,
+    "front": {
+      "text": "What is a depthwise / separable convolution kernel?",
+      "markdown": "What is a **depthwise / separable** convolution kernel?"
+    },
+    "back": {
+      "text": "A factored convolution. Depthwise conv applies one filter per input channel separately (no mixing across channels); a depthwise-separable conv follows it with a 1×1 pointwise conv to mix channels. Together they approximate a full conv with far fewer parameters and FLOPs — the basis of efficient mobile nets.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Conv factored into per-channel + 1×1 mixing\n\n- **Depthwise** — one filter per channel, no cross-channel mixing\n- **Separable** — depthwise then a **1×1 pointwise** conv to mix channels\n\n{#0F766E}Far fewer params and FLOPs than a full conv — the trick behind MobileNet-style efficient CNNs.{/}"
+    }
+  },
+  {
+    "id": 67,
+    "front": {
+      "text": "What is a pooling kernel (max / average)?",
+      "markdown": "What is a **pooling** kernel (max / average)?"
+    },
+    "back": {
+      "text": "A downsampling kernel that slides a window over a feature map and emits one value per window — the maximum (max-pool) or the mean (avg-pool). It shrinks spatial resolution, adds a little translation invariance, and has no learned weights. It's a windowed reduction, so it's memory-bound.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Downsample a feature map by windows\n\nSlide a window, emit one value each: **max-pool** (maximum) or **avg-pool** (mean). No learned weights.\n\n{#0F766E}A windowed reduction — memory-bound — that shrinks resolution and adds slight translation invariance.{/}"
+    }
+  },
+  {
+    "id": 68,
+    "front": {
+      "text": "What is an embedding-lookup kernel (and one-hot)?",
+      "markdown": "What is an **embedding-lookup** kernel (and one-hot)?"
+    },
+    "back": {
+      "text": "A gather kernel: given a table of vectors and a list of integer token IDs, it reads the corresponding rows out of the embedding matrix. It's the first op in any LLM. Mathematically it's a one-hot matrix times the table, but doing that as a matmul would be wasteful — a gather is far cheaper.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Gather rows of the embedding table by token ID\n\nThe first op in an LLM: index integer IDs into the embedding matrix to fetch their vectors.\n\n{#0F766E}Equivalent to *one-hot × table*, but done as a **gather** — never materialize the one-hot matmul.{/}"
+    }
+  },
+  {
+    "id": 69,
+    "front": {
+      "text": "What are the top-k, argmax/argmin, and sort kernels?",
+      "markdown": "What are the **top-k**, **argmax/argmin**, and **sort** kernels?"
+    },
+    "back": {
+      "text": "Selection and ordering kernels over a tensor. Argmax/argmin return the index of the largest/smallest element (greedy decoding picks the argmax logit). Top-k returns the k largest values and their indices (sampling, MoE routing, beam search). Sort orders elements. All need cross-thread cooperation, so they build on reduction and scan patterns.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Selection & ordering kernels\n\n- **argmax / argmin** — index of the max/min (greedy decoding)\n- **top-k** — k largest values + indices (sampling, MoE routing)\n- **sort** — order the elements\n\n{#0F766E}All need threads to cooperate — they're built on reduction and scan primitives.{/}"
+    }
+  },
+  {
+    "id": 70,
+    "front": {
+      "text": "What are the quantize / dequantize kernels?",
+      "markdown": "What are the **quantize / dequantize** kernels?"
+    },
+    "back": {
+      "text": "Kernels that convert between high precision and a low-bit format. Quantize maps fp16/fp32 values to int8/int4 (or fp8/fp4) using a scale (and sometimes zero-point), usually computed per-tensor, per-row, or per-block. Dequantize reverses it. Inference kernels often dequantize weights on the fly inside a fused matmul.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Convert between high and low precision\n\n- **Quantize** — fp16/32 → int8/int4 (or fp8/fp4) via a **scale** (± zero-point), per-tensor/row/block\n- **Dequantize** — the reverse\n\n{#0F766E}MAX has dynamic fp8/fp4 quantize kernels; weights are often dequantized on the fly inside a fused matmul.{/}"
+    }
+  },
+  {
+    "id": 71,
+    "front": {
+      "text": "What is a dtype-cast (type-conversion) kernel?",
+      "markdown": "What is a **dtype-cast** (type-conversion) kernel?"
+    },
+    "back": {
+      "text": "An elementwise kernel that converts a tensor from one numeric type to another — fp32↔bf16, fp16↔fp32, int↔float. Mixed-precision pipelines insert casts around low-precision matmuls. It moves data with trivial arithmetic, so it's memory-bound and a prime candidate to fuse into a neighboring op rather than launch alone.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Convert a tensor's numeric type\n\nElementwise fp32↔bf16, fp16↔fp32, int↔float — the casts mixed-precision inserts around low-precision matmuls.\n\n{#0F766E}Trivial math, pure data movement: memory-bound, so fuse it into a neighbor rather than launch it alone.{/}"
+    }
+  },
+  {
+    "id": 72,
+    "front": {
+      "text": "What is a fused epilogue (bias + activation) kernel?",
+      "markdown": "What is a **fused epilogue** (bias + activation) kernel?"
+    },
+    "back": {
+      "text": "The tail end of a matmul kernel that applies follow-on elementwise work — adding a bias, applying an activation like GELU, scaling, or casting — to each output tile while it's still in registers, before writing to global memory. It removes a whole extra memory round-trip versus running those ops as separate kernels.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Bias + activation folded into the matmul's tail\n\nApplies bias / activation / scale / cast to each output tile **while it's still in registers**, before the write-out.\n\n{#0F766E}Saves a full HBM round-trip versus separate kernels — the canonical fusion in a GEMM epilogue.{/}"
+    }
+  },
+  {
+    "id": 73,
+    "front": {
+      "text": "What is a dropout kernel?",
+      "markdown": "What is a **dropout** kernel?"
+    },
+    "back": {
+      "text": "A training-only elementwise kernel that randomly zeros each element with probability p and scales the survivors by 1/(1−p) so the expected value is unchanged. It regularizes by forcing the network not to rely on any single unit. It needs a fast per-element RNG and is a no-op at inference.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Randomly zero elements during training\n\nDrops each element with probability **p**, scales survivors by **1/(1−p)** to preserve the mean.\n\n{#0F766E}Regularizes the network; needs a fast per-element RNG — and is disabled at inference.{/}"
+    }
+  },
+  {
+    "id": 74,
+    "front": {
+      "text": "What are collective kernels (all-reduce, reduce-scatter)?",
+      "markdown": "What are **collective** kernels (all-reduce, reduce-scatter)?"
+    },
+    "back": {
+      "text": "Multi-GPU kernels that combine data across devices over fast interconnects like NVLink. All-reduce sums (or maxes) a tensor across all GPUs and gives every GPU the result — the backbone of data-parallel gradient sync and tensor-parallel inference. Reduce-scatter does the reduction but leaves each GPU only its slice of the output.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Combine tensors across multiple GPUs\n\n- **All-reduce** — reduce across all GPUs, every GPU gets the full result\n- **Reduce-scatter** — reduce, but each GPU keeps only its slice\n\n{#0F766E}All-reduce is the backbone of data-parallel gradient sync and tensor-parallel inference (NCCL/NVLink).{/}"
+    }
   }
 ]
