@@ -1,0 +1,29 @@
+{
+  "id": "welcome",
+  "uuid": "07AF2948-3D9B-4990-9BF0-EE29E7954731",
+  "name": "Welcome to WristRecall",
+  "description": "Learn how to use WristRecall in ten quick cards — your wrist, your decks, your daily streak.",
+  "storeFileName": "welcome",
+  "imageName": "welcome_deck",
+  "gradientColors": ["#1E3A8AFF", "#10A37FCC"],
+  "cardCount": 10,
+  "topicCount": 3,
+  "category": "Getting Started",
+  "version": "1.0.0",
+  "aboutURL": "https://github.com/objectivepixel/wristrecall-decks",
+  "sourceFileName": "cards.json",
+  "topicDefinitions": [
+    {
+      "name": "The Basics",
+      "cardIDs": [1, 2, 3, 4]
+    },
+    {
+      "name": "Studying & Decks",
+      "cardIDs": [5, 6, 7]
+    },
+    {
+      "name": "Habits & Help",
+      "cardIDs": [8, 9, 10]
+    }
+  ]
+}
