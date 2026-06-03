@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "front": {
+      "text": "What is WristRecall?",
+      "markdown": "What is **WristRecall**?"
+    },
+    "back": {
+      "text": "A flashcard app for your Apple Watch. Study any subject in quick sessions right on your wrist — no phone needed once a deck is installed.",
+      "markdown": "## Flashcards on your wrist ⌚️\n\nStudy any subject in **quick sessions**, right from your Apple Watch.\n\n{#0F766E}Once a deck is on your watch, you don't need your phone to study.{/}",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 2,
+    "front": {
+      "text": "How does a flashcard work?",
+      "markdown": "How does a single **flashcard** work?"
+    },
+    "back": {
+      "text": "Read the question, think of your answer, then tap the card to flip it and reveal the answer. Check yourself, then move on.",
+      "markdown": "## Think, then tap 👆\n\n1. Read the **question**\n2. Recall the answer in your head\n3. **Tap** to flip and reveal it\n\n{#0F766E}Trying to remember *before* you flip is what makes it stick.{/}",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 3,
+    "front": {
+      "text": "How do I say if I got a card right or wrong?",
+      "markdown": "After flipping, how do I mark a card **right or wrong**?"
+    },
+    "back": {
+      "text": "After the answer is shown, tap Got it if you remembered it, or tap Missed if you didn't. Your honesty trains what you see next.",
+      "markdown": "## Tap to grade 👆\n\n- Tap **Got it** → you remembered it ✅\n- Tap **Missed** → you didn't ❌\n\n{#0F766E}Be honest — your grades decide which cards come back sooner.{/}",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 4,
+    "front": {
+      "text": "Why does a question come back later?",
+      "markdown": "Why do some questions keep **coming back**?"
+    },
+    "back": {
+      "text": "WristRecall uses spaced repetition. Cards you find hard return sooner; cards you know well are spaced further apart, so you spend time where it counts.",
+      "markdown": "## Spaced repetition 🔁\n\nCards you **miss** come back **sooner**. Cards you **know** are spaced out further.\n\n{#0F766E}You review what you're about to forget — and skip what you've mastered.{/}",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 5,
+    "front": {
+      "text": "What is a deck?",
+      "markdown": "What is a **deck**?"
+    },
+    "back": {
+      "text": "A deck is a collection of cards on one subject — like Spanish verbs or world capitals. You pick a deck, then study its cards.",
+      "markdown": "## A set of cards 🃏\n\nA **deck** groups cards around one subject — like *Spanish verbs* or *world capitals*.\n\n{#0F766E}Pick a deck from the list, and you're studying in seconds.{/}",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 6,
+    "front": {
+      "text": "How do I get more decks?",
+      "markdown": "How do I get **more decks**?"
+    },
+    "back": {
+      "text": "Find decks on the WristRecall decks site or GitHub repo, download a .wristdeck file, then open it to import the deck into the app.",
+      "markdown": "## Open a .wristdeck file 📥\n\n1. Find decks on the WristRecall **decks site** or **GitHub** repo\n2. Download the **`.wristdeck`** file\n3. **Open** it to import the deck\n\n{#0F766E}There's no in-app store — you add decks by opening a file you download.{/}",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 7,
+    "front": {
+      "text": "How do I study on my Apple Watch?",
+      "markdown": "How do I get a deck onto my **Apple Watch**?"
+    },
+    "back": {
+      "text": "In the iPhone Deck Browser, swipe left on a deck and tap Install on Watch. It syncs over to your watch so you can study anywhere — no phone required.",
+      "markdown": "## Install on Watch ⌚️\n\n1. Open the **Deck Browser** on iPhone\n2. **Swipe left** on a deck\n3. Tap **Install on Watch**\n\n{#0F766E}It syncs automatically — then study with your phone in your pocket.{/}",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 8,
+    "front": {
+      "text": "How long should a study session be?",
+      "markdown": "How long should a **study session** be?"
+    },
+    "back": {
+      "text": "Short and often beats long and rare. A minute or two on your wrist, a few times a day, adds up fast.",
+      "markdown": "## A minute is plenty ⏱️\n\nShort and **often** beats long and rare.\n\n{#0F766E}A couple of cards while the kettle boils — that's a real session.{/}",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 9,
+    "front": {
+      "text": "How do I build a daily habit?",
+      "markdown": "How do I build a **daily habit**?"
+    },
+    "back": {
+      "text": "Add the WristRecall complication to your watch face, or the widget to your iPhone Home Screen, for a one-tap start — then keep your streak going by studying a little every day.",
+      "markdown": "## Make it one tap 🔥\n\n- Add the **complication** to your watch face\n- Or the **widget** to your iPhone Home Screen\n\n{#0F766E}Study a little every day to keep your streak alive.{/}",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  },
+  {
+    "id": 10,
+    "front": {
+      "text": "Where can I get help or track progress?",
+      "markdown": "Where do I **track progress** or get help?"
+    },
+    "back": {
+      "text": "Check your accuracy and streak stats in the app after each session. For tips and support, visit the WristRecall help pages. Now pick a deck and start learning!",
+      "markdown": "## You're ready! 🎉\n\n- See your **accuracy** and **streak** in Stats\n- Find tips on the **Help** pages\n\n{#0F766E}Now pick a deck and start learning — one card at a time.{/}",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] }
+    }
+  }
+]
