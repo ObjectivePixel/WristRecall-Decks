@@ -9,7 +9,7 @@
   "cardCount": 180,
   "topicCount": 15,
   "category": "Programming",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "moreInfoURL": "https://mojolang.org/docs/reference/",
   "aboutURL": "https://github.com/objectivepixel/wristrecall-decks",
   "sourceFileName": "mojophrases.json",

@@ -3689,22 +3689,22 @@
       "markdown": "What are all the struct lifecycle special methods?"
     },
     "back": {
-      "text": "Mojo structs have four lifecycle methods: __init__ (constructor), copy __init__ (copy), move __init__ (consuming move), and __del__ (destructor). Note the argument conventions: out (uninitialized output), deinit (consuming), and ref (parametric reference).",
-      "code_snippet": "struct MyType:\n    var val: Int\n\n    # Constructor (out = uninitialized output)\n    def __init__(out self, val: Int):\n        self.val = val\n\n    # Copy constructor\n    def __init__(out self, *, copy: Self):\n        self.val = copy.val\n\n    # Move constructor (deinit = consumes original)\n    def __init__(out self, *, deinit take: Self):\n        self.val = take.val\n\n    # Destructor (deinit self = consumed)\n    def __del__(deinit self):\n        pass  # free resources here\n\n    # ref self = parametric reference\n    def peek(ref self) -> ref [self] Int:\n        return self.val",
+      "text": "Special struct methods: the constructor (__init__) initializes fields when a value is created; the copy constructor runs when a value is duplicated (e.g. passed as var without ^); the consuming move constructor runs when ^ transfers ownership and fields move without copying; the destructor (__del__) runs after the value's last use; and the ref self receiver passes self by reference, letting the method return a reference into self via ref [self] T.",
+      "code_snippet": "struct MyType:\n    var val: Int\n\n    # Constructor\n    # out = uninitialized output\n    def __init__(out self, val: Int):\n        self.val = val\n\n    # Copy constructor\n    def __init__(out self, *, copy: Self):\n        self.val = copy.val\n\n    # Consuming move constructor\n    # deinit = consumes original\n    def __init__(out self, *, deinit take: Self):\n        self.val = take.val\n\n    # Destructor\n    # deinit self = consumed\n    def __del__(deinit self):\n        pass  # free resources here\n\n    # ref self receiver; returns a reference into self\n    # [self] origin ties the ref's lifetime to self —\n    # caller can't use it after self is destroyed\n    def val_ref(ref self) -> ref [self] Int:\n        return self.val\n\n# Caller picks how to receive the ref return:\nref v = obj.val_ref()   # ref binding — reads/writes hit obj.val\nvar v = obj.val_ref()   # copies the Int out — edits don't touch obj",
       "formatting": {
         "text_font": "system_sans_serif",
         "code_font": "monospace",
         "inline_code_terms": [
           "__init__",
           "__del__",
-          "out",
+          "ref self",
+          "ref [self]",
+          "val_ref",
           "deinit",
-          "ref",
-          "copy",
-          "deinit take"
+          "out"
         ]
       },
-      "markdown": "Mojo structs have four lifecycle methods: `__init__` (constructor), `copy` `__init__` (`copy`), move `__init__` (consuming move), and `__del__` (destructor). Note the argument conventions: `out` (uninitialized output), `deinit` (consuming), and `ref` (parametric reference).\n\n```\nstruct MyType:\n    var val: Int\n\n    # Constructor (out = uninitialized output)\n    def __init__(out self, val: Int):\n        self.val = val\n\n    # Copy constructor\n    def __init__(out self, *, copy: Self):\n        self.val = copy.val\n\n    # Move constructor (deinit = consumes original)\n    def __init__(out self, *, deinit take: Self):\n        self.val = take.val\n\n    # Destructor (deinit self = consumed)\n    def __del__(deinit self):\n        pass  # free resources here\n\n    # ref self = parametric reference\n    def peek(ref self) -> ref [self] Int:\n        return self.val\n```"
+      "markdown": "## Lifecycle methods and the `ref self` receiver\n\n- **Constructor** (`__init__`) — initializes fields when a value is created\n- **Copy constructor** — runs when a value is duplicated (e.g. passed as `var` without `^`)\n- **Consuming move constructor** — runs when `^` transfers ownership; fields move without copying\n- **Destructor** (`__del__`) — runs after the value's last use, to release resources\n- **`ref self`** receiver — passes `self` by reference; the method can return a reference into `self` with `ref [self] T`\n\n```\nstruct MyType:\n    var val: Int\n\n    # Constructor\n    # out = uninitialized output\n    def __init__(out self, val: Int):\n        self.val = val\n\n    # Copy constructor\n    def __init__(out self, *, copy: Self):\n        self.val = copy.val\n\n    # Consuming move constructor\n    # deinit = consumes original\n    def __init__(out self, *, deinit take: Self):\n        self.val = take.val\n\n    # Destructor\n    # deinit self = consumed\n    def __del__(deinit self):\n        pass  # free resources here\n\n    # ref self receiver; returns a reference into self\n    # [self] origin ties the ref's lifetime to self —\n    # caller can't use it after self is destroyed\n    def val_ref(ref self) -> ref [self] Int:\n        return self.val\n\n# Caller picks how to receive the ref return:\nref v = obj.val_ref()   # ref binding — reads/writes hit obj.val\nvar v = obj.val_ref()   # copies the Int out — edits don't touch obj\n```"
     }
   },
   {
