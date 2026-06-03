@@ -1,0 +1,964 @@
+[
+  {
+    "id": 1,
+    "front": {
+      "text": "What is a tensor?",
+      "markdown": "What is a **tensor**?"
+    },
+    "back": {
+      "text": "A multi-dimensional array of numbers — the core data structure of ML. A scalar is rank-0, a vector rank-1, a matrix rank-2, and higher ranks add more axes. Defined by its shape (size of each axis) and dtype (element type).",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## A multi-dimensional array of numbers\n\nThe core data structure of ML. Rank-0 is a scalar, rank-1 a vector, rank-2 a matrix; higher ranks add axes. A tensor is described by its **shape** (size of each axis) and **dtype** (element type).\n\n{#0F766E}Almost every ML operation is a transformation of tensors into other tensors.{/}"
+    }
+  },
+  {
+    "id": 2,
+    "front": {
+      "text": "What is a neural network?",
+      "markdown": "What is a **neural network**?"
+    },
+    "back": {
+      "text": "A function built from layers of weighted sums followed by non-linear activations. Parameters (weights and biases) are learned from data by minimizing a loss. Stacking many layers makes it 'deep'.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Layers of weighted sums + non-linearities\n\nEach layer computes a weighted sum of its inputs, then applies a non-linear **activation**. Weights and biases are learned from data by minimizing a **loss**.\n\n{#0F766E}Non-linear activations are what let a deep network model relationships a single linear layer never could.{/}"
+    }
+  },
+  {
+    "id": 3,
+    "front": {
+      "text": "What does 'parameters' mean for a model (e.g. a 7B model)?",
+      "markdown": "What does **parameters** mean for a model (e.g. a *7B* model)?"
+    },
+    "back": {
+      "text": "The learnable weights of the network. '7B' means 7 billion parameters. Parameter count is the headline measure of model size and roughly drives memory footprint and compute cost.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## The learnable weights of the network\n\n**7B** = 7 billion parameters. Parameter count is the headline measure of model size and roughly tracks memory footprint and compute cost.\n\n{#0F766E}At fp16, raw weights take ~2 bytes each — a 7B model is ~14 GB before any activations or KV-cache.{/}"
+    }
+  },
+  {
+    "id": 4,
+    "front": {
+      "text": "What is an embedding?",
+      "markdown": "What is an **embedding**?"
+    },
+    "back": {
+      "text": "A dense vector that represents a token, word, image, or other item in a continuous space where 'similar' items sit close together. Embeddings turn discrete symbols into something a network can do math on.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## A dense vector representing an item\n\nMaps a token, word, or image into a continuous space where **similar items sit close together** — turning discrete symbols into vectors a network can compute on.\n\n{#0F766E}Semantic search and RAG rely on comparing embedding vectors by cosine distance.{/}"
+    }
+  },
+  {
+    "id": 5,
+    "front": {
+      "text": "What is a token in the context of LLMs?",
+      "markdown": "What is a **token** in the context of LLMs?"
+    },
+    "back": {
+      "text": "The unit a model reads and generates — a chunk of text (often a sub-word) produced by a tokenizer. Models bill, limit context, and measure throughput in tokens, not characters or words.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## The unit a model reads and generates\n\nA chunk of text — often a sub-word — produced by a **tokenizer**. Context limits, pricing, and throughput are all measured in tokens.\n\n{#0F766E}A rough rule of thumb in English: ~1 token ≈ 4 characters ≈ 0.75 words.{/}"
+    }
+  },
+  {
+    "id": 6,
+    "front": {
+      "text": "What is a hyperparameter?",
+      "markdown": "What is a **hyperparameter**?"
+    },
+    "back": {
+      "text": "A configuration value you set before training (not learned), such as learning rate, batch size, number of layers, or hidden dimension. Tuning hyperparameters is a key part of getting a model to train well.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## A setting chosen before training\n\nUnlike weights, hyperparameters are **not learned** — you pick them: learning rate, batch size, layer count, hidden dimension.\n\n{#0F766E}Distinction that matters: parameters are learned by the model; hyperparameters are chosen by you.{/}"
+    }
+  },
+  {
+    "id": 7,
+    "front": {
+      "text": "What is overfitting?",
+      "markdown": "What is **overfitting**?"
+    },
+    "back": {
+      "text": "When a model memorizes the training data — including its noise — and fails to generalize to new data. Symptom: training loss keeps dropping while validation loss rises. Mitigated with regularization, dropout, and more/cleaner data.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Memorizing the training set, not generalizing\n\nThe model fits training noise and does poorly on unseen data. **Tell-tale sign:** training loss falls while validation loss climbs.\n\n{#0F766E}Fixes: more data, regularization, dropout, and early stopping.{/}"
+    }
+  },
+  {
+    "id": 8,
+    "front": {
+      "text": "What is a GPU and why is it central to AI?",
+      "markdown": "What is a **GPU** and why is it central to AI?"
+    },
+    "back": {
+      "text": "A Graphics Processing Unit: a processor with thousands of cores built for massively parallel arithmetic. Neural networks are mostly matrix multiplications, which map perfectly onto that parallelism — making GPUs the workhorse of training and inference.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Thousands of cores for parallel math\n\nNeural nets are mostly **matrix multiplies**, which map perfectly onto a GPU's massively parallel design — so GPUs are the workhorse of training and inference.\n\n{#0F766E}CPUs optimize for low latency on a few threads; GPUs optimize for throughput across thousands.{/}"
+    }
+  },
+  {
+    "id": 9,
+    "front": {
+      "text": "What is a GPU kernel?",
+      "markdown": "What is a **GPU kernel**?"
+    },
+    "back": {
+      "text": "A function that runs on the GPU, executed in parallel across many threads. Writing fast kernels (matmul, attention, normalization) is where a lot of ML performance engineering happens — and a core use case for Mojo.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## A function that runs on the GPU\n\nLaunched in parallel across many threads. Hand-written or compiler-generated kernels for matmul, attention, and normalization are where much of ML performance lives.\n\n{#0F766E}Writing portable, high-performance GPU kernels is a core motivation for Mojo and the Modular stack.{/}"
+    }
+  },
+  {
+    "id": 10,
+    "front": {
+      "text": "What is SIMD?",
+      "markdown": "What is **SIMD**?"
+    },
+    "back": {
+      "text": "Single Instruction, Multiple Data: one instruction operates on a whole vector of values at once. It's the hardware-level parallelism behind fast numeric code on both CPUs and GPUs, and a first-class concept in Mojo.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Single Instruction, Multiple Data\n\nOne instruction processes a **whole vector** of values at once — the hardware parallelism behind fast numeric code on CPUs and GPUs.\n\n{#0F766E}In Mojo, `SIMD` is a first-class type, so vectorization is explicit rather than left to luck.{/}"
+    }
+  },
+  {
+    "id": 11,
+    "front": {
+      "text": "What's the difference between throughput and latency?",
+      "markdown": "What's the difference between **throughput** and **latency**?"
+    },
+    "back": {
+      "text": "Latency is how long one request takes (e.g. time to first token). Throughput is how much work completes per unit time (e.g. tokens/sec across all requests). Serving systems constantly trade one against the other.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Speed of one vs volume over time\n\n- **Latency** — how long a single request takes (e.g. time-to-first-token)\n- **Throughput** — work completed per unit time (e.g. tokens/sec)\n\n{#0F766E}Bigger batches usually raise throughput but hurt per-request latency — the central serving trade-off.{/}"
+    }
+  },
+  {
+    "id": 12,
+    "front": {
+      "text": "What does it mean for a workload to be memory-bound vs compute-bound?",
+      "markdown": "What does it mean for a workload to be **memory-bound** vs **compute-bound**?"
+    },
+    "back": {
+      "text": "Compute-bound means the bottleneck is arithmetic (the ALUs are saturated). Memory-bound means the bottleneck is moving data to/from memory and the compute units sit idle waiting. LLM decoding is famously memory-bound.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## What is the bottleneck — math or moving data?\n\n- **Compute-bound** — the arithmetic units are the limit\n- **Memory-bound** — the limit is moving data; compute sits idle waiting\n\n{#0F766E}LLM token-by-token decoding is typically memory-bandwidth-bound, not compute-bound.{/}"
+    }
+  },
+  {
+    "id": 13,
+    "front": {
+      "text": "What is FLOPs / FLOP/s?",
+      "markdown": "What is **FLOPs** / **FLOP/s**?"
+    },
+    "back": {
+      "text": "FLOPs = floating-point operations (a count of work). FLOP/s = floating-point operations per second (a rate of hardware speed). Training cost is often quoted in total FLOPs; chip specs are quoted in FLOP/s (e.g. TFLOPS).",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Floating-point operations — count vs rate\n\n- **FLOPs** — a *count* of operations (how much work)\n- **FLOP/s** — a *rate*, operations per second (how fast the hardware)\n\n{#0F766E}Watch the 's': training budgets are quoted in FLOPs; chip peak speed in FLOP/s (TFLOPS, PFLOPS).{/}"
+    }
+  },
+  {
+    "id": 14,
+    "front": {
+      "text": "What is GPU occupancy?",
+      "markdown": "What is **GPU occupancy**?"
+    },
+    "back": {
+      "text": "The ratio of active warps (groups of threads) on a streaming multiprocessor to the maximum it can hold. Higher occupancy helps the GPU hide memory latency by switching to ready work, but max occupancy isn't always the fastest configuration.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## How fully the GPU's schedulers are kept busy\n\nThe ratio of active **warps** to the maximum a streaming multiprocessor can host. More occupancy helps hide memory latency by always having ready work.\n\n{#0F766E}Higher occupancy isn't automatically faster — register and shared-memory pressure can make a lower-occupancy kernel win.{/}"
+    }
+  },
+  {
+    "id": 15,
+    "front": {
+      "text": "What is mixed-precision training?",
+      "markdown": "What is **mixed-precision** training?"
+    },
+    "back": {
+      "text": "Doing most math in a low-precision float (fp16 or bf16) for speed and memory savings, while keeping a few sensitive parts (like a master copy of weights and the loss scale) in fp32 for numerical stability.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Low precision for speed, fp32 where it matters\n\nMost matmuls run in **fp16/bf16** for speed and smaller memory; a few stability-critical pieces stay in **fp32**.\n\n{#0F766E}bf16 keeps fp32's exponent range, so it avoids much of fp16's overflow/underflow pain.{/}"
+    }
+  },
+  {
+    "id": 16,
+    "front": {
+      "text": "What is quantization?",
+      "markdown": "What is **quantization**?"
+    },
+    "back": {
+      "text": "Storing and computing weights/activations in lower-bit formats (int8, int4) instead of fp16/fp32. It shrinks memory and bandwidth and speeds up inference, at some accuracy cost. Common for running large models on smaller hardware.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Representing weights in fewer bits\n\nUse **int8 or int4** instead of fp16/fp32 to cut memory and bandwidth and speed up inference — trading a little accuracy.\n\n{#0F766E}Quantization is what lets a 70B-class model run on a single consumer GPU.{/}"
+    }
+  },
+  {
+    "id": 17,
+    "front": {
+      "text": "What is operator fusion (kernel fusion)?",
+      "markdown": "What is **operator fusion** (kernel fusion)?"
+    },
+    "back": {
+      "text": "Combining several operations into a single GPU kernel so intermediate results stay in fast registers/shared memory instead of round-tripping to slow global memory. A key optimization for memory-bound ML workloads.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Merge ops into one kernel to avoid memory traffic\n\nKeeps intermediates in fast registers/shared memory instead of writing them out to slow global memory between steps.\n\n{#0F766E}Fusion attacks the memory-bound bottleneck directly — fewer trips to DRAM, more useful work per byte moved.{/}"
+    }
+  },
+  {
+    "id": 18,
+    "front": {
+      "text": "What is a transformer?",
+      "markdown": "What is a **transformer**?"
+    },
+    "back": {
+      "text": "The neural architecture behind modern LLMs, introduced in 'Attention Is All You Need' (2017). It processes a whole sequence in parallel using stacked self-attention and feed-forward layers, replacing the sequential recurrence of RNNs.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## The architecture behind modern LLMs\n\nFrom *Attention Is All You Need* (2017). Stacks of **self-attention** + feed-forward layers process a whole sequence in parallel, replacing RNN-style recurrence.\n\n{#0F766E}Parallel processing of the full sequence is exactly what made transformers scale on GPUs.{/}"
+    }
+  },
+  {
+    "id": 19,
+    "front": {
+      "text": "What is the attention mechanism?",
+      "markdown": "What is the **attention** mechanism?"
+    },
+    "back": {
+      "text": "A way for each token to look at every other token and weight how much each one matters, using query, key, and value vectors. It lets the model build context-dependent representations regardless of distance in the sequence.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Each token weighs every other token\n\nUses **query, key, value** vectors: a token's query is matched against all keys to decide how much of each value to pull in.\n\n{#0F766E}Attention captures long-range dependencies directly — distance in the sequence doesn't dilute the signal.{/}"
+    }
+  },
+  {
+    "id": 20,
+    "front": {
+      "text": "What is multi-head attention?",
+      "markdown": "What is **multi-head attention**?"
+    },
+    "back": {
+      "text": "Running several attention computations ('heads') in parallel, each with its own learned projections, then concatenating the results. Different heads can specialize in different kinds of relationships (syntax, position, coreference).",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Several attention heads in parallel\n\nEach head has its own learned projections and can specialize — syntax, position, coreference — and their outputs are concatenated.\n\n{#0F766E}Multiple heads let one layer attend to several relationship types at once.{/}"
+    }
+  },
+  {
+    "id": 21,
+    "front": {
+      "text": "What is a Mixture of Experts (MoE)?",
+      "markdown": "What is a **Mixture of Experts** (MoE)?"
+    },
+    "back": {
+      "text": "An architecture with many expert sub-networks where a router activates only a few per token. This gives a huge total parameter count while keeping the per-token compute (active parameters) small — efficient sparsity.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Many experts, only a few active per token\n\nA **router** picks a small subset of expert sub-networks for each token, so total parameters can be huge while per-token compute stays modest.\n\n{#0F766E}MoE decouples model capacity from per-token cost — big where it counts, sparse where it doesn't.{/}"
+    }
+  },
+  {
+    "id": 22,
+    "front": {
+      "text": "What is the context window?",
+      "markdown": "What is the **context window**?"
+    },
+    "back": {
+      "text": "The maximum number of tokens a model can attend to at once — its prompt plus generated output. Longer windows allow more input but cost more memory and compute, since attention scales with sequence length.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## The max tokens a model can see at once\n\nCovers the prompt **plus** the generated output. Bigger windows allow more input but cost more memory and compute.\n\n{#0F766E}Naive attention cost grows with the square of sequence length — long context is expensive.{/}"
+    }
+  },
+  {
+    "id": 23,
+    "front": {
+      "text": "What is an RNN, and how does it differ from a transformer?",
+      "markdown": "What is an **RNN**, and how does it differ from a transformer?"
+    },
+    "back": {
+      "text": "A Recurrent Neural Network processes a sequence one step at a time, carrying a hidden state forward. That sequential dependency limits GPU parallelism and long-range memory — problems transformers' parallel attention largely solved.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Recurrent Neural Network — sequential, stateful\n\nProcesses one step at a time, threading a hidden state forward. That recurrence limits parallelism and long-range memory.\n\n{#0F766E}Transformers replaced RNNs largely because parallel attention trains far better on GPUs.{/}"
+    }
+  },
+  {
+    "id": 24,
+    "front": {
+      "text": "What is the difference between training and inference?",
+      "markdown": "What is the difference between **training** and **inference**?"
+    },
+    "back": {
+      "text": "Training learns the weights from data using forward and backward passes plus an optimizer; it's compute-heavy and done once. Inference runs the trained model forward to produce outputs; it's done constantly in production and is what you optimize for latency and cost.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Learning the weights vs using them\n\n- **Training** — forward + backward passes update weights; expensive, done once\n- **Inference** — forward pass only, run constantly in production\n\n{#0F766E}Inference has no backward pass — which is why serving optimizations look so different from training ones.{/}"
+    }
+  },
+  {
+    "id": 25,
+    "front": {
+      "text": "What is backpropagation?",
+      "markdown": "What is **backpropagation**?"
+    },
+    "back": {
+      "text": "The algorithm that computes the gradient of the loss with respect to every parameter by applying the chain rule backward through the network. Those gradients tell an optimizer (like SGD or Adam) how to update the weights.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Gradients via the chain rule, backward\n\nPropagates the loss's gradient back through every layer, giving the partial derivative for each parameter so an optimizer can update it.\n\n{#0F766E}No backprop at inference time — it only runs while training.{/}"
+    }
+  },
+  {
+    "id": 26,
+    "front": {
+      "text": "What is gradient descent (and the learning rate)?",
+      "markdown": "What is **gradient descent** (and the *learning rate*)?"
+    },
+    "back": {
+      "text": "An optimization method that repeatedly nudges parameters in the direction that lowers the loss (the negative gradient). The learning rate sets the step size: too high diverges, too low trains slowly.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Step downhill on the loss surface\n\nRepeatedly move parameters along the **negative gradient** to reduce loss. The **learning rate** is the step size.\n\n{#0F766E}Too-high learning rate diverges; too-low crawls — it's the single most tuned hyperparameter.{/}"
+    }
+  },
+  {
+    "id": 27,
+    "front": {
+      "text": "What is the KV-cache?",
+      "markdown": "What is the **KV-cache**?"
+    },
+    "back": {
+      "text": "During autoregressive generation, a transformer caches the key and value vectors of previous tokens so it doesn't recompute them for every new token. It dramatically speeds up decoding but its memory grows with sequence length and batch size.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Cached keys & values for past tokens\n\nDuring generation the model reuses earlier tokens' **K** and **V** vectors instead of recomputing them every step.\n\n{#0F766E}The KV-cache is a top driver of inference memory use — it grows with both context length and batch size.{/}"
+    }
+  },
+  {
+    "id": 28,
+    "front": {
+      "text": "What is RAG (Retrieval-Augmented Generation)?",
+      "markdown": "What is **RAG** (Retrieval-Augmented Generation)?"
+    },
+    "back": {
+      "text": "A pattern that retrieves relevant documents (usually via embedding similarity search) and injects them into the prompt so the model can answer from up-to-date, external knowledge instead of relying only on its trained weights.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Retrieve documents, then generate\n\nFetches relevant text via embedding similarity and puts it into the prompt, so answers draw on **external, current** knowledge rather than weights alone.\n\n{#0F766E}RAG reduces hallucination and lets you update knowledge without retraining the model.{/}"
+    }
+  },
+  {
+    "id": 29,
+    "front": {
+      "text": "What is fine-tuning?",
+      "markdown": "What is **fine-tuning**?"
+    },
+    "back": {
+      "text": "Continuing to train a pre-trained model on a smaller, task- or domain-specific dataset to specialize it. Often done parameter-efficiently (e.g. LoRA) by training small adapter weights instead of all parameters.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Specialize a pre-trained model on new data\n\nKeep the pre-trained weights and train further on a focused dataset to adapt behavior or domain.\n\n{#0F766E}Parameter-efficient methods like LoRA train tiny adapter weights, so fine-tuning fits on modest hardware.{/}"
+    }
+  },
+  {
+    "id": 30,
+    "front": {
+      "text": "What is a hallucination in an LLM?",
+      "markdown": "What is a **hallucination** in an LLM?"
+    },
+    "back": {
+      "text": "When a model generates fluent, confident output that is factually wrong or fabricated. It happens because the model predicts likely text, not verified truth. Mitigated with retrieval (RAG), grounding, and verification.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Confident output that is simply wrong\n\nThe model optimizes for *plausible* next tokens, not verified facts — so it can fabricate fluently.\n\n{#0F766E}Grounding the model with retrieved sources (RAG) is the most common mitigation.{/}"
+    }
+  },
+  {
+    "id": 31,
+    "front": {
+      "text": "What is matmul (GEMM)?",
+      "markdown": "What is **matmul** (GEMM)?"
+    },
+    "back": {
+      "text": "Matrix multiplication — multiplying two matrices to produce a third. GEMM (General Matrix Multiply, C = αAB + βC) is the BLAS name for it. It dominates the compute in neural networks, so a fast matmul kernel is the single most important GPU kernel to optimize.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## The matrix-multiply kernel — the heart of ML compute\n\n**GEMM** = General Matrix Multiply: `C = αAB + βC`. Dense layers and attention reduce to matmuls, so this one kernel dominates GPU time.\n\n{#0F766E}Fast matmul is the canonical kernel-optimization problem — tiling, tensor cores, and fusion all aim at it.{/}"
+    }
+  },
+  {
+    "id": 32,
+    "front": {
+      "text": "What is conv2d (2D convolution)?",
+      "markdown": "What is **conv2d** (2D convolution)?"
+    },
+    "back": {
+      "text": "The core operation of convolutional networks: a small learned filter slides over a 2D feature map (image), computing a weighted sum at each position. On GPUs it's usually lowered to a matmul (im2col / implicit GEMM) so it runs on the same fast hardware paths.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## A filter sliding over a 2D feature map\n\nThe core op of CNNs: a learned **kernel/filter** sweeps across an image, summing a weighted patch at each position.\n\n{#0F766E}On GPUs conv2d is typically turned into a matmul (im2col or *implicit GEMM*) to reuse the fastest paths.{/}"
+    }
+  },
+  {
+    "id": 33,
+    "front": {
+      "text": "What is CUTLASS?",
+      "markdown": "What is **CUTLASS**?"
+    },
+    "back": {
+      "text": "NVIDIA's open-source C++ template library of building blocks for high-performance GEMM and convolution kernels on CUDA GPUs, including tensor-core support. It exposes the tiling and pipelining patterns that hand-tuned matmul kernels rely on — and inspired kernel design in Mojo.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## NVIDIA's template library for fast GEMM kernels\n\nC++ building blocks for high-performance **matmul and convolution** on CUDA, including tensor cores — it codifies the tiling/pipelining tricks of hand-tuned kernels.\n\n{#0F766E}Mojo's kernel design took inspiration from CUTLASS, expressing the same patterns in MLIR.{/}"
+    }
+  },
+  {
+    "id": 34,
+    "front": {
+      "text": "What is PTX?",
+      "markdown": "What is **PTX**?"
+    },
+    "back": {
+      "text": "Parallel Thread Execution — NVIDIA's low-level virtual ISA for CUDA GPUs. Compilers emit PTX as a stable, hardware-independent intermediate step; the driver (via ptxas) then JIT-compiles it to the actual per-GPU machine code (SASS).",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## NVIDIA's virtual ISA for the GPU\n\n**P**arallel **T**hread e**X**ecution: a stable, machine-independent assembly that compilers emit, then `ptxas` lowers to the real per-GPU code (**SASS**).\n\n{#0F766E}PTX is portable across GPU generations; SASS is not — that's why PTX exists as the intermediate layer.{/}"
+    }
+  },
+  {
+    "id": 35,
+    "front": {
+      "text": "What is MLIR?",
+      "markdown": "What is **MLIR**?"
+    },
+    "back": {
+      "text": "Multi-Level Intermediate Representation — a compiler infrastructure (from the LLVM project) for building reusable, extensible IRs with multiple levels of abstraction. Mojo is built from the ground up on MLIR, which is what lets it target CPUs, GPUs, and accelerators from one language.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Multi-Level Intermediate Representation\n\nLLVM-family compiler infrastructure for **extensible IRs at multiple abstraction levels**, mixing high-level and hardware-specific dialects in one pipeline.\n\n{#0F766E}Mojo is the first language built from the ground up on MLIR — that foundation is how it spans CPUs, GPUs, and accelerators.{/}"
+    }
+  },
+  {
+    "id": 36,
+    "front": {
+      "text": "What is tiling (blocking) in a GPU kernel?",
+      "markdown": "What is **tiling** (blocking) in a GPU kernel?"
+    },
+    "back": {
+      "text": "Splitting a big computation into small sub-blocks ('tiles') that fit in fast on-chip memory (registers / shared memory), so each loaded value is reused many times before being evicted. It's the central technique for making matmul and convolution memory-efficient.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Work in cache-sized blocks to reuse data\n\nBreak the problem into **tiles** that fit in registers / shared memory, so each loaded value is reused many times before leaving fast memory.\n\n{#0F766E}Tiling is the key to fast matmul — it turns a memory-bound loop into a compute-bound one.{/}"
+    }
+  },
+  {
+    "id": 37,
+    "front": {
+      "text": "What is kernel autofusion?",
+      "markdown": "What is **kernel autofusion**?"
+    },
+    "back": {
+      "text": "When a graph compiler automatically merges multiple operations into a single GPU kernel, rather than you fusing them by hand. Intermediates stay in fast on-chip memory instead of round-tripping to global memory. MAX's graph compiler does this with Mojo kernels.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## The compiler fuses ops into one kernel for you\n\nAutomatic operator fusion: the graph compiler merges adjacent ops so intermediates stay on-chip instead of touching global memory — no hand-written fused kernel needed.\n\n{#0F766E}MAX's graph compiler reflects over Mojo kernels' MLIR to fuse them automatically — a headline win for memory-bound workloads.{/}"
+    }
+  },
+  {
+    "id": 38,
+    "front": {
+      "text": "What is HBM?",
+      "markdown": "What is **HBM**?"
+    },
+    "back": {
+      "text": "High Bandwidth Memory — the stacked DRAM that sits next to the GPU die and serves as its main ('global') memory. It offers huge bandwidth (TB/s) but is still far slower than on-chip registers and shared memory, which is why minimizing HBM traffic matters so much.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## High Bandwidth Memory — the GPU's main DRAM\n\nStacked DRAM beside the GPU die serving as **global memory**: enormous bandwidth (TB/s) but slow relative to on-chip storage.\n\n{#0F766E}Memory-bound kernels are bottlenecked on HBM traffic — fusion and tiling exist mainly to cut it.{/}"
+    }
+  },
+  {
+    "id": 39,
+    "front": {
+      "text": "What are registers on a GPU?",
+      "markdown": "What are **registers** on a GPU?"
+    },
+    "back": {
+      "text": "The fastest, smallest per-thread storage, private to each thread and living right in the streaming multiprocessor. Kernels keep hot values in registers to avoid slower memory. Using too many registers per thread limits how many threads can run at once (lower occupancy).",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## The fastest, per-thread on-chip storage\n\nPrivate to each thread and physically in the SM — kernels keep hot values here to dodge slower memory.\n\n{#0F766E}Registers are finite: heavy register use per thread caps how many threads fit, lowering occupancy.{/}"
+    }
+  },
+  {
+    "id": 40,
+    "front": {
+      "text": "What is a thread on a GPU?",
+      "markdown": "What is a **thread** on a GPU?"
+    },
+    "back": {
+      "text": "The smallest unit of execution in a GPU kernel — one instance of the kernel function, with its own registers and indices. Thousands run concurrently; each typically handles one element or a small slice of the data.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## The smallest unit of GPU execution\n\nOne instance of the kernel, with its own registers and index — usually responsible for a single element or small slice of the data.\n\n{#0F766E}You write the code for one thread; the GPU runs thousands of copies in parallel.{/}"
+    }
+  },
+  {
+    "id": 41,
+    "front": {
+      "text": "What is a warp?",
+      "markdown": "What is a **warp**?"
+    },
+    "back": {
+      "text": "A group of 32 threads (on NVIDIA hardware) that execute the same instruction in lockstep — the actual unit of scheduling on the GPU. If threads in a warp take different branches ('divergence'), the paths run serially, hurting performance.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## 32 threads executing in lockstep\n\nThe GPU's real scheduling unit: a warp's threads run the **same instruction together** (SIMT).\n\n{#0F766E}Branch **divergence** within a warp serializes the paths — keep threads in a warp on the same control flow.{/}"
+    }
+  },
+  {
+    "id": 42,
+    "front": {
+      "text": "What is a thread block?",
+      "markdown": "What is a **thread block**?"
+    },
+    "back": {
+      "text": "A group of threads that run together on one streaming multiprocessor, can share fast on-chip 'shared memory', and can synchronize with a barrier. The block is the level at which cooperative work (like loading a tile) is organized.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## A cooperating group of threads on one SM\n\nThreads in a block share **shared memory** and can synchronize at a **barrier** — it's the level where threads cooperate, e.g. loading a tile together.\n\n{#0F766E}Shared memory and barriers only work *within* a block; across blocks there's no such guarantee.{/}"
+    }
+  },
+  {
+    "id": 43,
+    "front": {
+      "text": "What is the grid in a GPU kernel launch?",
+      "markdown": "What is the **grid** in a GPU kernel launch?"
+    },
+    "back": {
+      "text": "The full collection of thread blocks launched for one kernel call. Threads → warps → blocks → grid form the GPU execution hierarchy. You choose the grid and block dimensions at launch to cover the whole problem.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## All the blocks of one kernel launch\n\nThe top of the hierarchy: **thread → warp → block → grid**. You pick grid and block dimensions to map threads across the whole problem.\n\n{#0F766E}The grid is logical — its blocks are scheduled onto SMs as they free up, so it can be far larger than the GPU.{/}"
+    }
+  },
+  {
+    "id": 44,
+    "front": {
+      "text": "What does row-major memory layout mean?",
+      "markdown": "What does **row-major** memory layout mean?"
+    },
+    "back": {
+      "text": "Storing a 2D array row by row in contiguous memory, so consecutive elements of a row are adjacent. (Column-major stores column by column.) Layout determines which access patterns are coalesced/cache-friendly, so it's central to writing fast kernels.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Rows laid out contiguously in memory\n\nElements of a row sit next to each other (C/NumPy default); **column-major** (Fortran/BLAS) stores columns instead.\n\n{#0F766E}Layout decides which accesses are coalesced — matching your loop order to the layout is a core perf concern.{/}"
+    }
+  },
+  {
+    "id": 45,
+    "front": {
+      "text": "What is a barrier (synchronization) in a GPU kernel?",
+      "markdown": "What is a **barrier** (synchronization) in a GPU kernel?"
+    },
+    "back": {
+      "text": "A synchronization point where all threads in a block must arrive before any proceeds. It's how you safely coordinate access to shared memory — e.g. ensuring every thread has finished writing a tile before others read it.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## A wait-for-everyone point within a block\n\nEvery thread in the block must reach the barrier before any continues — the way to safely coordinate **shared memory**.\n\n{#0F766E}Classic pattern: write a tile to shared memory, hit a barrier, then everyone reads it.{/}"
+    }
+  },
+  {
+    "id": 46,
+    "front": {
+      "text": "Kernel type: what is an elementwise (pointwise) kernel?",
+      "markdown": "Kernel type: what is an **elementwise** (pointwise) kernel?"
+    },
+    "back": {
+      "text": "A kernel that applies the same operation independently to each element of a tensor — adds, activations (ReLU/GELU), scaling, type casts. It's embarrassingly parallel and almost always memory-bound, so it's the prime candidate for fusion.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Same op on every element, independently\n\n**Use for:** activations (ReLU, GELU), adds, scaling, casts. Embarrassingly parallel, one thread per element.\n\n{#0F766E}Almost always memory-bound — which is exactly why these get fused into neighboring kernels.{/}"
+    }
+  },
+  {
+    "id": 47,
+    "front": {
+      "text": "Kernel type: what is a reduction kernel?",
+      "markdown": "Kernel type: what is a **reduction** kernel?"
+    },
+    "back": {
+      "text": "A kernel that collapses many values into fewer along an axis using an associative op — sum, max, mean, norm. It needs cross-thread cooperation (tree reductions, warp shuffles, shared memory) because threads must combine each other's partial results.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Collapse many values into few along an axis\n\n**Use for:** sum, max, mean, L2-norm. Needs threads to combine partials via **tree reductions / warp shuffles / shared memory**.\n\n{#0F766E}The classic parallel-cooperation kernel — unlike elementwise, threads must talk to each other.{/}"
+    }
+  },
+  {
+    "id": 48,
+    "front": {
+      "text": "Kernel type: what is a scan (prefix-sum) kernel?",
+      "markdown": "Kernel type: what is a **scan** (prefix-sum) kernel?"
+    },
+    "back": {
+      "text": "A kernel that computes running aggregates: each output is the combination of all inputs up to that position (e.g. a cumulative sum). It looks sequential but has well-known parallel algorithms, and underlies things like stream compaction and sorting.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Running aggregate over a sequence\n\n**Use for:** cumulative sum, stream compaction, sorting, allocation offsets. Each output folds in everything before it.\n\n{#0F766E}Looks inherently serial but parallel-scan algorithms make it fast — a staple GPU primitive.{/}"
+    }
+  },
+  {
+    "id": 49,
+    "front": {
+      "text": "Kernel type: what are gather and scatter kernels?",
+      "markdown": "Kernel type: what are **gather** and **scatter** kernels?"
+    },
+    "back": {
+      "text": "Indexed memory access. Gather reads elements from arbitrary positions given an index array (e.g. embedding lookup); scatter writes to arbitrary positions. The irregular, non-contiguous access makes them memory-bound and bandwidth-sensitive.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Indexed reads (gather) and writes (scatter)\n\n**Use for:** embedding lookups, sparse ops, indexing/`take`, MoE routing.\n\n- **Gather** — read from arbitrary indices\n- **Scatter** — write to arbitrary indices\n\n{#0F766E}Irregular, non-coalesced access makes these memory-bound — and scatter needs care to avoid write conflicts.{/}"
+    }
+  },
+  {
+    "id": 50,
+    "front": {
+      "text": "Kernel type: what is a transpose kernel?",
+      "markdown": "Kernel type: what is a **transpose** kernel?"
+    },
+    "back": {
+      "text": "A kernel that reorders a tensor's axes — most simply swapping rows and columns of a matrix. It moves no arithmetic but stresses memory: a naive transpose has terrible access patterns, so it's done via shared-memory tiling to keep reads and writes coalesced.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Reorder a tensor's axes (swap rows/columns)\n\n**Use for:** changing layout to feed the next op (e.g. matmul) efficiently.\n\n{#0F766E}Pure data movement, but a textbook case for **shared-memory tiling** — the naive version wrecks coalescing.{/}"
+    }
+  },
+  {
+    "id": 51,
+    "front": {
+      "text": "Kernel type: what is a normalization / softmax kernel?",
+      "markdown": "Kernel type: what is a **normalization / softmax** kernel?"
+    },
+    "back": {
+      "text": "A kernel that rescales a row using its own statistics: softmax (exponentiate and divide by the sum) or layer/RMS norm (subtract mean, divide by std). It's a reduction (to get the sum/mean) followed by an elementwise pass, so it's a prime fusion target.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Rescale a row by its own statistics\n\n**Use for:** softmax in attention, LayerNorm / RMSNorm in transformers.\n\nA **reduction** (sum or mean) followed by an **elementwise** rescale.\n\n{#0F766E}Because it pairs a reduction with a pointwise pass, it's a classic fusion target — and softmax uses a max-shift for numerical stability.{/}"
+    }
+  },
+  {
+    "id": 52,
+    "front": {
+      "text": "What are the common categories of GPU kernel?",
+      "markdown": "What are the common categories of **GPU kernel**?"
+    },
+    "back": {
+      "text": "A handful of recurring shapes cover most ML work: elementwise/pointwise, reduction, matmul/GEMM, convolution, scan/prefix-sum, gather/scatter, transpose, and normalization/softmax. Knowing which category an op falls into tells you its parallel pattern and whether it's compute- or memory-bound.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## The recurring kernel shapes of ML\n\n1. **Elementwise** — per-element ops\n2. **Reduction** — collapse along an axis\n3. **Matmul / GEMM** — the compute workhorse\n4. **Convolution** — sliding filters\n5. **Scan** — running aggregates\n6. **Gather / scatter** — indexed access\n7. **Transpose** — reorder axes\n8. **Norm / softmax** — rescale by statistics\n\n{#0F766E}Most kernels are matmul/conv (compute-bound) or one of the rest (usually memory-bound and fusion-friendly).{/}"
+    }
+  },
+  {
+    "id": 53,
+    "front": {
+      "text": "What is the scaled dot-product attention kernel?",
+      "markdown": "What is the **scaled dot-product attention** kernel?"
+    },
+    "back": {
+      "text": "The core attention computation: softmax(QKᵀ / √dₖ) · V. It scores every query against every key, scales by the square root of the head dimension, softmaxes the scores into weights, then takes a weighted sum of values. As written it materializes the full N×N score matrix, so cost grows with the square of sequence length.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## softmax(QKᵀ / √dₖ) · V\n\nScore each query against every key, scale by **√dₖ**, softmax into weights, then weight-sum the values.\n\n{#0F766E}The naive kernel materializes the full N×N score matrix — O(N²) memory and compute in sequence length.{/}"
+    }
+  },
+  {
+    "id": 54,
+    "front": {
+      "text": "What is the FlashAttention kernel?",
+      "markdown": "What is the **FlashAttention** kernel?"
+    },
+    "back": {
+      "text": "A fused, IO-aware attention kernel that never writes the full N×N score matrix to memory. It tiles Q, K, V into blocks and computes softmax online (streaming the running max and sum), keeping everything in on-chip SRAM. This turns attention from memory-bound to compute-bound and cuts memory from O(N²) to O(N).",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Fused, IO-aware attention — no N×N matrix in HBM\n\nTiles Q/K/V into blocks and runs an **online softmax** (streaming running max + sum) entirely in on-chip SRAM.\n\n{#0F766E}Drops attention memory from O(N²) to O(N) and makes it compute-bound — the kernel behind long-context transformers.{/}"
+    }
+  },
+  {
+    "id": 55,
+    "front": {
+      "text": "What is the paged attention (KV-cache) kernel?",
+      "markdown": "What is the **paged attention** (KV-cache) kernel?"
+    },
+    "back": {
+      "text": "An attention kernel that reads the KV-cache from non-contiguous 'pages' of GPU memory via a block table, the way an OS pages virtual memory. It removes the need to pre-allocate one big contiguous cache per sequence, slashing memory fragmentation and letting a server pack far more concurrent requests.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Attention over a paged, non-contiguous KV-cache\n\nReads keys/values from fixed-size **pages** via a block table — like OS virtual memory — instead of one contiguous buffer per sequence.\n\n{#0F766E}Pioneered by vLLM (PagedAttention): kills KV-cache fragmentation so a server fits many more concurrent requests.{/}"
+    }
+  },
+  {
+    "id": 56,
+    "front": {
+      "text": "What is the RoPE (rotary position embedding) kernel?",
+      "markdown": "What is the **RoPE** (rotary position embedding) kernel?"
+    },
+    "back": {
+      "text": "An elementwise kernel that injects position into attention by rotating pairs of dimensions of the query and key vectors by an angle proportional to their position. Because relative position falls out of the dot product, RoPE generalizes to longer sequences better than learned absolute embeddings. Often fused into the QKV projection.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Rotate Q/K dimension-pairs by position\n\nEncodes position by rotating pairs of dims of **query and key** by a position-dependent angle — relative position then drops out of the dot product.\n\n{#0F766E}MAX fuses RoPE with RMSNorm and QKV projection in its MLA attention path.{/}"
+    }
+  },
+  {
+    "id": 57,
+    "front": {
+      "text": "What is the LayerNorm kernel?",
+      "markdown": "What is the **LayerNorm** kernel?"
+    },
+    "back": {
+      "text": "Normalizes each sample across its feature dimension to zero mean and unit variance, then applies a learned scale (γ) and shift (β). It's a per-row reduction (mean + variance) followed by an elementwise rescale — the classic stabilizer in transformer blocks.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Normalize each sample over its features\n\nZero-mean, unit-variance across the feature axis, then learned **γ scale** and **β shift**. A per-row reduction + elementwise rescale.\n\n{#0F766E}Normalizes per-sample, so it's independent of batch size — unlike BatchNorm.{/}"
+    }
+  },
+  {
+    "id": 58,
+    "front": {
+      "text": "What is the RMSNorm kernel?",
+      "markdown": "What is the **RMSNorm** kernel?"
+    },
+    "back": {
+      "text": "A cheaper LayerNorm variant that divides each vector by its root-mean-square and applies a learned scale — skipping the mean-subtraction and the bias entirely. One reduction (sum of squares) instead of two, so it's faster. Used in Llama and most modern LLMs.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## LayerNorm without the mean subtraction\n\nDivide each vector by its **root-mean-square**, then apply a learned scale — no centering, no bias.\n\n{#0F766E}One reduction instead of two: cheaper than LayerNorm, which is why Llama-class models use it.{/}"
+    }
+  },
+  {
+    "id": 59,
+    "front": {
+      "text": "What are the BatchNorm and GroupNorm kernels?",
+      "markdown": "What are the **BatchNorm** and **GroupNorm** kernels?"
+    },
+    "back": {
+      "text": "Two more normalization kernels differing in which axes they reduce over. BatchNorm normalizes each channel across the batch (and spatial) dimensions — great for CNNs but batch-size-dependent and awkward at inference. GroupNorm splits channels into groups and normalizes within each group per sample, so it's independent of batch size.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Same idea, different reduction axes\n\n- **BatchNorm** — per-channel across the **batch** (and spatial); batch-size-dependent, CNN staple\n- **GroupNorm** — per-sample within channel **groups**; batch-independent\n\n{#0F766E}The norm family differs only in *which axes* it reduces over — batch, feature, channel, or group.{/}"
+    }
+  },
+  {
+    "id": 60,
+    "front": {
+      "text": "What is an activation-function kernel (ReLU, GELU, SiLU)?",
+      "markdown": "What is an **activation-function** kernel (ReLU, GELU, SiLU)?"
+    },
+    "back": {
+      "text": "An elementwise kernel applying a non-linearity to every element. ReLU = max(0, x) — trivial and fast. GELU weights x by its Gaussian CDF — smooth, standard in transformers. SiLU/Swish = x·sigmoid(x) — used in modern MLP/gated blocks. All are memory-bound and routinely fused into the preceding matmul's epilogue.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Per-element non-linearities\n\n- **ReLU** — `max(0, x)`; trivially cheap\n- **GELU** — `x · Φ(x)`; smooth, transformer default\n- **SiLU / Swish** — `x · sigmoid(x)`; gated MLPs\n\n{#0F766E}All elementwise and memory-bound — so they're fused into the matmul **epilogue** rather than launched alone.{/}"
+    }
+  },
+  {
+    "id": 61,
+    "front": {
+      "text": "What is a batched matmul kernel?",
+      "markdown": "What is a **batched matmul** kernel?"
+    },
+    "back": {
+      "text": "A kernel that performs many independent small/medium matmuls in one launch — one per batch entry or attention head — instead of looping over separate GEMM calls. Amortizes launch overhead and keeps the GPU saturated. Attention's per-head QKᵀ and score·V are batched matmuls.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Many independent matmuls in one launch\n\nRuns a GEMM per batch entry / per attention head together, amortizing launch overhead and keeping the GPU busy.\n\n{#0F766E}Attention is built on batched matmul: one QKᵀ and one score·V per head.{/}"
+    }
+  },
+  {
+    "id": 62,
+    "front": {
+      "text": "What is a grouped (segmented) GEMM kernel?",
+      "markdown": "What is a **grouped** (segmented) GEMM kernel?"
+    },
+    "back": {
+      "text": "A matmul kernel that handles many matmuls with different shapes in a single launch, scheduling all their tiles together. It's the standard way to run a Mixture-of-Experts layer efficiently: each expert is a differently-sized GEMM over its routed tokens, and grouped GEMM fuses them so no expert leaves the GPU idle.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Many differently-shaped matmuls, one launch\n\nSchedules tiles from GEMMs of **varying shapes** together — unlike batched matmul, the shapes can differ.\n\n{#0F766E}The MoE workhorse: one GEMM per expert over its routed tokens, fused so no expert stalls the GPU.{/}"
+    }
+  },
+  {
+    "id": 63,
+    "front": {
+      "text": "What is a GEMV kernel, and why does it dominate LLM decoding?",
+      "markdown": "What is a **GEMV** kernel, and why does it dominate LLM decoding?"
+    },
+    "back": {
+      "text": "General Matrix-Vector multiply — a matrix times a single vector (a GEMM with batch/sequence size 1). It has almost no data reuse, so it's memory-bandwidth-bound, not compute-bound. Autoregressive decoding generates one token at a time, turning the model's big matmuls into GEMVs — which is exactly why decoding is memory-bound.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Matrix × vector — the batch-1 matmul\n\nLittle to no data reuse, so it's **memory-bandwidth-bound**, not compute-bound.\n\n{#0F766E}One-token-at-a-time decoding makes every layer a GEMV — the root cause of memory-bound LLM inference.{/}"
+    }
+  },
+  {
+    "id": 64,
+    "front": {
+      "text": "What is im2col, and how does it relate to convolution kernels?",
+      "markdown": "What is **im2col**, and how does it relate to convolution kernels?"
+    },
+    "back": {
+      "text": "A data-layout kernel that unrolls each sliding receptive field of an image into a column of a big matrix, so a convolution becomes a single matmul against the reshaped filters. It trades extra memory for reusing the GPU's ultra-fast GEMM path. 'Implicit GEMM' does the same mapping without materializing the expanded matrix.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Unroll conv patches so it becomes a matmul\n\nLays each receptive field out as a matrix column, turning convolution into one **GEMM** against the reshaped filters.\n\n{#0F766E}*Implicit GEMM* does the same mapping on the fly — no expanded matrix in memory.{/}"
+    }
+  },
+  {
+    "id": 65,
+    "front": {
+      "text": "What is the Winograd convolution kernel?",
+      "markdown": "What is the **Winograd** convolution kernel?"
+    },
+    "back": {
+      "text": "A fast-convolution algorithm that uses clever transforms to compute small-filter convolutions (e.g. 3×3) with far fewer multiplications than the direct method, trading multiplies for cheaper additions. It speeds up compute-bound CNN layers, at the cost of more numerical error and extra transform work.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Fewer multiplies for small-filter conv\n\nTransform-based fast convolution (e.g. 3×3): trades expensive **multiplications** for cheaper additions.\n\n{#0F766E}Speeds up compute-bound CNN layers — but adds transform overhead and a bit more numerical error.{/}"
+    }
+  },
+  {
+    "id": 66,
+    "front": {
+      "text": "What is a depthwise / separable convolution kernel?",
+      "markdown": "What is a **depthwise / separable** convolution kernel?"
+    },
+    "back": {
+      "text": "A factored convolution. Depthwise conv applies one filter per input channel separately (no mixing across channels); a depthwise-separable conv follows it with a 1×1 pointwise conv to mix channels. Together they approximate a full conv with far fewer parameters and FLOPs — the basis of efficient mobile nets.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Conv factored into per-channel + 1×1 mixing\n\n- **Depthwise** — one filter per channel, no cross-channel mixing\n- **Separable** — depthwise then a **1×1 pointwise** conv to mix channels\n\n{#0F766E}Far fewer params and FLOPs than a full conv — the trick behind MobileNet-style efficient CNNs.{/}"
+    }
+  },
+  {
+    "id": 67,
+    "front": {
+      "text": "What is a pooling kernel (max / average)?",
+      "markdown": "What is a **pooling** kernel (max / average)?"
+    },
+    "back": {
+      "text": "A downsampling kernel that slides a window over a feature map and emits one value per window — the maximum (max-pool) or the mean (avg-pool). It shrinks spatial resolution, adds a little translation invariance, and has no learned weights. It's a windowed reduction, so it's memory-bound.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Downsample a feature map by windows\n\nSlide a window, emit one value each: **max-pool** (maximum) or **avg-pool** (mean). No learned weights.\n\n{#0F766E}A windowed reduction — memory-bound — that shrinks resolution and adds slight translation invariance.{/}"
+    }
+  },
+  {
+    "id": 68,
+    "front": {
+      "text": "What is an embedding-lookup kernel (and one-hot)?",
+      "markdown": "What is an **embedding-lookup** kernel (and one-hot)?"
+    },
+    "back": {
+      "text": "A gather kernel: given a table of vectors and a list of integer token IDs, it reads the corresponding rows out of the embedding matrix. It's the first op in any LLM. Mathematically it's a one-hot matrix times the table, but doing that as a matmul would be wasteful — a gather is far cheaper.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Gather rows of the embedding table by token ID\n\nThe first op in an LLM: index integer IDs into the embedding matrix to fetch their vectors.\n\n{#0F766E}Equivalent to *one-hot × table*, but done as a **gather** — never materialize the one-hot matmul.{/}"
+    }
+  },
+  {
+    "id": 69,
+    "front": {
+      "text": "What are the top-k, argmax/argmin, and sort kernels?",
+      "markdown": "What are the **top-k**, **argmax/argmin**, and **sort** kernels?"
+    },
+    "back": {
+      "text": "Selection and ordering kernels over a tensor. Argmax/argmin return the index of the largest/smallest element (greedy decoding picks the argmax logit). Top-k returns the k largest values and their indices (sampling, MoE routing, beam search). Sort orders elements. All need cross-thread cooperation, so they build on reduction and scan patterns.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Selection & ordering kernels\n\n- **argmax / argmin** — index of the max/min (greedy decoding)\n- **top-k** — k largest values + indices (sampling, MoE routing)\n- **sort** — order the elements\n\n{#0F766E}All need threads to cooperate — they're built on reduction and scan primitives.{/}"
+    }
+  },
+  {
+    "id": 70,
+    "front": {
+      "text": "What are the quantize / dequantize kernels?",
+      "markdown": "What are the **quantize / dequantize** kernels?"
+    },
+    "back": {
+      "text": "Kernels that convert between high precision and a low-bit format. Quantize maps fp16/fp32 values to int8/int4 (or fp8/fp4) using a scale (and sometimes zero-point), usually computed per-tensor, per-row, or per-block. Dequantize reverses it. Inference kernels often dequantize weights on the fly inside a fused matmul.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Convert between high and low precision\n\n- **Quantize** — fp16/32 → int8/int4 (or fp8/fp4) via a **scale** (± zero-point), per-tensor/row/block\n- **Dequantize** — the reverse\n\n{#0F766E}MAX has dynamic fp8/fp4 quantize kernels; weights are often dequantized on the fly inside a fused matmul.{/}"
+    }
+  },
+  {
+    "id": 71,
+    "front": {
+      "text": "What is a dtype-cast (type-conversion) kernel?",
+      "markdown": "What is a **dtype-cast** (type-conversion) kernel?"
+    },
+    "back": {
+      "text": "An elementwise kernel that converts a tensor from one numeric type to another — fp32↔bf16, fp16↔fp32, int↔float. Mixed-precision pipelines insert casts around low-precision matmuls. It moves data with trivial arithmetic, so it's memory-bound and a prime candidate to fuse into a neighboring op rather than launch alone.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Convert a tensor's numeric type\n\nElementwise fp32↔bf16, fp16↔fp32, int↔float — the casts mixed-precision inserts around low-precision matmuls.\n\n{#0F766E}Trivial math, pure data movement: memory-bound, so fuse it into a neighbor rather than launch it alone.{/}"
+    }
+  },
+  {
+    "id": 72,
+    "front": {
+      "text": "What is a fused epilogue (bias + activation) kernel?",
+      "markdown": "What is a **fused epilogue** (bias + activation) kernel?"
+    },
+    "back": {
+      "text": "The tail end of a matmul kernel that applies follow-on elementwise work — adding a bias, applying an activation like GELU, scaling, or casting — to each output tile while it's still in registers, before writing to global memory. It removes a whole extra memory round-trip versus running those ops as separate kernels.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Bias + activation folded into the matmul's tail\n\nApplies bias / activation / scale / cast to each output tile **while it's still in registers**, before the write-out.\n\n{#0F766E}Saves a full HBM round-trip versus separate kernels — the canonical fusion in a GEMM epilogue.{/}"
+    }
+  },
+  {
+    "id": 73,
+    "front": {
+      "text": "What is a dropout kernel?",
+      "markdown": "What is a **dropout** kernel?"
+    },
+    "back": {
+      "text": "A training-only elementwise kernel that randomly zeros each element with probability p and scales the survivors by 1/(1−p) so the expected value is unchanged. It regularizes by forcing the network not to rely on any single unit. It needs a fast per-element RNG and is a no-op at inference.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Randomly zero elements during training\n\nDrops each element with probability **p**, scales survivors by **1/(1−p)** to preserve the mean.\n\n{#0F766E}Regularizes the network; needs a fast per-element RNG — and is disabled at inference.{/}"
+    }
+  },
+  {
+    "id": 74,
+    "front": {
+      "text": "What are collective kernels (all-reduce, reduce-scatter)?",
+      "markdown": "What are **collective** kernels (all-reduce, reduce-scatter)?"
+    },
+    "back": {
+      "text": "Multi-GPU kernels that combine data across devices over fast interconnects like NVLink. All-reduce sums (or maxes) a tensor across all GPUs and gives every GPU the result — the backbone of data-parallel gradient sync and tensor-parallel inference. Reduce-scatter does the reduction but leaves each GPU only its slice of the output.",
+      "code_snippet": null,
+      "formatting": { "inline_code_terms": [] },
+      "markdown": "## Combine tensors across multiple GPUs\n\n- **All-reduce** — reduce across all GPUs, every GPU gets the full result\n- **Reduce-scatter** — reduce, but each GPU keeps only its slice\n\n{#0F766E}All-reduce is the backbone of data-parallel gradient sync and tensor-parallel inference (NCCL/NVLink).{/}"
+    }
+  }
+]
