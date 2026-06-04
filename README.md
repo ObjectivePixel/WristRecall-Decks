@@ -51,6 +51,22 @@ If a tap doesn't open WristRecall, save the file to **Files**, open it from ther
 
 <table>
   <tr>
+    <td width="120" align="center"><img src="decks/welcome/assets/welcome_deck.jpg" alt="Welcome to WristRecall deck cover" width="100"></td>
+    <td>
+      <strong>Welcome to WristRecall</strong> · 10 cards · 3 topics · Getting Started<br>
+      Learn how to use WristRecall in ten quick cards — your wrist, your decks, your daily streak.<br>
+      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/welcome-v1.0.0/welcome-1.0.0.wristdeck"><strong>Download v1.0.0 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=welcome">All versions</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="120" align="center"><em>Cover coming soon</em></td>
+    <td>
+      <strong>AI Terms</strong> · 74 cards · 6 topics · Programming<br>
+      Essential AI, ML, and GPU-computing terminology — for the <a href="https://www.modular.com/">Mojo / Modular</a> ecosystem.<br>
+      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/ai-terms-v0.1.2/ai-terms-0.1.2.wristdeck"><strong>Download v0.1.2 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=ai-terms">All versions</a>
+    </td>
+  </tr>
+  <tr>
     <td width="120" align="center"><img src="decks/mojo-language/assets/mojo_deck.jpg" alt="Mojo Language deck cover" width="100"></td>
     <td>
       <strong>Mojo Language</strong> · 180 cards · 15 topics · Programming<br>
