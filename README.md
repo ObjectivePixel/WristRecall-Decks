@@ -55,15 +55,15 @@ If a tap doesn't open WristRecall, save the file to **Files**, open it from ther
     <td>
       <strong>Welcome to WristRecall</strong> · 10 cards · 3 topics · Getting Started<br>
       Learn how to use WristRecall in ten quick cards — your wrist, your decks, your daily streak.<br>
-      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/welcome-v1.0.0/welcome-1.0.0.wristdeck"><strong>Download v1.0.0 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=welcome">All versions</a>
+      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/welcome-v1.0.1/welcome-1.0.1.wristdeck"><strong>Download v1.0.1 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=welcome">All versions</a>
     </td>
   </tr>
   <tr>
-    <td width="120" align="center"><em>Cover coming soon</em></td>
+    <td width="120" align="center"><img src="decks/ai-terms/assets/ai_terms_deck.jpg" alt="AI Terms deck cover" width="100"></td>
     <td>
       <strong>AI Terms</strong> · 74 cards · 6 topics · Programming<br>
       Essential AI, ML, and GPU-computing terminology — for the <a href="https://www.modular.com/">Mojo / Modular</a> ecosystem.<br>
-      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/ai-terms-v0.1.2/ai-terms-0.1.2.wristdeck"><strong>Download v0.1.2 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=ai-terms">All versions</a>
+      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/ai-terms-v0.1.3/ai-terms-0.1.3.wristdeck"><strong>Download v0.1.3 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=ai-terms">All versions</a>
     </td>
   </tr>
   <tr>
@@ -79,7 +79,7 @@ If a tap doesn't open WristRecall, save the file to **Files**, open it from ther
     <td>
       <strong>United States</strong> · 100 cards · 7 topics · Geography<br>
       States and letters, capitals, and national parks — test your knowledge of the US.<br>
-      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/us-states-v2.0.2/us-states-2.0.2.wristdeck"><strong>Download v2.0.2 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=us-states">All versions</a>
+      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/us-states-v2.0.3/us-states-2.0.3.wristdeck"><strong>Download v2.0.3 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=us-states">All versions</a>
     </td>
   </tr>
   <tr>
@@ -87,7 +87,7 @@ If a tap doesn't open WristRecall, save the file to **Files**, open it from ther
     <td>
       <strong>Countries of the World</strong> · 60 cards · 9 topics · Geography<br>
       How many countries, continents, oceans, and landmasses make up our world — plus capitals and flags from every region.<br>
-      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/world-countries-v1.0.2/world-countries-1.0.2.wristdeck"><strong>Download v1.0.2 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=world-countries">All versions</a>
+      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/world-countries-v1.0.3/world-countries-1.0.3.wristdeck"><strong>Download v1.0.3 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=world-countries">All versions</a>
     </td>
   </tr>
 </table>
