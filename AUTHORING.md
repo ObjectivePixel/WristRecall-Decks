@@ -175,7 +175,7 @@ For ad-hoc invocations you can call the binary directly:
 
 ```bash
 ./tools/DeckCompiler --standalone --decks-dir ./decks --deck <deck-id> \
-    --format v2 --export-wristdeck --output-dir ./output
+    --export-wristdeck --output-dir ./output
 
 ./tools/DeckCompiler --help   # full options
 ```
