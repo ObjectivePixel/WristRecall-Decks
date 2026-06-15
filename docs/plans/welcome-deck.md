@@ -41,13 +41,13 @@ This repo authors decks as plain JSON, compiled to a `.wristdeck` (zipped SQLite
   red `#C62828` = warnings/mistakes, blue `#1A3A6B` = trivia asides.
 - Plain Unicode emoji render fine (UTF-8 store).
 
-**Compile path (v2-only).** `compile.sh` always passes `--format v2` (markdown lives in
-`prompt`/`answer`; legacy `codeSnippet`/`highlightTerms` left empty). v1 still exists in the
-binary as a flag but the repo's tooling is v2-only.
+**Compile path (v2-only).** The compiler only produces v2 output (markdown lives in
+`prompt`/`answer`; legacy `codeSnippet`/`highlightTerms` left empty). The `--format` flag and
+the old v1 plain-text path have been removed.
 
 ```bash
 # Validate WITHOUT producing a shipping artifact (writes SQLite to a temp/output dir only):
-./tools/DeckCompiler --standalone --decks-dir ./decks --deck welcome --format v2 --output-dir <tmp>
+./tools/DeckCompiler --standalone --decks-dir ./decks --deck welcome --output-dir <tmp>
 # Full shipping build:
 ./tools/compile.sh welcome   # → output/welcome.wristdeck
 ```

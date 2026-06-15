@@ -20,13 +20,13 @@ if [ "${#DECK_IDS[@]}" -gt 0 ]; then
     for deck_id in "${DECK_IDS[@]}"; do
         echo "==> Compiling $deck_id..."
         "$COMPILER" --standalone --decks-dir "$DECKS_DIR" --deck "$deck_id" \
-            --format v2 --export-wristdeck --output-dir "$OUTPUT_DIR"
+            --export-wristdeck --output-dir "$OUTPUT_DIR"
         echo ""
     done
 else
     echo "==> Compiling all decks..."
     "$COMPILER" --standalone --decks-dir "$DECKS_DIR" \
-        --format v2 --export-wristdeck --output-dir "$OUTPUT_DIR"
+        --export-wristdeck --output-dir "$OUTPUT_DIR"
     echo ""
 fi
 
