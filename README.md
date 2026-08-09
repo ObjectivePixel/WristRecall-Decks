@@ -83,6 +83,14 @@ If a tap doesn't open WristRecall, save the file to **Files**, open it from ther
     </td>
   </tr>
   <tr>
+    <td width="120" align="center"><span role="img" aria-label="Kings and Queens of the United Kingdom deck cover" style="font-size: 48px;">♛</span></td>
+    <td>
+      <strong>Kings &amp; Queens of the United Kingdom</strong> · 42 cards · 6 topics · History<br>
+      A chronological walk through every monarch of England and the United Kingdom from William I in 1066 through Charles III.<br>
+      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/kings-and-queens-of-the-united-kingdom-v1.0.0/kings-and-queens-of-the-united-kingdom-1.0.0.wristdeck"><strong>Download v1.0.0 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=kings-and-queens-of-the-united-kingdom">All versions</a>
+    </td>
+  </tr>
+  <tr>
     <td width="120" align="center"><img src="decks/world-countries/assets/world_countries_deck.jpg" alt="Countries of the World deck cover" width="100"></td>
     <td>
       <strong>Countries of the World</strong> · 60 cards · 9 topics · Geography<br>
