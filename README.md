@@ -29,6 +29,8 @@ WristRecall lets you study any subject in quick, focused sessions right on your 
   <img src="assets/screenshots/02_deck_browser.jpg" alt="iPhone deck browser" width="240">
   &nbsp;&nbsp;
   <img src="assets/screenshots/09_widget_home.jpg" alt="Home-screen widgets" width="240">
+  &nbsp;&nbsp;
+  <img src="assets/screenshots/kings_queens_deck_browser.png" alt="Kings and Queens deck in the WristRecall deck browser" width="240">
 </p>
 
 ---
