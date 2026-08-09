@@ -83,7 +83,7 @@ If a tap doesn't open WristRecall, save the file to **Files**, open it from ther
     </td>
   </tr>
   <tr>
-    <td width="120" align="center"><span role="img" aria-label="Kings and Queens of the United Kingdom deck cover" style="font-size: 48px;">♛</span></td>
+    <td width="120" align="center"><img src="decks/kings-and-queens-of-the-united-kingdom/assets/kings_and_queens_of_the_united_kingdom_deck.jpg" alt="Kings and Queens of the United Kingdom deck cover" width="100"></td>
     <td>
       <strong>Kings &amp; Queens of the United Kingdom</strong> · 42 cards · 6 topics · History<br>
       A chronological walk through every monarch of England and the United Kingdom from William I in 1066 through Charles III.<br>
