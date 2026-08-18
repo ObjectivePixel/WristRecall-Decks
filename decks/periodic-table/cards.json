@@ -6,8 +6,8 @@
       "markdown": "## H"
     },
     "back": {
-      "text": "Hydrogen. Fun fact: Its atomic number is 1.",
-      "markdown": "**Hydrogen**\n\n{#0F766E}Fun fact: Its atomic number is 1.{/}",
+      "text": "Hydrogen. Atomic number: 1. Fun fact: Hydrogen is the most abundant element in the universe.",
+      "markdown": "**Hydrogen**\n\n- Atomic Number: 1\n- Fun fact: Hydrogen is the most abundant element in the universe.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -21,8 +21,8 @@
       "markdown": "## He"
     },
     "back": {
-      "text": "Helium. Fun fact: Its atomic number is 2.",
-      "markdown": "**Helium**\n\n{#0F766E}Fun fact: Its atomic number is 2.{/}",
+      "text": "Helium. Atomic number: 2. Fun fact: Helium was first identified in the Sun before it was found on Earth.",
+      "markdown": "**Helium**\n\n- Atomic Number: 2\n- Fun fact: Helium was first identified in the Sun before it was found on Earth.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -36,8 +36,8 @@
       "markdown": "## Li"
     },
     "back": {
-      "text": "Lithium. Fun fact: Its atomic number is 3.",
-      "markdown": "**Lithium**\n\n{#0F766E}Fun fact: Its atomic number is 3.{/}",
+      "text": "Lithium. Atomic number: 3. Fun fact: Lithium is the lightest metal.",
+      "markdown": "**Lithium**\n\n- Atomic Number: 3\n- Fun fact: Lithium is the lightest metal.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -51,8 +51,8 @@
       "markdown": "## Be"
     },
     "back": {
-      "text": "Beryllium. Fun fact: Its atomic number is 4.",
-      "markdown": "**Beryllium**\n\n{#0F766E}Fun fact: Its atomic number is 4.{/}",
+      "text": "Beryllium. Atomic number: 4. Fun fact: Beryllium is named after the mineral beryl.",
+      "markdown": "**Beryllium**\n\n- Atomic Number: 4\n- Fun fact: Beryllium is named after the mineral beryl.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -66,8 +66,8 @@
       "markdown": "## B"
     },
     "back": {
-      "text": "Boron. Fun fact: Its atomic number is 5.",
-      "markdown": "**Boron**\n\n{#0F766E}Fun fact: Its atomic number is 5.{/}",
+      "text": "Boron. Atomic number: 5. Fun fact: Boron is used to strengthen fiberglass.",
+      "markdown": "**Boron**\n\n- Atomic Number: 5\n- Fun fact: Boron is used to strengthen fiberglass.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -81,8 +81,8 @@
       "markdown": "## C"
     },
     "back": {
-      "text": "Carbon. Fun fact: Its atomic number is 6.",
-      "markdown": "**Carbon**\n\n{#0F766E}Fun fact: Its atomic number is 6.{/}",
+      "text": "Carbon. Atomic number: 6. Fun fact: Carbon is the chemical basis of life as we know it.",
+      "markdown": "**Carbon**\n\n- Atomic Number: 6\n- Fun fact: Carbon is the chemical basis of life as we know it.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -96,8 +96,8 @@
       "markdown": "## N"
     },
     "back": {
-      "text": "Nitrogen. Fun fact: Its atomic number is 7.",
-      "markdown": "**Nitrogen**\n\n{#0F766E}Fun fact: Its atomic number is 7.{/}",
+      "text": "Nitrogen. Atomic number: 7. Fun fact: Nitrogen makes up about 78% of Earth's atmosphere.",
+      "markdown": "**Nitrogen**\n\n- Atomic Number: 7\n- Fun fact: Nitrogen makes up about 78% of Earth's atmosphere.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -111,8 +111,8 @@
       "markdown": "## O"
     },
     "back": {
-      "text": "Oxygen. Fun fact: Its atomic number is 8.",
-      "markdown": "**Oxygen**\n\n{#0F766E}Fun fact: Its atomic number is 8.{/}",
+      "text": "Oxygen. Atomic number: 8. Fun fact: Oxygen was named from Greek words meaning acid former.",
+      "markdown": "**Oxygen**\n\n- Atomic Number: 8\n- Fun fact: Oxygen was named from Greek words meaning acid former.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -126,8 +126,8 @@
       "markdown": "## F"
     },
     "back": {
-      "text": "Fluorine. Fun fact: Its atomic number is 9.",
-      "markdown": "**Fluorine**\n\n{#0F766E}Fun fact: Its atomic number is 9.{/}",
+      "text": "Fluorine. Atomic number: 9. Fun fact: Fluorine is the most reactive nonmetal.",
+      "markdown": "**Fluorine**\n\n- Atomic Number: 9\n- Fun fact: Fluorine is the most reactive nonmetal.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -141,8 +141,8 @@
       "markdown": "## Ne"
     },
     "back": {
-      "text": "Neon. Fun fact: Its atomic number is 10.",
-      "markdown": "**Neon**\n\n{#0F766E}Fun fact: Its atomic number is 10.{/}",
+      "text": "Neon. Atomic number: 10. Fun fact: Neon gives many advertising signs their distinctive orange-red glow.",
+      "markdown": "**Neon**\n\n- Atomic Number: 10\n- Fun fact: Neon gives many advertising signs their distinctive orange-red glow.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -156,8 +156,8 @@
       "markdown": "## Na"
     },
     "back": {
-      "text": "Sodium. Fun fact: Its atomic number is 11.",
-      "markdown": "**Sodium**\n\n{#0F766E}Fun fact: Its atomic number is 11.{/}",
+      "text": "Sodium. Atomic number: 11. Fun fact: Sodium is a key component of table salt.",
+      "markdown": "**Sodium**\n\n- Atomic Number: 11\n- Fun fact: Sodium is a key component of table salt.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -171,8 +171,8 @@
       "markdown": "## Mg"
     },
     "back": {
-      "text": "Magnesium. Fun fact: Its atomic number is 12.",
-      "markdown": "**Magnesium**\n\n{#0F766E}Fun fact: Its atomic number is 12.{/}",
+      "text": "Magnesium. Atomic number: 12. Fun fact: Magnesium burns with a brilliant white light.",
+      "markdown": "**Magnesium**\n\n- Atomic Number: 12\n- Fun fact: Magnesium burns with a brilliant white light.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -186,8 +186,8 @@
       "markdown": "## Al"
     },
     "back": {
-      "text": "Aluminium. Fun fact: Its atomic number is 13.",
-      "markdown": "**Aluminium**\n\n{#0F766E}Fun fact: Its atomic number is 13.{/}",
+      "text": "Aluminium. Atomic number: 13. Fun fact: Aluminium is the most abundant metal in Earth's crust.",
+      "markdown": "**Aluminium**\n\n- Atomic Number: 13\n- Fun fact: Aluminium is the most abundant metal in Earth's crust.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -201,8 +201,8 @@
       "markdown": "## Si"
     },
     "back": {
-      "text": "Silicon. Fun fact: Its atomic number is 14.",
-      "markdown": "**Silicon**\n\n{#0F766E}Fun fact: Its atomic number is 14.{/}",
+      "text": "Silicon. Atomic number: 14. Fun fact: Silicon is central to computer chips and solar cells.",
+      "markdown": "**Silicon**\n\n- Atomic Number: 14\n- Fun fact: Silicon is central to computer chips and solar cells.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -216,8 +216,8 @@
       "markdown": "## P"
     },
     "back": {
-      "text": "Phosphorus. Fun fact: Its atomic number is 15.",
-      "markdown": "**Phosphorus**\n\n{#0F766E}Fun fact: Its atomic number is 15.{/}",
+      "text": "Phosphorus. Atomic number: 15. Fun fact: Phosphorus was first isolated from urine in 1669.",
+      "markdown": "**Phosphorus**\n\n- Atomic Number: 15\n- Fun fact: Phosphorus was first isolated from urine in 1669.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -231,8 +231,8 @@
       "markdown": "## S"
     },
     "back": {
-      "text": "Sulfur. Fun fact: Its atomic number is 16.",
-      "markdown": "**Sulfur**\n\n{#0F766E}Fun fact: Its atomic number is 16.{/}",
+      "text": "Sulfur. Atomic number: 16. Fun fact: Sulfur was once known as brimstone.",
+      "markdown": "**Sulfur**\n\n- Atomic Number: 16\n- Fun fact: Sulfur was once known as brimstone.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -246,8 +246,8 @@
       "markdown": "## Cl"
     },
     "back": {
-      "text": "Chlorine. Fun fact: Its atomic number is 17.",
-      "markdown": "**Chlorine**\n\n{#0F766E}Fun fact: Its atomic number is 17.{/}",
+      "text": "Chlorine. Atomic number: 17. Fun fact: Chlorine is widely used to disinfect swimming pools.",
+      "markdown": "**Chlorine**\n\n- Atomic Number: 17\n- Fun fact: Chlorine is widely used to disinfect swimming pools.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -261,8 +261,8 @@
       "markdown": "## Ar"
     },
     "back": {
-      "text": "Argon. Fun fact: Its atomic number is 18.",
-      "markdown": "**Argon**\n\n{#0F766E}Fun fact: Its atomic number is 18.{/}",
+      "text": "Argon. Atomic number: 18. Fun fact: Argon makes up nearly 1% of Earth's atmosphere.",
+      "markdown": "**Argon**\n\n- Atomic Number: 18\n- Fun fact: Argon makes up nearly 1% of Earth's atmosphere.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -276,8 +276,8 @@
       "markdown": "## K"
     },
     "back": {
-      "text": "Potassium. Fun fact: Its atomic number is 19.",
-      "markdown": "**Potassium**\n\n{#0F766E}Fun fact: Its atomic number is 19.{/}",
+      "text": "Potassium. Atomic number: 19. Fun fact: Potassium is abundant in bananas.",
+      "markdown": "**Potassium**\n\n- Atomic Number: 19\n- Fun fact: Potassium is abundant in bananas.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -291,8 +291,8 @@
       "markdown": "## Ca"
     },
     "back": {
-      "text": "Calcium. Fun fact: Its atomic number is 20.",
-      "markdown": "**Calcium**\n\n{#0F766E}Fun fact: Its atomic number is 20.{/}",
+      "text": "Calcium. Atomic number: 20. Fun fact: Calcium is a major component of bones and teeth.",
+      "markdown": "**Calcium**\n\n- Atomic Number: 20\n- Fun fact: Calcium is a major component of bones and teeth.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -306,8 +306,8 @@
       "markdown": "## Sc"
     },
     "back": {
-      "text": "Scandium. Fun fact: Its atomic number is 21.",
-      "markdown": "**Scandium**\n\n{#0F766E}Fun fact: Its atomic number is 21.{/}",
+      "text": "Scandium. Atomic number: 21. Fun fact: Scandium was found after Mendeleev predicted its existence.",
+      "markdown": "**Scandium**\n\n- Atomic Number: 21\n- Fun fact: Scandium was found after Mendeleev predicted its existence.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -321,8 +321,8 @@
       "markdown": "## Ti"
     },
     "back": {
-      "text": "Titanium. Fun fact: Its atomic number is 22.",
-      "markdown": "**Titanium**\n\n{#0F766E}Fun fact: Its atomic number is 22.{/}",
+      "text": "Titanium. Atomic number: 22. Fun fact: Titanium is named after the Titans of Greek mythology.",
+      "markdown": "**Titanium**\n\n- Atomic Number: 22\n- Fun fact: Titanium is named after the Titans of Greek mythology.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -336,8 +336,8 @@
       "markdown": "## V"
     },
     "back": {
-      "text": "Vanadium. Fun fact: Its atomic number is 23.",
-      "markdown": "**Vanadium**\n\n{#0F766E}Fun fact: Its atomic number is 23.{/}",
+      "text": "Vanadium. Atomic number: 23. Fun fact: Vanadium is named after Vanadis, a Norse name for Freyja.",
+      "markdown": "**Vanadium**\n\n- Atomic Number: 23\n- Fun fact: Vanadium is named after Vanadis, a Norse name for Freyja.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -351,8 +351,8 @@
       "markdown": "## Cr"
     },
     "back": {
-      "text": "Chromium. Fun fact: Its atomic number is 24.",
-      "markdown": "**Chromium**\n\n{#0F766E}Fun fact: Its atomic number is 24.{/}",
+      "text": "Chromium. Atomic number: 24. Fun fact: Chromium compounds are known for their vivid colors.",
+      "markdown": "**Chromium**\n\n- Atomic Number: 24\n- Fun fact: Chromium compounds are known for their vivid colors.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -366,8 +366,8 @@
       "markdown": "## Mn"
     },
     "back": {
-      "text": "Manganese. Fun fact: Its atomic number is 25.",
-      "markdown": "**Manganese**\n\n{#0F766E}Fun fact: Its atomic number is 25.{/}",
+      "text": "Manganese. Atomic number: 25. Fun fact: Manganese is an important ingredient in many steels.",
+      "markdown": "**Manganese**\n\n- Atomic Number: 25\n- Fun fact: Manganese is an important ingredient in many steels.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -381,8 +381,8 @@
       "markdown": "## Fe"
     },
     "back": {
-      "text": "Iron. Fun fact: Its atomic number is 26.",
-      "markdown": "**Iron**\n\n{#0F766E}Fun fact: Its atomic number is 26.{/}",
+      "text": "Iron. Atomic number: 26. Fun fact: Iron is the main element in Earth's core.",
+      "markdown": "**Iron**\n\n- Atomic Number: 26\n- Fun fact: Iron is the main element in Earth's core.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -396,8 +396,8 @@
       "markdown": "## Co"
     },
     "back": {
-      "text": "Cobalt. Fun fact: Its atomic number is 27.",
-      "markdown": "**Cobalt**\n\n{#0F766E}Fun fact: Its atomic number is 27.{/}",
+      "text": "Cobalt. Atomic number: 27. Fun fact: Cobalt was once used to make vivid blue glass pigments.",
+      "markdown": "**Cobalt**\n\n- Atomic Number: 27\n- Fun fact: Cobalt was once used to make vivid blue glass pigments.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -411,8 +411,8 @@
       "markdown": "## Ni"
     },
     "back": {
-      "text": "Nickel. Fun fact: Its atomic number is 28.",
-      "markdown": "**Nickel**\n\n{#0F766E}Fun fact: Its atomic number is 28.{/}",
+      "text": "Nickel. Atomic number: 28. Fun fact: Nickel is used in many coins and stainless steels.",
+      "markdown": "**Nickel**\n\n- Atomic Number: 28\n- Fun fact: Nickel is used in many coins and stainless steels.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -426,8 +426,8 @@
       "markdown": "## Cu"
     },
     "back": {
-      "text": "Copper. Fun fact: Its atomic number is 29.",
-      "markdown": "**Copper**\n\n{#0F766E}Fun fact: Its atomic number is 29.{/}",
+      "text": "Copper. Atomic number: 29. Fun fact: Copper was one of the first metals used by humans.",
+      "markdown": "**Copper**\n\n- Atomic Number: 29\n- Fun fact: Copper was one of the first metals used by humans.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -441,8 +441,8 @@
       "markdown": "## Zn"
     },
     "back": {
-      "text": "Zinc. Fun fact: Its atomic number is 30.",
-      "markdown": "**Zinc**\n\n{#0F766E}Fun fact: Its atomic number is 30.{/}",
+      "text": "Zinc. Atomic number: 30. Fun fact: Zinc is used to coat steel and prevent rust.",
+      "markdown": "**Zinc**\n\n- Atomic Number: 30\n- Fun fact: Zinc is used to coat steel and prevent rust.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -456,8 +456,8 @@
       "markdown": "## Ga"
     },
     "back": {
-      "text": "Gallium. Fun fact: Its atomic number is 31.",
-      "markdown": "**Gallium**\n\n{#0F766E}Fun fact: Its atomic number is 31.{/}",
+      "text": "Gallium. Atomic number: 31. Fun fact: Gallium can melt in the warmth of your hand.",
+      "markdown": "**Gallium**\n\n- Atomic Number: 31\n- Fun fact: Gallium can melt in the warmth of your hand.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -471,8 +471,8 @@
       "markdown": "## Ge"
     },
     "back": {
-      "text": "Germanium. Fun fact: Its atomic number is 32.",
-      "markdown": "**Germanium**\n\n{#0F766E}Fun fact: Its atomic number is 32.{/}",
+      "text": "Germanium. Atomic number: 32. Fun fact: Germanium is named after Germany.",
+      "markdown": "**Germanium**\n\n- Atomic Number: 32\n- Fun fact: Germanium is named after Germany.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -486,8 +486,8 @@
       "markdown": "## As"
     },
     "back": {
-      "text": "Arsenic. Fun fact: Its atomic number is 33.",
-      "markdown": "**Arsenic**\n\n{#0F766E}Fun fact: Its atomic number is 33.{/}",
+      "text": "Arsenic. Atomic number: 33. Fun fact: Arsenic has been known since ancient times and was once used as a poison.",
+      "markdown": "**Arsenic**\n\n- Atomic Number: 33\n- Fun fact: Arsenic has been known since ancient times and was once used as a poison.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -501,8 +501,8 @@
       "markdown": "## Se"
     },
     "back": {
-      "text": "Selenium. Fun fact: Its atomic number is 34.",
-      "markdown": "**Selenium**\n\n{#0F766E}Fun fact: Its atomic number is 34.{/}",
+      "text": "Selenium. Atomic number: 34. Fun fact: Selenium is named after Selene, the Greek moon goddess.",
+      "markdown": "**Selenium**\n\n- Atomic Number: 34\n- Fun fact: Selenium is named after Selene, the Greek moon goddess.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -516,8 +516,8 @@
       "markdown": "## Br"
     },
     "back": {
-      "text": "Bromine. Fun fact: Its atomic number is 35.",
-      "markdown": "**Bromine**\n\n{#0F766E}Fun fact: Its atomic number is 35.{/}",
+      "text": "Bromine. Atomic number: 35. Fun fact: Bromine is the only nonmetal that is liquid at room temperature.",
+      "markdown": "**Bromine**\n\n- Atomic Number: 35\n- Fun fact: Bromine is the only nonmetal that is liquid at room temperature.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -531,8 +531,8 @@
       "markdown": "## Kr"
     },
     "back": {
-      "text": "Krypton. Fun fact: Its atomic number is 36.",
-      "markdown": "**Krypton**\n\n{#0F766E}Fun fact: Its atomic number is 36.{/}",
+      "text": "Krypton. Atomic number: 36. Fun fact: Krypton is named from the Greek word for hidden.",
+      "markdown": "**Krypton**\n\n- Atomic Number: 36\n- Fun fact: Krypton is named from the Greek word for hidden.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -546,8 +546,8 @@
       "markdown": "## Rb"
     },
     "back": {
-      "text": "Rubidium. Fun fact: Its atomic number is 37.",
-      "markdown": "**Rubidium**\n\n{#0F766E}Fun fact: Its atomic number is 37.{/}",
+      "text": "Rubidium. Atomic number: 37. Fun fact: Rubidium produces a crimson-red flame in a flame test.",
+      "markdown": "**Rubidium**\n\n- Atomic Number: 37\n- Fun fact: Rubidium produces a crimson-red flame in a flame test.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -561,8 +561,8 @@
       "markdown": "## Sr"
     },
     "back": {
-      "text": "Strontium. Fun fact: Its atomic number is 38.",
-      "markdown": "**Strontium**\n\n{#0F766E}Fun fact: Its atomic number is 38.{/}",
+      "text": "Strontium. Atomic number: 38. Fun fact: Strontium salts help produce red fireworks.",
+      "markdown": "**Strontium**\n\n- Atomic Number: 38\n- Fun fact: Strontium salts help produce red fireworks.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -576,8 +576,8 @@
       "markdown": "## Y"
     },
     "back": {
-      "text": "Yttrium. Fun fact: Its atomic number is 39.",
-      "markdown": "**Yttrium**\n\n{#0F766E}Fun fact: Its atomic number is 39.{/}",
+      "text": "Yttrium. Atomic number: 39. Fun fact: Yttrium is named after Ytterby, a village in Sweden.",
+      "markdown": "**Yttrium**\n\n- Atomic Number: 39\n- Fun fact: Yttrium is named after Ytterby, a village in Sweden.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -591,8 +591,8 @@
       "markdown": "## Zr"
     },
     "back": {
-      "text": "Zirconium. Fun fact: Its atomic number is 40.",
-      "markdown": "**Zirconium**\n\n{#0F766E}Fun fact: Its atomic number is 40.{/}",
+      "text": "Zirconium. Atomic number: 40. Fun fact: Zirconium is used in some heat-resistant ceramics and nuclear reactors.",
+      "markdown": "**Zirconium**\n\n- Atomic Number: 40\n- Fun fact: Zirconium is used in some heat-resistant ceramics and nuclear reactors.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -606,8 +606,8 @@
       "markdown": "## Nb"
     },
     "back": {
-      "text": "Niobium. Fun fact: Its atomic number is 41.",
-      "markdown": "**Niobium**\n\n{#0F766E}Fun fact: Its atomic number is 41.{/}",
+      "text": "Niobium. Atomic number: 41. Fun fact: Niobium is named after Niobe from Greek mythology.",
+      "markdown": "**Niobium**\n\n- Atomic Number: 41\n- Fun fact: Niobium is named after Niobe from Greek mythology.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -621,8 +621,8 @@
       "markdown": "## Mo"
     },
     "back": {
-      "text": "Molybdenum. Fun fact: Its atomic number is 42.",
-      "markdown": "**Molybdenum**\n\n{#0F766E}Fun fact: Its atomic number is 42.{/}",
+      "text": "Molybdenum. Atomic number: 42. Fun fact: Molybdenum was once confused with lead ore.",
+      "markdown": "**Molybdenum**\n\n- Atomic Number: 42\n- Fun fact: Molybdenum was once confused with lead ore.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -636,8 +636,8 @@
       "markdown": "## Tc"
     },
     "back": {
-      "text": "Technetium. Fun fact: Its atomic number is 43.",
-      "markdown": "**Technetium**\n\n{#0F766E}Fun fact: Its atomic number is 43.{/}",
+      "text": "Technetium. Atomic number: 43. Fun fact: Technetium was the first element made artificially.",
+      "markdown": "**Technetium**\n\n- Atomic Number: 43\n- Fun fact: Technetium was the first element made artificially.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -651,8 +651,8 @@
       "markdown": "## Ru"
     },
     "back": {
-      "text": "Ruthenium. Fun fact: Its atomic number is 44.",
-      "markdown": "**Ruthenium**\n\n{#0F766E}Fun fact: Its atomic number is 44.{/}",
+      "text": "Ruthenium. Atomic number: 44. Fun fact: Ruthenium is named after Ruthenia, a historical region of Eastern Europe.",
+      "markdown": "**Ruthenium**\n\n- Atomic Number: 44\n- Fun fact: Ruthenium is named after Ruthenia, a historical region of Eastern Europe.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -666,8 +666,8 @@
       "markdown": "## Rh"
     },
     "back": {
-      "text": "Rhodium. Fun fact: Its atomic number is 45.",
-      "markdown": "**Rhodium**\n\n{#0F766E}Fun fact: Its atomic number is 45.{/}",
+      "text": "Rhodium. Atomic number: 45. Fun fact: Rhodium is named from the Greek word for rose.",
+      "markdown": "**Rhodium**\n\n- Atomic Number: 45\n- Fun fact: Rhodium is named from the Greek word for rose.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -681,8 +681,8 @@
       "markdown": "## Pd"
     },
     "back": {
-      "text": "Palladium. Fun fact: Its atomic number is 46.",
-      "markdown": "**Palladium**\n\n{#0F766E}Fun fact: Its atomic number is 46.{/}",
+      "text": "Palladium. Atomic number: 46. Fun fact: Palladium is named after the asteroid Pallas.",
+      "markdown": "**Palladium**\n\n- Atomic Number: 46\n- Fun fact: Palladium is named after the asteroid Pallas.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -696,8 +696,8 @@
       "markdown": "## Ag"
     },
     "back": {
-      "text": "Silver. Fun fact: Its atomic number is 47.",
-      "markdown": "**Silver**\n\n{#0F766E}Fun fact: Its atomic number is 47.{/}",
+      "text": "Silver. Atomic number: 47. Fun fact: Silver is the best electrical conductor of all the elements.",
+      "markdown": "**Silver**\n\n- Atomic Number: 47\n- Fun fact: Silver is the best electrical conductor of all the elements.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -711,8 +711,8 @@
       "markdown": "## Cd"
     },
     "back": {
-      "text": "Cadmium. Fun fact: Its atomic number is 48.",
-      "markdown": "**Cadmium**\n\n{#0F766E}Fun fact: Its atomic number is 48.{/}",
+      "text": "Cadmium. Atomic number: 48. Fun fact: Cadmium compounds were once used to make bright yellow pigments.",
+      "markdown": "**Cadmium**\n\n- Atomic Number: 48\n- Fun fact: Cadmium compounds were once used to make bright yellow pigments.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -726,8 +726,8 @@
       "markdown": "## In"
     },
     "back": {
-      "text": "Indium. Fun fact: Its atomic number is 49.",
-      "markdown": "**Indium**\n\n{#0F766E}Fun fact: Its atomic number is 49.{/}",
+      "text": "Indium. Atomic number: 49. Fun fact: Indium is named for an indigo-colored spectral line.",
+      "markdown": "**Indium**\n\n- Atomic Number: 49\n- Fun fact: Indium is named for an indigo-colored spectral line.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -741,8 +741,8 @@
       "markdown": "## Sn"
     },
     "back": {
-      "text": "Tin. Fun fact: Its atomic number is 50.",
-      "markdown": "**Tin**\n\n{#0F766E}Fun fact: Its atomic number is 50.{/}",
+      "text": "Tin. Atomic number: 50. Fun fact: Tin has been used to coat steel food cans.",
+      "markdown": "**Tin**\n\n- Atomic Number: 50\n- Fun fact: Tin has been used to coat steel food cans.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -756,8 +756,8 @@
       "markdown": "## Sb"
     },
     "back": {
-      "text": "Antimony. Fun fact: Its atomic number is 51.",
-      "markdown": "**Antimony**\n\n{#0F766E}Fun fact: Its atomic number is 51.{/}",
+      "text": "Antimony. Atomic number: 51. Fun fact: Antimony's symbol Sb comes from its Latin name, stibium.",
+      "markdown": "**Antimony**\n\n- Atomic Number: 51\n- Fun fact: Antimony's symbol Sb comes from its Latin name, stibium.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -771,8 +771,8 @@
       "markdown": "## Te"
     },
     "back": {
-      "text": "Tellurium. Fun fact: Its atomic number is 52.",
-      "markdown": "**Tellurium**\n\n{#0F766E}Fun fact: Its atomic number is 52.{/}",
+      "text": "Tellurium. Atomic number: 52. Fun fact: Tellurium is named from the Latin word for Earth.",
+      "markdown": "**Tellurium**\n\n- Atomic Number: 52\n- Fun fact: Tellurium is named from the Latin word for Earth.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -786,8 +786,8 @@
       "markdown": "## I"
     },
     "back": {
-      "text": "Iodine. Fun fact: Its atomic number is 53.",
-      "markdown": "**Iodine**\n\n{#0F766E}Fun fact: Its atomic number is 53.{/}",
+      "text": "Iodine. Atomic number: 53. Fun fact: Iodine forms a purple vapor when heated.",
+      "markdown": "**Iodine**\n\n- Atomic Number: 53\n- Fun fact: Iodine forms a purple vapor when heated.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -801,8 +801,8 @@
       "markdown": "## Xe"
     },
     "back": {
-      "text": "Xenon. Fun fact: Its atomic number is 54.",
-      "markdown": "**Xenon**\n\n{#0F766E}Fun fact: Its atomic number is 54.{/}",
+      "text": "Xenon. Atomic number: 54. Fun fact: Xenon is used in some bright high-intensity lamps.",
+      "markdown": "**Xenon**\n\n- Atomic Number: 54\n- Fun fact: Xenon is used in some bright high-intensity lamps.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -816,8 +816,8 @@
       "markdown": "## Cs"
     },
     "back": {
-      "text": "Caesium. Fun fact: Its atomic number is 55.",
-      "markdown": "**Caesium**\n\n{#0F766E}Fun fact: Its atomic number is 55.{/}",
+      "text": "Caesium. Atomic number: 55. Fun fact: Caesium is used in highly accurate atomic clocks.",
+      "markdown": "**Caesium**\n\n- Atomic Number: 55\n- Fun fact: Caesium is used in highly accurate atomic clocks.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -831,8 +831,8 @@
       "markdown": "## Ba"
     },
     "back": {
-      "text": "Barium. Fun fact: Its atomic number is 56.",
-      "markdown": "**Barium**\n\n{#0F766E}Fun fact: Its atomic number is 56.{/}",
+      "text": "Barium. Atomic number: 56. Fun fact: Barium compounds can produce green colors in fireworks.",
+      "markdown": "**Barium**\n\n- Atomic Number: 56\n- Fun fact: Barium compounds can produce green colors in fireworks.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -846,8 +846,8 @@
       "markdown": "## La"
     },
     "back": {
-      "text": "Lanthanum. Fun fact: Its atomic number is 57.",
-      "markdown": "**Lanthanum**\n\n{#0F766E}Fun fact: Its atomic number is 57.{/}",
+      "text": "Lanthanum. Atomic number: 57. Fun fact: Lanthanum is named from the Greek word for hidden.",
+      "markdown": "**Lanthanum**\n\n- Atomic Number: 57\n- Fun fact: Lanthanum is named from the Greek word for hidden.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -861,8 +861,8 @@
       "markdown": "## Ce"
     },
     "back": {
-      "text": "Cerium. Fun fact: Its atomic number is 58.",
-      "markdown": "**Cerium**\n\n{#0F766E}Fun fact: Its atomic number is 58.{/}",
+      "text": "Cerium. Atomic number: 58. Fun fact: Cerium is named after the dwarf planet Ceres.",
+      "markdown": "**Cerium**\n\n- Atomic Number: 58\n- Fun fact: Cerium is named after the dwarf planet Ceres.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -876,8 +876,8 @@
       "markdown": "## Pr"
     },
     "back": {
-      "text": "Praseodymium. Fun fact: Its atomic number is 59.",
-      "markdown": "**Praseodymium**\n\n{#0F766E}Fun fact: Its atomic number is 59.{/}",
+      "text": "Praseodymium. Atomic number: 59. Fun fact: Praseodymium compounds can give glass a yellow-green color.",
+      "markdown": "**Praseodymium**\n\n- Atomic Number: 59\n- Fun fact: Praseodymium compounds can give glass a yellow-green color.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -891,8 +891,8 @@
       "markdown": "## Nd"
     },
     "back": {
-      "text": "Neodymium. Fun fact: Its atomic number is 60.",
-      "markdown": "**Neodymium**\n\n{#0F766E}Fun fact: Its atomic number is 60.{/}",
+      "text": "Neodymium. Atomic number: 60. Fun fact: Neodymium is used to make some of the strongest permanent magnets.",
+      "markdown": "**Neodymium**\n\n- Atomic Number: 60\n- Fun fact: Neodymium is used to make some of the strongest permanent magnets.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -906,8 +906,8 @@
       "markdown": "## Pm"
     },
     "back": {
-      "text": "Promethium. Fun fact: Its atomic number is 61.",
-      "markdown": "**Promethium**\n\n{#0F766E}Fun fact: Its atomic number is 61.{/}",
+      "text": "Promethium. Atomic number: 61. Fun fact: Promethium is named after Prometheus from Greek mythology.",
+      "markdown": "**Promethium**\n\n- Atomic Number: 61\n- Fun fact: Promethium is named after Prometheus from Greek mythology.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -921,8 +921,8 @@
       "markdown": "## Sm"
     },
     "back": {
-      "text": "Samarium. Fun fact: Its atomic number is 62.",
-      "markdown": "**Samarium**\n\n{#0F766E}Fun fact: Its atomic number is 62.{/}",
+      "text": "Samarium. Atomic number: 62. Fun fact: Samarium is named after the mineral samarskite.",
+      "markdown": "**Samarium**\n\n- Atomic Number: 62\n- Fun fact: Samarium is named after the mineral samarskite.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -936,8 +936,8 @@
       "markdown": "## Eu"
     },
     "back": {
-      "text": "Europium. Fun fact: Its atomic number is 63.",
-      "markdown": "**Europium**\n\n{#0F766E}Fun fact: Its atomic number is 63.{/}",
+      "text": "Europium. Atomic number: 63. Fun fact: Europium is named after Europe.",
+      "markdown": "**Europium**\n\n- Atomic Number: 63\n- Fun fact: Europium is named after Europe.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -951,8 +951,8 @@
       "markdown": "## Gd"
     },
     "back": {
-      "text": "Gadolinium. Fun fact: Its atomic number is 64.",
-      "markdown": "**Gadolinium**\n\n{#0F766E}Fun fact: Its atomic number is 64.{/}",
+      "text": "Gadolinium. Atomic number: 64. Fun fact: Gadolinium is named after the chemist Johan Gadolin.",
+      "markdown": "**Gadolinium**\n\n- Atomic Number: 64\n- Fun fact: Gadolinium is named after the chemist Johan Gadolin.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -966,8 +966,8 @@
       "markdown": "## Tb"
     },
     "back": {
-      "text": "Terbium. Fun fact: Its atomic number is 65.",
-      "markdown": "**Terbium**\n\n{#0F766E}Fun fact: Its atomic number is 65.{/}",
+      "text": "Terbium. Atomic number: 65. Fun fact: Terbium is one of four elements named after Ytterby, Sweden.",
+      "markdown": "**Terbium**\n\n- Atomic Number: 65\n- Fun fact: Terbium is one of four elements named after Ytterby, Sweden.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -981,8 +981,8 @@
       "markdown": "## Dy"
     },
     "back": {
-      "text": "Dysprosium. Fun fact: Its atomic number is 66.",
-      "markdown": "**Dysprosium**\n\n{#0F766E}Fun fact: Its atomic number is 66.{/}",
+      "text": "Dysprosium. Atomic number: 66. Fun fact: Dysprosium is named from a Greek word meaning difficult to obtain.",
+      "markdown": "**Dysprosium**\n\n- Atomic Number: 66\n- Fun fact: Dysprosium is named from a Greek word meaning difficult to obtain.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -996,8 +996,8 @@
       "markdown": "## Ho"
     },
     "back": {
-      "text": "Holmium. Fun fact: Its atomic number is 67.",
-      "markdown": "**Holmium**\n\n{#0F766E}Fun fact: Its atomic number is 67.{/}",
+      "text": "Holmium. Atomic number: 67. Fun fact: Holmium is named after Holmia, the Latin name for Stockholm.",
+      "markdown": "**Holmium**\n\n- Atomic Number: 67\n- Fun fact: Holmium is named after Holmia, the Latin name for Stockholm.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1011,8 +1011,8 @@
       "markdown": "## Er"
     },
     "back": {
-      "text": "Erbium. Fun fact: Its atomic number is 68.",
-      "markdown": "**Erbium**\n\n{#0F766E}Fun fact: Its atomic number is 68.{/}",
+      "text": "Erbium. Atomic number: 68. Fun fact: Erbium is one of four elements named after Ytterby, Sweden.",
+      "markdown": "**Erbium**\n\n- Atomic Number: 68\n- Fun fact: Erbium is one of four elements named after Ytterby, Sweden.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1026,8 +1026,8 @@
       "markdown": "## Tm"
     },
     "back": {
-      "text": "Thulium. Fun fact: Its atomic number is 69.",
-      "markdown": "**Thulium**\n\n{#0F766E}Fun fact: Its atomic number is 69.{/}",
+      "text": "Thulium. Atomic number: 69. Fun fact: Thulium is named after Thule, an ancient name for a far northern land.",
+      "markdown": "**Thulium**\n\n- Atomic Number: 69\n- Fun fact: Thulium is named after Thule, an ancient name for a far northern land.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1041,8 +1041,8 @@
       "markdown": "## Yb"
     },
     "back": {
-      "text": "Ytterbium. Fun fact: Its atomic number is 70.",
-      "markdown": "**Ytterbium**\n\n{#0F766E}Fun fact: Its atomic number is 70.{/}",
+      "text": "Ytterbium. Atomic number: 70. Fun fact: Ytterbium is one of four elements named after Ytterby, Sweden.",
+      "markdown": "**Ytterbium**\n\n- Atomic Number: 70\n- Fun fact: Ytterbium is one of four elements named after Ytterby, Sweden.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1056,8 +1056,8 @@
       "markdown": "## Lu"
     },
     "back": {
-      "text": "Lutetium. Fun fact: Its atomic number is 71.",
-      "markdown": "**Lutetium**\n\n{#0F766E}Fun fact: Its atomic number is 71.{/}",
+      "text": "Lutetium. Atomic number: 71. Fun fact: Lutetium is named after Lutetia, the Roman name for Paris.",
+      "markdown": "**Lutetium**\n\n- Atomic Number: 71\n- Fun fact: Lutetium is named after Lutetia, the Roman name for Paris.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1071,8 +1071,8 @@
       "markdown": "## Hf"
     },
     "back": {
-      "text": "Hafnium. Fun fact: Its atomic number is 72.",
-      "markdown": "**Hafnium**\n\n{#0F766E}Fun fact: Its atomic number is 72.{/}",
+      "text": "Hafnium. Atomic number: 72. Fun fact: Hafnium is named after Hafnia, the Latin name for Copenhagen.",
+      "markdown": "**Hafnium**\n\n- Atomic Number: 72\n- Fun fact: Hafnium is named after Hafnia, the Latin name for Copenhagen.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1086,8 +1086,8 @@
       "markdown": "## Ta"
     },
     "back": {
-      "text": "Tantalum. Fun fact: Its atomic number is 73.",
-      "markdown": "**Tantalum**\n\n{#0F766E}Fun fact: Its atomic number is 73.{/}",
+      "text": "Tantalum. Atomic number: 73. Fun fact: Tantalum is named after Tantalus from Greek mythology.",
+      "markdown": "**Tantalum**\n\n- Atomic Number: 73\n- Fun fact: Tantalum is named after Tantalus from Greek mythology.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1101,8 +1101,8 @@
       "markdown": "## W"
     },
     "back": {
-      "text": "Tungsten. Fun fact: Its atomic number is 74.",
-      "markdown": "**Tungsten**\n\n{#0F766E}Fun fact: Its atomic number is 74.{/}",
+      "text": "Tungsten. Atomic number: 74. Fun fact: Tungsten is also called wolfram, which gives it the symbol W.",
+      "markdown": "**Tungsten**\n\n- Atomic Number: 74\n- Fun fact: Tungsten is also called wolfram, which gives it the symbol W.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1116,8 +1116,8 @@
       "markdown": "## Re"
     },
     "back": {
-      "text": "Rhenium. Fun fact: Its atomic number is 75.",
-      "markdown": "**Rhenium**\n\n{#0F766E}Fun fact: Its atomic number is 75.{/}",
+      "text": "Rhenium. Atomic number: 75. Fun fact: Rhenium is named after the Rhine River.",
+      "markdown": "**Rhenium**\n\n- Atomic Number: 75\n- Fun fact: Rhenium is named after the Rhine River.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1131,8 +1131,8 @@
       "markdown": "## Os"
     },
     "back": {
-      "text": "Osmium. Fun fact: Its atomic number is 76.",
-      "markdown": "**Osmium**\n\n{#0F766E}Fun fact: Its atomic number is 76.{/}",
+      "text": "Osmium. Atomic number: 76. Fun fact: Osmium is named from the Greek word for smell.",
+      "markdown": "**Osmium**\n\n- Atomic Number: 76\n- Fun fact: Osmium is named from the Greek word for smell.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1146,8 +1146,8 @@
       "markdown": "## Ir"
     },
     "back": {
-      "text": "Iridium. Fun fact: Its atomic number is 77.",
-      "markdown": "**Iridium**\n\n{#0F766E}Fun fact: Its atomic number is 77.{/}",
+      "text": "Iridium. Atomic number: 77. Fun fact: Iridium is named after Iris, the Greek goddess of the rainbow.",
+      "markdown": "**Iridium**\n\n- Atomic Number: 77\n- Fun fact: Iridium is named after Iris, the Greek goddess of the rainbow.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1161,8 +1161,8 @@
       "markdown": "## Pt"
     },
     "back": {
-      "text": "Platinum. Fun fact: Its atomic number is 78.",
-      "markdown": "**Platinum**\n\n{#0F766E}Fun fact: Its atomic number is 78.{/}",
+      "text": "Platinum. Atomic number: 78. Fun fact: Platinum's name comes from a Spanish word meaning little silver.",
+      "markdown": "**Platinum**\n\n- Atomic Number: 78\n- Fun fact: Platinum's name comes from a Spanish word meaning little silver.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1176,8 +1176,8 @@
       "markdown": "## Au"
     },
     "back": {
-      "text": "Gold. Fun fact: Its atomic number is 79.",
-      "markdown": "**Gold**\n\n{#0F766E}Fun fact: Its atomic number is 79.{/}",
+      "text": "Gold. Atomic number: 79. Fun fact: Gold's chemical symbol Au comes from the Latin word aurum.",
+      "markdown": "**Gold**\n\n- Atomic Number: 79\n- Fun fact: Gold's chemical symbol Au comes from the Latin word aurum.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1191,8 +1191,8 @@
       "markdown": "## Hg"
     },
     "back": {
-      "text": "Mercury. Fun fact: Its atomic number is 80.",
-      "markdown": "**Mercury**\n\n{#0F766E}Fun fact: Its atomic number is 80.{/}",
+      "text": "Mercury. Atomic number: 80. Fun fact: Mercury was historically called quicksilver.",
+      "markdown": "**Mercury**\n\n- Atomic Number: 80\n- Fun fact: Mercury was historically called quicksilver.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1206,8 +1206,8 @@
       "markdown": "## Tl"
     },
     "back": {
-      "text": "Thallium. Fun fact: Its atomic number is 81.",
-      "markdown": "**Thallium**\n\n{#0F766E}Fun fact: Its atomic number is 81.{/}",
+      "text": "Thallium. Atomic number: 81. Fun fact: Thallium is named for a bright green spectral line.",
+      "markdown": "**Thallium**\n\n- Atomic Number: 81\n- Fun fact: Thallium is named for a bright green spectral line.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1221,8 +1221,8 @@
       "markdown": "## Pb"
     },
     "back": {
-      "text": "Lead. Fun fact: Its atomic number is 82.",
-      "markdown": "**Lead**\n\n{#0F766E}Fun fact: Its atomic number is 82.{/}",
+      "text": "Lead. Atomic number: 82. Fun fact: Lead was used by the Romans in pipes and plumbing.",
+      "markdown": "**Lead**\n\n- Atomic Number: 82\n- Fun fact: Lead was used by the Romans in pipes and plumbing.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1236,8 +1236,8 @@
       "markdown": "## Bi"
     },
     "back": {
-      "text": "Bismuth. Fun fact: Its atomic number is 83.",
-      "markdown": "**Bismuth**\n\n{#0F766E}Fun fact: Its atomic number is 83.{/}",
+      "text": "Bismuth. Atomic number: 83. Fun fact: Bismuth can form a rainbow-colored oxide surface.",
+      "markdown": "**Bismuth**\n\n- Atomic Number: 83\n- Fun fact: Bismuth can form a rainbow-colored oxide surface.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1251,8 +1251,8 @@
       "markdown": "## Po"
     },
     "back": {
-      "text": "Polonium. Fun fact: Its atomic number is 84.",
-      "markdown": "**Polonium**\n\n{#0F766E}Fun fact: Its atomic number is 84.{/}",
+      "text": "Polonium. Atomic number: 84. Fun fact: Polonium is named after Poland.",
+      "markdown": "**Polonium**\n\n- Atomic Number: 84\n- Fun fact: Polonium is named after Poland.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1266,8 +1266,8 @@
       "markdown": "## At"
     },
     "back": {
-      "text": "Astatine. Fun fact: Its atomic number is 85.",
-      "markdown": "**Astatine**\n\n{#0F766E}Fun fact: Its atomic number is 85.{/}",
+      "text": "Astatine. Atomic number: 85. Fun fact: Astatine is one of the rarest naturally occurring elements on Earth.",
+      "markdown": "**Astatine**\n\n- Atomic Number: 85\n- Fun fact: Astatine is one of the rarest naturally occurring elements on Earth.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1281,8 +1281,8 @@
       "markdown": "## Rn"
     },
     "back": {
-      "text": "Radon. Fun fact: Its atomic number is 86.",
-      "markdown": "**Radon**\n\n{#0F766E}Fun fact: Its atomic number is 86.{/}",
+      "text": "Radon. Atomic number: 86. Fun fact: Radon is a radioactive gas that can accumulate indoors.",
+      "markdown": "**Radon**\n\n- Atomic Number: 86\n- Fun fact: Radon is a radioactive gas that can accumulate indoors.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1296,8 +1296,8 @@
       "markdown": "## Fr"
     },
     "back": {
-      "text": "Francium. Fun fact: Its atomic number is 87.",
-      "markdown": "**Francium**\n\n{#0F766E}Fun fact: Its atomic number is 87.{/}",
+      "text": "Francium. Atomic number: 87. Fun fact: Francium is named after France.",
+      "markdown": "**Francium**\n\n- Atomic Number: 87\n- Fun fact: Francium is named after France.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1311,8 +1311,8 @@
       "markdown": "## Ra"
     },
     "back": {
-      "text": "Radium. Fun fact: Its atomic number is 88.",
-      "markdown": "**Radium**\n\n{#0F766E}Fun fact: Its atomic number is 88.{/}",
+      "text": "Radium. Atomic number: 88. Fun fact: Radium was once used in glow-in-the-dark paint.",
+      "markdown": "**Radium**\n\n- Atomic Number: 88\n- Fun fact: Radium was once used in glow-in-the-dark paint.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1326,8 +1326,8 @@
       "markdown": "## Ac"
     },
     "back": {
-      "text": "Actinium. Fun fact: Its atomic number is 89.",
-      "markdown": "**Actinium**\n\n{#0F766E}Fun fact: Its atomic number is 89.{/}",
+      "text": "Actinium. Atomic number: 89. Fun fact: Actinium is named from a Greek word meaning ray.",
+      "markdown": "**Actinium**\n\n- Atomic Number: 89\n- Fun fact: Actinium is named from a Greek word meaning ray.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1341,8 +1341,8 @@
       "markdown": "## Th"
     },
     "back": {
-      "text": "Thorium. Fun fact: Its atomic number is 90.",
-      "markdown": "**Thorium**\n\n{#0F766E}Fun fact: Its atomic number is 90.{/}",
+      "text": "Thorium. Atomic number: 90. Fun fact: Thorium is named after Thor, the Norse god of thunder.",
+      "markdown": "**Thorium**\n\n- Atomic Number: 90\n- Fun fact: Thorium is named after Thor, the Norse god of thunder.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1356,8 +1356,8 @@
       "markdown": "## Pa"
     },
     "back": {
-      "text": "Protactinium. Fun fact: Its atomic number is 91.",
-      "markdown": "**Protactinium**\n\n{#0F766E}Fun fact: Its atomic number is 91.{/}",
+      "text": "Protactinium. Atomic number: 91. Fun fact: Protactinium means parent of actinium.",
+      "markdown": "**Protactinium**\n\n- Atomic Number: 91\n- Fun fact: Protactinium means parent of actinium.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1371,8 +1371,8 @@
       "markdown": "## U"
     },
     "back": {
-      "text": "Uranium. Fun fact: Its atomic number is 92.",
-      "markdown": "**Uranium**\n\n{#0F766E}Fun fact: Its atomic number is 92.{/}",
+      "text": "Uranium. Atomic number: 92. Fun fact: Uranium is named after the planet Uranus.",
+      "markdown": "**Uranium**\n\n- Atomic Number: 92\n- Fun fact: Uranium is named after the planet Uranus.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1386,8 +1386,8 @@
       "markdown": "## Np"
     },
     "back": {
-      "text": "Neptunium. Fun fact: Its atomic number is 93.",
-      "markdown": "**Neptunium**\n\n{#0F766E}Fun fact: Its atomic number is 93.{/}",
+      "text": "Neptunium. Atomic number: 93. Fun fact: Neptunium is named after the planet Neptune.",
+      "markdown": "**Neptunium**\n\n- Atomic Number: 93\n- Fun fact: Neptunium is named after the planet Neptune.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1401,8 +1401,8 @@
       "markdown": "## Pu"
     },
     "back": {
-      "text": "Plutonium. Fun fact: Its atomic number is 94.",
-      "markdown": "**Plutonium**\n\n{#0F766E}Fun fact: Its atomic number is 94.{/}",
+      "text": "Plutonium. Atomic number: 94. Fun fact: Plutonium is named after Pluto.",
+      "markdown": "**Plutonium**\n\n- Atomic Number: 94\n- Fun fact: Plutonium is named after Pluto.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1416,8 +1416,8 @@
       "markdown": "## Am"
     },
     "back": {
-      "text": "Americium. Fun fact: Its atomic number is 95.",
-      "markdown": "**Americium**\n\n{#0F766E}Fun fact: Its atomic number is 95.{/}",
+      "text": "Americium. Atomic number: 95. Fun fact: Americium is named after the Americas.",
+      "markdown": "**Americium**\n\n- Atomic Number: 95\n- Fun fact: Americium is named after the Americas.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1431,8 +1431,8 @@
       "markdown": "## Cm"
     },
     "back": {
-      "text": "Curium. Fun fact: Its atomic number is 96.",
-      "markdown": "**Curium**\n\n{#0F766E}Fun fact: Its atomic number is 96.{/}",
+      "text": "Curium. Atomic number: 96. Fun fact: Curium is named after Marie and Pierre Curie.",
+      "markdown": "**Curium**\n\n- Atomic Number: 96\n- Fun fact: Curium is named after Marie and Pierre Curie.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1446,8 +1446,8 @@
       "markdown": "## Bk"
     },
     "back": {
-      "text": "Berkelium. Fun fact: Its atomic number is 97.",
-      "markdown": "**Berkelium**\n\n{#0F766E}Fun fact: Its atomic number is 97.{/}",
+      "text": "Berkelium. Atomic number: 97. Fun fact: Berkelium is named after Berkeley, California.",
+      "markdown": "**Berkelium**\n\n- Atomic Number: 97\n- Fun fact: Berkelium is named after Berkeley, California.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1461,8 +1461,8 @@
       "markdown": "## Cf"
     },
     "back": {
-      "text": "Californium. Fun fact: Its atomic number is 98.",
-      "markdown": "**Californium**\n\n{#0F766E}Fun fact: Its atomic number is 98.{/}",
+      "text": "Californium. Atomic number: 98. Fun fact: Californium is named after California.",
+      "markdown": "**Californium**\n\n- Atomic Number: 98\n- Fun fact: Californium is named after California.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1476,8 +1476,8 @@
       "markdown": "## Es"
     },
     "back": {
-      "text": "Einsteinium. Fun fact: Its atomic number is 99.",
-      "markdown": "**Einsteinium**\n\n{#0F766E}Fun fact: Its atomic number is 99.{/}",
+      "text": "Einsteinium. Atomic number: 99. Fun fact: Einsteinium is named after Albert Einstein.",
+      "markdown": "**Einsteinium**\n\n- Atomic Number: 99\n- Fun fact: Einsteinium is named after Albert Einstein.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1491,8 +1491,8 @@
       "markdown": "## Fm"
     },
     "back": {
-      "text": "Fermium. Fun fact: Its atomic number is 100.",
-      "markdown": "**Fermium**\n\n{#0F766E}Fun fact: Its atomic number is 100.{/}",
+      "text": "Fermium. Atomic number: 100. Fun fact: Fermium is named after physicist Enrico Fermi.",
+      "markdown": "**Fermium**\n\n- Atomic Number: 100\n- Fun fact: Fermium is named after physicist Enrico Fermi.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1506,8 +1506,8 @@
       "markdown": "## Md"
     },
     "back": {
-      "text": "Mendelevium. Fun fact: Its atomic number is 101.",
-      "markdown": "**Mendelevium**\n\n{#0F766E}Fun fact: Its atomic number is 101.{/}",
+      "text": "Mendelevium. Atomic number: 101. Fun fact: Mendelevium is named after Dmitri Mendeleev.",
+      "markdown": "**Mendelevium**\n\n- Atomic Number: 101\n- Fun fact: Mendelevium is named after Dmitri Mendeleev.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1521,8 +1521,8 @@
       "markdown": "## No"
     },
     "back": {
-      "text": "Nobelium. Fun fact: Its atomic number is 102.",
-      "markdown": "**Nobelium**\n\n{#0F766E}Fun fact: Its atomic number is 102.{/}",
+      "text": "Nobelium. Atomic number: 102. Fun fact: Nobelium is named after Alfred Nobel.",
+      "markdown": "**Nobelium**\n\n- Atomic Number: 102\n- Fun fact: Nobelium is named after Alfred Nobel.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1536,8 +1536,8 @@
       "markdown": "## Lr"
     },
     "back": {
-      "text": "Lawrencium. Fun fact: Its atomic number is 103.",
-      "markdown": "**Lawrencium**\n\n{#0F766E}Fun fact: Its atomic number is 103.{/}",
+      "text": "Lawrencium. Atomic number: 103. Fun fact: Lawrencium is named after physicist Ernest Lawrence.",
+      "markdown": "**Lawrencium**\n\n- Atomic Number: 103\n- Fun fact: Lawrencium is named after physicist Ernest Lawrence.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1551,8 +1551,8 @@
       "markdown": "## Rf"
     },
     "back": {
-      "text": "Rutherfordium. Fun fact: Its atomic number is 104.",
-      "markdown": "**Rutherfordium**\n\n{#0F766E}Fun fact: Its atomic number is 104.{/}",
+      "text": "Rutherfordium. Atomic number: 104. Fun fact: Rutherfordium is named after physicist Ernest Rutherford.",
+      "markdown": "**Rutherfordium**\n\n- Atomic Number: 104\n- Fun fact: Rutherfordium is named after physicist Ernest Rutherford.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1566,8 +1566,8 @@
       "markdown": "## Db"
     },
     "back": {
-      "text": "Dubnium. Fun fact: Its atomic number is 105.",
-      "markdown": "**Dubnium**\n\n{#0F766E}Fun fact: Its atomic number is 105.{/}",
+      "text": "Dubnium. Atomic number: 105. Fun fact: Dubnium is named after Dubna, Russia.",
+      "markdown": "**Dubnium**\n\n- Atomic Number: 105\n- Fun fact: Dubnium is named after Dubna, Russia.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1581,8 +1581,8 @@
       "markdown": "## Sg"
     },
     "back": {
-      "text": "Seaborgium. Fun fact: Its atomic number is 106.",
-      "markdown": "**Seaborgium**\n\n{#0F766E}Fun fact: Its atomic number is 106.{/}",
+      "text": "Seaborgium. Atomic number: 106. Fun fact: Seaborgium is named after chemist Glenn T. Seaborg.",
+      "markdown": "**Seaborgium**\n\n- Atomic Number: 106\n- Fun fact: Seaborgium is named after chemist Glenn T. Seaborg.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1596,8 +1596,8 @@
       "markdown": "## Bh"
     },
     "back": {
-      "text": "Bohrium. Fun fact: Its atomic number is 107.",
-      "markdown": "**Bohrium**\n\n{#0F766E}Fun fact: Its atomic number is 107.{/}",
+      "text": "Bohrium. Atomic number: 107. Fun fact: Bohrium is named after physicist Niels Bohr.",
+      "markdown": "**Bohrium**\n\n- Atomic Number: 107\n- Fun fact: Bohrium is named after physicist Niels Bohr.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1611,8 +1611,8 @@
       "markdown": "## Hs"
     },
     "back": {
-      "text": "Hassium. Fun fact: Its atomic number is 108.",
-      "markdown": "**Hassium**\n\n{#0F766E}Fun fact: Its atomic number is 108.{/}",
+      "text": "Hassium. Atomic number: 108. Fun fact: Hassium is named after Hesse, a German state.",
+      "markdown": "**Hassium**\n\n- Atomic Number: 108\n- Fun fact: Hassium is named after Hesse, a German state.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1626,8 +1626,8 @@
       "markdown": "## Mt"
     },
     "back": {
-      "text": "Meitnerium. Fun fact: Its atomic number is 109.",
-      "markdown": "**Meitnerium**\n\n{#0F766E}Fun fact: Its atomic number is 109.{/}",
+      "text": "Meitnerium. Atomic number: 109. Fun fact: Meitnerium is named after physicist Lise Meitner.",
+      "markdown": "**Meitnerium**\n\n- Atomic Number: 109\n- Fun fact: Meitnerium is named after physicist Lise Meitner.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1641,8 +1641,8 @@
       "markdown": "## Ds"
     },
     "back": {
-      "text": "Darmstadtium. Fun fact: Its atomic number is 110.",
-      "markdown": "**Darmstadtium**\n\n{#0F766E}Fun fact: Its atomic number is 110.{/}",
+      "text": "Darmstadtium. Atomic number: 110. Fun fact: Darmstadtium is named after Darmstadt, Germany.",
+      "markdown": "**Darmstadtium**\n\n- Atomic Number: 110\n- Fun fact: Darmstadtium is named after Darmstadt, Germany.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1656,8 +1656,8 @@
       "markdown": "## Rg"
     },
     "back": {
-      "text": "Roentgenium. Fun fact: Its atomic number is 111.",
-      "markdown": "**Roentgenium**\n\n{#0F766E}Fun fact: Its atomic number is 111.{/}",
+      "text": "Roentgenium. Atomic number: 111. Fun fact: Roentgenium is named after physicist Wilhelm Conrad Roentgen.",
+      "markdown": "**Roentgenium**\n\n- Atomic Number: 111\n- Fun fact: Roentgenium is named after physicist Wilhelm Conrad Roentgen.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1671,8 +1671,8 @@
       "markdown": "## Cn"
     },
     "back": {
-      "text": "Copernicium. Fun fact: Its atomic number is 112.",
-      "markdown": "**Copernicium**\n\n{#0F766E}Fun fact: Its atomic number is 112.{/}",
+      "text": "Copernicium. Atomic number: 112. Fun fact: Copernicium is named after astronomer Nicolaus Copernicus.",
+      "markdown": "**Copernicium**\n\n- Atomic Number: 112\n- Fun fact: Copernicium is named after astronomer Nicolaus Copernicus.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1686,8 +1686,8 @@
       "markdown": "## Nh"
     },
     "back": {
-      "text": "Nihonium. Fun fact: Its atomic number is 113.",
-      "markdown": "**Nihonium**\n\n{#0F766E}Fun fact: Its atomic number is 113.{/}",
+      "text": "Nihonium. Atomic number: 113. Fun fact: Nihonium is named after Nihon, a Japanese name for Japan.",
+      "markdown": "**Nihonium**\n\n- Atomic Number: 113\n- Fun fact: Nihonium is named after Nihon, a Japanese name for Japan.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1701,8 +1701,8 @@
       "markdown": "## Fl"
     },
     "back": {
-      "text": "Flerovium. Fun fact: Its atomic number is 114.",
-      "markdown": "**Flerovium**\n\n{#0F766E}Fun fact: Its atomic number is 114.{/}",
+      "text": "Flerovium. Atomic number: 114. Fun fact: Flerovium is named after the Flerov Laboratory of Nuclear Reactions.",
+      "markdown": "**Flerovium**\n\n- Atomic Number: 114\n- Fun fact: Flerovium is named after the Flerov Laboratory of Nuclear Reactions.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1716,8 +1716,8 @@
       "markdown": "## Mc"
     },
     "back": {
-      "text": "Moscovium. Fun fact: Its atomic number is 115.",
-      "markdown": "**Moscovium**\n\n{#0F766E}Fun fact: Its atomic number is 115.{/}",
+      "text": "Moscovium. Atomic number: 115. Fun fact: Moscovium is named after the Moscow region.",
+      "markdown": "**Moscovium**\n\n- Atomic Number: 115\n- Fun fact: Moscovium is named after the Moscow region.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1731,8 +1731,8 @@
       "markdown": "## Lv"
     },
     "back": {
-      "text": "Livermorium. Fun fact: Its atomic number is 116.",
-      "markdown": "**Livermorium**\n\n{#0F766E}Fun fact: Its atomic number is 116.{/}",
+      "text": "Livermorium. Atomic number: 116. Fun fact: Livermorium is named after Livermore, California.",
+      "markdown": "**Livermorium**\n\n- Atomic Number: 116\n- Fun fact: Livermorium is named after Livermore, California.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1746,8 +1746,8 @@
       "markdown": "## Ts"
     },
     "back": {
-      "text": "Tennessine. Fun fact: Its atomic number is 117.",
-      "markdown": "**Tennessine**\n\n{#0F766E}Fun fact: Its atomic number is 117.{/}",
+      "text": "Tennessine. Atomic number: 117. Fun fact: Tennessine is named after Tennessee.",
+      "markdown": "**Tennessine**\n\n- Atomic Number: 117\n- Fun fact: Tennessine is named after Tennessee.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -1761,8 +1761,8 @@
       "markdown": "## Og"
     },
     "back": {
-      "text": "Oganesson. Fun fact: Its atomic number is 118.",
-      "markdown": "**Oganesson**\n\n{#0F766E}Fun fact: Its atomic number is 118.{/}",
+      "text": "Oganesson. Atomic number: 118. Fun fact: Oganesson is named after physicist Yuri Oganessian.",
+      "markdown": "**Oganesson**\n\n- Atomic Number: 118\n- Fun fact: Oganesson is named after physicist Yuri Oganessian.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
