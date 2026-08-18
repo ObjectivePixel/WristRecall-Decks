@@ -1,52 +1,752 @@
 [
-  {"id":1,"front":{"text":"May the Force be with you.","markdown":"*\"May the Force be with you.\"*"},"back":{"text":"Star Wars — Han Solo","markdown":"## Star Wars\n\n**Said by:** Han Solo\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":2,"front":{"text":"There’s no place like home.","markdown":"*\"There’s no place like home.\"*"},"back":{"text":"The Wizard of Oz — Dorothy Gale","markdown":"## The Wizard of Oz\n\n**Said by:** Dorothy Gale\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":3,"front":{"text":"Hasta la vista, baby.","markdown":"*\"Hasta la vista, baby.\"*"},"back":{"text":"Terminator 2: Judgment Day — The Terminator","markdown":"## Terminator 2: Judgment Day\n\n**Said by:** The Terminator\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":4,"front":{"text":"Nobody puts Baby in a corner.","markdown":"*\"Nobody puts Baby in a corner.\"*"},"back":{"text":"Dirty Dancing — Johnny Castle","markdown":"## Dirty Dancing\n\n**Said by:** Johnny Castle\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":5,"front":{"text":"You’re gonna need a bigger boat.","markdown":"*\"You’re gonna need a bigger boat.\"*"},"back":{"text":"Jaws — Martin Brody","markdown":"## Jaws\n\n**Said by:** Martin Brody\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":6,"front":{"text":"Life is like a box of chocolates.","markdown":"*\"Life is like a box of chocolates.\"*"},"back":{"text":"Forrest Gump — Forrest Gump","markdown":"## Forrest Gump\n\n**Said by:** Forrest Gump\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":7,"front":{"text":"Say hello to my little friend!","markdown":"*\"Say hello to my little friend!\"*"},"back":{"text":"Scarface — Tony Montana","markdown":"## Scarface\n\n**Said by:** Tony Montana\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":8,"front":{"text":"Wax on, wax off.","markdown":"*\"Wax on, wax off.\"*"},"back":{"text":"The Karate Kid — Mr. Miyagi","markdown":"## The Karate Kid\n\n**Said by:** Mr. Miyagi\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":9,"front":{"text":"Keep your friends close, but your enemies closer.","markdown":"*\"Keep your friends close, but your enemies closer.\"*"},"back":{"text":"The Godfather Part II — Michael Corleone","markdown":"## The Godfather Part II\n\n**Said by:** Michael Corleone\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":10,"front":{"text":"I love the smell of napalm in the morning.","markdown":"*\"I love the smell of napalm in the morning.\"*"},"back":{"text":"Apocalypse Now — Lt. Col. Kilgore","markdown":"## Apocalypse Now\n\n**Said by:** Lt. Col. Kilgore\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":11,"front":{"text":"You shall not pass!","markdown":"*\"You shall not pass!\"*"},"back":{"text":"The Lord of the Rings: The Fellowship of the Ring — Gandalf","markdown":"## The Lord of the Rings: The Fellowship of the Ring\n\n**Said by:** Gandalf\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":12,"front":{"text":"I’m having an old friend for dinner.","markdown":"*\"I’m having an old friend for dinner.\"*"},"back":{"text":"The Silence of the Lambs — Hannibal Lecter","markdown":"## The Silence of the Lambs\n\n**Said by:** Hannibal Lecter\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":13,"front":{"text":"Here’s Johnny!","markdown":"*\"Here’s Johnny!\"*"},"back":{"text":"The Shining — Jack Torrance","markdown":"## The Shining\n\n**Said by:** Jack Torrance\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":14,"front":{"text":"Roads? Where we’re going, we don’t need roads.","markdown":"*\"Roads? Where we’re going, we don’t need roads.\"*"},"back":{"text":"Back to the Future — Dr. Emmett Brown","markdown":"## Back to the Future\n\n**Said by:** Dr. Emmett Brown\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":15,"front":{"text":"Frankly, my dear, I don’t give a damn.","markdown":"*\"Frankly, my dear, I don’t give a damn.\"*"},"back":{"text":"Gone with the Wind — Rhett Butler","markdown":"## Gone with the Wind\n\n**Said by:** Rhett Butler\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":16,"front":{"text":"Why so serious?","markdown":"*\"Why so serious?\"*"},"back":{"text":"The Dark Knight — The Joker","markdown":"## The Dark Knight\n\n**Said by:** The Joker\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":17,"front":{"text":"I’m the king of the world!","markdown":"*\"I’m the king of the world!\"*"},"back":{"text":"Titanic — Jack Dawson","markdown":"## Titanic\n\n**Said by:** Jack Dawson\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":18,"front":{"text":"I see dead people.","markdown":"*\"I see dead people.\"*"},"back":{"text":"The Sixth Sense — Cole Sear","markdown":"## The Sixth Sense\n\n**Said by:** Cole Sear\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":19,"front":{"text":"I feel the need—the need for speed.","markdown":"*\"I feel the need—the need for speed.\"*"},"back":{"text":"Top Gun — Maverick & Goose","markdown":"## Top Gun\n\n**Said by:** Maverick & Goose\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":20,"front":{"text":"Leave the gun. Take the cannoli.","markdown":"*\"Leave the gun. Take the cannoli.\"*"},"back":{"text":"The Godfather — Clemenza","markdown":"## The Godfather\n\n**Said by:** Clemenza\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":21,"front":{"text":"You talkin’ to me?","markdown":"*\"You talkin’ to me?\"*"},"back":{"text":"Taxi Driver — Travis Bickle","markdown":"## Taxi Driver\n\n**Said by:** Travis Bickle\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":22,"front":{"text":"I’m walking here!","markdown":"*\"I’m walking here!\"*"},"back":{"text":"Midnight Cowboy — Ratso Rizzo","markdown":"## Midnight Cowboy\n\n**Said by:** Ratso Rizzo\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":23,"front":{"text":"This is the beginning of a beautiful friendship.","markdown":"*\"This is the beginning of a beautiful friendship.\"*"},"back":{"text":"Casablanca — Captain Louis Renault","markdown":"## Casablanca\n\n**Said by:** Captain Louis Renault\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":24,"front":{"text":"To infinity and beyond!","markdown":"*\"To infinity and beyond!\"*"},"back":{"text":"Toy Story — Buzz Lightyear","markdown":"## Toy Story\n\n**Said by:** Buzz Lightyear\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":25,"front":{"text":"Just keep swimming.","markdown":"*\"Just keep swimming.\"*"},"back":{"text":"Finding Nemo — Dory","markdown":"## Finding Nemo\n\n**Said by:** Dory\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":26,"front":{"text":"Why did it have to be snakes?","markdown":"*\"Why did it have to be snakes?\"*"},"back":{"text":"Raiders of the Lost Ark — Indiana Jones","markdown":"## Raiders of the Lost Ark\n\n**Said by:** Indiana Jones\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":27,"front":{"text":"May the odds be ever in your favor.","markdown":"*\"May the odds be ever in your favor.\"*"},"back":{"text":"The Hunger Games — Effie Trinket","markdown":"## The Hunger Games\n\n**Said by:** Effie Trinket\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":28,"front":{"text":"I’m just a girl, standing in front of a boy, asking him to love her.","markdown":"*\"I’m just a girl, standing in front of a boy, asking him to love her.\"*"},"back":{"text":"Notting Hill — Anna Scott","markdown":"## Notting Hill\n\n**Said by:** Anna Scott\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":29,"front":{"text":"Rosebud.","markdown":"*\"Rosebud.\"*"},"back":{"text":"Citizen Kane — Charles Foster Kane","markdown":"## Citizen Kane\n\n**Said by:** Charles Foster Kane\n\n{#C62828}⭐⭐⭐ Hard{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":30,"front":{"text":"You’re killing me, Smalls!","markdown":"*\"You’re killing me, Smalls!\"*"},"back":{"text":"The Sandlot — Ham Porter","markdown":"## The Sandlot\n\n**Said by:** Ham Porter\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":31,"front":{"text":"You either die a hero, or you live long enough to see yourself become the villain.","markdown":"*\"You either die a hero, or you live long enough to see yourself become the villain.\"*"},"back":{"text":"The Dark Knight — Harvey Dent","markdown":"## The Dark Knight\n\n**Said by:** Harvey Dent\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":32,"front":{"text":"Sticking feathers up your butt does not make you a chicken.","markdown":"*\"Sticking feathers up your butt does not make you a chicken.\"*"},"back":{"text":"The Shawshank Redemption — Red","markdown":"## The Shawshank Redemption\n\n**Said by:** Red\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":33,"front":{"text":"You’ve got to ask yourself one question: ‘Do I feel lucky?’","markdown":"*\"You’ve got to ask yourself one question: ‘Do I feel lucky?’\"*"},"back":{"text":"Dirty Harry — Harry Callahan","markdown":"## Dirty Harry\n\n**Said by:** Harry Callahan\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":34,"front":{"text":"Get away from her, you bitch!","markdown":"*\"Get away from her, you bitch!\"*"},"back":{"text":"Aliens — Ellen Ripley","markdown":"## Aliens\n\n**Said by:** Ellen Ripley\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":35,"front":{"text":"They may take our lives, but they’ll never take our freedom!","markdown":"*\"They may take our lives, but they’ll never take our freedom!\"*"},"back":{"text":"Braveheart — William Wallace","markdown":"## Braveheart\n\n**Said by:** William Wallace\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":36,"front":{"text":"Life finds a way.","markdown":"*\"Life finds a way.\"*"},"back":{"text":"Jurassic Park — Ian Malcolm","markdown":"## Jurassic Park\n\n**Said by:** Ian Malcolm\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":37,"front":{"text":"You can’t handle the truth!","markdown":"*\"You can’t handle the truth!\"*"},"back":{"text":"A Few Good Men — Col. Nathan Jessup","markdown":"## A Few Good Men\n\n**Said by:** Col. Nathan Jessup\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":38,"front":{"text":"You had me at hello.","markdown":"*\"You had me at hello.\"*"},"back":{"text":"Jerry Maguire — Dorothy Boyd","markdown":"## Jerry Maguire\n\n**Said by:** Dorothy Boyd\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":39,"front":{"text":"That’ll do, pig. That’ll do.","markdown":"*\"That’ll do, pig. That’ll do.\"*"},"back":{"text":"Babe — Farmer Hoggett","markdown":"## Babe\n\n**Said by:** Farmer Hoggett\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":40,"front":{"text":"Do you expect me to talk?","markdown":"*\"Do you expect me to talk?\"*"},"back":{"text":"Goldfinger — James Bond","markdown":"## Goldfinger\n\n**Said by:** James Bond\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":41,"front":{"text":"Well, nobody’s perfect.","markdown":"*\"Well, nobody’s perfect.\"*"},"back":{"text":"Some Like It Hot — Osgood Fielding III","markdown":"## Some Like It Hot\n\n**Said by:** Osgood Fielding III\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":42,"front":{"text":"I’m mad as hell, and I’m not going to take this anymore!","markdown":"*\"I’m mad as hell, and I’m not going to take this anymore!\"*"},"back":{"text":"Network — Howard Beale","markdown":"## Network\n\n**Said by:** Howard Beale\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":43,"front":{"text":"You keep using that word. I do not think it means what you think it means.","markdown":"*\"You keep using that word. I do not think it means what you think it means.\"*"},"back":{"text":"The Princess Bride — Inigo Montoya","markdown":"## The Princess Bride\n\n**Said by:** Inigo Montoya\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":44,"front":{"text":"You’re a big man, but you’re in bad shape.","markdown":"*\"You’re a big man, but you’re in bad shape.\"*"},"back":{"text":"The Big Lebowski — The Stranger","markdown":"## The Big Lebowski\n\n**Said by:** The Stranger\n\n{#C62828}⭐⭐⭐ Hard{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":45,"front":{"text":"Gentlemen, you can’t fight in here! This is the War Room!","markdown":"*\"Gentlemen, you can’t fight in here! This is the War Room!\"*"},"back":{"text":"Dr. Strangelove — President Merkin Muffley","markdown":"## Dr. Strangelove\n\n**Said by:** President Merkin Muffley\n\n{#C62828}⭐⭐⭐ Hard{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":46,"front":{"text":"I’m just a dude playing a dude disguised as another dude.","markdown":"*\"I’m just a dude playing a dude disguised as another dude.\"*"},"back":{"text":"Tropic Thunder — Kirk Lazarus","markdown":"## Tropic Thunder\n\n**Said by:** Kirk Lazarus\n\n{#0F766E}⭐ Easy{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":47,"front":{"text":"What we’ve got here is failure to communicate.","markdown":"*\"What we’ve got here is failure to communicate.\"*"},"back":{"text":"Cool Hand Luke — Captain","markdown":"## Cool Hand Luke\n\n**Said by:** Captain\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":48,"front":{"text":"I coulda had class. I coulda been a contender.","markdown":"*\"I coulda had class. I coulda been a contender.\"*"},"back":{"text":"On the Waterfront — Terry Malloy","markdown":"## On the Waterfront\n\n**Said by:** Terry Malloy\n\n{#C62828}⭐⭐⭐ Hard{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":49,"front":{"text":"I’m not bad. I’m just drawn that way.","markdown":"*\"I’m not bad. I’m just drawn that way.\"*"},"back":{"text":"Who Framed Roger Rabbit — Jessica Rabbit","markdown":"## Who Framed Roger Rabbit\n\n**Said by:** Jessica Rabbit\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}},
-  {"id":50,"front":{"text":"You’re only supposed to blow the bloody doors off!","markdown":"*\"You’re only supposed to blow the bloody doors off!\"*"},"back":{"text":"The Italian Job — Charlie Croker","markdown":"## The Italian Job\n\n**Said by:** Charlie Croker\n\n{#1A3A6B}⭐⭐ Medium{/}","code_snippet":null,"formatting":{"inline_code_terms":[]}}}
+  {
+    "id": 1,
+    "front": {
+      "text": "May the Force be with you.",
+      "markdown": "*\"May the Force be with you.\"*"
+    },
+    "back": {
+      "text": "Star Wars (1977) \u2014 Han Solo Fun fact: George Lucas assembled the original Industrial Light & Magic team specifically to create the film's then-unprecedented effects.",
+      "markdown": "## Star Wars (1977)\n\n**Said by:** Han Solo\n\n{#0F766E}**Fun fact:** George Lucas assembled the original Industrial Light & Magic team specifically to create the film's then-unprecedented effects.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 2,
+    "front": {
+      "text": "There\u2019s no place like home.",
+      "markdown": "*\"There\u2019s no place like home.\"*"
+    },
+    "back": {
+      "text": "The Wizard of Oz (1939) \u2014 Dorothy Gale Fun fact: The film famously shifts from sepia-toned Kansas to the vibrant Technicolor world of Oz.",
+      "markdown": "## The Wizard of Oz (1939)\n\n**Said by:** Dorothy Gale\n\n{#0F766E}**Fun fact:** The film famously shifts from sepia-toned Kansas to the vibrant Technicolor world of Oz.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 3,
+    "front": {
+      "text": "Hasta la vista, baby.",
+      "markdown": "*\"Hasta la vista, baby.\"*"
+    },
+    "back": {
+      "text": "Terminator 2: Judgment Day (1991) \u2014 The Terminator Fun fact: The T-1000's liquid-metal transformations were a landmark early use of computer-generated visual effects.",
+      "markdown": "## Terminator 2: Judgment Day (1991)\n\n**Said by:** The Terminator\n\n{#0F766E}**Fun fact:** The T-1000's liquid-metal transformations were a landmark early use of computer-generated visual effects.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 4,
+    "front": {
+      "text": "Nobody puts Baby in a corner.",
+      "markdown": "*\"Nobody puts Baby in a corner.\"*"
+    },
+    "back": {
+      "text": "Dirty Dancing (1987) \u2014 Johnny Castle Fun fact: The song '(I've Had) The Time of My Life' won the Academy Award for Best Original Song.",
+      "markdown": "## Dirty Dancing (1987)\n\n**Said by:** Johnny Castle\n\n{#0F766E}**Fun fact:** The song '(I've Had) The Time of My Life' won the Academy Award for Best Original Song.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 5,
+    "front": {
+      "text": "You\u2019re gonna need a bigger boat.",
+      "markdown": "*\"You\u2019re gonna need a bigger boat.\"*"
+    },
+    "back": {
+      "text": "Jaws (1975) \u2014 Martin Brody Fun fact: Roy Scheider improvised this line during filming.",
+      "markdown": "## Jaws (1975)\n\n**Said by:** Martin Brody\n\n{#0F766E}**Fun fact:** Roy Scheider improvised this line during filming.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 6,
+    "front": {
+      "text": "Life is like a box of chocolates.",
+      "markdown": "*\"Life is like a box of chocolates.\"*"
+    },
+    "back": {
+      "text": "Forrest Gump (1994) \u2014 Forrest Gump Fun fact: Forrest Gump won six Academy Awards, including Best Picture and Best Actor for Tom Hanks.",
+      "markdown": "## Forrest Gump (1994)\n\n**Said by:** Forrest Gump\n\n{#0F766E}**Fun fact:** Forrest Gump won six Academy Awards, including Best Picture and Best Actor for Tom Hanks.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 7,
+    "front": {
+      "text": "Say hello to my little friend!",
+      "markdown": "*\"Say hello to my little friend!\"*"
+    },
+    "back": {
+      "text": "Scarface (1983) \u2014 Tony Montana Fun fact: Brian De Palma's film is a remake of the 1932 movie of the same name.",
+      "markdown": "## Scarface (1983)\n\n**Said by:** Tony Montana\n\n{#0F766E}**Fun fact:** Brian De Palma's film is a remake of the 1932 movie of the same name.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 8,
+    "front": {
+      "text": "Wax on, wax off.",
+      "markdown": "*\"Wax on, wax off.\"*"
+    },
+    "back": {
+      "text": "The Karate Kid (1984) \u2014 Mr. Miyagi Fun fact: Pat Morita received an Academy Award nomination for playing Mr. Miyagi.",
+      "markdown": "## The Karate Kid (1984)\n\n**Said by:** Mr. Miyagi\n\n{#0F766E}**Fun fact:** Pat Morita received an Academy Award nomination for playing Mr. Miyagi.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 9,
+    "front": {
+      "text": "Keep your friends close, but your enemies closer.",
+      "markdown": "*\"Keep your friends close, but your enemies closer.\"*"
+    },
+    "back": {
+      "text": "The Godfather Part II (1974) \u2014 Michael Corleone Fun fact: It was the first sequel to win the Academy Award for Best Picture.",
+      "markdown": "## The Godfather Part II (1974)\n\n**Said by:** Michael Corleone\n\n{#0F766E}**Fun fact:** It was the first sequel to win the Academy Award for Best Picture.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 10,
+    "front": {
+      "text": "I love the smell of napalm in the morning.",
+      "markdown": "*\"I love the smell of napalm in the morning.\"*"
+    },
+    "back": {
+      "text": "Apocalypse Now (1979) \u2014 Lt. Col. Kilgore Fun fact: The production was filmed in the Philippines and was delayed by a typhoon.",
+      "markdown": "## Apocalypse Now (1979)\n\n**Said by:** Lt. Col. Kilgore\n\n{#0F766E}**Fun fact:** The production was filmed in the Philippines and was delayed by a typhoon.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 11,
+    "front": {
+      "text": "You shall not pass!",
+      "markdown": "*\"You shall not pass!\"*"
+    },
+    "back": {
+      "text": "The Lord of the Rings: The Fellowship of the Ring (2001) \u2014 Gandalf Fun fact: The three Lord of the Rings films were filmed back-to-back in New Zealand.",
+      "markdown": "## The Lord of the Rings: The Fellowship of the Ring (2001)\n\n**Said by:** Gandalf\n\n{#0F766E}**Fun fact:** The three Lord of the Rings films were filmed back-to-back in New Zealand.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 12,
+    "front": {
+      "text": "I\u2019m having an old friend for dinner.",
+      "markdown": "*\"I\u2019m having an old friend for dinner.\"*"
+    },
+    "back": {
+      "text": "The Silence of the Lambs (1991) \u2014 Hannibal Lecter Fun fact: It is one of only three films to win the five major Academy Awards: Picture, Director, Actor, Actress, and Screenplay.",
+      "markdown": "## The Silence of the Lambs (1991)\n\n**Said by:** Hannibal Lecter\n\n{#0F766E}**Fun fact:** It is one of only three films to win the five major Academy Awards: Picture, Director, Actor, Actress, and Screenplay.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 13,
+    "front": {
+      "text": "Here\u2019s Johnny!",
+      "markdown": "*\"Here\u2019s Johnny!\"*"
+    },
+    "back": {
+      "text": "The Shining (1980) \u2014 Jack Torrance Fun fact: The Overlook Hotel interiors were built on soundstages at Elstree Studios in England.",
+      "markdown": "## The Shining (1980)\n\n**Said by:** Jack Torrance\n\n{#0F766E}**Fun fact:** The Overlook Hotel interiors were built on soundstages at Elstree Studios in England.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 14,
+    "front": {
+      "text": "Roads? Where we\u2019re going, we don\u2019t need roads.",
+      "markdown": "*\"Roads? Where we\u2019re going, we don\u2019t need roads.\"*"
+    },
+    "back": {
+      "text": "Back to the Future (1985) \u2014 Dr. Emmett Brown Fun fact: Eric Stoltz was originally cast as Marty McFly before Michael J. Fox replaced him during filming.",
+      "markdown": "## Back to the Future (1985)\n\n**Said by:** Dr. Emmett Brown\n\n{#0F766E}**Fun fact:** Eric Stoltz was originally cast as Marty McFly before Michael J. Fox replaced him during filming.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 15,
+    "front": {
+      "text": "Frankly, my dear, I don\u2019t give a damn.",
+      "markdown": "*\"Frankly, my dear, I don\u2019t give a damn.\"*"
+    },
+    "back": {
+      "text": "Gone with the Wind (1939) \u2014 Rhett Butler Fun fact: It was the first color film to win the Academy Award for Best Picture.",
+      "markdown": "## Gone with the Wind (1939)\n\n**Said by:** Rhett Butler\n\n{#0F766E}**Fun fact:** It was the first color film to win the Academy Award for Best Picture.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 16,
+    "front": {
+      "text": "Why so serious?",
+      "markdown": "*\"Why so serious?\"*"
+    },
+    "back": {
+      "text": "The Dark Knight (2008) \u2014 The Joker Fun fact: Heath Ledger won a posthumous Academy Award for his performance as the Joker.",
+      "markdown": "## The Dark Knight (2008)\n\n**Said by:** The Joker\n\n{#0F766E}**Fun fact:** Heath Ledger won a posthumous Academy Award for his performance as the Joker.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 17,
+    "front": {
+      "text": "I\u2019m the king of the world!",
+      "markdown": "*\"I\u2019m the king of the world!\"*"
+    },
+    "back": {
+      "text": "Titanic (1997) \u2014 Jack Dawson Fun fact: It tied the record for the most Academy Award wins by a single film, with 11.",
+      "markdown": "## Titanic (1997)\n\n**Said by:** Jack Dawson\n\n{#0F766E}**Fun fact:** It tied the record for the most Academy Award wins by a single film, with 11.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 18,
+    "front": {
+      "text": "I see dead people.",
+      "markdown": "*\"I see dead people.\"*"
+    },
+    "back": {
+      "text": "The Sixth Sense (1999) \u2014 Cole Sear Fun fact: The screenplay carefully plants clues to its famous ending throughout the film.",
+      "markdown": "## The Sixth Sense (1999)\n\n**Said by:** Cole Sear\n\n{#0F766E}**Fun fact:** The screenplay carefully plants clues to its famous ending throughout the film.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 19,
+    "front": {
+      "text": "I feel the need\u2014the need for speed.",
+      "markdown": "*\"I feel the need\u2014the need for speed.\"*"
+    },
+    "back": {
+      "text": "Top Gun (1986) \u2014 Maverick & Goose Fun fact: The U.S. Navy cooperated with the production and allowed filming at Naval Air Station Miramar.",
+      "markdown": "## Top Gun (1986)\n\n**Said by:** Maverick & Goose\n\n{#0F766E}**Fun fact:** The U.S. Navy cooperated with the production and allowed filming at Naval Air Station Miramar.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 20,
+    "front": {
+      "text": "Leave the gun. Take the cannoli.",
+      "markdown": "*\"Leave the gun. Take the cannoli.\"*"
+    },
+    "back": {
+      "text": "The Godfather (1972) \u2014 Clemenza Fun fact: Marlon Brando used cotton in his cheeks to help create Don Corleone's distinctive jowls.",
+      "markdown": "## The Godfather (1972)\n\n**Said by:** Clemenza\n\n{#0F766E}**Fun fact:** Marlon Brando used cotton in his cheeks to help create Don Corleone's distinctive jowls.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 21,
+    "front": {
+      "text": "You talkin\u2019 to me?",
+      "markdown": "*\"You talkin\u2019 to me?\"*"
+    },
+    "back": {
+      "text": "Taxi Driver (1976) \u2014 Travis Bickle Fun fact: Robert De Niro improvised much of the mirror monologue.",
+      "markdown": "## Taxi Driver (1976)\n\n**Said by:** Travis Bickle\n\n{#0F766E}**Fun fact:** Robert De Niro improvised much of the mirror monologue.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 22,
+    "front": {
+      "text": "I\u2019m walking here!",
+      "markdown": "*\"I\u2019m walking here!\"*"
+    },
+    "back": {
+      "text": "Midnight Cowboy (1969) \u2014 Ratso Rizzo Fun fact: It remains the only X-rated film to win the Academy Award for Best Picture.",
+      "markdown": "## Midnight Cowboy (1969)\n\n**Said by:** Ratso Rizzo\n\n{#0F766E}**Fun fact:** It remains the only X-rated film to win the Academy Award for Best Picture.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 23,
+    "front": {
+      "text": "This is the beginning of a beautiful friendship.",
+      "markdown": "*\"This is the beginning of a beautiful friendship.\"*"
+    },
+    "back": {
+      "text": "Casablanca (1942) \u2014 Captain Louis Renault Fun fact: Casablanca won three Academy Awards, including Best Picture.",
+      "markdown": "## Casablanca (1942)\n\n**Said by:** Captain Louis Renault\n\n{#0F766E}**Fun fact:** Casablanca won three Academy Awards, including Best Picture.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 24,
+    "front": {
+      "text": "To infinity and beyond!",
+      "markdown": "*\"To infinity and beyond!\"*"
+    },
+    "back": {
+      "text": "Toy Story (1995) \u2014 Buzz Lightyear Fun fact: Toy Story was the first feature-length film made entirely with computer animation.",
+      "markdown": "## Toy Story (1995)\n\n**Said by:** Buzz Lightyear\n\n{#0F766E}**Fun fact:** Toy Story was the first feature-length film made entirely with computer animation.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 25,
+    "front": {
+      "text": "Just keep swimming.",
+      "markdown": "*\"Just keep swimming.\"*"
+    },
+    "back": {
+      "text": "Finding Nemo (2003) \u2014 Dory Fun fact: Director Andrew Stanton also provided the voice of Crush the sea turtle.",
+      "markdown": "## Finding Nemo (2003)\n\n**Said by:** Dory\n\n{#0F766E}**Fun fact:** Director Andrew Stanton also provided the voice of Crush the sea turtle.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 26,
+    "front": {
+      "text": "Why did it have to be snakes?",
+      "markdown": "*\"Why did it have to be snakes?\"*"
+    },
+    "back": {
+      "text": "Raiders of the Lost Ark (1981) \u2014 Indiana Jones Fun fact: The rolling boulder in the opening sequence was a real prop weighing more than 300 pounds.",
+      "markdown": "## Raiders of the Lost Ark (1981)\n\n**Said by:** Indiana Jones\n\n{#0F766E}**Fun fact:** The rolling boulder in the opening sequence was a real prop weighing more than 300 pounds.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 27,
+    "front": {
+      "text": "May the odds be ever in your favor.",
+      "markdown": "*\"May the odds be ever in your favor.\"*"
+    },
+    "back": {
+      "text": "The Hunger Games (2012) \u2014 Effie Trinket Fun fact: The film was adapted from Suzanne Collins's bestselling 2008 novel.",
+      "markdown": "## The Hunger Games (2012)\n\n**Said by:** Effie Trinket\n\n{#0F766E}**Fun fact:** The film was adapted from Suzanne Collins's bestselling 2008 novel.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 28,
+    "front": {
+      "text": "I\u2019m just a girl, standing in front of a boy, asking him to love her.",
+      "markdown": "*\"I\u2019m just a girl, standing in front of a boy, asking him to love her.\"*"
+    },
+    "back": {
+      "text": "Notting Hill (1999) \u2014 Anna Scott Fun fact: Julia Roberts plays a film star, making the role a playful reflection of her real-life fame.",
+      "markdown": "## Notting Hill (1999)\n\n**Said by:** Anna Scott\n\n{#0F766E}**Fun fact:** Julia Roberts plays a film star, making the role a playful reflection of her real-life fame.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 29,
+    "front": {
+      "text": "Rosebud.",
+      "markdown": "*\"Rosebud.\"*"
+    },
+    "back": {
+      "text": "Citizen Kane (1941) \u2014 Charles Foster Kane Fun fact: Citizen Kane topped Sight & Sound's critics' poll of the greatest films for five consecutive decades.",
+      "markdown": "## Citizen Kane (1941)\n\n**Said by:** Charles Foster Kane\n\n{#0F766E}**Fun fact:** Citizen Kane topped Sight & Sound's critics' poll of the greatest films for five consecutive decades.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 30,
+    "front": {
+      "text": "You\u2019re killing me, Smalls!",
+      "markdown": "*\"You\u2019re killing me, Smalls!\"*"
+    },
+    "back": {
+      "text": "The Sandlot (1993) \u2014 Ham Porter Fun fact: The cast used licorice in the famous chewing-tobacco scene.",
+      "markdown": "## The Sandlot (1993)\n\n**Said by:** Ham Porter\n\n{#0F766E}**Fun fact:** The cast used licorice in the famous chewing-tobacco scene.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 31,
+    "front": {
+      "text": "You either die a hero, or you live long enough to see yourself become the villain.",
+      "markdown": "*\"You either die a hero, or you live long enough to see yourself become the villain.\"*"
+    },
+    "back": {
+      "text": "The Dark Knight (2008) \u2014 Harvey Dent Fun fact: Harvey Dent's line became one of the film's most frequently quoted moments.",
+      "markdown": "## The Dark Knight (2008)\n\n**Said by:** Harvey Dent\n\n{#0F766E}**Fun fact:** Harvey Dent's line became one of the film's most frequently quoted moments.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 32,
+    "front": {
+      "text": "Sticking feathers up your butt does not make you a chicken.",
+      "markdown": "*\"Sticking feathers up your butt does not make you a chicken.\"*"
+    },
+    "back": {
+      "text": "The Shawshank Redemption (1994) \u2014 Red Fun fact: The film is based on Stephen King's novella Rita Hayworth and Shawshank Redemption.",
+      "markdown": "## The Shawshank Redemption (1994)\n\n**Said by:** Red\n\n{#0F766E}**Fun fact:** The film is based on Stephen King's novella Rita Hayworth and Shawshank Redemption.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 33,
+    "front": {
+      "text": "You\u2019ve got to ask yourself one question: \u2018Do I feel lucky?\u2019",
+      "markdown": "*\"You\u2019ve got to ask yourself one question: \u2018Do I feel lucky?\u2019\"*"
+    },
+    "back": {
+      "text": "Dirty Harry (1971) \u2014 Harry Callahan Fun fact: Clint Eastwood's character returned in five Dirty Harry films.",
+      "markdown": "## Dirty Harry (1971)\n\n**Said by:** Harry Callahan\n\n{#0F766E}**Fun fact:** Clint Eastwood's character returned in five Dirty Harry films.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 34,
+    "front": {
+      "text": "Get away from her, you bitch!",
+      "markdown": "*\"Get away from her, you bitch!\"*"
+    },
+    "back": {
+      "text": "Aliens (1986) \u2014 Ellen Ripley Fun fact: The Alien Queen was operated by a team of puppeteers and technicians.",
+      "markdown": "## Aliens (1986)\n\n**Said by:** Ellen Ripley\n\n{#0F766E}**Fun fact:** The Alien Queen was operated by a team of puppeteers and technicians.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 35,
+    "front": {
+      "text": "They may take our lives, but they\u2019ll never take our freedom!",
+      "markdown": "*\"They may take our lives, but they\u2019ll never take our freedom!\"*"
+    },
+    "back": {
+      "text": "Braveheart (1995) \u2014 William Wallace Fun fact: Although set in Scotland, much of the film was shot in Ireland.",
+      "markdown": "## Braveheart (1995)\n\n**Said by:** William Wallace\n\n{#0F766E}**Fun fact:** Although set in Scotland, much of the film was shot in Ireland.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 36,
+    "front": {
+      "text": "Life finds a way.",
+      "markdown": "*\"Life finds a way.\"*"
+    },
+    "back": {
+      "text": "Jurassic Park (1993) \u2014 Ian Malcolm Fun fact: The film blended pioneering CGI with full-size animatronic dinosaurs.",
+      "markdown": "## Jurassic Park (1993)\n\n**Said by:** Ian Malcolm\n\n{#0F766E}**Fun fact:** The film blended pioneering CGI with full-size animatronic dinosaurs.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 37,
+    "front": {
+      "text": "You can\u2019t handle the truth!",
+      "markdown": "*\"You can\u2019t handle the truth!\"*"
+    },
+    "back": {
+      "text": "A Few Good Men (1992) \u2014 Col. Nathan Jessup Fun fact: Aaron Sorkin adapted the film from his own stage play.",
+      "markdown": "## A Few Good Men (1992)\n\n**Said by:** Col. Nathan Jessup\n\n{#0F766E}**Fun fact:** Aaron Sorkin adapted the film from his own stage play.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 38,
+    "front": {
+      "text": "You had me at hello.",
+      "markdown": "*\"You had me at hello.\"*"
+    },
+    "back": {
+      "text": "Jerry Maguire (1996) \u2014 Dorothy Boyd Fun fact: The phrase 'Show me the money!' from the same film became a pop-culture catchphrase.",
+      "markdown": "## Jerry Maguire (1996)\n\n**Said by:** Dorothy Boyd\n\n{#0F766E}**Fun fact:** The phrase 'Show me the money!' from the same film became a pop-culture catchphrase.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 39,
+    "front": {
+      "text": "That\u2019ll do, pig. That\u2019ll do.",
+      "markdown": "*\"That\u2019ll do, pig. That\u2019ll do.\"*"
+    },
+    "back": {
+      "text": "Babe (1995) \u2014 Farmer Hoggett Fun fact: Real animals, animatronics, and visual effects were combined to create Babe's talking animals.",
+      "markdown": "## Babe (1995)\n\n**Said by:** Farmer Hoggett\n\n{#0F766E}**Fun fact:** Real animals, animatronics, and visual effects were combined to create Babe's talking animals.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 40,
+    "front": {
+      "text": "Do you expect me to talk?",
+      "markdown": "*\"Do you expect me to talk?\"*"
+    },
+    "back": {
+      "text": "Goldfinger (1964) \u2014 James Bond Fun fact: The Aston Martin DB5 made its first Bond-film appearance in Goldfinger.",
+      "markdown": "## Goldfinger (1964)\n\n**Said by:** James Bond\n\n{#0F766E}**Fun fact:** The Aston Martin DB5 made its first Bond-film appearance in Goldfinger.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 41,
+    "front": {
+      "text": "Well, nobody\u2019s perfect.",
+      "markdown": "*\"Well, nobody\u2019s perfect.\"*"
+    },
+    "back": {
+      "text": "Some Like It Hot (1959) \u2014 Osgood Fielding III Fun fact: The American Film Institute ranked it the greatest American comedy in 2000.",
+      "markdown": "## Some Like It Hot (1959)\n\n**Said by:** Osgood Fielding III\n\n{#0F766E}**Fun fact:** The American Film Institute ranked it the greatest American comedy in 2000.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 42,
+    "front": {
+      "text": "I\u2019m mad as hell, and I\u2019m not going to take this anymore!",
+      "markdown": "*\"I\u2019m mad as hell, and I\u2019m not going to take this anymore!\"*"
+    },
+    "back": {
+      "text": "Network (1976) \u2014 Howard Beale Fun fact: The film satirized television's obsession with ratings years before reality TV.",
+      "markdown": "## Network (1976)\n\n**Said by:** Howard Beale\n\n{#0F766E}**Fun fact:** The film satirized television's obsession with ratings years before reality TV.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 43,
+    "front": {
+      "text": "You keep using that word. I do not think it means what you think it means.",
+      "markdown": "*\"You keep using that word. I do not think it means what you think it means.\"*"
+    },
+    "back": {
+      "text": "The Princess Bride (1987) \u2014 Inigo Montoya Fun fact: William Goldman adapted the screenplay from his own novel.",
+      "markdown": "## The Princess Bride (1987)\n\n**Said by:** Inigo Montoya\n\n{#0F766E}**Fun fact:** William Goldman adapted the screenplay from his own novel.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 44,
+    "front": {
+      "text": "You\u2019re a big man, but you\u2019re in bad shape.",
+      "markdown": "*\"You\u2019re a big man, but you\u2019re in bad shape.\"*"
+    },
+    "back": {
+      "text": "The Big Lebowski (1998) \u2014 The Stranger Fun fact: The Dude was partly inspired by real-life film producer Jeff Dowd.",
+      "markdown": "## The Big Lebowski (1998)\n\n**Said by:** The Stranger\n\n{#0F766E}**Fun fact:** The Dude was partly inspired by real-life film producer Jeff Dowd.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 45,
+    "front": {
+      "text": "Gentlemen, you can\u2019t fight in here! This is the War Room!",
+      "markdown": "*\"Gentlemen, you can\u2019t fight in here! This is the War Room!\"*"
+    },
+    "back": {
+      "text": "Dr. Strangelove (1964) \u2014 President Merkin Muffley Fun fact: Director Stanley Kubrick originally considered making the story as a serious thriller.",
+      "markdown": "## Dr. Strangelove (1964)\n\n**Said by:** President Merkin Muffley\n\n{#0F766E}**Fun fact:** Director Stanley Kubrick originally considered making the story as a serious thriller.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 46,
+    "front": {
+      "text": "I\u2019m just a dude playing a dude disguised as another dude.",
+      "markdown": "*\"I\u2019m just a dude playing a dude disguised as another dude.\"*"
+    },
+    "back": {
+      "text": "Tropic Thunder (2008) \u2014 Kirk Lazarus Fun fact: Robert Downey Jr. earned an Academy Award nomination for his performance.",
+      "markdown": "## Tropic Thunder (2008)\n\n**Said by:** Kirk Lazarus\n\n{#0F766E}**Fun fact:** Robert Downey Jr. earned an Academy Award nomination for his performance.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 47,
+    "front": {
+      "text": "What we\u2019ve got here is failure to communicate.",
+      "markdown": "*\"What we\u2019ve got here is failure to communicate.\"*"
+    },
+    "back": {
+      "text": "Cool Hand Luke (1967) \u2014 Captain Fun fact: George Kennedy won the Academy Award for Best Supporting Actor for the film.",
+      "markdown": "## Cool Hand Luke (1967)\n\n**Said by:** Captain\n\n{#0F766E}**Fun fact:** George Kennedy won the Academy Award for Best Supporting Actor for the film.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 48,
+    "front": {
+      "text": "I coulda had class. I coulda been a contender.",
+      "markdown": "*\"I coulda had class. I coulda been a contender.\"*"
+    },
+    "back": {
+      "text": "On the Waterfront (1954) \u2014 Terry Malloy Fun fact: The film won eight Academy Awards, including Best Picture.",
+      "markdown": "## On the Waterfront (1954)\n\n**Said by:** Terry Malloy\n\n{#0F766E}**Fun fact:** The film won eight Academy Awards, including Best Picture.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 49,
+    "front": {
+      "text": "I\u2019m not bad. I\u2019m just drawn that way.",
+      "markdown": "*\"I\u2019m not bad. I\u2019m just drawn that way.\"*"
+    },
+    "back": {
+      "text": "Who Framed Roger Rabbit (1988) \u2014 Jessica Rabbit Fun fact: It famously brought Disney and Warner Bros. cartoon characters together on screen.",
+      "markdown": "## Who Framed Roger Rabbit (1988)\n\n**Said by:** Jessica Rabbit\n\n{#0F766E}**Fun fact:** It famously brought Disney and Warner Bros. cartoon characters together on screen.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 50,
+    "front": {
+      "text": "You\u2019re only supposed to blow the bloody doors off!",
+      "markdown": "*\"You\u2019re only supposed to blow the bloody doors off!\"*"
+    },
+    "back": {
+      "text": "The Italian Job (1969) \u2014 Charlie Croker Fun fact: The Mini Cooper became an enduring symbol of the original 1969 film.",
+      "markdown": "## The Italian Job (1969)\n\n**Said by:** Charlie Croker\n\n{#0F766E}**Fun fact:** The Mini Cooper became an enduring symbol of the original 1969 film.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  }
 ]
