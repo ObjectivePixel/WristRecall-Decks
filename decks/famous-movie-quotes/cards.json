@@ -7,7 +7,7 @@
     },
     "back": {
       "text": "Star Wars (1977) \u2014 Han Solo Fun fact: George Lucas assembled the original Industrial Light & Magic team specifically to create the film's then-unprecedented effects.",
-      "markdown": "## Star Wars (1977)\n\n**Said by:** Han Solo\n\n{#0F766E}**Fun fact:** George Lucas assembled the original Industrial Light & Magic team specifically to create the film's then-unprecedented effects.{/}",
+      "markdown": "**Star Wars** (1977)\n\n\u2022 Said by: Han Solo\n\n\u2022 Fun fact: George Lucas assembled the original Industrial Light & Magic team specifically to create the film's then-unprecedented effects.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -22,7 +22,7 @@
     },
     "back": {
       "text": "The Wizard of Oz (1939) \u2014 Dorothy Gale Fun fact: The film famously shifts from sepia-toned Kansas to the vibrant Technicolor world of Oz.",
-      "markdown": "## The Wizard of Oz (1939)\n\n**Said by:** Dorothy Gale\n\n{#0F766E}**Fun fact:** The film famously shifts from sepia-toned Kansas to the vibrant Technicolor world of Oz.{/}",
+      "markdown": "**The Wizard of Oz** (1939)\n\n\u2022 Said by: Dorothy Gale\n\n\u2022 Fun fact: The film famously shifts from sepia-toned Kansas to the vibrant Technicolor world of Oz.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -37,7 +37,7 @@
     },
     "back": {
       "text": "Terminator 2: Judgment Day (1991) \u2014 The Terminator Fun fact: The T-1000's liquid-metal transformations were a landmark early use of computer-generated visual effects.",
-      "markdown": "## Terminator 2: Judgment Day (1991)\n\n**Said by:** The Terminator\n\n{#0F766E}**Fun fact:** The T-1000's liquid-metal transformations were a landmark early use of computer-generated visual effects.{/}",
+      "markdown": "**Terminator 2: Judgment Day** (1991)\n\n\u2022 Said by: The Terminator\n\n\u2022 Fun fact: The T-1000's liquid-metal transformations were a landmark early use of computer-generated visual effects.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -52,7 +52,7 @@
     },
     "back": {
       "text": "Dirty Dancing (1987) \u2014 Johnny Castle Fun fact: The song '(I've Had) The Time of My Life' won the Academy Award for Best Original Song.",
-      "markdown": "## Dirty Dancing (1987)\n\n**Said by:** Johnny Castle\n\n{#0F766E}**Fun fact:** The song '(I've Had) The Time of My Life' won the Academy Award for Best Original Song.{/}",
+      "markdown": "**Dirty Dancing** (1987)\n\n\u2022 Said by: Johnny Castle\n\n\u2022 Fun fact: The song '(I've Had) The Time of My Life' won the Academy Award for Best Original Song.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -67,7 +67,7 @@
     },
     "back": {
       "text": "Jaws (1975) \u2014 Martin Brody Fun fact: Roy Scheider improvised this line during filming.",
-      "markdown": "## Jaws (1975)\n\n**Said by:** Martin Brody\n\n{#0F766E}**Fun fact:** Roy Scheider improvised this line during filming.{/}",
+      "markdown": "**Jaws** (1975)\n\n\u2022 Said by: Martin Brody\n\n\u2022 Fun fact: Roy Scheider improvised this line during filming.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -82,7 +82,7 @@
     },
     "back": {
       "text": "Forrest Gump (1994) \u2014 Forrest Gump Fun fact: Forrest Gump won six Academy Awards, including Best Picture and Best Actor for Tom Hanks.",
-      "markdown": "## Forrest Gump (1994)\n\n**Said by:** Forrest Gump\n\n{#0F766E}**Fun fact:** Forrest Gump won six Academy Awards, including Best Picture and Best Actor for Tom Hanks.{/}",
+      "markdown": "**Forrest Gump** (1994)\n\n\u2022 Said by: Forrest Gump\n\n\u2022 Fun fact: Forrest Gump won six Academy Awards, including Best Picture and Best Actor for Tom Hanks.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -97,7 +97,7 @@
     },
     "back": {
       "text": "Scarface (1983) \u2014 Tony Montana Fun fact: Brian De Palma's film is a remake of the 1932 movie of the same name.",
-      "markdown": "## Scarface (1983)\n\n**Said by:** Tony Montana\n\n{#0F766E}**Fun fact:** Brian De Palma's film is a remake of the 1932 movie of the same name.{/}",
+      "markdown": "**Scarface** (1983)\n\n\u2022 Said by: Tony Montana\n\n\u2022 Fun fact: Brian De Palma's film is a remake of the 1932 movie of the same name.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -112,7 +112,7 @@
     },
     "back": {
       "text": "The Karate Kid (1984) \u2014 Mr. Miyagi Fun fact: Pat Morita received an Academy Award nomination for playing Mr. Miyagi.",
-      "markdown": "## The Karate Kid (1984)\n\n**Said by:** Mr. Miyagi\n\n{#0F766E}**Fun fact:** Pat Morita received an Academy Award nomination for playing Mr. Miyagi.{/}",
+      "markdown": "**The Karate Kid** (1984)\n\n\u2022 Said by: Mr. Miyagi\n\n\u2022 Fun fact: Pat Morita received an Academy Award nomination for playing Mr. Miyagi.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -127,7 +127,7 @@
     },
     "back": {
       "text": "The Godfather Part II (1974) \u2014 Michael Corleone Fun fact: It was the first sequel to win the Academy Award for Best Picture.",
-      "markdown": "## The Godfather Part II (1974)\n\n**Said by:** Michael Corleone\n\n{#0F766E}**Fun fact:** It was the first sequel to win the Academy Award for Best Picture.{/}",
+      "markdown": "**The Godfather Part II** (1974)\n\n\u2022 Said by: Michael Corleone\n\n\u2022 Fun fact: It was the first sequel to win the Academy Award for Best Picture.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -142,7 +142,7 @@
     },
     "back": {
       "text": "Apocalypse Now (1979) \u2014 Lt. Col. Kilgore Fun fact: The production was filmed in the Philippines and was delayed by a typhoon.",
-      "markdown": "## Apocalypse Now (1979)\n\n**Said by:** Lt. Col. Kilgore\n\n{#0F766E}**Fun fact:** The production was filmed in the Philippines and was delayed by a typhoon.{/}",
+      "markdown": "**Apocalypse Now** (1979)\n\n\u2022 Said by: Lt. Col. Kilgore\n\n\u2022 Fun fact: The production was filmed in the Philippines and was delayed by a typhoon.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -157,7 +157,7 @@
     },
     "back": {
       "text": "The Lord of the Rings: The Fellowship of the Ring (2001) \u2014 Gandalf Fun fact: The three Lord of the Rings films were filmed back-to-back in New Zealand.",
-      "markdown": "## The Lord of the Rings: The Fellowship of the Ring (2001)\n\n**Said by:** Gandalf\n\n{#0F766E}**Fun fact:** The three Lord of the Rings films were filmed back-to-back in New Zealand.{/}",
+      "markdown": "**The Lord of the Rings: The Fellowship of the Ring** (2001)\n\n\u2022 Said by: Gandalf\n\n\u2022 Fun fact: The three Lord of the Rings films were filmed back-to-back in New Zealand.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -172,7 +172,7 @@
     },
     "back": {
       "text": "The Silence of the Lambs (1991) \u2014 Hannibal Lecter Fun fact: It is one of only three films to win the five major Academy Awards: Picture, Director, Actor, Actress, and Screenplay.",
-      "markdown": "## The Silence of the Lambs (1991)\n\n**Said by:** Hannibal Lecter\n\n{#0F766E}**Fun fact:** It is one of only three films to win the five major Academy Awards: Picture, Director, Actor, Actress, and Screenplay.{/}",
+      "markdown": "**The Silence of the Lambs** (1991)\n\n\u2022 Said by: Hannibal Lecter\n\n\u2022 Fun fact: It is one of only three films to win the five major Academy Awards: Picture, Director, Actor, Actress, and Screenplay.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -187,7 +187,7 @@
     },
     "back": {
       "text": "The Shining (1980) \u2014 Jack Torrance Fun fact: The Overlook Hotel interiors were built on soundstages at Elstree Studios in England.",
-      "markdown": "## The Shining (1980)\n\n**Said by:** Jack Torrance\n\n{#0F766E}**Fun fact:** The Overlook Hotel interiors were built on soundstages at Elstree Studios in England.{/}",
+      "markdown": "**The Shining** (1980)\n\n\u2022 Said by: Jack Torrance\n\n\u2022 Fun fact: The Overlook Hotel interiors were built on soundstages at Elstree Studios in England.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -202,7 +202,7 @@
     },
     "back": {
       "text": "Back to the Future (1985) \u2014 Dr. Emmett Brown Fun fact: Eric Stoltz was originally cast as Marty McFly before Michael J. Fox replaced him during filming.",
-      "markdown": "## Back to the Future (1985)\n\n**Said by:** Dr. Emmett Brown\n\n{#0F766E}**Fun fact:** Eric Stoltz was originally cast as Marty McFly before Michael J. Fox replaced him during filming.{/}",
+      "markdown": "**Back to the Future** (1985)\n\n\u2022 Said by: Dr. Emmett Brown\n\n\u2022 Fun fact: Eric Stoltz was originally cast as Marty McFly before Michael J. Fox replaced him during filming.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -217,7 +217,7 @@
     },
     "back": {
       "text": "Gone with the Wind (1939) \u2014 Rhett Butler Fun fact: It was the first color film to win the Academy Award for Best Picture.",
-      "markdown": "## Gone with the Wind (1939)\n\n**Said by:** Rhett Butler\n\n{#0F766E}**Fun fact:** It was the first color film to win the Academy Award for Best Picture.{/}",
+      "markdown": "**Gone with the Wind** (1939)\n\n\u2022 Said by: Rhett Butler\n\n\u2022 Fun fact: It was the first color film to win the Academy Award for Best Picture.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -232,7 +232,7 @@
     },
     "back": {
       "text": "The Dark Knight (2008) \u2014 The Joker Fun fact: Heath Ledger won a posthumous Academy Award for his performance as the Joker.",
-      "markdown": "## The Dark Knight (2008)\n\n**Said by:** The Joker\n\n{#0F766E}**Fun fact:** Heath Ledger won a posthumous Academy Award for his performance as the Joker.{/}",
+      "markdown": "**The Dark Knight** (2008)\n\n\u2022 Said by: The Joker\n\n\u2022 Fun fact: Heath Ledger won a posthumous Academy Award for his performance as the Joker.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -247,7 +247,7 @@
     },
     "back": {
       "text": "Titanic (1997) \u2014 Jack Dawson Fun fact: It tied the record for the most Academy Award wins by a single film, with 11.",
-      "markdown": "## Titanic (1997)\n\n**Said by:** Jack Dawson\n\n{#0F766E}**Fun fact:** It tied the record for the most Academy Award wins by a single film, with 11.{/}",
+      "markdown": "**Titanic** (1997)\n\n\u2022 Said by: Jack Dawson\n\n\u2022 Fun fact: It tied the record for the most Academy Award wins by a single film, with 11.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -262,7 +262,7 @@
     },
     "back": {
       "text": "The Sixth Sense (1999) \u2014 Cole Sear Fun fact: The screenplay carefully plants clues to its famous ending throughout the film.",
-      "markdown": "## The Sixth Sense (1999)\n\n**Said by:** Cole Sear\n\n{#0F766E}**Fun fact:** The screenplay carefully plants clues to its famous ending throughout the film.{/}",
+      "markdown": "**The Sixth Sense** (1999)\n\n\u2022 Said by: Cole Sear\n\n\u2022 Fun fact: The screenplay carefully plants clues to its famous ending throughout the film.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -277,7 +277,7 @@
     },
     "back": {
       "text": "Top Gun (1986) \u2014 Maverick & Goose Fun fact: The U.S. Navy cooperated with the production and allowed filming at Naval Air Station Miramar.",
-      "markdown": "## Top Gun (1986)\n\n**Said by:** Maverick & Goose\n\n{#0F766E}**Fun fact:** The U.S. Navy cooperated with the production and allowed filming at Naval Air Station Miramar.{/}",
+      "markdown": "**Top Gun** (1986)\n\n\u2022 Said by: Maverick & Goose\n\n\u2022 Fun fact: The U.S. Navy cooperated with the production and allowed filming at Naval Air Station Miramar.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -292,7 +292,7 @@
     },
     "back": {
       "text": "The Godfather (1972) \u2014 Clemenza Fun fact: Marlon Brando used cotton in his cheeks to help create Don Corleone's distinctive jowls.",
-      "markdown": "## The Godfather (1972)\n\n**Said by:** Clemenza\n\n{#0F766E}**Fun fact:** Marlon Brando used cotton in his cheeks to help create Don Corleone's distinctive jowls.{/}",
+      "markdown": "**The Godfather** (1972)\n\n\u2022 Said by: Clemenza\n\n\u2022 Fun fact: Marlon Brando used cotton in his cheeks to help create Don Corleone's distinctive jowls.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -307,7 +307,7 @@
     },
     "back": {
       "text": "Taxi Driver (1976) \u2014 Travis Bickle Fun fact: Robert De Niro improvised much of the mirror monologue.",
-      "markdown": "## Taxi Driver (1976)\n\n**Said by:** Travis Bickle\n\n{#0F766E}**Fun fact:** Robert De Niro improvised much of the mirror monologue.{/}",
+      "markdown": "**Taxi Driver** (1976)\n\n\u2022 Said by: Travis Bickle\n\n\u2022 Fun fact: Robert De Niro improvised much of the mirror monologue.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -322,7 +322,7 @@
     },
     "back": {
       "text": "Midnight Cowboy (1969) \u2014 Ratso Rizzo Fun fact: It remains the only X-rated film to win the Academy Award for Best Picture.",
-      "markdown": "## Midnight Cowboy (1969)\n\n**Said by:** Ratso Rizzo\n\n{#0F766E}**Fun fact:** It remains the only X-rated film to win the Academy Award for Best Picture.{/}",
+      "markdown": "**Midnight Cowboy** (1969)\n\n\u2022 Said by: Ratso Rizzo\n\n\u2022 Fun fact: It remains the only X-rated film to win the Academy Award for Best Picture.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -337,7 +337,7 @@
     },
     "back": {
       "text": "Casablanca (1942) \u2014 Captain Louis Renault Fun fact: Casablanca won three Academy Awards, including Best Picture.",
-      "markdown": "## Casablanca (1942)\n\n**Said by:** Captain Louis Renault\n\n{#0F766E}**Fun fact:** Casablanca won three Academy Awards, including Best Picture.{/}",
+      "markdown": "**Casablanca** (1942)\n\n\u2022 Said by: Captain Louis Renault\n\n\u2022 Fun fact: Casablanca won three Academy Awards, including Best Picture.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -352,7 +352,7 @@
     },
     "back": {
       "text": "Toy Story (1995) \u2014 Buzz Lightyear Fun fact: Toy Story was the first feature-length film made entirely with computer animation.",
-      "markdown": "## Toy Story (1995)\n\n**Said by:** Buzz Lightyear\n\n{#0F766E}**Fun fact:** Toy Story was the first feature-length film made entirely with computer animation.{/}",
+      "markdown": "**Toy Story** (1995)\n\n\u2022 Said by: Buzz Lightyear\n\n\u2022 Fun fact: Toy Story was the first feature-length film made entirely with computer animation.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -367,7 +367,7 @@
     },
     "back": {
       "text": "Finding Nemo (2003) \u2014 Dory Fun fact: Director Andrew Stanton also provided the voice of Crush the sea turtle.",
-      "markdown": "## Finding Nemo (2003)\n\n**Said by:** Dory\n\n{#0F766E}**Fun fact:** Director Andrew Stanton also provided the voice of Crush the sea turtle.{/}",
+      "markdown": "**Finding Nemo** (2003)\n\n\u2022 Said by: Dory\n\n\u2022 Fun fact: Director Andrew Stanton also provided the voice of Crush the sea turtle.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -382,7 +382,7 @@
     },
     "back": {
       "text": "Raiders of the Lost Ark (1981) \u2014 Indiana Jones Fun fact: The rolling boulder in the opening sequence was a real prop weighing more than 300 pounds.",
-      "markdown": "## Raiders of the Lost Ark (1981)\n\n**Said by:** Indiana Jones\n\n{#0F766E}**Fun fact:** The rolling boulder in the opening sequence was a real prop weighing more than 300 pounds.{/}",
+      "markdown": "**Raiders of the Lost Ark** (1981)\n\n\u2022 Said by: Indiana Jones\n\n\u2022 Fun fact: The rolling boulder in the opening sequence was a real prop weighing more than 300 pounds.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -397,7 +397,7 @@
     },
     "back": {
       "text": "The Hunger Games (2012) \u2014 Effie Trinket Fun fact: The film was adapted from Suzanne Collins's bestselling 2008 novel.",
-      "markdown": "## The Hunger Games (2012)\n\n**Said by:** Effie Trinket\n\n{#0F766E}**Fun fact:** The film was adapted from Suzanne Collins's bestselling 2008 novel.{/}",
+      "markdown": "**The Hunger Games** (2012)\n\n\u2022 Said by: Effie Trinket\n\n\u2022 Fun fact: The film was adapted from Suzanne Collins's bestselling 2008 novel.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -412,7 +412,7 @@
     },
     "back": {
       "text": "Notting Hill (1999) \u2014 Anna Scott Fun fact: Julia Roberts plays a film star, making the role a playful reflection of her real-life fame.",
-      "markdown": "## Notting Hill (1999)\n\n**Said by:** Anna Scott\n\n{#0F766E}**Fun fact:** Julia Roberts plays a film star, making the role a playful reflection of her real-life fame.{/}",
+      "markdown": "**Notting Hill** (1999)\n\n\u2022 Said by: Anna Scott\n\n\u2022 Fun fact: Julia Roberts plays a film star, making the role a playful reflection of her real-life fame.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -427,7 +427,7 @@
     },
     "back": {
       "text": "Citizen Kane (1941) \u2014 Charles Foster Kane Fun fact: Citizen Kane topped Sight & Sound's critics' poll of the greatest films for five consecutive decades.",
-      "markdown": "## Citizen Kane (1941)\n\n**Said by:** Charles Foster Kane\n\n{#0F766E}**Fun fact:** Citizen Kane topped Sight & Sound's critics' poll of the greatest films for five consecutive decades.{/}",
+      "markdown": "**Citizen Kane** (1941)\n\n\u2022 Said by: Charles Foster Kane\n\n\u2022 Fun fact: Citizen Kane topped Sight & Sound's critics' poll of the greatest films for five consecutive decades.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -442,7 +442,7 @@
     },
     "back": {
       "text": "The Sandlot (1993) \u2014 Ham Porter Fun fact: The cast used licorice in the famous chewing-tobacco scene.",
-      "markdown": "## The Sandlot (1993)\n\n**Said by:** Ham Porter\n\n{#0F766E}**Fun fact:** The cast used licorice in the famous chewing-tobacco scene.{/}",
+      "markdown": "**The Sandlot** (1993)\n\n\u2022 Said by: Ham Porter\n\n\u2022 Fun fact: The cast used licorice in the famous chewing-tobacco scene.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -457,7 +457,7 @@
     },
     "back": {
       "text": "The Dark Knight (2008) \u2014 Harvey Dent Fun fact: Harvey Dent's line became one of the film's most frequently quoted moments.",
-      "markdown": "## The Dark Knight (2008)\n\n**Said by:** Harvey Dent\n\n{#0F766E}**Fun fact:** Harvey Dent's line became one of the film's most frequently quoted moments.{/}",
+      "markdown": "**The Dark Knight** (2008)\n\n\u2022 Said by: Harvey Dent\n\n\u2022 Fun fact: Harvey Dent's line became one of the film's most frequently quoted moments.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -472,7 +472,7 @@
     },
     "back": {
       "text": "The Shawshank Redemption (1994) \u2014 Red Fun fact: The film is based on Stephen King's novella Rita Hayworth and Shawshank Redemption.",
-      "markdown": "## The Shawshank Redemption (1994)\n\n**Said by:** Red\n\n{#0F766E}**Fun fact:** The film is based on Stephen King's novella Rita Hayworth and Shawshank Redemption.{/}",
+      "markdown": "**The Shawshank Redemption** (1994)\n\n\u2022 Said by: Red\n\n\u2022 Fun fact: The film is based on Stephen King's novella Rita Hayworth and Shawshank Redemption.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -487,7 +487,7 @@
     },
     "back": {
       "text": "Dirty Harry (1971) \u2014 Harry Callahan Fun fact: Clint Eastwood's character returned in five Dirty Harry films.",
-      "markdown": "## Dirty Harry (1971)\n\n**Said by:** Harry Callahan\n\n{#0F766E}**Fun fact:** Clint Eastwood's character returned in five Dirty Harry films.{/}",
+      "markdown": "**Dirty Harry** (1971)\n\n\u2022 Said by: Harry Callahan\n\n\u2022 Fun fact: Clint Eastwood's character returned in five Dirty Harry films.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -502,7 +502,7 @@
     },
     "back": {
       "text": "Aliens (1986) \u2014 Ellen Ripley Fun fact: The Alien Queen was operated by a team of puppeteers and technicians.",
-      "markdown": "## Aliens (1986)\n\n**Said by:** Ellen Ripley\n\n{#0F766E}**Fun fact:** The Alien Queen was operated by a team of puppeteers and technicians.{/}",
+      "markdown": "**Aliens** (1986)\n\n\u2022 Said by: Ellen Ripley\n\n\u2022 Fun fact: The Alien Queen was operated by a team of puppeteers and technicians.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -517,7 +517,7 @@
     },
     "back": {
       "text": "Braveheart (1995) \u2014 William Wallace Fun fact: Although set in Scotland, much of the film was shot in Ireland.",
-      "markdown": "## Braveheart (1995)\n\n**Said by:** William Wallace\n\n{#0F766E}**Fun fact:** Although set in Scotland, much of the film was shot in Ireland.{/}",
+      "markdown": "**Braveheart** (1995)\n\n\u2022 Said by: William Wallace\n\n\u2022 Fun fact: Although set in Scotland, much of the film was shot in Ireland.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -532,7 +532,7 @@
     },
     "back": {
       "text": "Jurassic Park (1993) \u2014 Ian Malcolm Fun fact: The film blended pioneering CGI with full-size animatronic dinosaurs.",
-      "markdown": "## Jurassic Park (1993)\n\n**Said by:** Ian Malcolm\n\n{#0F766E}**Fun fact:** The film blended pioneering CGI with full-size animatronic dinosaurs.{/}",
+      "markdown": "**Jurassic Park** (1993)\n\n\u2022 Said by: Ian Malcolm\n\n\u2022 Fun fact: The film blended pioneering CGI with full-size animatronic dinosaurs.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -547,7 +547,7 @@
     },
     "back": {
       "text": "A Few Good Men (1992) \u2014 Col. Nathan Jessup Fun fact: Aaron Sorkin adapted the film from his own stage play.",
-      "markdown": "## A Few Good Men (1992)\n\n**Said by:** Col. Nathan Jessup\n\n{#0F766E}**Fun fact:** Aaron Sorkin adapted the film from his own stage play.{/}",
+      "markdown": "**A Few Good Men** (1992)\n\n\u2022 Said by: Col. Nathan Jessup\n\n\u2022 Fun fact: Aaron Sorkin adapted the film from his own stage play.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -562,7 +562,7 @@
     },
     "back": {
       "text": "Jerry Maguire (1996) \u2014 Dorothy Boyd Fun fact: The phrase 'Show me the money!' from the same film became a pop-culture catchphrase.",
-      "markdown": "## Jerry Maguire (1996)\n\n**Said by:** Dorothy Boyd\n\n{#0F766E}**Fun fact:** The phrase 'Show me the money!' from the same film became a pop-culture catchphrase.{/}",
+      "markdown": "**Jerry Maguire** (1996)\n\n\u2022 Said by: Dorothy Boyd\n\n\u2022 Fun fact: The phrase 'Show me the money!' from the same film became a pop-culture catchphrase.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -577,7 +577,7 @@
     },
     "back": {
       "text": "Babe (1995) \u2014 Farmer Hoggett Fun fact: Real animals, animatronics, and visual effects were combined to create Babe's talking animals.",
-      "markdown": "## Babe (1995)\n\n**Said by:** Farmer Hoggett\n\n{#0F766E}**Fun fact:** Real animals, animatronics, and visual effects were combined to create Babe's talking animals.{/}",
+      "markdown": "**Babe** (1995)\n\n\u2022 Said by: Farmer Hoggett\n\n\u2022 Fun fact: Real animals, animatronics, and visual effects were combined to create Babe's talking animals.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -592,7 +592,7 @@
     },
     "back": {
       "text": "Goldfinger (1964) \u2014 James Bond Fun fact: The Aston Martin DB5 made its first Bond-film appearance in Goldfinger.",
-      "markdown": "## Goldfinger (1964)\n\n**Said by:** James Bond\n\n{#0F766E}**Fun fact:** The Aston Martin DB5 made its first Bond-film appearance in Goldfinger.{/}",
+      "markdown": "**Goldfinger** (1964)\n\n\u2022 Said by: James Bond\n\n\u2022 Fun fact: The Aston Martin DB5 made its first Bond-film appearance in Goldfinger.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -607,7 +607,7 @@
     },
     "back": {
       "text": "Some Like It Hot (1959) \u2014 Osgood Fielding III Fun fact: The American Film Institute ranked it the greatest American comedy in 2000.",
-      "markdown": "## Some Like It Hot (1959)\n\n**Said by:** Osgood Fielding III\n\n{#0F766E}**Fun fact:** The American Film Institute ranked it the greatest American comedy in 2000.{/}",
+      "markdown": "**Some Like It Hot** (1959)\n\n\u2022 Said by: Osgood Fielding III\n\n\u2022 Fun fact: The American Film Institute ranked it the greatest American comedy in 2000.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -622,7 +622,7 @@
     },
     "back": {
       "text": "Network (1976) \u2014 Howard Beale Fun fact: The film satirized television's obsession with ratings years before reality TV.",
-      "markdown": "## Network (1976)\n\n**Said by:** Howard Beale\n\n{#0F766E}**Fun fact:** The film satirized television's obsession with ratings years before reality TV.{/}",
+      "markdown": "**Network** (1976)\n\n\u2022 Said by: Howard Beale\n\n\u2022 Fun fact: The film satirized television's obsession with ratings years before reality TV.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -637,7 +637,7 @@
     },
     "back": {
       "text": "The Princess Bride (1987) \u2014 Inigo Montoya Fun fact: William Goldman adapted the screenplay from his own novel.",
-      "markdown": "## The Princess Bride (1987)\n\n**Said by:** Inigo Montoya\n\n{#0F766E}**Fun fact:** William Goldman adapted the screenplay from his own novel.{/}",
+      "markdown": "**The Princess Bride** (1987)\n\n\u2022 Said by: Inigo Montoya\n\n\u2022 Fun fact: William Goldman adapted the screenplay from his own novel.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -652,7 +652,7 @@
     },
     "back": {
       "text": "The Big Lebowski (1998) \u2014 The Stranger Fun fact: The Dude was partly inspired by real-life film producer Jeff Dowd.",
-      "markdown": "## The Big Lebowski (1998)\n\n**Said by:** The Stranger\n\n{#0F766E}**Fun fact:** The Dude was partly inspired by real-life film producer Jeff Dowd.{/}",
+      "markdown": "**The Big Lebowski** (1998)\n\n\u2022 Said by: The Stranger\n\n\u2022 Fun fact: The Dude was partly inspired by real-life film producer Jeff Dowd.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -667,7 +667,7 @@
     },
     "back": {
       "text": "Dr. Strangelove (1964) \u2014 President Merkin Muffley Fun fact: Director Stanley Kubrick originally considered making the story as a serious thriller.",
-      "markdown": "## Dr. Strangelove (1964)\n\n**Said by:** President Merkin Muffley\n\n{#0F766E}**Fun fact:** Director Stanley Kubrick originally considered making the story as a serious thriller.{/}",
+      "markdown": "**Dr. Strangelove** (1964)\n\n\u2022 Said by: President Merkin Muffley\n\n\u2022 Fun fact: Director Stanley Kubrick originally considered making the story as a serious thriller.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -682,7 +682,7 @@
     },
     "back": {
       "text": "Tropic Thunder (2008) \u2014 Kirk Lazarus Fun fact: Robert Downey Jr. earned an Academy Award nomination for his performance.",
-      "markdown": "## Tropic Thunder (2008)\n\n**Said by:** Kirk Lazarus\n\n{#0F766E}**Fun fact:** Robert Downey Jr. earned an Academy Award nomination for his performance.{/}",
+      "markdown": "**Tropic Thunder** (2008)\n\n\u2022 Said by: Kirk Lazarus\n\n\u2022 Fun fact: Robert Downey Jr. earned an Academy Award nomination for his performance.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -697,7 +697,7 @@
     },
     "back": {
       "text": "Cool Hand Luke (1967) \u2014 Captain Fun fact: George Kennedy won the Academy Award for Best Supporting Actor for the film.",
-      "markdown": "## Cool Hand Luke (1967)\n\n**Said by:** Captain\n\n{#0F766E}**Fun fact:** George Kennedy won the Academy Award for Best Supporting Actor for the film.{/}",
+      "markdown": "**Cool Hand Luke** (1967)\n\n\u2022 Said by: Captain\n\n\u2022 Fun fact: George Kennedy won the Academy Award for Best Supporting Actor for the film.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -712,7 +712,7 @@
     },
     "back": {
       "text": "On the Waterfront (1954) \u2014 Terry Malloy Fun fact: The film won eight Academy Awards, including Best Picture.",
-      "markdown": "## On the Waterfront (1954)\n\n**Said by:** Terry Malloy\n\n{#0F766E}**Fun fact:** The film won eight Academy Awards, including Best Picture.{/}",
+      "markdown": "**On the Waterfront** (1954)\n\n\u2022 Said by: Terry Malloy\n\n\u2022 Fun fact: The film won eight Academy Awards, including Best Picture.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -727,7 +727,7 @@
     },
     "back": {
       "text": "Who Framed Roger Rabbit (1988) \u2014 Jessica Rabbit Fun fact: It famously brought Disney and Warner Bros. cartoon characters together on screen.",
-      "markdown": "## Who Framed Roger Rabbit (1988)\n\n**Said by:** Jessica Rabbit\n\n{#0F766E}**Fun fact:** It famously brought Disney and Warner Bros. cartoon characters together on screen.{/}",
+      "markdown": "**Who Framed Roger Rabbit** (1988)\n\n\u2022 Said by: Jessica Rabbit\n\n\u2022 Fun fact: It famously brought Disney and Warner Bros. cartoon characters together on screen.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
@@ -742,7 +742,7 @@
     },
     "back": {
       "text": "The Italian Job (1969) \u2014 Charlie Croker Fun fact: The Mini Cooper became an enduring symbol of the original 1969 film.",
-      "markdown": "## The Italian Job (1969)\n\n**Said by:** Charlie Croker\n\n{#0F766E}**Fun fact:** The Mini Cooper became an enduring symbol of the original 1969 film.{/}",
+      "markdown": "**The Italian Job** (1969)\n\n\u2022 Said by: Charlie Croker\n\n\u2022 Fun fact: The Mini Cooper became an enduring symbol of the original 1969 film.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
