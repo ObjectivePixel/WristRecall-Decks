@@ -2,20 +2,18 @@
   "id": "famous-movie-quotes",
   "uuid": "E8A20CC8-CAC3-4610-9854-C8B6FC246D99",
   "name": "Famous Movie Quotes",
-  "description": "100 unforgettable lines from the silver screen.",
+  "description": "50 famous movie quotes, from easy to hard.",
   "storeFileName": "famous_movie_quotes",
   "imageName": "famous_movie_quotes_deck",
   "gradientColors": ["#1E0F2FFF", "#D97706CC"],
-  "cardCount": 100,
-  "topicCount": 5,
+  "cardCount": 50,
+  "topicCount": 3,
   "category": "Entertainment",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "sourceFileName": "cards.json",
   "topicDefinitions": [
-    { "name": "Classic Hollywood", "cardIDs": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20] },
-    { "name": "Crime & Drama", "cardIDs": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40] },
-    { "name": "Comedy & Romance", "cardIDs": [41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60] },
-    { "name": "Action & Sci-Fi", "cardIDs": [61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80] },
-    { "name": "Modern Classics", "cardIDs": [81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100] }
+    { "name": "Easy", "cardIDs": [1, 2, 3, 5, 6, 7, 8, 11, 13, 14, 15, 16, 17, 18, 19, 20, 24, 25, 26, 27, 30, 31, 34, 37, 38, 43, 46] },
+    { "name": "Medium", "cardIDs": [4, 9, 10, 12, 21, 22, 23, 28, 32, 33, 35, 36, 39, 40, 41, 42, 47, 49, 50] },
+    { "name": "Hard", "cardIDs": [29, 44, 45, 48] }
   ]
 }
