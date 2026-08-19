@@ -227,12 +227,12 @@
   {
     "id": 16,
     "front": {
-      "text": "Why so serious?",
-      "markdown": "*\"Why so serious?\"*"
+      "text": "The only good bug is a dead bug.",
+      "markdown": "*\"The only good bug is a dead bug.\"*"
     },
     "back": {
-      "text": "The Dark Knight (2008) \u2014 The Joker Fun fact: Heath Ledger won a posthumous Academy Award for his performance as the Joker.",
-      "markdown": "**The Dark Knight** (2008)\n\n\u2022 Said by: The Joker\n\n\u2022 Fun fact: Heath Ledger won a posthumous Academy Award for his performance as the Joker.",
+      "text": "Starship Troopers (1997) \u2014 Angry Buenos Aires Resident. Fun fact: The line appears in an in-universe FedNet propaganda segment.",
+      "markdown": "**Starship Troopers** (1997)\n\n\u2022 Said by: Angry Buenos Aires Resident\n\n\u2022 Fun fact: The line appears in an in-universe FedNet propaganda segment.",
       "code_snippet": null,
       "formatting": {
         "inline_code_terms": []
