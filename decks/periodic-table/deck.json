@@ -5,7 +5,7 @@
   "description": "Learn every chemical element and its symbol.",
   "storeFileName": "periodic_table",
   "imageName": "periodic_table_deck",
-  "gradientColors": ["#303640FF", "#256D75FF"],
+  "gradientColors": ["#1A3A6BFF", "#256D75FF"],
   "cardCount": 118,
   "topicCount": 7,
   "category": "Science",
@@ -21,3 +21,4 @@
     { "name": "Period 7", "cardIDs": [87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118] }
   ]
 }
+
