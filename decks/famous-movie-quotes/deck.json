@@ -5,7 +5,7 @@
   "description": "50 famous movie quotes, from easy to hard.",
   "storeFileName": "famous_movie_quotes",
   "imageName": "famous_movie_quotes_deck",
-  "gradientColors": ["#F9D8BFFF", "#F4A48FFF"],
+  "gradientColors": ["#1C2A34FF", "#9D625AFF"],
   "cardCount": 50,
   "topicCount": 3,
   "category": "Entertainment",
