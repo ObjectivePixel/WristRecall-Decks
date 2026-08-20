@@ -5,7 +5,7 @@
   "description": "Meet iconic dinosaurs and explore their groups, adaptations, times, and world.",
   "storeFileName": "dinosaurs",
   "imageName": "dinosaurs_deck",
-  "gradientColors": ["#173B2BFF", "#C46A2DCC"],
+  "gradientColors": ["#132F54FF", "#086B73FF"],
   "cardCount": 92,
   "topicCount": 7,
   "category": "Science",
