@@ -1,0 +1,164 @@
+{
+  "id": "famous-figures-history",
+  "uuid": "D91837A6-0469-4727-BDB1-D7D154BBF411",
+  "name": "Famous Figures in History",
+  "description": "Meet 90 influential people—and recall the ideas, discoveries, art, leadership, and movements that shaped world history.",
+  "storeFileName": "famous_figures_history",
+  "imageName": "famous_figures_history_deck",
+  "gradientColors": [
+    "#1D3048FF",
+    "#5A486EFF"
+  ],
+  "cardCount": 100,
+  "topicCount": 9,
+  "category": "History",
+  "version": "1.0.0",
+  "sourceFileName": "cards.json",
+  "topicDefinitions": [
+    {
+      "name": "Leaders & Rulers",
+      "cardIDs": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20,
+        22,
+        23,
+        97
+      ]
+    },
+    {
+      "name": "Science & Invention",
+      "cardIDs": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        92,
+        96,
+        99
+      ]
+    },
+    {
+      "name": "Art & Literature",
+      "cardIDs": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        100
+      ]
+    },
+    {
+      "name": "Exploration",
+      "cardIDs": [
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        95
+      ]
+    },
+    {
+      "name": "War & Revolution",
+      "cardIDs": [
+        13,
+        19,
+        21,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        98
+      ]
+    },
+    {
+      "name": "Activism & Reform",
+      "cardIDs": [
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86
+      ]
+    },
+    {
+      "name": "Philosophy & Ideas",
+      "cardIDs": [
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62
+      ]
+    },
+    {
+      "name": "Culture & Music",
+      "cardIDs": [
+        87,
+        88,
+        89,
+        90,
+        91
+      ]
+    },
+    {
+      "name": "Ancient History",
+      "cardIDs": [
+        4,
+        93,
+        94
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1602 @@
+[
+  {
+    "id": 1,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Cleopatra VII",
+      "markdown": "Cleopatra VII"
+    },
+    "back": {
+      "text": "Cleopatra VII — Last active pharaoh of Ptolemaic Egypt (69–30 BCE). She defended her dynasty through alliances with Julius Caesar and Mark Antony; her death preceded Rome's annexation of Egypt.",
+      "markdown": "## Cleopatra VII\n\nLast active pharaoh of Ptolemaic Egypt (69–30 BCE). She defended her dynasty through alliances with Julius Caesar and Mark Antony; her death preceded Rome's annexation of Egypt.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 2,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Julius Caesar",
+      "markdown": "Julius Caesar"
+    },
+    "back": {
+      "text": "Julius Caesar — Roman general and statesman (100–44 BCE). He conquered Gaul, crossed the Rubicon, became dictator, and helped end the Roman Republic before his assassination.",
+      "markdown": "## Julius Caesar\n\nRoman general and statesman (100–44 BCE). He conquered Gaul, crossed the Rubicon, became dictator, and helped end the Roman Republic before his assassination.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 3,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Augustus",
+      "markdown": "Augustus"
+    },
+    "back": {
+      "text": "Augustus — Rome's first emperor (63 BCE–14 CE). He defeated Antony and Cleopatra, stabilized Roman rule, and began the long peace called the Pax Romana.",
+      "markdown": "## Augustus\n\nRome's first emperor (63 BCE–14 CE). He defeated Antony and Cleopatra, stabilized Roman rule, and began the long peace called the Pax Romana.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 4,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Hatshepsut",
+      "markdown": "Hatshepsut"
+    },
+    "back": {
+      "text": "Hatshepsut — Female pharaoh of Egypt's 18th Dynasty (c. 1507–1458 BCE). Her reign emphasized trade and monumental building, including her temple at Deir el-Bahri.",
+      "markdown": "## Hatshepsut\n\nFemale pharaoh of Egypt's 18th Dynasty (c. 1507–1458 BCE). Her reign emphasized trade and monumental building, including her temple at Deir el-Bahri.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 5,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Ashoka",
+      "markdown": "Ashoka"
+    },
+    "back": {
+      "text": "Ashoka — Mauryan emperor of India (ruled c. 268–232 BCE). After the Kalinga War he promoted Buddhism, ethical government, and public welfare through inscriptions on rocks and pillars.",
+      "markdown": "## Ashoka\n\nMauryan emperor of India (ruled c. 268–232 BCE). After the Kalinga War he promoted Buddhism, ethical government, and public welfare through inscriptions on rocks and pillars.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 6,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Qin Shi Huang",
+      "markdown": "Qin Shi Huang"
+    },
+    "back": {
+      "text": "Qin Shi Huang — First emperor of a unified China (259–210 BCE). He standardized writing, currency, and measurements; his vast tomb is guarded by the Terracotta Army.",
+      "markdown": "## Qin Shi Huang\n\nFirst emperor of a unified China (259–210 BCE). He standardized writing, currency, and measurements; his vast tomb is guarded by the Terracotta Army.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 7,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Emperor Wu of Han",
+      "markdown": "Emperor Wu of Han"
+    },
+    "back": {
+      "text": "Emperor Wu of Han — Chinese emperor (156–87 BCE) who greatly expanded Han power and encouraged routes later called the Silk Road. He made Confucian learning central to government.",
+      "markdown": "## Emperor Wu of Han\n\nChinese emperor (156–87 BCE) who greatly expanded Han power and encouraged routes later called the Silk Road. He made Confucian learning central to government.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 8,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Wu Zetian",
+      "markdown": "Wu Zetian"
+    },
+    "back": {
+      "text": "Wu Zetian — China's only woman to rule as emperor in her own name (624–705). She expanded the civil service examinations and governed during a period of Tang-era strength.",
+      "markdown": "## Wu Zetian\n\nChina's only woman to rule as emperor in her own name (624–705). She expanded the civil service examinations and governed during a period of Tang-era strength.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 9,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Empress Theodora",
+      "markdown": "Empress Theodora"
+    },
+    "back": {
+      "text": "Empress Theodora — Byzantine empress (c. 497–548) and influential partner of Justinian I. She backed legal protections for women and helped steady the government during the Nika riots.",
+      "markdown": "## Empress Theodora\n\nByzantine empress (c. 497–548) and influential partner of Justinian I. She backed legal protections for women and helped steady the government during the Nika riots.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 10,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Charlemagne",
+      "markdown": "Charlemagne"
+    },
+    "back": {
+      "text": "Charlemagne — Frankish ruler (c. 742–814) crowned emperor in 800. He united much of Western Europe and supported administrative, religious, and educational reform.",
+      "markdown": "## Charlemagne\n\nFrankish ruler (c. 742–814) crowned emperor in 800. He united much of Western Europe and supported administrative, religious, and educational reform.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 11,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Genghis Khan",
+      "markdown": "Genghis Khan"
+    },
+    "back": {
+      "text": "Genghis Khan — Founder of the Mongol Empire (c. 1162–1227). He united Mongol tribes and built a disciplined conquest state that became the basis of history's largest contiguous land empire.",
+      "markdown": "## Genghis Khan\n\nFounder of the Mongol Empire (c. 1162–1227). He united Mongol tribes and built a disciplined conquest state that became the basis of history's largest contiguous land empire.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 12,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Mansa Musa",
+      "markdown": "Mansa Musa"
+    },
+    "back": {
+      "text": "Mansa Musa — Ruler of the Mali Empire (c. 1280–c. 1337), renowned for wealth, a spectacular pilgrimage to Mecca, and patronage that strengthened Timbuktu as a centre of learning.",
+      "markdown": "## Mansa Musa\n\nRuler of the Mali Empire (c. 1280–c. 1337), renowned for wealth, a spectacular pilgrimage to Mecca, and patronage that strengthened Timbuktu as a centre of learning.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 13,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Mehmed II",
+      "markdown": "Mehmed II"
+    },
+    "back": {
+      "text": "Mehmed II — Ottoman sultan (1432–1481) known as “the Conqueror.” He captured Constantinople in 1453, ending the Byzantine Empire and making the city an Ottoman capital.",
+      "markdown": "## Mehmed II\n\nOttoman sultan (1432–1481) known as “the Conqueror.” He captured Constantinople in 1453, ending the Byzantine Empire and making the city an Ottoman capital.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 14,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Suleiman the Magnificent",
+      "markdown": "Suleiman the Magnificent"
+    },
+    "back": {
+      "text": "Suleiman the Magnificent — Ottoman sultan (1494–1566) whose empire reached a political and cultural high point. He expanded its territory and codified laws, earning the Turkish title “the Lawgiver.”",
+      "markdown": "## Suleiman the Magnificent\n\nOttoman sultan (1494–1566) whose empire reached a political and cultural high point. He expanded its territory and codified laws, earning the Turkish title “the Lawgiver.”",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 15,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Akbar",
+      "markdown": "Akbar"
+    },
+    "back": {
+      "text": "Akbar — Mughal emperor of India (1542–1605). He expanded the empire, improved administration, welcomed religious debate, and included diverse elites in government.",
+      "markdown": "## Akbar\n\nMughal emperor of India (1542–1605). He expanded the empire, improved administration, welcomed religious debate, and included diverse elites in government.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 16,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Tokugawa Ieyasu",
+      "markdown": "Tokugawa Ieyasu"
+    },
+    "back": {
+      "text": "Tokugawa Ieyasu — Japanese warlord (1543–1616) who won at Sekigahara and founded the Tokugawa shogunate. Its rule brought more than two centuries of internal peace.",
+      "markdown": "## Tokugawa Ieyasu\n\nJapanese warlord (1543–1616) who won at Sekigahara and founded the Tokugawa shogunate. Its rule brought more than two centuries of internal peace.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 17,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Elizabeth I",
+      "markdown": "Elizabeth I"
+    },
+    "back": {
+      "text": "Elizabeth I — Queen of England and Ireland (1533–1603). Her reign saw the defeat of the Spanish Armada, religious consolidation, maritime expansion, and a flourishing of English drama.",
+      "markdown": "## Elizabeth I\n\nQueen of England and Ireland (1533–1603). Her reign saw the defeat of the Spanish Armada, religious consolidation, maritime expansion, and a flourishing of English drama.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 18,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Catherine the Great",
+      "markdown": "Catherine the Great"
+    },
+    "back": {
+      "text": "Catherine the Great — Empress of Russia (1729–1796). She expanded the empire, supported arts and education, and corresponded with Enlightenment thinkers while preserving serfdom.",
+      "markdown": "## Catherine the Great\n\nEmpress of Russia (1729–1796). She expanded the empire, supported arts and education, and corresponded with Enlightenment thinkers while preserving serfdom.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 19,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Napoleon Bonaparte",
+      "markdown": "Napoleon Bonaparte"
+    },
+    "back": {
+      "text": "Napoleon Bonaparte — French general and emperor (1769–1821). He reshaped Europe through war and spread the Napoleonic Code, but was finally defeated at Waterloo.",
+      "markdown": "## Napoleon Bonaparte\n\nFrench general and emperor (1769–1821). He reshaped Europe through war and spread the Napoleonic Code, but was finally defeated at Waterloo.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 20,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Queen Victoria",
+      "markdown": "Queen Victoria"
+    },
+    "back": {
+      "text": "Queen Victoria — British monarch (1819–1901) whose 63-year reign gave its name to the Victorian era. Britain industrialized and its empire expanded enormously during her rule.",
+      "markdown": "## Queen Victoria\n\nBritish monarch (1819–1901) whose 63-year reign gave its name to the Victorian era. Britain industrialized and its empire expanded enormously during her rule.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 21,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Shaka Zulu",
+      "markdown": "Shaka Zulu"
+    },
+    "back": {
+      "text": "Shaka Zulu — Zulu king (c. 1787–1828) who built a powerful state in southern Africa through military and political reorganization. Accounts of him mix evidence with later legend.",
+      "markdown": "## Shaka Zulu\n\nZulu king (c. 1787–1828) who built a powerful state in southern Africa through military and political reorganization. Accounts of him mix evidence with later legend.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 22,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Menelik II",
+      "markdown": "Menelik II"
+    },
+    "back": {
+      "text": "Menelik II — Emperor of Ethiopia (1844–1913). He expanded and modernized the state, and Ethiopian forces defeated an Italian invasion at Adwa in 1896.",
+      "markdown": "## Menelik II\n\nEmperor of Ethiopia (1844–1913). He expanded and modernized the state, and Ethiopian forces defeated an Italian invasion at Adwa in 1896.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 23,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Mustafa Kemal Atatürk",
+      "markdown": "Mustafa Kemal Atatürk"
+    },
+    "back": {
+      "text": "Mustafa Kemal Atatürk — Founder and first president of the Republic of Turkey (1881–1938). He led the independence struggle and introduced sweeping secular and institutional reforms.",
+      "markdown": "## Mustafa Kemal Atatürk\n\nFounder and first president of the Republic of Turkey (1881–1938). He led the independence struggle and introduced sweeping secular and institutional reforms.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 24,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Isaac Newton",
+      "markdown": "Isaac Newton"
+    },
+    "back": {
+      "text": "Isaac Newton — English mathematician and physicist (1642–1727). He formulated laws of motion and universal gravitation, helped develop calculus, and transformed the study of light.",
+      "markdown": "## Isaac Newton\n\nEnglish mathematician and physicist (1642–1727). He formulated laws of motion and universal gravitation, helped develop calculus, and transformed the study of light.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 25,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Galileo Galilei",
+      "markdown": "Galileo Galilei"
+    },
+    "back": {
+      "text": "Galileo Galilei — Italian astronomer and physicist (1564–1642). Telescopic observations supported heliocentrism; his work on motion helped establish experimental science.",
+      "markdown": "## Galileo Galilei\n\nItalian astronomer and physicist (1564–1642). Telescopic observations supported heliocentrism; his work on motion helped establish experimental science.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 26,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Nicolaus Copernicus",
+      "markdown": "Nicolaus Copernicus"
+    },
+    "back": {
+      "text": "Nicolaus Copernicus — Polish astronomer (1473–1543) who proposed a mathematical model placing the Sun, rather than Earth, near the centre of the planetary system.",
+      "markdown": "## Nicolaus Copernicus\n\nPolish astronomer (1473–1543) who proposed a mathematical model placing the Sun, rather than Earth, near the centre of the planetary system.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 27,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Johannes Kepler",
+      "markdown": "Johannes Kepler"
+    },
+    "back": {
+      "text": "Johannes Kepler — German astronomer (1571–1630) who showed that planets move in elliptical orbits. His three laws made planetary motion mathematically predictable.",
+      "markdown": "## Johannes Kepler\n\nGerman astronomer (1571–1630) who showed that planets move in elliptical orbits. His three laws made planetary motion mathematically predictable.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 28,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Ibn al-Haytham",
+      "markdown": "Ibn al-Haytham"
+    },
+    "back": {
+      "text": "Ibn al-Haytham — Arab scholar (c. 965–c. 1040), also called Alhazen. His experiments on light and vision established that sight occurs when light enters the eye.",
+      "markdown": "## Ibn al-Haytham\n\nArab scholar (c. 965–c. 1040), also called Alhazen. His experiments on light and vision established that sight occurs when light enters the eye.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 29,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Ibn Sina (Avicenna)",
+      "markdown": "Ibn Sina (Avicenna)"
+    },
+    "back": {
+      "text": "Ibn Sina — Persian physician and philosopher (c. 980–1037). His Canon of Medicine organized medical knowledge and remained influential for centuries across Eurasia.",
+      "markdown": "## Ibn Sina\n\nPersian physician and philosopher (c. 980–1037). His Canon of Medicine organized medical knowledge and remained influential for centuries across Eurasia.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 30,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Al-Khwarizmi",
+      "markdown": "Al-Khwarizmi"
+    },
+    "back": {
+      "text": "Al-Khwarizmi — Persian mathematician (c. 780–c. 850) whose work systematized algebra. The words “algorithm” and, through his book title, “algebra” are linked to him.",
+      "markdown": "## Al-Khwarizmi\n\nPersian mathematician (c. 780–c. 850) whose work systematized algebra. The words “algorithm” and, through his book title, “algebra” are linked to him.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 31,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Zhang Heng",
+      "markdown": "Zhang Heng"
+    },
+    "back": {
+      "text": "Zhang Heng — Han Chinese polymath (78–139). He advanced astronomy and mathematics and devised an early seismoscope that indicated the direction of distant earthquakes.",
+      "markdown": "## Zhang Heng\n\nHan Chinese polymath (78–139). He advanced astronomy and mathematics and devised an early seismoscope that indicated the direction of distant earthquakes.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 32,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Charles Darwin",
+      "markdown": "Charles Darwin"
+    },
+    "back": {
+      "text": "Charles Darwin — English naturalist (1809–1882) who explained evolution through natural selection. Observations from the HMS Beagle voyage helped shape On the Origin of Species.",
+      "markdown": "## Charles Darwin\n\nEnglish naturalist (1809–1882) who explained evolution through natural selection. Observations from the HMS Beagle voyage helped shape On the Origin of Species.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 33,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Gregor Mendel",
+      "markdown": "Gregor Mendel"
+    },
+    "back": {
+      "text": "Gregor Mendel — Moravian friar and scientist (1822–1884). Pea-plant experiments revealed basic patterns of inheritance, making him a founder of genetics.",
+      "markdown": "## Gregor Mendel\n\nMoravian friar and scientist (1822–1884). Pea-plant experiments revealed basic patterns of inheritance, making him a founder of genetics.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 34,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Louis Pasteur",
+      "markdown": "Louis Pasteur"
+    },
+    "back": {
+      "text": "Louis Pasteur — French chemist and microbiologist (1822–1895). He strengthened germ theory, developed vaccines, and created pasteurization to reduce harmful microbes in food and drink.",
+      "markdown": "## Louis Pasteur\n\nFrench chemist and microbiologist (1822–1895). He strengthened germ theory, developed vaccines, and created pasteurization to reduce harmful microbes in food and drink.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 35,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Marie Curie",
+      "markdown": "Marie Curie"
+    },
+    "back": {
+      "text": "Marie Curie — Polish-born French physicist and chemist (1867–1934). She pioneered radioactivity research, discovered polonium and radium, and became the first person to win two Nobel Prizes.",
+      "markdown": "## Marie Curie\n\nPolish-born French physicist and chemist (1867–1934). She pioneered radioactivity research, discovered polonium and radium, and became the first person to win two Nobel Prizes.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 36,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Nikola Tesla",
+      "markdown": "Nikola Tesla"
+    },
+    "back": {
+      "text": "Nikola Tesla — Serbian-American inventor (1856–1943) central to practical alternating-current power systems. His work included induction motors, transformers, and high-frequency electrical experiments.",
+      "markdown": "## Nikola Tesla\n\nSerbian-American inventor (1856–1943) central to practical alternating-current power systems. His work included induction motors, transformers, and high-frequency electrical experiments.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 37,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Ada Lovelace",
+      "markdown": "Ada Lovelace"
+    },
+    "back": {
+      "text": "Ada Lovelace — British mathematician (1815–1852). Her notes on Babbage's Analytical Engine included an algorithm, often described as the first published computer program.",
+      "markdown": "## Ada Lovelace\n\nBritish mathematician (1815–1852). Her notes on Babbage's Analytical Engine included an algorithm, often described as the first published computer program.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 38,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Alan Turing",
+      "markdown": "Alan Turing"
+    },
+    "back": {
+      "text": "Alan Turing — British mathematician (1912–1954). He founded key ideas in computer science and helped break German Enigma-related codes at Bletchley Park during World War II.",
+      "markdown": "## Alan Turing\n\nBritish mathematician (1912–1954). He founded key ideas in computer science and helped break German Enigma-related codes at Bletchley Park during World War II.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 39,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Chien-Shiung Wu",
+      "markdown": "Chien-Shiung Wu"
+    },
+    "back": {
+      "text": "Chien-Shiung Wu — Chinese-American experimental physicist (1912–1997). Her 1956 experiment showed that parity symmetry is violated in weak nuclear interactions.",
+      "markdown": "## Chien-Shiung Wu\n\nChinese-American experimental physicist (1912–1997). Her 1956 experiment showed that parity symmetry is violated in weak nuclear interactions.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 40,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Katherine Johnson",
+      "markdown": "Katherine Johnson"
+    },
+    "back": {
+      "text": "Katherine Johnson — American mathematician (1918–2020) whose orbital calculations supported early NASA crewed missions, including John Glenn's flight and Apollo lunar missions.",
+      "markdown": "## Katherine Johnson\n\nAmerican mathematician (1918–2020) whose orbital calculations supported early NASA crewed missions, including John Glenn's flight and Apollo lunar missions.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 41,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Tu Youyou",
+      "markdown": "Tu Youyou"
+    },
+    "back": {
+      "text": "Tu Youyou — Chinese pharmaceutical chemist (born 1930) who drew on traditional texts to help discover artemisinin, a highly effective treatment for malaria.",
+      "markdown": "## Tu Youyou\n\nChinese pharmaceutical chemist (born 1930) who drew on traditional texts to help discover artemisinin, a highly effective treatment for malaria.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 42,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Leonardo da Vinci",
+      "markdown": "Leonardo da Vinci"
+    },
+    "back": {
+      "text": "Leonardo da Vinci — Italian Renaissance artist and thinker (1452–1519). He painted the Mona Lisa and The Last Supper and filled notebooks with anatomical and engineering studies.",
+      "markdown": "## Leonardo da Vinci\n\nItalian Renaissance artist and thinker (1452–1519). He painted the Mona Lisa and The Last Supper and filled notebooks with anatomical and engineering studies.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 43,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Michelangelo",
+      "markdown": "Michelangelo"
+    },
+    "back": {
+      "text": "Michelangelo — Italian Renaissance sculptor, painter, and architect (1475–1564). He created David and the Pietà, painted the Sistine Chapel ceiling, and worked on St Peter's Basilica.",
+      "markdown": "## Michelangelo\n\nItalian Renaissance sculptor, painter, and architect (1475–1564). He created David and the Pietà, painted the Sistine Chapel ceiling, and worked on St Peter's Basilica.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 44,
+    "difficulty": "Easy",
+    "front": {
+      "text": "William Shakespeare",
+      "markdown": "William Shakespeare"
+    },
+    "back": {
+      "text": "William Shakespeare — English playwright and poet (1564–1616). Works such as Hamlet, Macbeth, and Romeo and Juliet transformed drama and deeply influenced the English language.",
+      "markdown": "## William Shakespeare\n\nEnglish playwright and poet (1564–1616). Works such as Hamlet, Macbeth, and Romeo and Juliet transformed drama and deeply influenced the English language.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 45,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Murasaki Shikibu",
+      "markdown": "Murasaki Shikibu"
+    },
+    "back": {
+      "text": "Murasaki Shikibu — Japanese court writer (c. 973–c. 1014 or 1025), author of The Tale of Genji, often called the world's first novel.",
+      "markdown": "## Murasaki Shikibu\n\nJapanese court writer (c. 973–c. 1014 or 1025), author of The Tale of Genji, often called the world's first novel.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 46,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Miguel de Cervantes",
+      "markdown": "Miguel de Cervantes"
+    },
+    "back": {
+      "text": "Miguel de Cervantes — Spanish writer (1547–1616) best known for Don Quixote, a landmark novel that satirized chivalric romance while exploring reality and imagination.",
+      "markdown": "## Miguel de Cervantes\n\nSpanish writer (1547–1616) best known for Don Quixote, a landmark novel that satirized chivalric romance while exploring reality and imagination.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 47,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Jane Austen",
+      "markdown": "Jane Austen"
+    },
+    "back": {
+      "text": "Jane Austen — English novelist (1775–1817). Pride and Prejudice and her other novels use wit and social observation to examine class, money, and marriage.",
+      "markdown": "## Jane Austen\n\nEnglish novelist (1775–1817). Pride and Prejudice and her other novels use wit and social observation to examine class, money, and marriage.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 48,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Leo Tolstoy",
+      "markdown": "Leo Tolstoy"
+    },
+    "back": {
+      "text": "Leo Tolstoy — Russian writer (1828–1910), author of War and Peace and Anna Karenina. His later Christian pacifism influenced nonviolent reformers.",
+      "markdown": "## Leo Tolstoy\n\nRussian writer (1828–1910), author of War and Peace and Anna Karenina. His later Christian pacifism influenced nonviolent reformers.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 49,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Rabindranath Tagore",
+      "markdown": "Rabindranath Tagore"
+    },
+    "back": {
+      "text": "Rabindranath Tagore — Bengali poet, composer, and educator (1861–1941). He became the first non-European Nobel literature laureate and wrote songs adopted as the anthems of India and Bangladesh.",
+      "markdown": "## Rabindranath Tagore\n\nBengali poet, composer, and educator (1861–1941). He became the first non-European Nobel literature laureate and wrote songs adopted as the anthems of India and Bangladesh.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 50,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Vincent van Gogh",
+      "markdown": "Vincent van Gogh"
+    },
+    "back": {
+      "text": "Vincent van Gogh — Dutch Post-Impressionist painter (1853–1890). His vivid colour and expressive brushwork shaped modern art; The Starry Night is among his best-known works.",
+      "markdown": "## Vincent van Gogh\n\nDutch Post-Impressionist painter (1853–1890). His vivid colour and expressive brushwork shaped modern art; The Starry Night is among his best-known works.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 51,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Frida Kahlo",
+      "markdown": "Frida Kahlo"
+    },
+    "back": {
+      "text": "Frida Kahlo — Mexican painter (1907–1954) known for psychologically intense self-portraits exploring identity, pain, disability, and Mexican culture.",
+      "markdown": "## Frida Kahlo\n\nMexican painter (1907–1954) known for psychologically intense self-portraits exploring identity, pain, disability, and Mexican culture.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 52,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Chinua Achebe",
+      "markdown": "Chinua Achebe"
+    },
+    "back": {
+      "text": "Chinua Achebe — Nigerian novelist (1930–2013). Things Fall Apart portrayed Igbo society and colonial disruption, reshaping global understanding of modern African literature.",
+      "markdown": "## Chinua Achebe\n\nNigerian novelist (1930–2013). Things Fall Apart portrayed Igbo society and colonial disruption, reshaping global understanding of modern African literature.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 53,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Sappho",
+      "markdown": "Sappho"
+    },
+    "back": {
+      "text": "Sappho — Archaic Greek lyric poet from Lesbos (c. 630–c. 570 BCE). Admired throughout antiquity for personal, musical verse, her work survives mostly in fragments.",
+      "markdown": "## Sappho\n\nArchaic Greek lyric poet from Lesbos (c. 630–c. 570 BCE). Admired throughout antiquity for personal, musical verse, her work survives mostly in fragments.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 54,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Socrates",
+      "markdown": "Socrates"
+    },
+    "back": {
+      "text": "Socrates — Athenian philosopher (c. 470–399 BCE) known through others' writings. His probing question-and-answer method examined ethics and knowledge; Athens condemned him to death.",
+      "markdown": "## Socrates\n\nAthenian philosopher (c. 470–399 BCE) known through others' writings. His probing question-and-answer method examined ethics and knowledge; Athens condemned him to death.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 55,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Aristotle",
+      "markdown": "Aristotle"
+    },
+    "back": {
+      "text": "Aristotle — Greek philosopher and scientist (384–322 BCE). He wrote across logic, ethics, politics, biology, and rhetoric and tutored Alexander the Great.",
+      "markdown": "## Aristotle\n\nGreek philosopher and scientist (384–322 BCE). He wrote across logic, ethics, politics, biology, and rhetoric and tutored Alexander the Great.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 56,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Confucius",
+      "markdown": "Confucius"
+    },
+    "back": {
+      "text": "Confucius — Chinese teacher and philosopher (551–479 BCE). He emphasized ethical conduct, education, family duty, and humane government; his ideas shaped East Asian society for centuries.",
+      "markdown": "## Confucius\n\nChinese teacher and philosopher (551–479 BCE). He emphasized ethical conduct, education, family duty, and humane government; his ideas shaped East Asian society for centuries.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 57,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Sun Tzu",
+      "markdown": "Sun Tzu"
+    },
+    "back": {
+      "text": "Sun Tzu — Traditionally regarded as an ancient Chinese strategist associated with The Art of War. His exact identity and the text's authorship are debated by historians.",
+      "markdown": "## Sun Tzu\n\nTraditionally regarded as an ancient Chinese strategist associated with The Art of War. His exact identity and the text's authorship are debated by historians.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 58,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Laozi",
+      "markdown": "Laozi"
+    },
+    "back": {
+      "text": "Laozi — Traditionally credited as the ancient Chinese author of the Dao De Jing and a foundational figure in Daoism; historians debate whether he was one person.",
+      "markdown": "## Laozi\n\nTraditionally credited as the ancient Chinese author of the Dao De Jing and a foundational figure in Daoism; historians debate whether he was one person.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 59,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Hypatia",
+      "markdown": "Hypatia"
+    },
+    "back": {
+      "text": "Hypatia — Alexandrian philosopher, mathematician, and astronomer (c. 355–415). A prominent teacher in late antiquity, her murder became a symbol of sectarian conflict.",
+      "markdown": "## Hypatia\n\nAlexandrian philosopher, mathematician, and astronomer (c. 355–415). A prominent teacher in late antiquity, her murder became a symbol of sectarian conflict.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 60,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Mary Wollstonecraft",
+      "markdown": "Mary Wollstonecraft"
+    },
+    "back": {
+      "text": "Mary Wollstonecraft — English writer (1759–1797) whose A Vindication of the Rights of Woman argued that women deserve education and rational equality.",
+      "markdown": "## Mary Wollstonecraft\n\nEnglish writer (1759–1797) whose A Vindication of the Rights of Woman argued that women deserve education and rational equality.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 61,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Karl Marx",
+      "markdown": "Karl Marx"
+    },
+    "back": {
+      "text": "Karl Marx — German philosopher and economist (1818–1883). With Friedrich Engels he wrote The Communist Manifesto; his critique of capitalism profoundly influenced politics and social theory.",
+      "markdown": "## Karl Marx\n\nGerman philosopher and economist (1818–1883). With Friedrich Engels he wrote The Communist Manifesto; his critique of capitalism profoundly influenced politics and social theory.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 62,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Simone de Beauvoir",
+      "markdown": "Simone de Beauvoir"
+    },
+    "back": {
+      "text": "Simone de Beauvoir — French philosopher and writer (1908–1986). The Second Sex analyzed how society constructs women's inequality and became a foundational feminist text.",
+      "markdown": "## Simone de Beauvoir\n\nFrench philosopher and writer (1908–1986). The Second Sex analyzed how society constructs women's inequality and became a foundational feminist text.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 63,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Marco Polo",
+      "markdown": "Marco Polo"
+    },
+    "back": {
+      "text": "Marco Polo — Venetian merchant and traveller (1254–1324). His account of journeys across Asia introduced many European readers to the Yuan empire, though details remain debated.",
+      "markdown": "## Marco Polo\n\nVenetian merchant and traveller (1254–1324). His account of journeys across Asia introduced many European readers to the Yuan empire, though details remain debated.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 64,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Zheng He",
+      "markdown": "Zheng He"
+    },
+    "back": {
+      "text": "Zheng He — Chinese Muslim admiral (1371–1433) who led seven enormous Ming voyages across the Indian Ocean, reaching Southeast Asia, Arabia, and East Africa.",
+      "markdown": "## Zheng He\n\nChinese Muslim admiral (1371–1433) who led seven enormous Ming voyages across the Indian Ocean, reaching Southeast Asia, Arabia, and East Africa.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 65,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Ibn Battuta",
+      "markdown": "Ibn Battuta"
+    },
+    "back": {
+      "text": "Ibn Battuta — Moroccan traveller (1304–1368/69) who journeyed across Africa, Eurasia, and the Indian Ocean world, covering more distance than Marco Polo.",
+      "markdown": "## Ibn Battuta\n\nMoroccan traveller (1304–1368/69) who journeyed across Africa, Eurasia, and the Indian Ocean world, covering more distance than Marco Polo.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 66,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Sacagawea",
+      "markdown": "Sacagawea"
+    },
+    "back": {
+      "text": "Sacagawea — Lemhi Shoshone woman (c. 1788–after 1812) who interpreted and helped guide the Lewis and Clark expedition across western North America.",
+      "markdown": "## Sacagawea\n\nLemhi Shoshone woman (c. 1788–after 1812) who interpreted and helped guide the Lewis and Clark expedition across western North America.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 67,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Ernest Shackleton",
+      "markdown": "Ernest Shackleton"
+    },
+    "back": {
+      "text": "Ernest Shackleton — Anglo-Irish Antarctic explorer (1874–1922). After Endurance was trapped and crushed by ice, his leadership helped bring every expedition member home alive.",
+      "markdown": "## Ernest Shackleton\n\nAnglo-Irish Antarctic explorer (1874–1922). After Endurance was trapped and crushed by ice, his leadership helped bring every expedition member home alive.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 68,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Amelia Earhart",
+      "markdown": "Amelia Earhart"
+    },
+    "back": {
+      "text": "Amelia Earhart — American aviation pioneer (1897–disappeared 1937). She was the first woman to fly solo across the Atlantic and vanished during an attempted round-the-world flight.",
+      "markdown": "## Amelia Earhart\n\nAmerican aviation pioneer (1897–disappeared 1937). She was the first woman to fly solo across the Atlantic and vanished during an attempted round-the-world flight.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 69,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Yuri Gagarin",
+      "markdown": "Yuri Gagarin"
+    },
+    "back": {
+      "text": "Yuri Gagarin — Soviet cosmonaut (1934–1968) who became the first human in space, completing one orbit of Earth aboard Vostok 1 in 1961.",
+      "markdown": "## Yuri Gagarin\n\nSoviet cosmonaut (1934–1968) who became the first human in space, completing one orbit of Earth aboard Vostok 1 in 1961.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 70,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Tupaia",
+      "markdown": "Tupaia"
+    },
+    "back": {
+      "text": "Tupaia — Ra'iatean navigator and priest (c. 1725–1770). His Pacific knowledge, translation, and charting were vital during James Cook's first voyage.",
+      "markdown": "## Tupaia\n\nRa'iatean navigator and priest (c. 1725–1770). His Pacific knowledge, translation, and charting were vital during James Cook's first voyage.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 71,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Joan of Arc",
+      "markdown": "Joan of Arc"
+    },
+    "back": {
+      "text": "Joan of Arc — French heroine (c. 1412–1431) who inspired forces during the Hundred Years' War and helped secure Charles VII's coronation; she was later canonized.",
+      "markdown": "## Joan of Arc\n\nFrench heroine (c. 1412–1431) who inspired forces during the Hundred Years' War and helped secure Charles VII's coronation; she was later canonized.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 72,
+    "difficulty": "Easy",
+    "front": {
+      "text": "George Washington",
+      "markdown": "George Washington"
+    },
+    "back": {
+      "text": "George Washington — Commander of the American revolutionary army and first US president (1732–1799). He established precedents including voluntarily leaving office after two terms.",
+      "markdown": "## George Washington\n\nCommander of the American revolutionary army and first US president (1732–1799). He established precedents including voluntarily leaving office after two terms.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 73,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Toussaint Louverture",
+      "markdown": "Toussaint Louverture"
+    },
+    "back": {
+      "text": "Toussaint Louverture — Formerly enslaved Haitian revolutionary leader (c. 1743–1803). He helped defeat slavery and foreign armies, laying foundations for Haitian independence.",
+      "markdown": "## Toussaint Louverture\n\nFormerly enslaved Haitian revolutionary leader (c. 1743–1803). He helped defeat slavery and foreign armies, laying foundations for Haitian independence.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 74,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Simón Bolívar",
+      "markdown": "Simón Bolívar"
+    },
+    "back": {
+      "text": "Simón Bolívar — Venezuelan military and political leader (1783–1830) who helped liberate several South American territories from Spanish rule, earning the title “El Libertador.”",
+      "markdown": "## Simón Bolívar\n\nVenezuelan military and political leader (1783–1830) who helped liberate several South American territories from Spanish rule, earning the title “El Libertador.”",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 75,
+    "difficulty": "Hard",
+    "front": {
+      "text": "José de San Martín",
+      "markdown": "José de San Martín"
+    },
+    "back": {
+      "text": "José de San Martín — Argentine general (1778–1850) central to the independence of Argentina, Chile, and Peru. His army famously crossed the Andes in 1817.",
+      "markdown": "## José de San Martín\n\nArgentine general (1778–1850) central to the independence of Argentina, Chile, and Peru. His army famously crossed the Andes in 1817.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 76,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Giuseppe Garibaldi",
+      "markdown": "Giuseppe Garibaldi"
+    },
+    "back": {
+      "text": "Giuseppe Garibaldi — Italian soldier and nationalist (1807–1882). His Redshirts conquered Sicily and Naples, helping achieve Italian unification.",
+      "markdown": "## Giuseppe Garibaldi\n\nItalian soldier and nationalist (1807–1882). His Redshirts conquered Sicily and Naples, helping achieve Italian unification.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 77,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Emiliano Zapata",
+      "markdown": "Emiliano Zapata"
+    },
+    "back": {
+      "text": "Emiliano Zapata — Mexican revolutionary (1879–1919) who demanded land reform under the slogan “Land and Liberty.” His movement represented rural communities in southern Mexico.",
+      "markdown": "## Emiliano Zapata\n\nMexican revolutionary (1879–1919) who demanded land reform under the slogan “Land and Liberty.” His movement represented rural communities in southern Mexico.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 78,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Harriet Tubman",
+      "markdown": "Harriet Tubman"
+    },
+    "back": {
+      "text": "Harriet Tubman — American abolitionist (c. 1822–1913) who escaped slavery and repeatedly guided others to freedom through the Underground Railroad; she also served the Union during the Civil War.",
+      "markdown": "## Harriet Tubman\n\nAmerican abolitionist (c. 1822–1913) who escaped slavery and repeatedly guided others to freedom through the Underground Railroad; she also served the Union during the Civil War.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 79,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Frederick Douglass",
+      "markdown": "Frederick Douglass"
+    },
+    "back": {
+      "text": "Frederick Douglass — American abolitionist, writer, and orator (c. 1818–1895). After escaping slavery, his autobiographies and speeches powerfully argued for emancipation and equal rights.",
+      "markdown": "## Frederick Douglass\n\nAmerican abolitionist, writer, and orator (c. 1818–1895). After escaping slavery, his autobiographies and speeches powerfully argued for emancipation and equal rights.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 80,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Florence Nightingale",
+      "markdown": "Florence Nightingale"
+    },
+    "back": {
+      "text": "Florence Nightingale — British nursing reformer (1820–1910). During and after the Crimean War she used sanitation, training, and statistics to professionalize nursing and improve hospitals.",
+      "markdown": "## Florence Nightingale\n\nBritish nursing reformer (1820–1910). During and after the Crimean War she used sanitation, training, and statistics to professionalize nursing and improve hospitals.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 81,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Emmeline Pankhurst",
+      "markdown": "Emmeline Pankhurst"
+    },
+    "back": {
+      "text": "Emmeline Pankhurst — British suffrage leader (1858–1928) who founded the Women's Social and Political Union, known for militant campaigning for women's voting rights.",
+      "markdown": "## Emmeline Pankhurst\n\nBritish suffrage leader (1858–1928) who founded the Women's Social and Political Union, known for militant campaigning for women's voting rights.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 82,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Mahatma Gandhi",
+      "markdown": "Mahatma Gandhi"
+    },
+    "back": {
+      "text": "Mahatma Gandhi — Indian independence leader (1869–1948) who mobilized mass nonviolent resistance against British rule. His methods influenced civil-rights movements worldwide.",
+      "markdown": "## Mahatma Gandhi\n\nIndian independence leader (1869–1948) who mobilized mass nonviolent resistance against British rule. His methods influenced civil-rights movements worldwide.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 83,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Martin Luther King Jr.",
+      "markdown": "Martin Luther King Jr."
+    },
+    "back": {
+      "text": "Martin Luther King Jr. — American civil-rights leader (1929–1968) who championed nonviolent protest against segregation and racial injustice and delivered the “I Have a Dream” speech.",
+      "markdown": "## Martin Luther King Jr.\n\nAmerican civil-rights leader (1929–1968) who championed nonviolent protest against segregation and racial injustice and delivered the “I Have a Dream” speech.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 84,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Nelson Mandela",
+      "markdown": "Nelson Mandela"
+    },
+    "back": {
+      "text": "Nelson Mandela — South African anti-apartheid leader and president (1918–2013). Imprisoned for 27 years, he later helped negotiate democratic rule and promoted reconciliation.",
+      "markdown": "## Nelson Mandela\n\nSouth African anti-apartheid leader and president (1918–2013). Imprisoned for 27 years, he later helped negotiate democratic rule and promoted reconciliation.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 85,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Rosa Parks",
+      "markdown": "Rosa Parks"
+    },
+    "back": {
+      "text": "Rosa Parks — American civil-rights activist (1913–2005). Her 1955 refusal to surrender a bus seat helped spark the Montgomery bus boycott; she had long worked with the NAACP.",
+      "markdown": "## Rosa Parks\n\nAmerican civil-rights activist (1913–2005). Her 1955 refusal to surrender a bus seat helped spark the Montgomery bus boycott; she had long worked with the NAACP.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 86,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Wangari Maathai",
+      "markdown": "Wangari Maathai"
+    },
+    "back": {
+      "text": "Wangari Maathai — Kenyan environmentalist and democracy activist (1940–2011) who founded the Green Belt Movement and became the first African woman awarded the Nobel Peace Prize.",
+      "markdown": "## Wangari Maathai\n\nKenyan environmentalist and democracy activist (1940–2011) who founded the Green Belt Movement and became the first African woman awarded the Nobel Peace Prize.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 87,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Wolfgang Amadeus Mozart",
+      "markdown": "Wolfgang Amadeus Mozart"
+    },
+    "back": {
+      "text": "Mozart — Austrian composer (1756–1791) whose operas, symphonies, and concertos combined brilliance and emotional depth. A child prodigy, he composed more than 600 works.",
+      "markdown": "## Mozart\n\nAustrian composer (1756–1791) whose operas, symphonies, and concertos combined brilliance and emotional depth. A child prodigy, he composed more than 600 works.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 88,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Ludwig van Beethoven",
+      "markdown": "Ludwig van Beethoven"
+    },
+    "back": {
+      "text": "Beethoven — German composer (1770–1827) who bridged Classical and Romantic music. He created major works, including the Ninth Symphony, despite severe hearing loss.",
+      "markdown": "## Beethoven\n\nGerman composer (1770–1827) who bridged Classical and Romantic music. He created major works, including the Ninth Symphony, despite severe hearing loss.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 89,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Johann Sebastian Bach",
+      "markdown": "Johann Sebastian Bach"
+    },
+    "back": {
+      "text": "Johann Sebastian Bach — German Baroque composer (1685–1750) renowned for intricate counterpoint in works such as the Brandenburg Concertos and The Well-Tempered Clavier.",
+      "markdown": "## Johann Sebastian Bach\n\nGerman Baroque composer (1685–1750) renowned for intricate counterpoint in works such as the Brandenburg Concertos and The Well-Tempered Clavier.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 90,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Hildegard of Bingen",
+      "markdown": "Hildegard of Bingen"
+    },
+    "back": {
+      "text": "Hildegard of Bingen — German abbess and polymath (1098–1179) who wrote visionary theology, music, and works on nature and healing. Her surviving compositions are unusually extensive for a medieval author.",
+      "markdown": "## Hildegard of Bingen\n\nGerman abbess and polymath (1098–1179) who wrote visionary theology, music, and works on nature and healing. Her surviving compositions are unusually extensive for a medieval author.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 91,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Which composer wrote major works after becoming severely deaf?",
+      "markdown": "Which composer wrote major works after becoming severely deaf?"
+    },
+    "back": {
+      "text": "Ludwig van Beethoven — Beethoven continued composing as his hearing deteriorated; his Ninth Symphony premiered when he was profoundly deaf.",
+      "markdown": "## Ludwig van Beethoven\n\nBeethoven continued composing as his hearing deteriorated; his Ninth Symphony premiered when he was profoundly deaf.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 92,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Who developed the theory of evolution by natural selection?",
+      "markdown": "Who developed the theory of evolution by natural selection?"
+    },
+    "back": {
+      "text": "Charles Darwin — Darwin presented natural selection as the main mechanism of evolution in On the Origin of Species (1859).",
+      "markdown": "## Charles Darwin\n\nDarwin presented natural selection as the main mechanism of evolution in On the Origin of Species (1859).",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 93,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Which Egyptian queen allied with Julius Caesar and Mark Antony?",
+      "markdown": "Which Egyptian queen allied with Julius Caesar and Mark Antony?"
+    },
+    "back": {
+      "text": "Cleopatra VII — The last active Ptolemaic ruler used both alliances to defend Egypt's independence as Roman power expanded.",
+      "markdown": "## Cleopatra VII\n\nThe last active Ptolemaic ruler used both alliances to defend Egypt's independence as Roman power expanded.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 94,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Which ruler unified China and was buried near the Terracotta Army?",
+      "markdown": "Which ruler unified China and was buried near the Terracotta Army?"
+    },
+    "back": {
+      "text": "Qin Shi Huang — He became China's first emperor in 221 BCE and imposed empire-wide standards.",
+      "markdown": "## Qin Shi Huang\n\nHe became China's first emperor in 221 BCE and imposed empire-wide standards.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 95,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Which Ming admiral led seven great voyages across the Indian Ocean?",
+      "markdown": "Which Ming admiral led seven great voyages across the Indian Ocean?"
+    },
+    "back": {
+      "text": "Zheng He — His early-15th-century fleets visited ports from Southeast Asia to East Africa.",
+      "markdown": "## Zheng He\n\nHis early-15th-century fleets visited ports from Southeast Asia to East Africa.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 96,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Who was the first person to win two Nobel Prizes?",
+      "markdown": "Who was the first person to win two Nobel Prizes?"
+    },
+    "back": {
+      "text": "Marie Curie — She won the 1903 Physics Prize and the 1911 Chemistry Prize for pioneering research on radioactivity.",
+      "markdown": "## Marie Curie\n\nShe won the 1903 Physics Prize and the 1911 Chemistry Prize for pioneering research on radioactivity.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 97,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Which Mali ruler became famous for his lavish pilgrimage to Mecca?",
+      "markdown": "Which Mali ruler became famous for his lavish pilgrimage to Mecca?"
+    },
+    "back": {
+      "text": "Mansa Musa — His 1324–25 hajj displayed Mali's wealth and strengthened connections across the Islamic world.",
+      "markdown": "## Mansa Musa\n\nHis 1324–25 hajj displayed Mali's wealth and strengthened connections across the Islamic world.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 98,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Which formerly enslaved leader became central to the Haitian Revolution?",
+      "markdown": "Which formerly enslaved leader became central to the Haitian Revolution?"
+    },
+    "back": {
+      "text": "Toussaint Louverture — His leadership helped destroy slavery in Saint-Domingue and prepare the way for independent Haiti.",
+      "markdown": "## Toussaint Louverture\n\nHis leadership helped destroy slavery in Saint-Domingue and prepare the way for independent Haiti.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 99,
+    "difficulty": "Medium",
+    "front": {
+      "text": "Who wrote an algorithm for Charles Babbage's proposed Analytical Engine?",
+      "markdown": "Who wrote an algorithm for Charles Babbage's proposed Analytical Engine?"
+    },
+    "back": {
+      "text": "Ada Lovelace — Her 1843 notes described steps for calculating Bernoulli numbers and anticipated general-purpose computing.",
+      "markdown": "## Ada Lovelace\n\nHer 1843 notes described steps for calculating Bernoulli numbers and anticipated general-purpose computing.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 100,
+    "difficulty": "Hard",
+    "front": {
+      "text": "Who became the first non-European Nobel laureate in Literature?",
+      "markdown": "Who became the first non-European Nobel laureate in Literature?"
+    },
+    "back": {
+      "text": "Rabindranath Tagore — The Bengali poet received the 1913 prize; his writing and songs influenced culture across South Asia.",
+      "markdown": "## Rabindranath Tagore\n\nThe Bengali poet received the 1913 prize; his writing and songs influenced culture across South Asia.",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  }
+]
