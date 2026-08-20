@@ -155,7 +155,9 @@ Plain Unicode emojis render fine — flags (🇫🇷), symbols (🌍, 🌊), tec
 
 Drop a 1024×1024 JPG at `decks/<deck-id>/assets/<imageName>.jpg`. The compiler bundles it into the `.wristdeck` package. If you skip it, the app falls back to a plain gradient.
 
-The app uses the cover image as the deck's tile in the deck browser, so make sure it's recognizable at small sizes.
+The app uses the cover image as the deck's tile in the deck browser. Follow [WRISTRECALL_COVER_STYLE.md](WRISTRECALL_COVER_STYLE.md) whenever creating, revising, prompting, evaluating, or exporting a cover and whenever choosing the companion theme gradient. That guide is the authoritative specification and supersedes generic or earlier cover/gradient guidance.
+
+In particular, start with the required four-option concept sheet and wait for the user's selection before producing the final 1024×1024 JPG. Deliver the selected cover with the exact two gradient endpoint colours, then store those colours in `deck.json` as opaque `#RRGGBBAA` values (append `FF` to the guide's `#RRGGBB` values).
 
 ## 5. Compile
 
