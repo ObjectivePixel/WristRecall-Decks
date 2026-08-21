@@ -5,7 +5,7 @@
   "description": "Essential AI, ML, and GPU-computing terminology — for the Mojo / Modular ecosystem.",
   "storeFileName": "ai_terms",
   "imageName": "ai_terms_deck",
-  "gradientColors": ["#242424FF", "#096F73FF"],
+  "gradientColors": ["#A84400FF", "#654A91FF"],
   "cardCount": 74,
   "topicCount": 6,
   "category": "Programming",

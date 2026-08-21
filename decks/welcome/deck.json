@@ -5,7 +5,7 @@
   "description": "Learn how to use WristRecall in ten quick cards — your wrist, your decks, your daily streak.",
   "storeFileName": "welcome",
   "imageName": "welcome_deck",
-  "gradientColors": ["#014222FF", "#4F6618FF"],
+  "gradientColors": ["#242424FF", "#654A91FF"],
   "cardCount": 10,
   "topicCount": 3,
   "category": "Getting Started",

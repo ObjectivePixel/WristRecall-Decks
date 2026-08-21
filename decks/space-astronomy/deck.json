@@ -5,7 +5,7 @@
   "description": "Explore worlds, stars, galaxies, cosmic extremes, and humanity's journey into space.",
   "storeFileName": "space_astronomy",
   "imageName": "space_astronomy_deck",
-  "gradientColors": ["#242424FF", "#A84400FF"],
+  "gradientColors": ["#014222FF", "#4F6618FF"],
   "cardCount": 106,
   "topicCount": 6,
   "category": "Science",
