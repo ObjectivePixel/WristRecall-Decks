@@ -112,26 +112,24 @@ Every final cover must be accompanied by a two-colour theme gradient for the sur
 4. **Keep the hero palette independent from the gradient.** Do not use the selected gradient to inspire, constrain, or recolour the hero. Choose the hero palette solely to maximize literal accuracy, silhouette clarity, internal feature separation, contrast against the selected background, recognition at approximately 100 x 100 px, and consistency with the overall WristRecall illustration style. A visually unrelated hero and interface gradient is acceptable when each performs its own function clearly.
 5. **Keep all selections independent.** When creating a new deck, randomly select the approved background reference and approved gradient preset separately. On later cover-image changes, the background reference may follow the cover workflow, but the deck's stored gradient must remain unchanged. Do not pair background and gradient intentionally by perceived compatibility, and do not alter the hero's most readable and recognizable palette to coordinate with either selection. If contrast against the background is insufficient, improve foreground/background separation without borrowing colours from the theme gradient or changing the preset values.
 6. **Use exactly two gradient colours.** The surrounding interface gradient must contain only the two colours specified by the chosen preset.
-7. **Keep white text legible everywhere.** The approved values have been selected for white interface text. If implementation or interpolation changes, revalidate both endpoints and the entire blended gradient and maintain at least a 4.5:1 contrast ratio with white.
+7. **Keep white text legible everywhere.** The approved values have been selected for large white interface text. Validate both endpoints and the entire blended gradient, maintaining at least a 3:1 contrast ratio with white. If normal-sized text may appear over the gradient, maintain at least a 4.5:1 contrast ratio in every area behind that text.
 8. **Keep the gradient controlled.** Avoid neon, rainbow, metallic, muddy, or additional colours. The gradient should feel clean, colourful, modern, iOS-native, and quietly futuristic.
 9. **Provide the preset name and exact values.** When delivering a final cover, state the deck's assigned preset name and its two hexadecimal colours in start-to-end order. For an existing deck, report the stored assignment rather than selecting a new one.
 
 ### Approved gradient preset library
 
-- **Forest Lime:** `#014222` → `#4F6618`
-- **Plum Lavender:** `#492650` → `#654A91`
-- **Burnt Orange Plum:** `#A84400` → `#492650`
-- **Lime Teal:** `#536C1F` → `#096F73`
-- **Lavender Teal:** `#624A8D` → `#096F73`
-- **Forest Teal:** `#014222` → `#096F73`
-- **Orange Lavender:** `#A84400` → `#654A91`
-- **Orange Ember:** `#7A2F00` → `#A84400`
-- **Charcoal Forest:** `#242424` → `#014222`
-- **Charcoal Plum:** `#242424` → `#492650`
-- **Charcoal Lavender:** `#242424` → `#654A91`
-- **Charcoal Lime:** `#242424` → `#4F6618`
-- **Charcoal Teal:** `#242424` → `#096F73`
-- **Charcoal Orange:** `#242424` → `#A84400`
+- **Midnight Indigo:** `#232739` → `#303D8A`
+- **Midnight Forest:** `#232739` → `#2A551A`
+- **Midnight Plum:** `#232739` → `#4E1E55`
+- **Indigo Fuchsia:** `#303D8A` → `#8E0050`
+- **Indigo Teal:** `#303D8A` → `#137773`
+- **Midnight Oxblood:** `#232739` → `#790E00`
+- **Amber Crimson:** `#CF7F00` → `#8F0000`
+- **Royal Berry:** `#61005E` → `#A40023`
+- **Forest Atlantic:** `#004924` → `#00356B`
+- **Forest Teal:** `#2A551A` → `#137773`
+- **Plum Teal:** `#4E1E55` → `#137773`
+- **Fuchsia Amber:** `#8E0050` → `#CF7F00`
 
 ## Concept selection workflow
 

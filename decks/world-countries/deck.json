@@ -5,7 +5,7 @@
   "description": "How many countries, continents, oceans, and landmasses make up our world — plus capitals and flags from every region.",
   "storeFileName": "world_countries",
   "imageName": "world_countries_deck",
-  "gradientColors": ["#536C1FFF", "#096F73FF"],
+  "gradientColors": ["#2A551AFF", "#137773FF"],
   "cardCount": 60,
   "topicCount": 9,
   "category": "Geography",

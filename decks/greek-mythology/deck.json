@@ -5,7 +5,7 @@
   "description": "Gods, heroes, monsters, and the great myths of ancient Greece — from beginner essentials to deeper connections.",
   "storeFileName": "greek_mythology",
   "imageName": "greek_mythology_deck",
-  "gradientColors": ["#624A8DFF", "#096F73FF"],
+  "gradientColors": ["#4E1E55FF", "#137773FF"],
   "cardCount": 100,
   "topicCount": 6,
   "category": "History & Culture",

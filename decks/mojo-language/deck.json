@@ -5,7 +5,7 @@
   "description": "Core concepts of the Mojo programming language (v1.0.0b1, May 2026)",
   "storeFileName": "mojo_language",
   "imageName": "mojo_deck",
-  "gradientColors": ["#242424FF", "#096F73FF"],
+  "gradientColors": ["#303D8AFF", "#137773FF"],
   "cardCount": 180,
   "topicCount": 15,
   "category": "Programming",
