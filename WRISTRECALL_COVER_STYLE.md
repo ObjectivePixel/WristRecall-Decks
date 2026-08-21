@@ -51,11 +51,13 @@ When rules compete, prioritize in this order:
 
 ## Brand-inspired background motif
 
-19. **Echo the logo's layered-card language.** Use approximately four oversized rounded squares or rectangles, usually rotated roughly 45 degrees. Vary their scale and position so they frame the hero dynamically rather than forming a regular pattern.
-20. **Keep background cards pale and atmospheric.** Use light, desaturated tints of lime, lavender, aqua or coral with low contrast and restrained soft gradients. They should fill and frame the background while blending gently into the neutral base. They must never compete with the hero for attention.
-21. **Use confident overlap and cropping.** Let cards overlap behind the hero and extend beyond the canvas edges. Their intersection with the hero should create depth and visual movement without obscuring its silhouette.
-22. **Do not reconstruct the logo.** Never reproduce its cream glyph, dark lead card, exact fan arrangement, or complete composition.
-23. **Keep the hero independent.** The hero communicates the deck topic; the abstract cards provide the brand atmosphere and must not become a second subject.
+19. **Base every cover background on one approved reference.** Use one of the seven user-provided backgrounds `BG_01.jpg` through `BG_07.jpg` as the sole background reference. The result may use the exact file or a very close recreation of its card arrangement, scale, cropping, overlap, palette, and light neutral base. Do not invent a substantially different background composition or combine elements from multiple references.
+20. **Choose the reference uniformly at random for each new deck.** At the beginning of a new deck-cover workflow, randomly select one of `BG_01.jpg`, `BG_02.jpg`, `BG_03.jpg`, `BG_04.jpg`, `BG_05.jpg`, `BG_06.jpg`, or `BG_07.jpg`, giving every option an equal chance. Do not choose according to the deck topic, hero colour, personal preference, convenience, or perceived suitability. Do not default to or deliberately favour any reference. Record the selected reference in the working prompt so it remains consistent through that deck's concept and refinement stages.
+21. **Keep one selected background direction throughout a deck workflow.** Use the randomly selected reference for all four panels of the initial concept sheet and for the final selected cover. Refinements must retain that background direction unless the user explicitly asks to change or reroll it. A new deck starts a new independent random selection.
+22. **Keep background cards pale and atmospheric.** Preserve the selected reference's light, desaturated lime, lavender, aqua and coral treatment, low contrast, and gentle layering. The background should fill the full square and must never compete with the hero for attention.
+23. **Preserve the reference's confident overlap and cropping.** Keep its oversized rounded diamond/card language, edge cropping, and broad spatial rhythm close enough that the chosen source remains readily identifiable. Only minor generative variation is permitted.
+24. **Do not reconstruct the logo.** Never add its cream glyph, dark lead card, exact fan arrangement, or complete composition. The approved background references contain only the permitted atmospheric card language.
+25. **Keep the hero independent.** The hero communicates the deck topic; the reference-based background provides the brand atmosphere and must not become a second subject.
 
 ## Effects and consistency
 
@@ -104,13 +106,31 @@ At the smallest size and after the crop test, the complete hero must still be cl
 
 Every final cover must be accompanied by a two-colour theme gradient for the surrounding deck interface.
 
-1. **Use exactly two gradient colours.** Both colours must come from, or be deliberately darkened versions of, prominent colours in the selected cover so the interface and cover feel like one cohesive system.
-2. **Base the gradient on the hero palette.** Prefer the cover's dark anchor colour and a darker version of one distinctive accent. Do not derive the theme gradient from the pale background or atmospheric cards.
-3. **Keep white text legible everywhere.** The interface text placed over the gradient is always white. Each endpoint and the blended midpoint must provide sufficient contrast with white text; target at least a 4.5:1 contrast ratio.
-4. **Darken colours without changing their identity.** Preserve the cover's hue relationship while reducing lightness as needed. Avoid muddy near-black endpoints that no longer feel connected to the cover.
-5. **Keep the gradient controlled.** Avoid neon, highly saturated, rainbow, metallic or muddy combinations. The gradient should feel clean, colourful, modern, iOS-native and quietly futuristic.
-6. **Validate the actual blend.** Do not check endpoints alone; confirm that no portion between them becomes too light for white text.
-7. **Provide exact implementation values.** When delivering a final cover, also provide the two gradient colours as hexadecimal values in start-to-end order.
+1. **Use one approved preset for every new deck.** At the beginning of each new deck-cover workflow, select exactly one gradient from the approved preset library below. Use its listed hexadecimal values unchanged and in the stated start-to-end order. Do not invent an ad hoc gradient when an approved preset applies.
+2. **Choose presets uniformly at random.** Give every approved preset an equal chance. Do not choose according to the deck topic, background reference, personal preference, convenience, or perceived suitability. Do not default to teal, charcoal, grey, or any other familiar combination. Record the selected preset in the working prompt and keep it consistent through concept generation, refinement, and final delivery. A new deck starts a new independent random selection; reroll only when the user explicitly requests it.
+3. **Keep the hero palette independent from the gradient.** Do not use the selected gradient to inspire, constrain, or recolour the hero. Choose the hero palette solely to maximize literal accuracy, silhouette clarity, internal feature separation, contrast against the selected background, recognition at approximately 100 x 100 px, and consistency with the overall WristRecall illustration style. A visually unrelated hero and interface gradient is acceptable when each performs its own function clearly.
+4. **Keep all selections independent.** Randomly select the approved background reference and approved gradient preset separately. Do not pair them intentionally by perceived compatibility, and do not alter the hero's most readable and recognizable palette to coordinate with either selection. If contrast against the background is insufficient, improve foreground/background separation without borrowing colours from the theme gradient or changing the preset values.
+5. **Use exactly two gradient colours.** The surrounding interface gradient must contain only the two colours specified by the chosen preset.
+6. **Keep white text legible everywhere.** The approved values have been selected for white interface text. If implementation or interpolation changes, revalidate both endpoints and the entire blended gradient and maintain at least a 4.5:1 contrast ratio with white.
+7. **Keep the gradient controlled.** Avoid neon, rainbow, metallic, muddy, or additional colours. The gradient should feel clean, colourful, modern, iOS-native, and quietly futuristic.
+8. **Provide the preset name and exact values.** When delivering a final cover, state the selected preset name and its two hexadecimal colours in start-to-end order.
+
+### Approved gradient preset library
+
+- **Forest Lime:** `#014222` → `#4F6618`
+- **Plum Lavender:** `#492650` → `#654A91`
+- **Burnt Orange Plum:** `#A84400` → `#492650`
+- **Lime Teal:** `#536C1F` → `#096F73`
+- **Lavender Teal:** `#624A8D` → `#096F73`
+- **Forest Teal:** `#014222` → `#096F73`
+- **Orange Lavender:** `#A84400` → `#654A91`
+- **Orange Ember:** `#7A2F00` → `#A84400`
+- **Charcoal Forest:** `#242424` → `#014222`
+- **Charcoal Plum:** `#242424` → `#492650`
+- **Charcoal Lavender:** `#242424` → `#654A91`
+- **Charcoal Lime:** `#242424` → `#4F6618`
+- **Charcoal Teal:** `#242424` → `#096F73`
+- **Charcoal Orange:** `#242424` → `#A84400`
 
 ## Concept selection workflow
 
@@ -129,7 +149,9 @@ Every final cover must be accompanied by a two-colour theme gradient for the sur
 
 Create a square, image-only cover for a WristRecall learning deck about "[TOPIC]." The result must feel native to a clean, colourful, modern iOS app: quietly futuristic, precise, spacious, intelligent and polished, but not childish or overly playful. Use one large, literal and instantly recognizable hero object to communicate the topic without words. Render it as a polished flat vector-style editorial icon with simple geometric construction, clean softened edges, predominantly solid fills, broad meaningful internal structure, and high contrast. Preserve the object's defining construction instead of reducing it to a generic pictogram. The hero should occupy approximately 55-65% of the canvas and sit near the optical centre.
 
-Use an off-white or extremely pale tinted background that fills the complete square canvas all the way to its four sharp outer corners. Do not bake a rounded mask into the image. Behind the hero, include approximately four oversized pale rounded squares or rectangles, usually rotated like diamonds, varied in scale and position, overlapping behind the hero and cropping beyond the canvas. Use light, desaturated tints selected from lime, lavender, blue, aqua or coral. Keep them low-contrast and atmospheric so they blend into the background and never compete with the hero.
+Before creating concepts for a new deck, make one uniform random selection from the seven approved user-provided background references `BG_01.jpg` through `BG_07.jpg`; every reference must have an equal chance, and the choice must not be influenced by topic, hero palette, preference, convenience, or perceived suitability. State the selected reference in the working prompt and use that same reference for all concept options and the final cover for this deck. Use either the exact selected image or a very close recreation of its arrangement, scale, cropping, overlaps, palette, and light neutral base. Do not combine references or invent a substantially different card arrangement. Minor generative variation is acceptable, but the selected source should remain readily identifiable. The background must fill the complete square canvas all the way to its four sharp outer corners. Do not bake a rounded mask into the image. Keep its pale cards low-contrast and atmospheric so they never compete with the hero.
+
+Independently make one uniform random selection from the approved gradient preset library for the surrounding interface theme. Record its preset name and exact start-to-end hexadecimal values in the working prompt, and keep the same preset through all concepts, refinements, and final delivery. Do not alter its endpoint values or habitually favour teal, charcoal, grey, or any other family. Do not use the gradient to inspire, constrain, or recolour the hero. Choose the hero palette independently for literal accuracy, contrast, readability, and immediate recognition at thumbnail size.
 
 Keep the complete hero and every meaningful detail within the central 64% of the canvas, leaving an 18% crop-safe margin on every side. Only nonessential background shapes may enter the crop zone. Keep the composition spacious, balanced, polished, friendly, and clearly recognizable at 100 x 100 px and after center-cropping.
 

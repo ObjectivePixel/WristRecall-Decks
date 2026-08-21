@@ -1,0 +1,124 @@
+{
+  "id": "major-events-world-history",
+  "uuid": "BA3990E2-7642-4785-95A8-BECDC1B0F038",
+  "name": "Major Events in World History",
+  "description": "Build an easy, chronological overview of the events and turning points that shaped our world.",
+  "storeFileName": "major_events_world_history",
+  "imageName": "major_events_world_history_deck",
+  "gradientColors": [
+    "#1F3044FF",
+    "#176B6BFF"
+  ],
+  "cardCount": 75,
+  "topicCount": 6,
+  "category": "History",
+  "version": "1.0.0",
+  "sourceFileName": "cards.json",
+  "topicDefinitions": [
+    {
+      "name": "Ancient World",
+      "cardIDs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "name": "Medieval World",
+      "cardIDs": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ]
+    },
+    {
+      "name": "Early Modern World",
+      "cardIDs": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ]
+    },
+    {
+      "name": "Revolutions & Industry",
+      "cardIDs": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ]
+    },
+    {
+      "name": "World Wars",
+      "cardIDs": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ]
+    },
+    {
+      "name": "Cold War & Modern",
+      "cardIDs": [
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75
+      ]
+    }
+  ]
+}

@@ -157,7 +157,7 @@ Drop a 1024×1024 JPG at `decks/<deck-id>/assets/<imageName>.jpg`. The compiler 
 
 The app uses the cover image as the deck's tile in the deck browser. Follow [WRISTRECALL_COVER_STYLE.md](WRISTRECALL_COVER_STYLE.md) whenever creating, revising, prompting, evaluating, or exporting a cover and whenever choosing the companion theme gradient. That guide is the authoritative specification and supersedes generic or earlier cover/gradient guidance.
 
-In particular, start with the required four-option concept sheet and wait for the user's selection before producing the final 1024×1024 JPG. Deliver the selected cover with the exact two gradient endpoint colours, then store those colours in `deck.json` as opaque `#RRGGBBAA` values (append `FF` to the guide's `#RRGGBB` values).
+In particular, independently select the required background reference and approved gradient preset uniformly at random, then use both consistently throughout the workflow. Start with the required four-option concept sheet and wait for the user's selection before producing the final 1024×1024 JPG. Deliver the selected cover with the preset name and its exact two endpoint colours, then store those colours in `deck.json` as opaque `#RRGGBBAA` values (append `FF` to the guide's `#RRGGBB` values).
 
 ## 5. Compile
 
