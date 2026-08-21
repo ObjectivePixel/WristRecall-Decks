@@ -1,0 +1,1202 @@
+[
+  {
+    "id": 1,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What enormous stone tomb was built for Pharaoh Khufu at Giza?",
+      "markdown": "What enormous stone tomb was built for Pharaoh Khufu at Giza?"
+    },
+    "back": {
+      "text": "Great Pyramid of Giza. c. 2560 BCE | Egypt. Built during Egypt’s Old Kingdom as a royal tomb. Why it matters: It remains a symbol of ancient Egyptian engineering and state power.",
+      "markdown": "## Great Pyramid of Giza\n\n**c. 2560 BCE | Egypt**\n\nBuilt during Egypt’s Old Kingdom as a royal tomb.\n\n{#0F766E}**Why it matters:** It remains a symbol of ancient Egyptian engineering and state power.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 2,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What development in Mesopotamia produced some of the world’s earliest cities, including Uruk?",
+      "markdown": "What development in Mesopotamia produced some of the world’s earliest cities, including Uruk?"
+    },
+    "back": {
+      "text": "First cities in Mesopotamia. c. 3500–3000 BCE | Mesopotamia. Growing settlements developed governments, temples, specialised work, and writing. Why it matters: Urban civilisation transformed how large communities organised life.",
+      "markdown": "## First cities in Mesopotamia\n\n**c. 3500–3000 BCE | Mesopotamia**\n\nGrowing settlements developed governments, temples, specialised work, and writing.\n\n{#0F766E}**Why it matters:** Urban civilisation transformed how large communities organised life.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 3,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Which ancient civilisation built planned cities such as Harappa and Mohenjo-daro?",
+      "markdown": "Which ancient civilisation built planned cities such as Harappa and Mohenjo-daro?"
+    },
+    "back": {
+      "text": "Indus Valley Civilisation. c. 2600–1900 BCE | South Asia. A major Bronze Age civilisation with carefully planned cities and long-distance trade. Why it matters: It was one of the earliest large urban civilisations.",
+      "markdown": "## Indus Valley Civilisation\n\n**c. 2600–1900 BCE | South Asia**\n\nA major Bronze Age civilisation with carefully planned cities and long-distance trade.\n\n{#0F766E}**Why it matters:** It was one of the earliest large urban civilisations.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 4,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Which early Chinese dynasty is known from bronze work and oracle-bone writing?",
+      "markdown": "Which early Chinese dynasty is known from bronze work and oracle-bone writing?"
+    },
+    "back": {
+      "text": "Shang dynasty. c. 1600–1046 BCE | China. The Shang ruled parts of the Yellow River region and left China’s earliest substantial written records. Why it matters: Its records reveal early Chinese kingship, religion, and writing.",
+      "markdown": "## Shang dynasty\n\n**c. 1600–1046 BCE | China**\n\nThe Shang ruled parts of the Yellow River region and left China’s earliest substantial written records.\n\n{#0F766E}**Why it matters:** Its records reveal early Chinese kingship, religion, and writing.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 5,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What ancient sporting festival was held at Olympia in honour of Zeus?",
+      "markdown": "What ancient sporting festival was held at Olympia in honour of Zeus?"
+    },
+    "back": {
+      "text": "First Olympic Games. Traditionally 776 BCE | Olympia, Greece. Greek city-states sent male athletes to compete in a religious festival. Why it matters: The revived modern Olympics took their name and inspiration from it.",
+      "markdown": "## First Olympic Games\n\n**Traditionally 776 BCE | Olympia, Greece**\n\nGreek city-states sent male athletes to compete in a religious festival.\n\n{#0F766E}**Why it matters:** The revived modern Olympics took their name and inspiration from it.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 6,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Which vast empire founded by Cyrus the Great linked lands from Egypt to Central Asia?",
+      "markdown": "Which vast empire founded by Cyrus the Great linked lands from Egypt to Central Asia?"
+    },
+    "back": {
+      "text": "Achaemenid Persian Empire. c. 550–330 BCE | Southwest and Central Asia. The Persian Empire governed diverse peoples through provinces, roads, and local cooperation. Why it matters: It became a model of large-scale imperial administration.",
+      "markdown": "## Achaemenid Persian Empire\n\n**c. 550–330 BCE | Southwest and Central Asia**\n\nThe Persian Empire governed diverse peoples through provinces, roads, and local cooperation.\n\n{#0F766E}**Why it matters:** It became a model of large-scale imperial administration.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 7,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What wars included the battles of Marathon, Thermopylae, and Salamis?",
+      "markdown": "What wars included the battles of Marathon, Thermopylae, and Salamis?"
+    },
+    "back": {
+      "text": "Greco-Persian Wars. 499–449 BCE | Greece and the Aegean. Several Greek city-states resisted invasions by the Persian Empire. Why it matters: Greek victories preserved the independence of leading city-states such as Athens.",
+      "markdown": "## Greco-Persian Wars\n\n**499–449 BCE | Greece and the Aegean**\n\nSeveral Greek city-states resisted invasions by the Persian Empire.\n\n{#0F766E}**Why it matters:** Greek victories preserved the independence of leading city-states such as Athens.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 8,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What campaigns spread Greek influence from Egypt to the edge of India?",
+      "markdown": "What campaigns spread Greek influence from Egypt to the edge of India?"
+    },
+    "back": {
+      "text": "Conquests of Alexander the Great. 334–323 BCE | Eastern Mediterranean to South Asia. Alexander of Macedon defeated the Persian Empire and created a short-lived vast empire. Why it matters: They accelerated cultural exchange across the Hellenistic world.",
+      "markdown": "## Conquests of Alexander the Great\n\n**334–323 BCE | Eastern Mediterranean to South Asia**\n\nAlexander of Macedon defeated the Persian Empire and created a short-lived vast empire.\n\n{#0F766E}**Why it matters:** They accelerated cultural exchange across the Hellenistic world.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 9,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What event made Qin Shi Huang the first emperor of a unified China?",
+      "markdown": "What event made Qin Shi Huang the first emperor of a unified China?"
+    },
+    "back": {
+      "text": "Unification of China under Qin. 221 BCE | China. The Qin conquered rival states and standardised systems including writing, weights, and measures. Why it matters: It established an imperial model that shaped China for centuries.",
+      "markdown": "## Unification of China under Qin\n\n**221 BCE | China**\n\nThe Qin conquered rival states and standardised systems including writing, weights, and measures.\n\n{#0F766E}**Why it matters:** It established an imperial model that shaped China for centuries.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 10,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What event on the Ides of March deepened the crisis of the Roman Republic?",
+      "markdown": "What event on the Ides of March deepened the crisis of the Roman Republic?"
+    },
+    "back": {
+      "text": "Assassination of Julius Caesar. 44 BCE | Rome. Roman senators killed Julius Caesar because they feared his growing power. Why it matters: The aftermath led to civil wars and the rise of imperial rule.",
+      "markdown": "## Assassination of Julius Caesar\n\n**44 BCE | Rome**\n\nRoman senators killed Julius Caesar because they feared his growing power.\n\n{#0F766E}**Why it matters:** The aftermath led to civil wars and the rise of imperial rule.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 11,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What political change occurred when Octavian became Augustus?",
+      "markdown": "What political change occurred when Octavian became Augustus?"
+    },
+    "back": {
+      "text": "Beginning of the Roman Empire. 27 BCE | Roman world. Augustus became Rome’s first emperor while preserving some republican forms. Why it matters: It began centuries of Roman imperial rule around the Mediterranean.",
+      "markdown": "## Beginning of the Roman Empire\n\n**27 BCE | Roman world**\n\nAugustus became Rome’s first emperor while preserving some republican forms.\n\n{#0F766E}**Why it matters:** It began centuries of Roman imperial rule around the Mediterranean.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 12,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Which religion grew from the teachings of Jesus and spread through the Roman world?",
+      "markdown": "Which religion grew from the teachings of Jesus and spread through the Roman world?"
+    },
+    "back": {
+      "text": "Spread of Christianity. 1st–4th centuries CE | Roman Empire. Christian communities expanded despite periods of persecution; emperors later supported the faith. Why it matters: Christianity became a major world religion and deeply influenced many societies.",
+      "markdown": "## Spread of Christianity\n\n**1st–4th centuries CE | Roman Empire**\n\nChristian communities expanded despite periods of persecution; emperors later supported the faith.\n\n{#0F766E}**Why it matters:** Christianity became a major world religion and deeply influenced many societies.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 13,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What event traditionally marks the end of the Western Roman Empire?",
+      "markdown": "What event traditionally marks the end of the Western Roman Empire?"
+    },
+    "back": {
+      "text": "Fall of the Western Roman Empire. 476 CE | Western Europe. A Germanic commander removed the last western emperor amid long political and military decline. Why it matters: It became a conventional dividing line between ancient and medieval European history.",
+      "markdown": "## Fall of the Western Roman Empire\n\n**476 CE | Western Europe**\n\nA Germanic commander removed the last western emperor amid long political and military decline.\n\n{#0F766E}**Why it matters:** It became a conventional dividing line between ancient and medieval European history.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 14,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What religious and political movement began in Arabia with the teachings of Muhammad?",
+      "markdown": "What religious and political movement began in Arabia with the teachings of Muhammad?"
+    },
+    "back": {
+      "text": "Rise and spread of Islam. 7th–8th centuries | Middle East, North Africa, and beyond. Islam united much of Arabia, and early caliphates expanded rapidly across three continents. Why it matters: It created a major world civilisation linked by faith, trade, scholarship, and government.",
+      "markdown": "## Rise and spread of Islam\n\n**7th–8th centuries | Middle East, North Africa, and beyond**\n\nIslam united much of Arabia, and early caliphates expanded rapidly across three continents.\n\n{#0F766E}**Why it matters:** It created a major world civilisation linked by faith, trade, scholarship, and government.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 15,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Which Chinese dynasty presided over a cosmopolitan era of trade, poetry, and strong government?",
+      "markdown": "Which Chinese dynasty presided over a cosmopolitan era of trade, poetry, and strong government?"
+    },
+    "back": {
+      "text": "Tang golden age. 618–907 | China. Tang China was connected to Silk Road networks and became a leading cultural and political power. Why it matters: Its institutions and culture influenced much of East Asia.",
+      "markdown": "## Tang golden age\n\n**618–907 | China**\n\nTang China was connected to Silk Road networks and became a leading cultural and political power.\n\n{#0F766E}**Why it matters:** Its institutions and culture influenced much of East Asia.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 16,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What era saw Scandinavian raiders, traders, and settlers travel from North America to Eurasia?",
+      "markdown": "What era saw Scandinavian raiders, traders, and settlers travel from North America to Eurasia?"
+    },
+    "back": {
+      "text": "Viking Age. c. 793–1066 | Europe and North Atlantic. Norse seafarers raided and traded widely, while founding settlements and states. Why it matters: Their voyages reshaped European trade, politics, and migration.",
+      "markdown": "## Viking Age\n\n**c. 793–1066 | Europe and North Atlantic**\n\nNorse seafarers raided and traded widely, while founding settlements and states.\n\n{#0F766E}**Why it matters:** Their voyages reshaped European trade, politics, and migration.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 17,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What trade networks helped Ghana, Mali, and Songhai grow wealthy and powerful?",
+      "markdown": "What trade networks helped Ghana, Mali, and Songhai grow wealthy and powerful?"
+    },
+    "back": {
+      "text": "West African empires and trans-Saharan trade. c. 700–1600 | West Africa. Caravans carried gold, salt, and other goods across the Sahara, linking West Africa with North Africa. Why it matters: The trade supported major states and centres of learning such as Timbuktu.",
+      "markdown": "## West African empires and trans-Saharan trade\n\n**c. 700–1600 | West Africa**\n\nCaravans carried gold, salt, and other goods across the Sahara, linking West Africa with North Africa.\n\n{#0F766E}**Why it matters:** The trade supported major states and centres of learning such as Timbuktu.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 18,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What conquest followed William of Normandy’s victory at the Battle of Hastings?",
+      "markdown": "What conquest followed William of Normandy’s victory at the Battle of Hastings?"
+    },
+    "back": {
+      "text": "Norman Conquest. 1066 | England. Norman rulers replaced much of England’s elite and reorganised landholding and government. Why it matters: It permanently changed English politics, society, architecture, and language.",
+      "markdown": "## Norman Conquest\n\n**1066 | England**\n\nNorman rulers replaced much of England’s elite and reorganised landholding and government.\n\n{#0F766E}**Why it matters:** It permanently changed English politics, society, architecture, and language.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 19,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What series of religious wars involved western European Christians seeking control of holy sites?",
+      "markdown": "What series of religious wars involved western European Christians seeking control of holy sites?"
+    },
+    "back": {
+      "text": "Crusades. 1096–1291 | Eastern Mediterranean. Multiple campaigns targeted the eastern Mediterranean and also affected Jewish, Muslim, and Christian communities elsewhere. Why it matters: They intensified conflict while also expanding contacts between regions.",
+      "markdown": "## Crusades\n\n**1096–1291 | Eastern Mediterranean**\n\nMultiple campaigns targeted the eastern Mediterranean and also affected Jewish, Muslim, and Christian communities elsewhere.\n\n{#0F766E}**Why it matters:** They intensified conflict while also expanding contacts between regions.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 20,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What empire founded by Genghis Khan became history’s largest contiguous land empire?",
+      "markdown": "What empire founded by Genghis Khan became history’s largest contiguous land empire?"
+    },
+    "back": {
+      "text": "Rise of the Mongol Empire. 1206 onward | Eurasia. Mongol armies conquered much of Asia and parts of Europe; successor states later ruled the territory. Why it matters: Mongol rule connected Eurasian trade and communication, while conquest caused enormous destruction.",
+      "markdown": "## Rise of the Mongol Empire\n\n**1206 onward | Eurasia**\n\nMongol armies conquered much of Asia and parts of Europe; successor states later ruled the territory.\n\n{#0F766E}**Why it matters:** Mongol rule connected Eurasian trade and communication, while conquest caused enormous destruction.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 21,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What charter forced King John to accept that royal power had legal limits?",
+      "markdown": "What charter forced King John to accept that royal power had legal limits?"
+    },
+    "back": {
+      "text": "Magna Carta. 1215 | England. English barons compelled the king to agree to protections and procedures, mostly for elite interests. Why it matters: Later generations treated it as an important symbol of law limiting government.",
+      "markdown": "## Magna Carta\n\n**1215 | England**\n\nEnglish barons compelled the king to agree to protections and procedures, mostly for elite interests.\n\n{#0F766E}**Why it matters:** Later generations treated it as an important symbol of law limiting government.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 22,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What pandemic devastated much of Europe, Asia, and North Africa in the 14th century?",
+      "markdown": "What pandemic devastated much of Europe, Asia, and North Africa in the 14th century?"
+    },
+    "back": {
+      "text": "Black Death. c. 1347–1351 | Europe, Asia, and North Africa. A plague pandemic spread through connected trade routes and killed a very large share of many populations. Why it matters: It caused profound demographic, economic, and social change.",
+      "markdown": "## Black Death\n\n**c. 1347–1351 | Europe, Asia, and North Africa**\n\nA plague pandemic spread through connected trade routes and killed a very large share of many populations.\n\n{#0F766E}**Why it matters:** It caused profound demographic, economic, and social change.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 23,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What long conflict between English and French monarchies helped strengthen national identities?",
+      "markdown": "What long conflict between English and French monarchies helped strengthen national identities?"
+    },
+    "back": {
+      "text": "Hundred Years’ War. 1337–1453 | France and England. A series of wars over territory and claims to the French throne ended largely in French victory. Why it matters: It changed warfare and helped consolidate royal power.",
+      "markdown": "## Hundred Years’ War\n\n**1337–1453 | France and England**\n\nA series of wars over territory and claims to the French throne ended largely in French victory.\n\n{#0F766E}**Why it matters:** It changed warfare and helped consolidate royal power.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 24,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What event ended the Byzantine Empire when the Ottomans captured its capital?",
+      "markdown": "What event ended the Byzantine Empire when the Ottomans captured its capital?"
+    },
+    "back": {
+      "text": "Fall of Constantinople. 1453 | Ottoman Empire. Sultan Mehmed II’s forces took Constantinople and made it a leading Ottoman city. Why it matters: It confirmed Ottoman power and ended the surviving eastern Roman state.",
+      "markdown": "## Fall of Constantinople\n\n**1453 | Ottoman Empire**\n\nSultan Mehmed II’s forces took Constantinople and made it a leading Ottoman city.\n\n{#0F766E}**Why it matters:** It confirmed Ottoman power and ended the surviving eastern Roman state.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 25,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What cultural movement renewed interest in classical learning and encouraged major changes in art and scholarship?",
+      "markdown": "What cultural movement renewed interest in classical learning and encouraged major changes in art and scholarship?"
+    },
+    "back": {
+      "text": "Renaissance. c. 1300s–1600s | Europe. Artists and scholars developed new approaches to literature, art, science, and humanism. Why it matters: Its ideas helped reshape European culture and learning.",
+      "markdown": "## Renaissance\n\n**c. 1300s–1600s | Europe**\n\nArtists and scholars developed new approaches to literature, art, science, and humanism.\n\n{#0F766E}**Why it matters:** Its ideas helped reshape European culture and learning.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 26,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What event began when Columbus’s expedition reached the Caribbean in 1492?",
+      "markdown": "What event began when Columbus’s expedition reached the Caribbean in 1492?"
+    },
+    "back": {
+      "text": "European arrival in the Americas. 1492 onward | Atlantic world. Sustained contact between Europe and the Americas followed, though Norse people had arrived centuries earlier. Why it matters: It began the Columbian Exchange, conquest, colonisation, and catastrophic population loss among Indigenous peoples.",
+      "markdown": "## European arrival in the Americas\n\n**1492 onward | Atlantic world**\n\nSustained contact between Europe and the Americas followed, though Norse people had arrived centuries earlier.\n\n{#0F766E}**Why it matters:** It began the Columbian Exchange, conquest, colonisation, and catastrophic population loss among Indigenous peoples.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 27,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What conquest ended the Aztec Empire after the fall of Tenochtitlan?",
+      "markdown": "What conquest ended the Aztec Empire after the fall of Tenochtitlan?"
+    },
+    "back": {
+      "text": "Spanish conquest of the Aztec Empire. 1519–1521 | Mexico. Spanish forces allied with Indigenous enemies of the Aztecs; disease also devastated local populations. Why it matters: It established Spanish rule over much of central Mexico.",
+      "markdown": "## Spanish conquest of the Aztec Empire\n\n**1519–1521 | Mexico**\n\nSpanish forces allied with Indigenous enemies of the Aztecs; disease also devastated local populations.\n\n{#0F766E}**Why it matters:** It established Spanish rule over much of central Mexico.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 28,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What voyage first completed a journey around the world?",
+      "markdown": "What voyage first completed a journey around the world?"
+    },
+    "back": {
+      "text": "First circumnavigation. 1519–1522 | Global oceans. The expedition began under Ferdinand Magellan and was completed under Juan Sebastián Elcano. Why it matters: It demonstrated the global scale of the oceans and expanded European maritime knowledge.",
+      "markdown": "## First circumnavigation\n\n**1519–1522 | Global oceans**\n\nThe expedition began under Ferdinand Magellan and was completed under Juan Sebastián Elcano.\n\n{#0F766E}**Why it matters:** It demonstrated the global scale of the oceans and expanded European maritime knowledge.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 29,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What religious movement challenged the authority and practices of the Catholic Church?",
+      "markdown": "What religious movement challenged the authority and practices of the Catholic Church?"
+    },
+    "back": {
+      "text": "Protestant Reformation. Beginning 1517 | Europe. Reformers including Martin Luther inspired new Christian churches and major political conflicts. Why it matters: It permanently divided western Christianity and reshaped European states and society.",
+      "markdown": "## Protestant Reformation\n\n**Beginning 1517 | Europe**\n\nReformers including Martin Luther inspired new Christian churches and major political conflicts.\n\n{#0F766E}**Why it matters:** It permanently divided western Christianity and reshaped European states and society.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 30,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What forced migration carried millions of enslaved Africans across the Atlantic?",
+      "markdown": "What forced migration carried millions of enslaved Africans across the Atlantic?"
+    },
+    "back": {
+      "text": "Atlantic slave trade. 16th–19th centuries | Atlantic world. European and American traders transported enslaved people to plantations and mines under brutal conditions. Why it matters: It enriched colonial economies and left enduring racial, social, and economic inequalities.",
+      "markdown": "## Atlantic slave trade\n\n**16th–19th centuries | Atlantic world**\n\nEuropean and American traders transported enslaved people to plantations and mines under brutal conditions.\n\n{#0F766E}**Why it matters:** It enriched colonial economies and left enduring racial, social, and economic inequalities.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 31,
+    "difficulty": "Easy",
+    "front": {
+      "text": "Which empire began after Babur’s victory at Panipat and later ruled much of the Indian subcontinent?",
+      "markdown": "Which empire began after Babur’s victory at Panipat and later ruled much of the Indian subcontinent?"
+    },
+    "back": {
+      "text": "Mughal Empire in India. 1526–1857 | South Asia. Mughal rulers built a wealthy, diverse empire known for administration, trade, and monumental culture. Why it matters: It profoundly shaped South Asian politics, art, architecture, and society.",
+      "markdown": "## Mughal Empire in India\n\n**1526–1857 | South Asia**\n\nMughal rulers built a wealthy, diverse empire known for administration, trade, and monumental culture.\n\n{#0F766E}**Why it matters:** It profoundly shaped South Asian politics, art, architecture, and society.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 32,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What government brought more than two centuries of internal peace to Japan?",
+      "markdown": "What government brought more than two centuries of internal peace to Japan?"
+    },
+    "back": {
+      "text": "Tokugawa shogunate. 1603–1868 | Japan. Tokugawa shoguns controlled the daimyō and limited many foreign contacts while towns and commerce grew. Why it matters: The era created stability and major social and cultural change.",
+      "markdown": "## Tokugawa shogunate\n\n**1603–1868 | Japan**\n\nTokugawa shoguns controlled the daimyō and limited many foreign contacts while towns and commerce grew.\n\n{#0F766E}**Why it matters:** The era created stability and major social and cultural change.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 33,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What intellectual transformation used observation and mathematics to rethink nature?",
+      "markdown": "What intellectual transformation used observation and mathematics to rethink nature?"
+    },
+    "back": {
+      "text": "Scientific Revolution. c. 1500s–1700s | Europe. Thinkers including Copernicus, Galileo, and Newton challenged older models of the cosmos and motion. Why it matters: It helped establish methods and ideas central to modern science.",
+      "markdown": "## Scientific Revolution\n\n**c. 1500s–1700s | Europe**\n\nThinkers including Copernicus, Galileo, and Newton challenged older models of the cosmos and motion.\n\n{#0F766E}**Why it matters:** It helped establish methods and ideas central to modern science.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 34,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What process created European colonies across much of the Americas?",
+      "markdown": "What process created European colonies across much of the Americas?"
+    },
+    "back": {
+      "text": "European colonisation of the Americas. 16th–18th centuries | Americas. European powers seized land, displaced Indigenous peoples, and built societies using migration and forced labour. Why it matters: It transformed populations, environments, languages, and global power.",
+      "markdown": "## European colonisation of the Americas\n\n**16th–18th centuries | Americas**\n\nEuropean powers seized land, displaced Indigenous peoples, and built societies using migration and forced labour.\n\n{#0F766E}**Why it matters:** It transformed populations, environments, languages, and global power.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 35,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What movement promoted reason, debate, natural rights, and criticism of traditional authority?",
+      "markdown": "What movement promoted reason, debate, natural rights, and criticism of traditional authority?"
+    },
+    "back": {
+      "text": "Enlightenment. 17th–18th centuries | Europe and Atlantic world. Writers examined government, religion, economics, and society through new secular and scientific lenses. Why it matters: Its ideas strongly influenced reform and political revolutions.",
+      "markdown": "## Enlightenment\n\n**17th–18th centuries | Europe and Atlantic world**\n\nWriters examined government, religion, economics, and society through new secular and scientific lenses.\n\n{#0F766E}**Why it matters:** Its ideas strongly influenced reform and political revolutions.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 36,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What transformation replaced much hand production with machines and factories?",
+      "markdown": "What transformation replaced much hand production with machines and factories?"
+    },
+    "back": {
+      "text": "Industrial Revolution. c. 1760–1900 | Began in Britain, then spread. New energy sources, manufacturing methods, and transport rapidly increased production and urbanisation. Why it matters: It reshaped work, living conditions, the environment, and global power.",
+      "markdown": "## Industrial Revolution\n\n**c. 1760–1900 | Began in Britain, then spread**\n\nNew energy sources, manufacturing methods, and transport rapidly increased production and urbanisation.\n\n{#0F766E}**Why it matters:** It reshaped work, living conditions, the environment, and global power.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 37,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What revolution created the United States from thirteen British colonies?",
+      "markdown": "What revolution created the United States from thirteen British colonies?"
+    },
+    "back": {
+      "text": "American Revolution. 1775–1783 | North America. Colonists fought Britain after disputes over taxation, representation, and political authority. Why it matters: It created an independent republic and influenced later revolutions.",
+      "markdown": "## American Revolution\n\n**1775–1783 | North America**\n\nColonists fought Britain after disputes over taxation, representation, and political authority.\n\n{#0F766E}**Why it matters:** It created an independent republic and influenced later revolutions.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 38,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What revolution overthrew France’s absolute monarchy and proclaimed new ideas of citizenship?",
+      "markdown": "What revolution overthrew France’s absolute monarchy and proclaimed new ideas of citizenship?"
+    },
+    "back": {
+      "text": "French Revolution. 1789–1799 | France. Economic crisis and political conflict triggered radical social and governmental change. Why it matters: Its ideas about rights, equality, and nationhood influenced the world.",
+      "markdown": "## French Revolution\n\n**1789–1799 | France**\n\nEconomic crisis and political conflict triggered radical social and governmental change.\n\n{#0F766E}**Why it matters:** Its ideas about rights, equality, and nationhood influenced the world.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 39,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What successful uprising by enslaved people created the independent nation of Haiti?",
+      "markdown": "What successful uprising by enslaved people created the independent nation of Haiti?"
+    },
+    "back": {
+      "text": "Haitian Revolution. 1791–1804 | Saint-Domingue/Haiti. Rebels defeated slavery and French colonial rule in the Caribbean colony of Saint-Domingue. Why it matters: It created the first independent Black republic and transformed debates about slavery and freedom.",
+      "markdown": "## Haitian Revolution\n\n**1791–1804 | Saint-Domingue/Haiti**\n\nRebels defeated slavery and French colonial rule in the Caribbean colony of Saint-Domingue.\n\n{#0F766E}**Why it matters:** It created the first independent Black republic and transformed debates about slavery and freedom.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 40,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What wars spread French power and revolutionary reforms before Napoleon’s final defeat?",
+      "markdown": "What wars spread French power and revolutionary reforms before Napoleon’s final defeat?"
+    },
+    "back": {
+      "text": "Napoleonic Wars. 1803–1815 | Europe and beyond. Napoleonic France fought changing coalitions of European powers across several continents. Why it matters: The wars redrew borders, spread legal reforms, and stimulated nationalism.",
+      "markdown": "## Napoleonic Wars\n\n**1803–1815 | Europe and beyond**\n\nNapoleonic France fought changing coalitions of European powers across several continents.\n\n{#0F766E}**Why it matters:** The wars redrew borders, spread legal reforms, and stimulated nationalism.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 41,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What movement ended Spanish and Portuguese colonial rule across most of mainland Latin America?",
+      "markdown": "What movement ended Spanish and Portuguese colonial rule across most of mainland Latin America?"
+    },
+    "back": {
+      "text": "Latin American independence. c. 1808–1826 | Latin America. Local armies and political leaders won independence amid imperial crisis and social conflict. Why it matters: It created new sovereign states across the region.",
+      "markdown": "## Latin American independence\n\n**c. 1808–1826 | Latin America**\n\nLocal armies and political leaders won independence amid imperial crisis and social conflict.\n\n{#0F766E}**Why it matters:** It created new sovereign states across the region.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 42,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What movement persuaded several states to outlaw the transatlantic trafficking of enslaved people?",
+      "markdown": "What movement persuaded several states to outlaw the transatlantic trafficking of enslaved people?"
+    },
+    "back": {
+      "text": "Abolition of the Atlantic slave trade. 19th century | Atlantic world. Abolitionists and resistance by enslaved people helped drive bans, though illegal trading continued. Why it matters: It was a major step toward ending Atlantic slavery, but did not itself abolish slavery everywhere.",
+      "markdown": "## Abolition of the Atlantic slave trade\n\n**19th century | Atlantic world**\n\nAbolitionists and resistance by enslaved people helped drive bans, though illegal trading continued.\n\n{#0F766E}**Why it matters:** It was a major step toward ending Atlantic slavery, but did not itself abolish slavery everywhere.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 43,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What agreement was signed between many Māori rangatira and the British Crown in 1840?",
+      "markdown": "What agreement was signed between many Māori rangatira and the British Crown in 1840?"
+    },
+    "back": {
+      "text": "Treaty of Waitangi. 1840 | Aotearoa New Zealand. The Māori and English texts differed significantly, especially over authority and sovereignty. Why it matters: It is a founding document of New Zealand and remains central to debates over Crown–Māori relations.",
+      "markdown": "## Treaty of Waitangi\n\n**1840 | Aotearoa New Zealand**\n\nThe Māori and English texts differed significantly, especially over authority and sovereignty.\n\n{#0F766E}**Why it matters:** It is a founding document of New Zealand and remains central to debates over Crown–Māori relations.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 44,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What wars forced Qing China to accept expanded foreign trade and unequal treaties?",
+      "markdown": "What wars forced Qing China to accept expanded foreign trade and unequal treaties?"
+    },
+    "back": {
+      "text": "Opium Wars. 1839–1842 and 1856–1860 | China. Britain and later France used military force after disputes involving opium, diplomacy, and commerce. Why it matters: The defeats weakened Qing sovereignty and increased foreign influence in China.",
+      "markdown": "## Opium Wars\n\n**1839–1842 and 1856–1860 | China**\n\nBritain and later France used military force after disputes involving opium, diplomacy, and commerce.\n\n{#0F766E}**Why it matters:** The defeats weakened Qing sovereignty and increased foreign influence in China.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 45,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What war preserved the United States and led to the abolition of slavery there?",
+      "markdown": "What war preserved the United States and led to the abolition of slavery there?"
+    },
+    "back": {
+      "text": "American Civil War. 1861–1865 | United States. Northern and Southern states fought after decades of conflict centred on slavery and its expansion. Why it matters: Union victory ended legal slavery, though racial inequality continued.",
+      "markdown": "## American Civil War\n\n**1861–1865 | United States**\n\nNorthern and Southern states fought after decades of conflict centred on slavery and its expansion.\n\n{#0F766E}**Why it matters:** Union victory ended legal slavery, though racial inequality continued.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 46,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What political transformation restored imperial rule and rapidly modernised Japan?",
+      "markdown": "What political transformation restored imperial rule and rapidly modernised Japan?"
+    },
+    "back": {
+      "text": "Meiji Restoration. 1868 onward | Japan. Leaders ended Tokugawa rule and built a centralised state, modern industry, and armed forces. Why it matters: Japan became a major industrial and imperial power.",
+      "markdown": "## Meiji Restoration\n\n**1868 onward | Japan**\n\nLeaders ended Tokugawa rule and built a centralised state, modern industry, and armed forces.\n\n{#0F766E}**Why it matters:** Japan became a major industrial and imperial power.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 47,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What rapid process placed most of Africa under European colonial rule?",
+      "markdown": "What rapid process placed most of Africa under European colonial rule?"
+    },
+    "back": {
+      "text": "Scramble for Africa. c. 1880s–1914 | Africa. European powers claimed territory through conquest, treaties, and negotiation among themselves. Why it matters: Colonial borders and institutions caused lasting political, economic, and social effects.",
+      "markdown": "## Scramble for Africa\n\n**c. 1880s–1914 | Africa**\n\nEuropean powers claimed territory through conquest, treaties, and negotiation among themselves.\n\n{#0F766E}**Why it matters:** Colonial borders and institutions caused lasting political, economic, and social effects.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 48,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What made New Zealand a landmark in the global women’s suffrage movement?",
+      "markdown": "What made New Zealand a landmark in the global women’s suffrage movement?"
+    },
+    "back": {
+      "text": "New Zealand women win the vote. 1893 | New Zealand. After sustained campaigning, women gained the right to vote in national elections. Why it matters: New Zealand became the first self-governing country to grant women national voting rights.",
+      "markdown": "## New Zealand women win the vote\n\n**1893 | New Zealand**\n\nAfter sustained campaigning, women gained the right to vote in national elections.\n\n{#0F766E}**Why it matters:** New Zealand became the first self-governing country to grant women national voting rights.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 49,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What event triggered the crisis that began World War I?",
+      "markdown": "What event triggered the crisis that began World War I?"
+    },
+    "back": {
+      "text": "Assassination of Archduke Franz Ferdinand. 28 June 1914 | Sarajevo. A Bosnian Serb nationalist assassinated the heir to the Austro-Hungarian throne. Why it matters: Alliance commitments and escalating decisions turned the crisis into a wider war.",
+      "markdown": "## Assassination of Archduke Franz Ferdinand\n\n**28 June 1914 | Sarajevo**\n\nA Bosnian Serb nationalist assassinated the heir to the Austro-Hungarian throne.\n\n{#0F766E}**Why it matters:** Alliance commitments and escalating decisions turned the crisis into a wider war.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 50,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What global conflict pitted the Allied Powers against the Central Powers?",
+      "markdown": "What global conflict pitted the Allied Powers against the Central Powers?"
+    },
+    "back": {
+      "text": "World War I. 1914–1918 | Europe, Middle East, Africa, and oceans. Industrial warfare, empires, and mass armies produced enormous destruction across several regions. Why it matters: It toppled empires, redrew borders, and created conditions for further conflict.",
+      "markdown": "## World War I\n\n**1914–1918 | Europe, Middle East, Africa, and oceans**\n\nIndustrial warfare, empires, and mass armies produced enormous destruction across several regions.\n\n{#0F766E}**Why it matters:** It toppled empires, redrew borders, and created conditions for further conflict.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 51,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What revolution brought the Bolsheviks to power and led to the Soviet Union?",
+      "markdown": "What revolution brought the Bolsheviks to power and led to the Soviet Union?"
+    },
+    "back": {
+      "text": "Russian Revolution. 1917 | Russia. War, hardship, and political collapse ended tsarist rule; the Bolsheviks later seized power. Why it matters: It created the first lasting communist state and reshaped global politics.",
+      "markdown": "## Russian Revolution\n\n**1917 | Russia**\n\nWar, hardship, and political collapse ended tsarist rule; the Bolsheviks later seized power.\n\n{#0F766E}**Why it matters:** It created the first lasting communist state and reshaped global politics.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 52,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What peace treaty formally ended the war between Germany and the main Allied powers?",
+      "markdown": "What peace treaty formally ended the war between Germany and the main Allied powers?"
+    },
+    "back": {
+      "text": "Treaty of Versailles. 1919 | France. The treaty imposed territorial losses, military limits, and reparations on Germany. Why it matters: Its disputed settlement shaped interwar politics and resentment.",
+      "markdown": "## Treaty of Versailles\n\n**1919 | France**\n\nThe treaty imposed territorial losses, military limits, and reparations on Germany.\n\n{#0F766E}**Why it matters:** Its disputed settlement shaped interwar politics and resentment.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 53,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What worldwide economic crisis brought mass unemployment and hardship during the 1930s?",
+      "markdown": "What worldwide economic crisis brought mass unemployment and hardship during the 1930s?"
+    },
+    "back": {
+      "text": "Great Depression. Beginning 1929 | Global. Financial collapse, falling demand, banking failures, and policy mistakes deepened a global downturn. Why it matters: It destabilised societies and changed ideas about government’s economic role.",
+      "markdown": "## Great Depression\n\n**Beginning 1929 | Global**\n\nFinancial collapse, falling demand, banking failures, and policy mistakes deepened a global downturn.\n\n{#0F766E}**Why it matters:** It destabilised societies and changed ideas about government’s economic role.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 54,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What dictatorship emerged when Adolf Hitler and the Nazi Party took power?",
+      "markdown": "What dictatorship emerged when Adolf Hitler and the Nazi Party took power?"
+    },
+    "back": {
+      "text": "Rise of Nazi Germany. 1933–1939 | Germany. The regime destroyed democracy, persecuted opponents and minorities, rearmed Germany, and pursued expansion. Why it matters: It led Europe toward war and enabled the Holocaust.",
+      "markdown": "## Rise of Nazi Germany\n\n**1933–1939 | Germany**\n\nThe regime destroyed democracy, persecuted opponents and minorities, rearmed Germany, and pursued expansion.\n\n{#0F766E}**Why it matters:** It led Europe toward war and enabled the Holocaust.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 55,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What war began in Europe when Germany invaded Poland and expanded across the world?",
+      "markdown": "What war began in Europe when Germany invaded Poland and expanded across the world?"
+    },
+    "back": {
+      "text": "World War II. 1939–1945 | Global. The Axis powers fought the Allies in Europe, Africa, Asia, and the Pacific. Why it matters: It was history’s deadliest conflict and transformed the international order.",
+      "markdown": "## World War II\n\n**1939–1945 | Global**\n\nThe Axis powers fought the Allies in Europe, Africa, Asia, and the Pacific.\n\n{#0F766E}**Why it matters:** It was history’s deadliest conflict and transformed the international order.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 56,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What genocide murdered six million Jews under Nazi rule?",
+      "markdown": "What genocide murdered six million Jews under Nazi rule?"
+    },
+    "back": {
+      "text": "The Holocaust. 1933–1945, especially 1941–1945 | Nazi-occupied Europe. Nazi Germany and its collaborators systematically persecuted and murdered Jews, while also targeting other groups. Why it matters: It stands as a central warning about antisemitism, dictatorship, racism, and genocide.",
+      "markdown": "## The Holocaust\n\n**1933–1945, especially 1941–1945 | Nazi-occupied Europe**\n\nNazi Germany and its collaborators systematically persecuted and murdered Jews, while also targeting other groups.\n\n{#0F766E}**Why it matters:** It stands as a central warning about antisemitism, dictatorship, racism, and genocide.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 57,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What attack brought the United States directly into World War II?",
+      "markdown": "What attack brought the United States directly into World War II?"
+    },
+    "back": {
+      "text": "Attack on Pearl Harbor. 7 December 1941 | Hawaiʻi. Japanese forces struck the US Pacific Fleet at Pearl Harbor and other targets. Why it matters: The United States declared war on Japan, making the conflict still more global.",
+      "markdown": "## Attack on Pearl Harbor\n\n**7 December 1941 | Hawaiʻi**\n\nJapanese forces struck the US Pacific Fleet at Pearl Harbor and other targets.\n\n{#0F766E}**Why it matters:** The United States declared war on Japan, making the conflict still more global.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 58,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What Allied invasion opened a major western front against Nazi Germany?",
+      "markdown": "What Allied invasion opened a major western front against Nazi Germany?"
+    },
+    "back": {
+      "text": "D-Day landings. 6 June 1944 | Normandy, France. Allied troops landed on Normandy beaches and established a foothold in occupied France. Why it matters: It began the liberation of much of Western Europe.",
+      "markdown": "## D-Day landings\n\n**6 June 1944 | Normandy, France**\n\nAllied troops landed on Normandy beaches and established a foothold in occupied France.\n\n{#0F766E}**Why it matters:** It began the liberation of much of Western Europe.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 59,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What attacks introduced nuclear weapons into warfare?",
+      "markdown": "What attacks introduced nuclear weapons into warfare?"
+    },
+    "back": {
+      "text": "Atomic bombings of Hiroshima and Nagasaki. August 1945 | Japan. The United States dropped atomic bombs on Hiroshima and Nagasaki; Japan soon surrendered amid several pressures, including Soviet entry into the war. Why it matters: The bombings ended countless lives and began the nuclear age.",
+      "markdown": "## Atomic bombings of Hiroshima and Nagasaki\n\n**August 1945 | Japan**\n\nThe United States dropped atomic bombs on Hiroshima and Nagasaki; Japan soon surrendered amid several pressures, including Soviet entry into the war.\n\n{#0F766E}**Why it matters:** The bombings ended countless lives and began the nuclear age.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 60,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What international organisation was created after World War II to support peace and cooperation?",
+      "markdown": "What international organisation was created after World War II to support peace and cooperation?"
+    },
+    "back": {
+      "text": "Founding of the United Nations. 1945 | Global. Fifty founding countries signed the UN Charter in San Francisco; membership later expanded greatly. Why it matters: The UN became the central global forum for diplomacy, security, development, and human rights.",
+      "markdown": "## Founding of the United Nations\n\n**1945 | Global**\n\nFifty founding countries signed the UN Charter in San Francisco; membership later expanded greatly.\n\n{#0F766E}**Why it matters:** The UN became the central global forum for diplomacy, security, development, and human rights.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 61,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What event ended British rule while dividing British India into India and Pakistan?",
+      "markdown": "What event ended British rule while dividing British India into India and Pakistan?"
+    },
+    "back": {
+      "text": "Indian independence and Partition. 1947 | South Asia. Independence was accompanied by mass migration, communal violence, and lasting territorial disputes. Why it matters: It ended a major colonial regime and reshaped South Asia.",
+      "markdown": "## Indian independence and Partition\n\n**1947 | South Asia**\n\nIndependence was accompanied by mass migration, communal violence, and lasting territorial disputes.\n\n{#0F766E}**Why it matters:** It ended a major colonial regime and reshaped South Asia.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 62,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What event created the State of Israel and intensified conflict over Palestine?",
+      "markdown": "What event created the State of Israel and intensified conflict over Palestine?"
+    },
+    "back": {
+      "text": "Founding of Israel and first Arab–Israeli war. 1948 | Middle East. Israel declared independence; neighbouring Arab states intervened, and war displaced many Palestinians. Why it matters: It established Israel and deepened a conflict that remains unresolved.",
+      "markdown": "## Founding of Israel and first Arab–Israeli war\n\n**1948 | Middle East**\n\nIsrael declared independence; neighbouring Arab states intervened, and war displaced many Palestinians.\n\n{#0F766E}**Why it matters:** It established Israel and deepened a conflict that remains unresolved.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 63,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What revolution led Mao Zedong to proclaim the People’s Republic of China?",
+      "markdown": "What revolution led Mao Zedong to proclaim the People’s Republic of China?"
+    },
+    "back": {
+      "text": "Chinese Communist Revolution. 1949 | China. Communist forces defeated the Nationalist government in the Chinese Civil War; the Nationalists retreated to Taiwan. Why it matters: It transformed China and the global balance of power.",
+      "markdown": "## Chinese Communist Revolution\n\n**1949 | China**\n\nCommunist forces defeated the Nationalist government in the Chinese Civil War; the Nationalists retreated to Taiwan.\n\n{#0F766E}**Why it matters:** It transformed China and the global balance of power.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 64,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What rivalry divided much of the world between US-led and Soviet-led blocs?",
+      "markdown": "What rivalry divided much of the world between US-led and Soviet-led blocs?"
+    },
+    "back": {
+      "text": "Cold War. c. 1947–1991 | Global. The superpowers competed through alliances, arms races, propaganda, espionage, and proxy wars without fighting each other directly. Why it matters: It shaped global politics for nearly half a century.",
+      "markdown": "## Cold War\n\n**c. 1947–1991 | Global**\n\nThe superpowers competed through alliances, arms races, propaganda, espionage, and proxy wars without fighting each other directly.\n\n{#0F766E}**Why it matters:** It shaped global politics for nearly half a century.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 65,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What war began when North Korea invaded South Korea?",
+      "markdown": "What war began when North Korea invaded South Korea?"
+    },
+    "back": {
+      "text": "Korean War. 1950–1953 | Korean Peninsula. UN forces led by the United States supported the South; China supported the North. Why it matters: An armistice ended the fighting near the original division, but no peace treaty followed.",
+      "markdown": "## Korean War\n\n**1950–1953 | Korean Peninsula**\n\nUN forces led by the United States supported the South; China supported the North.\n\n{#0F766E}**Why it matters:** An armistice ended the fighting near the original division, but no peace treaty followed.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 66,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What movement ended European colonial rule across most of Africa?",
+      "markdown": "What movement ended European colonial rule across most of Africa?"
+    },
+    "back": {
+      "text": "Decolonisation of Africa. 1950s–1970s | Africa. Nationalist movements won independence through negotiation, protest, and sometimes war. Why it matters: It created dozens of new states while leaving major colonial legacies.",
+      "markdown": "## Decolonisation of Africa\n\n**1950s–1970s | Africa**\n\nNationalist movements won independence through negotiation, protest, and sometimes war.\n\n{#0F766E}**Why it matters:** It created dozens of new states while leaving major colonial legacies.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 67,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What revolution overthrew Fulgencio Batista and brought Fidel Castro’s movement to power?",
+      "markdown": "What revolution overthrew Fulgencio Batista and brought Fidel Castro’s movement to power?"
+    },
+    "back": {
+      "text": "Cuban Revolution. 1959 | Cuba. Rebel forces established a revolutionary government that later aligned with the Soviet Union. Why it matters: It transformed Cuba and made the island central to Cold War tensions.",
+      "markdown": "## Cuban Revolution\n\n**1959 | Cuba**\n\nRebel forces established a revolutionary government that later aligned with the Soviet Union.\n\n{#0F766E}**Why it matters:** It transformed Cuba and made the island central to Cold War tensions.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 68,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What confrontation brought the United States and Soviet Union closest to nuclear war?",
+      "markdown": "What confrontation brought the United States and Soviet Union closest to nuclear war?"
+    },
+    "back": {
+      "text": "Cuban Missile Crisis. 1962 | Cuba and global diplomacy. The United States discovered Soviet nuclear missiles in Cuba and imposed a naval quarantine. Why it matters: A negotiated withdrawal ended the crisis and encouraged later risk-reduction measures.",
+      "markdown": "## Cuban Missile Crisis\n\n**1962 | Cuba and global diplomacy**\n\nThe United States discovered Soviet nuclear missiles in Cuba and imposed a naval quarantine.\n\n{#0F766E}**Why it matters:** A negotiated withdrawal ended the crisis and encouraged later risk-reduction measures.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 69,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What movement used protest and legal action to challenge racial segregation and discrimination?",
+      "markdown": "What movement used protest and legal action to challenge racial segregation and discrimination?"
+    },
+    "back": {
+      "text": "US Civil Rights Movement. 1950s–1960s | United States. Black activists and allies organised boycotts, marches, court cases, and voter-registration drives. Why it matters: It won landmark civil-rights laws and inspired movements elsewhere.",
+      "markdown": "## US Civil Rights Movement\n\n**1950s–1960s | United States**\n\nBlack activists and allies organised boycotts, marches, court cases, and voter-registration drives.\n\n{#0F766E}**Why it matters:** It won landmark civil-rights laws and inspired movements elsewhere.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 70,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What conflict ended with communist victory and the reunification of Vietnam?",
+      "markdown": "What conflict ended with communist victory and the reunification of Vietnam?"
+    },
+    "back": {
+      "text": "Vietnam War. c. 1955–1975 | Vietnam and Southeast Asia. North Vietnam and southern communist forces fought South Vietnam and its main ally, the United States. Why it matters: It caused immense regional suffering and deeply affected Cold War politics.",
+      "markdown": "## Vietnam War\n\n**c. 1955–1975 | Vietnam and Southeast Asia**\n\nNorth Vietnam and southern communist forces fought South Vietnam and its main ally, the United States.\n\n{#0F766E}**Why it matters:** It caused immense regional suffering and deeply affected Cold War politics.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 71,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What achievement saw humans walk on another world for the first time?",
+      "markdown": "What achievement saw humans walk on another world for the first time?"
+    },
+    "back": {
+      "text": "Moon landing. 20 July 1969 | Moon. NASA’s Apollo 11 mission landed Neil Armstrong and Buzz Aldrin on the Moon. Why it matters: It marked a landmark in science, engineering, and the Space Race.",
+      "markdown": "## Moon landing\n\n**20 July 1969 | Moon**\n\nNASA’s Apollo 11 mission landed Neil Armstrong and Buzz Aldrin on the Moon.\n\n{#0F766E}**Why it matters:** It marked a landmark in science, engineering, and the Space Race.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 72,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What event symbolised the collapse of communist rule in Eastern Europe?",
+      "markdown": "What event symbolised the collapse of communist rule in Eastern Europe?"
+    },
+    "back": {
+      "text": "Fall of the Berlin Wall. 1989 | Germany. East Germany opened its borders after mounting protests and political change, and crowds dismantled parts of the wall. Why it matters: It paved the way for German reunification and the Cold War’s end.",
+      "markdown": "## Fall of the Berlin Wall\n\n**1989 | Germany**\n\nEast Germany opened its borders after mounting protests and political change, and crowds dismantled parts of the wall.\n\n{#0F766E}**Why it matters:** It paved the way for German reunification and the Cold War’s end.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 73,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What event ended the USSR and produced fifteen independent states?",
+      "markdown": "What event ended the USSR and produced fifteen independent states?"
+    },
+    "back": {
+      "text": "Collapse of the Soviet Union. 1991 | Eurasia. Economic problems, political reform, nationalist movements, and a failed coup weakened central authority. Why it matters: It ended the Cold War’s bipolar order.",
+      "markdown": "## Collapse of the Soviet Union\n\n**1991 | Eurasia**\n\nEconomic problems, political reform, nationalist movements, and a failed coup weakened central authority.\n\n{#0F766E}**Why it matters:** It ended the Cold War’s bipolar order.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 74,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What transition ended South Africa’s system of legal racial segregation?",
+      "markdown": "What transition ended South Africa’s system of legal racial segregation?"
+    },
+    "back": {
+      "text": "End of apartheid. 1990–1994 | South Africa. Negotiations, internal resistance, and international pressure led to democratic elections in 1994. Why it matters: Nelson Mandela became president in the country’s first election with universal adult suffrage.",
+      "markdown": "## End of apartheid\n\n**1990–1994 | South Africa**\n\nNegotiations, internal resistance, and international pressure led to democratic elections in 1994.\n\n{#0F766E}**Why it matters:** Nelson Mandela became president in the country’s first election with universal adult suffrage.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 75,
+    "difficulty": "Easy",
+    "front": {
+      "text": "What terrorist attacks destroyed the World Trade Center towers and struck the Pentagon?",
+      "markdown": "What terrorist attacks destroyed the World Trade Center towers and struck the Pentagon?"
+    },
+    "back": {
+      "text": "September 11 attacks. 11 September 2001 | United States. Al-Qaeda hijackers used passenger aircraft in coordinated attacks. Why it matters: The attacks killed nearly 3,000 people and led to far-reaching wars and security changes.",
+      "markdown": "## September 11 attacks\n\n**11 September 2001 | United States**\n\nAl-Qaeda hijackers used passenger aircraft in coordinated attacks.\n\n{#0F766E}**Why it matters:** The attacks killed nearly 3,000 people and led to far-reaching wars and security changes.{/}",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  }
+]
