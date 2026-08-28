@@ -1,0 +1,1832 @@
+[
+ {
+  "front": {
+   "text": "How many argument conventions does Mojo 1.0 have, and what are they?",
+   "markdown": "How many argument conventions does Mojo 1.0 have, and what are they?"
+  },
+  "back": {
+   "text": "Six: imm, mut, var, ref, out, deinit",
+   "markdown": "## Six: `imm`, `mut`, `var`, `ref`, `out`, `deinit`\n\n- `imm` — immutable reference (the default)\n- `mut` — mutable reference\n- `var` — the function takes ownership\n- `ref` — mutability follows the caller\n- `out` — uninitialized, must be initialized\n- `deinit` — initialized in, destroyed out\n\n{#0F766E}The convention is part of the signature, not the type.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 1
+ },
+ {
+  "front": {
+   "text": "What convention does an argument get when you don't write one?",
+   "markdown": "What convention does an argument get when you don't write one?"
+  },
+  "back": {
+   "text": "imm — an immutable reference",
+   "markdown": "## `imm` — an immutable reference\n\n```\ndef print_list(list: List[Int]):\n    print(list.__str__())\n```\n\nThe function reads the original value rather than a copy, and cannot mutate it. {#0F766E}Passing is cheap by default: nothing is copied unless you ask.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 2
+ },
+ {
+  "front": {
+   "text": "What is the 1.0 spelling of the `read` argument convention?",
+   "markdown": "What is the 1.0 spelling of the `read` argument convention?"
+  },
+  "back": {
+   "text": "imm",
+   "markdown": "## `imm`\n\n```\ndef total(imm values: List[Int]) -> Int:\n    ...\n```\n\n{#C62828}`read` is deprecated.{/} `imm` is the preferred spelling for both the argument convention and the closure-capture convention. The old name still compiles, so nothing but a deliberate scan will find it in your code.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 3
+ },
+ {
+  "front": {
+   "text": "How does a function get permission to mutate its caller's value?",
+   "markdown": "How does a function get permission to mutate its caller's value?"
+  },
+  "back": {
+   "text": "The mut convention",
+   "markdown": "## The `mut` convention\n\n```\ndef mutate(mut l: List[Int]):\n    l.append(5)\n```\n\n`mut` is a mutable reference to the original — no copy in, no copy back. The caller sees the change when the function returns.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 4
+ },
+ {
+  "front": {
+   "text": "What does `var` mean on an argument?",
+   "markdown": "What does `var` mean on an argument?"
+  },
+  "back": {
+   "text": "The function takes exclusive ownership",
+   "markdown": "## The function takes exclusive ownership\n\n```\ndef take_text(var text: String):\n    text += \"!\"\n```\n\nThe value is the function's to keep, mutate, or destroy. {#0F766E}`var` on an argument is ownership; `var` on a declaration is just how you declare a variable. Same keyword, two jobs.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 5
+ },
+ {
+  "front": {
+   "text": "What does the `^` sigil do at a call site?",
+   "markdown": "What does the `^` sigil do at a call site?"
+  },
+  "back": {
+   "text": "Transfers ownership and leaves the source uninitialized",
+   "markdown": "## Transfers ownership and leaves the source uninitialized\n\n```\nvar message = \"Hello\"\ntake_text(message^)\n# message is uninitialized here\n```\n\nUsing `message` after the transfer is a compile error, not a runtime surprise. {#0F766E}The sigil is the visible marker that a value moved.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 6
+ },
+ {
+  "front": {
+   "text": "What is the `ref` argument convention for?",
+   "markdown": "What is the `ref` argument convention for?"
+  },
+  "back": {
+   "text": "Parametric mutability — it follows the caller",
+   "markdown": "## Parametric mutability — it follows the caller\n\n```\ndef add_ref(ref a: Int, b: Int) -> Int:\n    return a + b\n```\n\nOne definition serves both mutable and immutable callers. Without `ref` you would write the method twice, once taking `imm` and once taking `mut`.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 7
+ },
+ {
+  "front": {
+   "text": "What does the `deinit` convention promise?",
+   "markdown": "What does the `deinit` convention promise?"
+  },
+  "back": {
+   "text": "Initialized on entry, destroyed by the time it returns",
+   "markdown": "## Initialized on entry, destroyed by the time it returns\n\n```\ndef __deinit__(deinit self):\n    ...\n```\n\nThe function fully consumes the value: it may transfer the fields out, and no destructor runs afterwards. It is the mirror image of `out`.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 8
+ },
+ {
+  "front": {
+   "text": "What is the exclusivity rule?",
+   "markdown": "What is the exclusivity rule?"
+  },
+  "back": {
+   "text": "A mutable reference can be the only reference",
+   "markdown": "## A mutable reference can be the only reference\n\nIf a function receives a `mut` argument, it cannot also receive any other reference to that same value — mutable or immutable.\n\n{#0F766E}This is what makes aliasing bugs unrepresentable, and it is why the compiler can optimize as if references never overlap.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 9
+ },
+ {
+  "front": {
+   "text": "What is an origin?",
+   "markdown": "What is an origin?"
+  },
+  "back": {
+   "text": "Compile-time tracking of which variable a reference came from",
+   "markdown": "## Compile-time tracking of which variable a reference came from\n\nAn origin answers two questions: which variable owns the value, and may it be mutated through this reference.\n\n{#0F766E}Origins are symbolic — the compiler tracks them, and nothing about them exists at run time.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 10
+ },
+ {
+  "front": {
+   "text": "Name the three origin type spellings.",
+   "markdown": "Name the three origin type spellings."
+  },
+  "back": {
+   "text": "ImmOrigin, MutOrigin, and Origin[mut=...]",
+   "markdown": "## `ImmOrigin`, `MutOrigin`, and `Origin[mut=...]`\n\n```\nstruct ImmutRef[origin: ImmOrigin]:\n    pass\n\nstruct ParametricRef[\n    is_mutable: Bool,\n    origin: Origin[mut=is_mutable]\n]:\n    pass\n```\n\n`Origin[mut=...]` is the parametric form: mutability becomes a `Bool` parameter you can carry through a generic type.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 11
+ },
+ {
+  "front": {
+   "text": "How do you name the origin of an existing value?",
+   "markdown": "How do you name the origin of an existing value?"
+  },
+  "back": {
+   "text": "origin_of(value)",
+   "markdown": "## `origin_of(value)`\n\n```\norigin_of(self)\norigin_of(x.y)\norigin_of(foo())\n```\n\nIt works on a variable, a field, or an expression's result, and yields the origin you then hand to `ref[...]` or to a `Span`.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 12
+ },
+ {
+  "front": {
+   "text": "How do you return a reference rather than a copy?",
+   "markdown": "How do you return a reference rather than a copy?"
+  },
+  "back": {
+   "text": "-> ref[origin] Type",
+   "markdown": "## `-> ref[origin] Type`\n\n```\ndef __getitem__(\n    ref self, index: Int\n) raises -> ref[self] String:\n    return self.names[index]\n```\n\n`ref[self]` says the returned reference lives as long as `self`. {#0F766E}At the call site, `ref name = list[2]` binds the reference; `var name = list[2]` takes a copy.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 13
+ },
+ {
+  "front": {
+   "text": "How do you return a reference that might come from either of two arguments?",
+   "markdown": "How do you return a reference that might come from either of two arguments?"
+  },
+  "back": {
+   "text": "An origin union — ref[a, b]",
+   "markdown": "## An origin union — `ref[a, b]`\n\n```\ndef pick_one(\n    cond: Bool, ref a: String, ref b: String\n) -> ref[a, b] String:\n    return a if cond else b\n```\n\nThe union extends both lifetimes. {#0F766E}The result is mutable only if *both* origins are mutable — the weaker one wins.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 14
+ },
+ {
+  "front": {
+   "text": "What origin does a string literal have?",
+   "markdown": "What origin does a string literal have?"
+  },
+  "back": {
+   "text": "ImmStaticOrigin — it lasts for the whole program",
+   "markdown": "## `ImmStaticOrigin` — it lasts for the whole program\n\nStatic origins mark values that are never destroyed, so a reference to them is valid anywhere.\n\nFor memory Mojo does not manage — a raw allocation, a mapped register — the spellings are `MutUntrackedOrigin` and `ImmUntrackedOrigin`.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 15
+ },
+ {
+  "front": {
+   "text": "What do `ImmUnsafeAnyOrigin` and `MutUnsafeAnyOrigin` mean?",
+   "markdown": "What do `ImmUnsafeAnyOrigin` and `MutUnsafeAnyOrigin` mean?"
+  },
+  "back": {
+   "text": "A reference that might point at any live value",
+   "markdown": "## A reference that might point at any live value\n\nThey are the wildcard origins: they defeat lifetime checking rather than describe a lifetime, and they are discouraged.\n\n{#C62828}A struct field can no longer hide an unsafe-any origin.{/} Widening to one has to be written out, so it cannot happen by accident behind a field's type.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 16
+ },
+ {
+  "front": {
+   "text": "What is an interior origin?",
+   "markdown": "What is an interior origin?"
+  },
+  "back": {
+   "text": "An origin bound to a position *inside* a collection",
+   "markdown": "## An origin bound to a position *inside* a collection\n\n```\nref first = my_list[0]\nmy_list.append(4)   # rejected\n```\n\n`List` returns element references tied to interior origins, so the compiler rejects code holding an element reference across a mutation.\n\n{#C62828}Experimental in 1.0.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 17
+ },
+ {
+  "front": {
+   "text": "What is the signature of a Mojo 1.0 constructor?",
+   "markdown": "What is the signature of a Mojo 1.0 constructor?"
+  },
+  "back": {
+   "text": "def __init__(out self, ...)",
+   "markdown": "## `def __init__(out self, ...)`\n\n```\ndef __init__(out self, name: String, age: Int):\n    self.name = name\n    self.age = age\n```\n\n`out` means `self` arrives uninitialized and every field must be initialized before the constructor returns.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 18
+ },
+ {
+  "front": {
+   "text": "How do you get a constructor that just takes every field?",
+   "markdown": "How do you get a constructor that just takes every field?"
+  },
+  "back": {
+   "text": "@fieldwise_init",
+   "markdown": "## `@fieldwise_init`\n\n```\n@fieldwise_init\nstruct MyPet:\n    var name: String\n    var age: Int\n```\n\nThe decorator synthesizes the field-by-field initializer, in declaration order. {#0F766E}Write it by hand only when construction needs to do something.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 19
+ },
+ {
+  "front": {
+   "text": "How is a copy constructor spelled in Mojo 1.0?",
+   "markdown": "How is a copy constructor spelled in Mojo 1.0?"
+  },
+  "back": {
+   "text": "def __init__(out self, *, copy: Self)",
+   "markdown": "## `def __init__(out self, *, copy: Self)`\n\n```\ndef __init__(out self, *, copy: Self):\n    self.name = copy.name\n    self.age = copy.age\n```\n\nIt is a keyword-only `copy` argument, not a separate dunder. Requires `Copyable`, and per value semantics it makes a deep copy.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 20
+ },
+ {
+  "front": {
+   "text": "How is a move constructor spelled in Mojo 1.0?",
+   "markdown": "How is a move constructor spelled in Mojo 1.0?"
+  },
+  "back": {
+   "text": "def __init__(out self, *, deinit move: Self)",
+   "markdown": "## `def __init__(out self, *, deinit move: Self)`\n\n```\ndef __init__(out self, *, deinit move: Self):\n    self.name = move.name^\n    self.age = move.age\n```\n\n`deinit` consumes the source, so its fields are transferred out with `^` and no destructor runs on it afterwards.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 21
+ },
+ {
+  "front": {
+   "text": "Which lifecycle trait do structs get for free in Mojo 1.0?",
+   "markdown": "Which lifecycle trait do structs get for free in Mojo 1.0?"
+  },
+  "back": {
+   "text": "Movable — structs conform by default",
+   "markdown": "## `Movable` — structs conform by default\n\nMoving a value is the baseline assumption; you no longer declare it.\n\n{#0F766E}`Copyable` and `Deinitable` are still opt-in, so the default value is one you can move but not silently duplicate.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 22
+ },
+ {
+  "front": {
+   "text": "How does a type opt out of being movable?",
+   "markdown": "How does a type opt out of being movable?"
+  },
+  "back": {
+   "text": "Movable where False",
+   "markdown": "## `Movable where False`\n\n```\nstruct Pinned(Movable where False):\n    var handle: Int\n```\n\nA 1.0 fix made the opt-out hold *inside* generic functions too, so a `where False` type can no longer be moved by a generic that was not looking.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 23
+ },
+ {
+  "front": {
+   "text": "How do you make movability depend on a parameter?",
+   "markdown": "How do you make movability depend on a parameter?"
+  },
+  "back": {
+   "text": "Conditional conformance with where",
+   "markdown": "## Conditional conformance with `where`\n\n```\nstruct Box[T: AnyType](\n    Movable where conforms_to(T, Movable)\n):\n    var value: Self.T\n```\n\nThe container is movable exactly when its element is. {#0F766E}This is how one generic type serves both ordinary and pinned payloads.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 24
+ },
+ {
+  "front": {
+   "text": "What is the destructor called in Mojo 1.0?",
+   "markdown": "What is the destructor called in Mojo 1.0?"
+  },
+  "back": {
+   "text": "__deinit__",
+   "markdown": "## `__deinit__`\n\n```\ndef __deinit__(deinit self):\n    ...\n```\n\n{#C62828}Renamed from `__del__`.{/} The new name is symmetric with `__init__`, and the `deinit` convention states the contract: the value comes in initialized and is gone when the method returns.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 25
+ },
+ {
+  "front": {
+   "text": "What does the `Deinitable` trait provide?",
+   "markdown": "What does the `Deinitable` trait provide?"
+  },
+  "back": {
+   "text": "A default, no-op destructor",
+   "markdown": "## A default, no-op destructor\n\nMost types get it without writing anything, and types that are just collections of other types rarely need to override `__deinit__`.\n\n{#C62828}Renamed from `ImplicitlyDestructible`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 26
+ },
+ {
+  "front": {
+   "text": "When does Mojo destroy a value?",
+   "markdown": "When does Mojo destroy a value?"
+  },
+  "back": {
+   "text": "As soon as possible — after its last use",
+   "markdown": "## As soon as possible — after its last use\n\nASAP destruction runs after every sub-expression, using static analysis to find each value's last use.\n\n{#0F766E}Not at end of scope, and not at a garbage collector's convenience. Destruction is a compile-time decision.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 27
+ },
+ {
+  "front": {
+   "text": "How do you force a value to be destroyed at a particular line?",
+   "markdown": "How do you force a value to be destroyed at a particular line?"
+  },
+  "back": {
+   "text": "Discard it — _ = value",
+   "markdown": "## Discard it — `_ = value`\n\n```\nvar value = something()\n_ = value   # destructor runs here\n```\n\nThe discard counts as a use, so it sets the last use at that line and the destructor runs immediately after the statement.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 28
+ },
+ {
+  "front": {
+   "text": "How do you require that a type be cleaned up explicitly?",
+   "markdown": "How do you require that a type be cleaned up explicitly?"
+  },
+  "back": {
+   "text": "@explicit_destroy with Deinitable where False",
+   "markdown": "## `@explicit_destroy` with `Deinitable where False`\n\n```\n@explicit_destroy(\"Call save_and_close()\")\nstruct FileBuffer(Deinitable where False):\n    var path: String\n\n    def save_and_close(deinit self) raises:\n        ...\n```\n\nDropping the value on the floor becomes a compile error carrying your message.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 29
+ },
+ {
+  "front": {
+   "text": "What can a named explicit destructor do that `__deinit__` cannot?",
+   "markdown": "What can a named explicit destructor do that `__deinit__` cannot?"
+  },
+  "back": {
+   "text": "Raise",
+   "markdown": "## Raise\n\n```\ndef save_and_close(deinit self) raises:\n    ...\n```\n\nClosing a file can fail, and a value that must be closed deliberately is exactly the case where you want the failure surfaced.\n\n{#0F766E}Automatic destruction has nowhere to report an error, which is why the raising form has to be a named method you call.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 30
+ },
+ {
+  "front": {
+   "text": "What does `@implicit` do on a constructor?",
+   "markdown": "What does `@implicit` do on a constructor?"
+  },
+  "back": {
+   "text": "Allows it to be used as an implicit conversion",
+   "markdown": "## Allows it to be used as an implicit conversion\n\n```\n@implicit\ndef __init__(out self, s: Source):\n    ...\n```\n\nOnly single-argument constructors qualify. Without the decorator the conversion has to be written out at each call site.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 31
+ },
+ {
+  "front": {
+   "text": "Is `Array` implicitly copyable in Mojo 1.0?",
+   "markdown": "Is `Array` implicitly copyable in Mojo 1.0?"
+  },
+  "back": {
+   "text": "No — and it is not Defaultable either",
+   "markdown": "## No — and it is not `Defaultable` either\n\n{#C62828}`Array` is no longer `ImplicitlyCopyable` or `Defaultable`.{/}\n\nCopying one is now something you ask for. An accidental full copy of a fixed-size buffer was too easy to write and too expensive to miss.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 32
+ },
+ {
+  "front": {
+   "text": "What does conforming to `Copyable` give you?",
+   "markdown": "What does conforming to `Copyable` give you?"
+  },
+  "back": {
+   "text": "A generated copy constructor and a copy() method",
+   "markdown": "## A generated copy constructor and a `copy()` method\n\n```\nstruct MyPet(Copyable):\n    var name: String\n```\n\nThe copy is deep, per value semantics. {#0F766E}Declare the conformance and you get the implementation; write `__init__(out self, *, copy: Self)` yourself only to change what copying means.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 33
+ },
+ {
+  "front": {
+   "text": "How many pointer types does Mojo 1.0 have for raw memory?",
+   "markdown": "How many pointer types does Mojo 1.0 have for raw memory?"
+  },
+  "back": {
+   "text": "One — Pointer",
+   "markdown": "## One — `Pointer`\n\n{#C62828}`Pointer` and `UnsafePointer` are unified.{/} The distinction moved from the type to the operations: anything that can go wrong is prefixed `unsafe_`.\n\n{#0F766E}A pointer is no longer unsafe by name. Specific *operations* on it are.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 34
+ },
+ {
+  "front": {
+   "text": "How do you take a pointer to an existing value?",
+   "markdown": "How do you take a pointer to an existing value?"
+  },
+  "back": {
+   "text": "Pointer(to=value)",
+   "markdown": "## `Pointer(to=value)`\n\n```\nvar count: Int = 0\nvar ptr = Pointer(to=count)\n```\n\nThis form is safe: the pointer carries the origin of `count`, so the compiler keeps it from outliving what it points at.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 35
+ },
+ {
+  "front": {
+   "text": "How do you allocate memory in Mojo 1.0?",
+   "markdown": "How do you allocate memory in Mojo 1.0?"
+  },
+  "back": {
+   "text": "alloc(Layout[T](count=n))",
+   "markdown": "## `alloc(Layout[T](count=n))`\n\n```\nfrom std.memory.alloc import alloc, dealloc, Layout\n\nvar allocation = alloc(Layout[Int](count=4))\nvar ptr = allocation.unsafe_ptr()\ndealloc(allocation^)\n```\n\nA `Layout` names the type, the element count, and optionally the alignment.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 36
+ },
+ {
+  "front": {
+   "text": "What does `alloc()` return, and why not just a pointer?",
+   "markdown": "What does `alloc()` return, and why not just a pointer?"
+  },
+  "back": {
+   "text": "An Allocation — an explicitly-destroyed handle",
+   "markdown": "## An `Allocation` — an explicitly-destroyed handle\n\nIt holds the pointer *and* the layout used to allocate, and it must be passed to `dealloc(allocation^)`.\n\n{#0F766E}Leaking it is a compile error rather than a slow leak, and `dealloc` already knows the size because the handle carried it.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 37
+ },
+ {
+  "front": {
+   "text": "What state is freshly allocated memory in?",
+   "markdown": "What state is freshly allocated memory in?"
+  },
+  "back": {
+   "text": "Uninitialized — like a declared but unassigned variable",
+   "markdown": "## Uninitialized — like a declared but unassigned variable\n\nDereferencing it before writing is undefined. You must initialize it first, and destroy the contents before deallocating.\n\n{#0F766E}Track two things separately: the state of the pointer, and the state of the pointee.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 38
+ },
+ {
+  "front": {
+   "text": "How do you initialize the memory a pointer refers to?",
+   "markdown": "How do you initialize the memory a pointer refers to?"
+  },
+  "back": {
+   "text": "unsafe_write()",
+   "markdown": "## `unsafe_write()`\n\n```\nstr_ptr.unsafe_write(my_string^)\n```\n\nIt moves the value into memory that is not yet initialized. {#0F766E}Assigning with `ptr[] = value` instead would destroy the old value first — and there isn't one.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 39
+ },
+ {
+  "front": {
+   "text": "How do you read and write through a pointer?",
+   "markdown": "How do you read and write through a pointer?"
+  },
+  "back": {
+   "text": "The [] operator",
+   "markdown": "## The `[]` operator\n\n```\nprint(ptr[])\nptr[] = 100\nptr[] += 10\n```\n\nThis is the initialized-memory path: it reads, assigns, and mutates the pointee in place.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 40
+ },
+ {
+  "front": {
+   "text": "How do you move a value *out* of pointed-to memory?",
+   "markdown": "How do you move a value *out* of pointed-to memory?"
+  },
+  "back": {
+   "text": "unsafe_take_pointee()",
+   "markdown": "## `unsafe_take_pointee()`\n\nIt moves the pointee out and leaves the memory uninitialized.\n\nTo destroy in place instead, use `unsafe_deinit_pointee()`, which runs the destructor and leaves the memory uninitialized as well.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 41
+ },
+ {
+  "front": {
+   "text": "How is pointer arithmetic written in Mojo 1.0?",
+   "markdown": "How is pointer arithmetic written in Mojo 1.0?"
+  },
+  "back": {
+   "text": "unsafe_offset()",
+   "markdown": "## `unsafe_offset()`\n\n```\nvar third_ptr = first_ptr.unsafe_offset(2)\nptr[unsafe_offset=3] = 0\n```\n\nThe offset counts elements, not bytes, and may be negative to move backwards through a block.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 42
+ },
+ {
+  "front": {
+   "text": "How do you find the distance between two pointers?",
+   "markdown": "How do you find the distance between two pointers?"
+  },
+  "back": {
+   "text": "offset_from()",
+   "markdown": "## `offset_from()`\n\nPointer subtraction gives the number of elements between them, not the number of bytes.\n\n{#0F766E}Only meaningful for two pointers into the same allocation.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 43
+ },
+ {
+  "front": {
+   "text": "How do you model a null pointer?",
+   "markdown": "How do you model a null pointer?"
+  },
+  "back": {
+   "text": "Optional[Pointer[...]] — Pointer is non-nullable",
+   "markdown": "## `Optional[Pointer[...]]` — `Pointer` is non-nullable\n\n```\nvar ptr = Optional[Pointer[Int, MutUntrackedOrigin]]()\nif ptr:\n    var p = ptr.value()\n```\n\n{#0F766E}Nullability is opt-in and visible in the type, so a plain `Pointer` never needs a null check.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 44
+ },
+ {
+  "front": {
+   "text": "What is an `OpaquePointer`?",
+   "markdown": "What is an `OpaquePointer`?"
+  },
+  "back": {
+   "text": "A pointer with no pointee type — Pointer[NoneType]",
+   "markdown": "## A pointer with no pointee type — `Pointer[NoneType]`\n\n```\nvar opaque_ptr = str_ptr.unsafe_bitcast[NoneType]()\n```\n\nIt is the `void *` of Mojo, and exists mainly for C interop where the other side does not tell you the type.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 45
+ },
+ {
+  "front": {
+   "text": "How do you build a pointer from a raw integer address?",
+   "markdown": "How do you build a pointer from a raw integer address?"
+  },
+  "back": {
+   "text": "unsafe_from_address=",
+   "markdown": "## `unsafe_from_address=`\n\n```\nvar ptr = Pointer[Int32, MutUntrackedOrigin](\n    unsafe_from_address=mmio_address\n)\n```\n\nThere is no value to derive an origin from, so you supply one — usually an untracked origin, because Mojo is not managing that memory.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 46
+ },
+ {
+  "front": {
+   "text": "What do `unsafe_strided_load()` and `unsafe_strided_store()` do?",
+   "markdown": "What do `unsafe_strided_load()` and `unsafe_strided_store()` do?"
+  },
+  "back": {
+   "text": "Move SIMD vectors with a fixed gap between elements",
+   "markdown": "## Move SIMD vectors with a fixed gap between elements\n\nUseful for a column of a row-major matrix, or one channel of interleaved audio, where the values you want are evenly spaced rather than contiguous.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 47
+ },
+ {
+  "front": {
+   "text": "What do `unsafe_gather()` and `unsafe_scatter()` do?",
+   "markdown": "What do `unsafe_gather()` and `unsafe_scatter()` do?"
+  },
+  "back": {
+   "text": "Load from, and store to, arbitrary offsets at once",
+   "markdown": "## Load from, and store to, arbitrary offsets at once\n\nWhere a strided load needs a constant stride, gather and scatter take a vector of indices — the tool for an indirection table or a sparse update.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 48
+ },
+ {
+  "front": {
+   "text": "What is an `OwnedPointer` for?",
+   "markdown": "What is an `OwnedPointer` for?"
+  },
+  "back": {
+   "text": "Single ownership of one heap item",
+   "markdown": "## Single ownership of one heap item\n\nThe item is passed in when you initialize the pointer. An `OwnedPointer` can be moved but not copied, so there is exactly one owner and cleanup is automatic.\n\n{#0F766E}Safe, non-array, and never uninitialized.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 49
+ },
+ {
+  "front": {
+   "text": "What is an `ArcPointer` for?",
+   "markdown": "What is an `ArcPointer` for?"
+  },
+  "back": {
+   "text": "Shared ownership by reference count",
+   "markdown": "## Shared ownership by reference count\n\nIt can be freely copied. Every instance shares a count, incremented on copy and decremented on destruction; the value dies when the count reaches zero.\n\n{#0F766E}Reach for it when ownership genuinely is ambiguous — not to avoid thinking about who owns the value.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 50
+ },
+ {
+  "front": {
+   "text": "How do you choose between `Pointer`, `OwnedPointer` and `ArcPointer`?",
+   "markdown": "How do you choose between `Pointer`, `OwnedPointer` and `ArcPointer`?"
+  },
+  "back": {
+   "text": "By ownership, not by convenience",
+   "markdown": "## By ownership, not by convenience\n\n- `Pointer` — manual control, arrays, uninitialized memory, FFI\n- `OwnedPointer` — one owner, automatic cleanup, not copyable\n- `ArcPointer` — several owners, copyable, refcounted\n\n{#0F766E}Only `Pointer` can address a block or point at uninitialized memory.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 51
+ },
+ {
+  "front": {
+   "text": "What does `size_of()` return in Mojo 1.0?",
+   "markdown": "What does `size_of()` return in Mojo 1.0?"
+  },
+  "back": {
+   "text": "The store size rounded up to the type's alignment",
+   "markdown": "## The store size rounded up to the type's alignment\n\n{#C62828}This changed in 1.0.{/} It now returns the allocation size, which is what you need when striding through an array.\n\nThe previous value under-reported over-aligned types and could corrupt memory when used as a stride.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 52
+ },
+ {
+  "front": {
+   "text": "What is an `AddressSpace` for?",
+   "markdown": "What is an `AddressSpace` for?"
+  },
+  "back": {
+   "text": "Naming which memory a pointer lives in",
+   "markdown": "## Naming which memory a pointer lives in\n\nGeneric address space for ordinary host memory, and distinct spaces for GPU global and shared memory.\n\n{#0F766E}It is part of the pointer's type, so a shared-memory pointer cannot be silently passed where a global one is expected. `Span` carries the parameter too.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 53
+ },
+ {
+  "front": {
+   "text": "What is a foreign pointer?",
+   "markdown": "What is a foreign pointer?"
+  },
+  "back": {
+   "text": "A pointer to memory Mojo did not allocate",
+   "markdown": "## A pointer to memory Mojo did not allocate\n\nIt carries an untracked origin, because there is no Mojo variable whose lifetime could be tracked.\n\n{#0F766E}The lifetime rules are then yours to enforce: the compiler has explicitly been told it cannot help.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 54
+ },
+ {
+  "front": {
+   "text": "How do you declare a trait?",
+   "markdown": "How do you declare a trait?"
+  },
+  "back": {
+   "text": "trait plus requirements ending in ...",
+   "markdown": "## `trait` plus requirements ending in `...`\n\n```\ntrait DeflectionSensing:\n    def fetch_reading(self) -> Float64:\n        ...\n```\n\nThe ellipsis is what marks the method *required*: every conforming type must supply an implementation.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 55
+ },
+ {
+  "front": {
+   "text": "What four kinds of requirement can a trait contain?",
+   "markdown": "What four kinds of requirement can a trait contain?"
+  },
+  "back": {
+   "text": "Methods, provided methods, associated types, comptime values",
+   "markdown": "## Methods, provided methods, associated types, comptime values\n\n- required methods, marked `...`\n- provided methods, with a default body\n- `associatedtype Element: Movable`\n- `comptime max_pause_seconds: Float64`\n\nA shared constant may also carry a value: `comptime tolerance: Float64 = 0.05`.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 56
+ },
+ {
+  "front": {
+   "text": "How does a struct declare that it conforms to a trait?",
+   "markdown": "How does a struct declare that it conforms to a trait?"
+  },
+  "back": {
+   "text": "In parentheses after the name",
+   "markdown": "## In parentheses after the name\n\n```\nstruct CapacitiveSensor(Copyable, DeflectionSensing):\n    def fetch_reading(self) -> Float64:\n        return Float64(21.5)\n```\n\n{#0F766E}There is no duck typing: conformance is declared, checked, and total. Partial conformance is not a thing.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 57
+ },
+ {
+  "front": {
+   "text": "Can you add a trait to a type you don't own?",
+   "markdown": "Can you add a trait to a type you don't own?"
+  },
+  "back": {
+   "text": "No",
+   "markdown": "## No\n\nConformance is declared where the type is declared. There is no post-hoc extension and no way to retrofit a trait onto someone else's struct.\n\n{#0F766E}Wrap the foreign type in your own struct and conform that.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 58
+ },
+ {
+  "front": {
+   "text": "How does one trait build on another?",
+   "markdown": "How does one trait build on another?"
+  },
+  "back": {
+   "text": "Refinement — the parent goes in parentheses",
+   "markdown": "## Refinement — the parent goes in parentheses\n\n```\ntrait CalibratableDeflectionSensing(DeflectionSensing):\n    def calibrate(mut self):\n        ...\n```\n\nA conforming type must satisfy both the refined trait and its parent.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 59
+ },
+ {
+  "front": {
+   "text": "How do you require two traits at once?",
+   "markdown": "How do you require two traits at once?"
+  },
+  "back": {
+   "text": "Compose them with &",
+   "markdown": "## Compose them with `&`\n\n```\ndef poll_and_log[T: DeflectionSensing & Loggable](sensor: T):\n    print(sensor.fetch_reading())\n```\n\nA composition can be named and reused:\n\n```\ncomptime SensorLike = DeflectionSensing & Loggable\n```",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 60
+ },
+ {
+  "front": {
+   "text": "How do you take any conforming type without naming a parameter?",
+   "markdown": "How do you take any conforming type without naming a parameter?"
+  },
+  "back": {
+   "text": "Some[Trait]",
+   "markdown": "## `Some[Trait]`\n\n```\ndef averaged_poll_2(\n    sensor: Some[DeflectionSensing], samples: Int\n) -> Float64:\n    ...\n```\n\nEquivalent to declaring `[T: DeflectionSensing]` and taking a `T`. {#0F766E}Use it when the type name would appear exactly once.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 61
+ },
+ {
+  "front": {
+   "text": "Can a trait ship a working implementation?",
+   "markdown": "Can a trait ship a working implementation?"
+  },
+  "back": {
+   "text": "Yes — a provided method",
+   "markdown": "## Yes — a provided method\n\n```\ntrait DefaultLoggable:\n    def log(self, message: String):\n        print(\"reading logged\")\n```\n\nConforming types inherit the body and may override it. Only members marked `...` must be implemented.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 62
+ },
+ {
+  "front": {
+   "text": "What separates `[]` from `()` in a declaration?",
+   "markdown": "What separates `[]` from `()` in a declaration?"
+  },
+  "back": {
+   "text": "Compile time from run time",
+   "markdown": "## Compile time from run time\n\nParameters go in `[]` and resolve at compile time; arguments go in `()` and resolve at run time.\n\n{#0F766E}Mojo generates specialized code per concrete parameter, so generics cost nothing at run time.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 63
+ },
+ {
+  "front": {
+   "text": "Can a type parameter be left unconstrained?",
+   "markdown": "Can a type parameter be left unconstrained?"
+  },
+  "back": {
+   "text": "No — always constrain or type it",
+   "markdown": "## No — always constrain or type it\n\nWithout a fixed set of required features the compiler has no guarantee about which operations are valid.\n\nThe most permissive bound is `AnyType`; `Deinitable` and `Writable` are common baselines. {#0F766E}The bound is the contract you get to rely on inside the body.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 64
+ },
+ {
+  "front": {
+   "text": "What is the naming convention for parameters?",
+   "markdown": "What is the naming convention for parameters?"
+  },
+  "back": {
+   "text": "PascalCase for types, lower_snake_case for values",
+   "markdown": "## PascalCase for types, lower_snake_case for values\n\n```\ndef make_filled[T: MyElement, size: Int](\n    splat_value: T\n) -> List[T]:\n    ...\n```\n\n`T` and `ErrorType` name types; `size` and `threshold` name compile-time values.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 65
+ },
+ {
+  "front": {
+   "text": "How does a parameterized struct refer to its own parameter in a field?",
+   "markdown": "How does a parameterized struct refer to its own parameter in a field?"
+  },
+  "back": {
+   "text": "Self.T",
+   "markdown": "## `Self.T`\n\n```\nstruct Pair[T: ComparableValue](ComparableValue):\n    var left: Self.T\n    var right: Self.T\n```\n\nThe brackets state what `Pair` requires; the parentheses state what `Pair` itself conforms to.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 66
+ },
+ {
+  "front": {
+   "text": "Where does a constraint go in Mojo 1.0?",
+   "markdown": "Where does a constraint go in Mojo 1.0?"
+  },
+  "back": {
+   "text": "A trailing where clause",
+   "markdown": "## A trailing `where` clause\n\n```\ndef pow2[n: Int]() -> Int where n >= 0:\n    ...\n```\n\n{#C62828}`where` in the parameter list is gone.{/} The caller must prove the proposition before the call is allowed.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 67
+ },
+ {
+  "front": {
+   "text": "How do you test trait conformance inside a constraint?",
+   "markdown": "How do you test trait conformance inside a constraint?"
+  },
+  "back": {
+   "text": "conforms_to(T, Trait)",
+   "markdown": "## `conforms_to(T, Trait)`\n\n```\nstruct MyContainer[T: AnyType](\n    Copyable where conforms_to(T, Copyable)\n):\n    ...\n```\n\nIt is a compile-time predicate, usable in a `where` clause on a struct, a conformance, or a single method.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 68
+ },
+ {
+  "front": {
+   "text": "How do you gate one method on a capability the type may not have?",
+   "markdown": "How do you gate one method on a capability the type may not have?"
+  },
+  "back": {
+   "text": "A where clause on that method",
+   "markdown": "## A `where` clause on that method\n\n```\ndef __bool__(self) -> Bool\n    where conforms_to(Self.T, Boolable):\n    return self.value.__bool__()\n```\n\n{#0F766E}The method exists only for the types that can support it, so an unsupported call fails at the call site rather than inside the body.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 69
+ },
+ {
+  "front": {
+   "text": "How do you attach an explanation to a failed constraint?",
+   "markdown": "How do you attach an explanation to a failed constraint?"
+  },
+  "back": {
+   "text": "where (condition, \"message\")",
+   "markdown": "## `where (condition, \"message\")`\n\nThe optional string literal is what the compiler prints when the constraint is not satisfied.\n\n{#0F766E}A constraint diagnostic is read by someone who cannot see your implementation. Spend a sentence on it.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 70
+ },
+ {
+  "front": {
+   "text": "How do you compare two types for equality at compile time?",
+   "markdown": "How do you compare two types for equality at compile time?"
+  },
+  "back": {
+   "text": "== and !=",
+   "markdown": "## `==` and `!=`\n\n```\nwhere T == Float64\n```\n\nType equality uses the ordinary comparison operators in 1.0, replacing the earlier special-purpose spellings.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 71
+ },
+ {
+  "front": {
+   "text": "How do you assert something at compile time?",
+   "markdown": "How do you assert something at compile time?"
+  },
+  "back": {
+   "text": "comptime assert",
+   "markdown": "## `comptime assert`\n\n```\ncomptime assert x >= 0, \"x must be >= 0.\"\n```\n\nThe message is optional. {#0F766E}Use `where` to state what a caller must prove; use `comptime assert` to check something inside your own body.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 72
+ },
+ {
+  "front": {
+   "text": "What does refinement mean in a constrained branch?",
+   "markdown": "What does refinement mean in a constrained branch?"
+  },
+  "back": {
+   "text": "Inside the branch, the compiler knows more about the type",
+   "markdown": "## Inside the branch, the compiler knows more about the type\n\nWithin a `conforms_to()` branch the type is treated as conforming, so its methods are available without a cast.\n\n{#C62828}`trait_downcast_var()` was removed{/} — refinement is automatic, and a 1.0 fix extended it through nested boolean expressions.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 73
+ },
+ {
+  "front": {
+   "text": "How do you constrain every element of a parameter pack?",
+   "markdown": "How do you constrain every element of a parameter pack?"
+  },
+  "back": {
+   "text": "TypeList.all_conforms_to()",
+   "markdown": "## `TypeList.all_conforms_to()`\n\nIt proves the property for the whole pack at once and refines the elements, so each one can be used through that trait inside the body.\n\n{#0F766E}The alternative is checking element by element, which the compiler cannot then generalize.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 74
+ },
+ {
+  "front": {
+   "text": "How do you take a variadic list of types?",
+   "markdown": "How do you take a variadic list of types?"
+  },
+  "back": {
+   "text": "A parameter pack",
+   "markdown": "## A parameter pack\n\n```\ndef show(*pack: *SomeTypeList[Writable]):\n    ...\n```\n\n`TypeList.of` infers `Trait`, so the bound does not have to be spelled out at every use.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 75
+ },
+ {
+  "front": {
+   "text": "What happens if you name the same trait twice in a composition?",
+   "markdown": "What happens if you name the same trait twice in a composition?"
+  },
+  "back": {
+   "text": "The compiler warns about the redundancy",
+   "markdown": "## The compiler warns about the redundancy\n\nComposing a trait with one that already refines it adds nothing, and 1.0 says so rather than silently accepting it.\n\n{#0F766E}Usually the sign that a refinement relationship exists that you can lean on instead.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 76
+ },
+ {
+  "front": {
+   "text": "Which trait superseded `CollectionElement`?",
+   "markdown": "Which trait superseded `CollectionElement`?"
+  },
+  "back": {
+   "text": "No single one — the final trait set replaced it",
+   "markdown": "## No single one — the final trait set replaced it\n\n{#C62828}`CollectionElement` is gone.{/} Requirements are now stated as exactly the traits a container needs: `Copyable`, `Movable`, `Deinitable`, and so on.\n\n{#0F766E}Its problem was bundling: it demanded capabilities most containers never needed.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 77
+ },
+ {
+  "front": {
+   "text": "How do you declare a named compile-time constant?",
+   "markdown": "How do you declare a named compile-time constant?"
+  },
+  "back": {
+   "text": "comptime",
+   "markdown": "## `comptime`\n\n```\ncomptime rows = 512\n```\n\n{#C62828}`alias` is deprecated for this.{/} A `comptime` identifier can be assigned only once in a given scope.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 78
+ },
+ {
+  "front": {
+   "text": "How do you give a type a short name?",
+   "markdown": "How do you give a type a short name?"
+  },
+  "back": {
+   "text": "Assign it to a comptime value",
+   "markdown": "## Assign it to a `comptime` value\n\n```\ncomptime Float16 = SIMD[DType.float16, 1]\n```\n\nTypes are compile-time values, so naming one is the same operation as naming a compile-time number.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 79
+ },
+ {
+  "front": {
+   "text": "How do you compile only one branch of a conditional?",
+   "markdown": "How do you compile only one branch of a conditional?"
+  },
+  "back": {
+   "text": "comptime if",
+   "markdown": "## `comptime if`\n\n```\ncomptime if has_accelerator():\n    run_on_gpu()\nelse:\n    run_on_cpu()\n```\n\nOnly the live branch is compiled into the program, so the dead branch need not even be valid for the target. {#C62828}Replaces `@parameter if`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 80
+ },
+ {
+  "front": {
+   "text": "How do you fully unroll a loop?",
+   "markdown": "How do you fully unroll a loop?"
+  },
+  "back": {
+   "text": "comptime for",
+   "markdown": "## `comptime for`\n\n```\ncomptime for i in range(1, 5):\n    b[i-1] = a[i] + a[i-1]\n```\n\nThe loop is replaced by copies of its body, producing branchless code. {#C62828}Replaces `@parameter for`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 81
+ },
+ {
+  "front": {
+   "text": "What can't run at compile time?",
+   "markdown": "What can't run at compile time?"
+  },
+  "back": {
+   "text": "File I/O, foreign calls, and anything that can raise",
+   "markdown": "## File I/O, foreign calls, and anything that can raise\n\nCompile-time evaluation runs real Mojo code, but not code that reaches outside the compiler or that can fail.\n\n{#0F766E}If a `comptime` value won't fold, one of these three is usually why.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 82
+ },
+ {
+  "front": {
+   "text": "What is materialization?",
+   "markdown": "What is materialization?"
+  },
+  "back": {
+   "text": "Making a compile-time value available at run time",
+   "markdown": "## Making a compile-time value available at run time\n\nImplicitly copyable values such as `Int` and `Bool` materialize automatically when assigned to a runtime variable.\n\n{#0F766E}The compile-time and run-time worlds are separate; materialization is the one-way door between them.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 83
+ },
+ {
+  "front": {
+   "text": "How do you materialize a value that isn't implicitly copyable?",
+   "markdown": "How do you materialize a value that isn't implicitly copyable?"
+  },
+  "back": {
+   "text": "materialize[...]()",
+   "markdown": "## `materialize[...]()`\n\n```\nvar tmp: List[Int] = materialize[list_of_values]()\n```\n\nA `List` or `Dict` will not cross the boundary on its own — the error says it cannot be materialized because it is not `ImplicitlyCopyable`.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 84
+ },
+ {
+  "front": {
+   "text": "How do you get a static lookup table without copying it every call?",
+   "markdown": "How do you get a static lookup table without copying it every call?"
+  },
+  "back": {
+   "text": "global_constant(), bound with ref",
+   "markdown": "## `global_constant()`, bound with `ref`\n\n```\nref lookup_table = global_constant[numbers]()\n```\n\n{#C62828}Binding with `var` would copy and fail.{/} The `ref` binding refers to the single global instance.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 85
+ },
+ {
+  "front": {
+   "text": "How do you force one sub-expression to fold at compile time?",
+   "markdown": "How do you force one sub-expression to fold at compile time?"
+  },
+  "back": {
+   "text": "A comptime sub-expression",
+   "markdown": "## A `comptime` sub-expression\n\n```\nvar x = comptime (layout.size()) // WARP_SIZE\n```\n\nUseful when the surrounding expression is genuinely runtime but one factor inside it is known and expensive.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 86
+ },
+ {
+  "front": {
+   "text": "How do you inspect a type's structure at compile time?",
+   "markdown": "How do you inspect a type's structure at compile time?"
+  },
+  "back": {
+   "text": "reflect[T]",
+   "markdown": "## `reflect[T]`\n\n```\ncomptime for i in range(reflect[T].field_count()):\n    ...\n```\n\n`reflect[T]` resolves to `Reflected[T]`, a compile-time handle for querying the type's shape.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 87
+ },
+ {
+  "front": {
+   "text": "Which reflection queries give you a type's name?",
+   "markdown": "Which reflection queries give you a type's name?"
+  },
+  "back": {
+   "text": "name() and base_name()",
+   "markdown": "## `name()` and `base_name()`\n\n- `reflect[T].name()` — fully qualified, including parameters\n- `reflect[T].base_name()` — the unqualified base name\n\n{#0F766E}`name()` distinguishes `Pair[Int]` from `Pair[String]`; `base_name()` collapses them.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 88
+ },
+ {
+  "front": {
+   "text": "Which reflection queries describe a type's fields?",
+   "markdown": "Which reflection queries describe a type's fields?"
+  },
+  "back": {
+   "text": "field_count(), field_names(), field_types()",
+   "markdown": "## `field_count()`, `field_names()`, `field_types()`\n\nThey return the count, the names, and the types — enough to drive a `comptime for` that generates code shaped to the struct.\n\n{#0F766E}This is how one serializer covers every struct without any of them knowing about it.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 89
+ },
+ {
+  "front": {
+   "text": "How do you reach an individual field through reflection?",
+   "markdown": "How do you reach an individual field through reflection?"
+  },
+  "back": {
+   "text": "By name or by index",
+   "markdown": "## By name or by index\n\n- `reflect[T].field[\"name\"]` — requires a concrete type\n- `reflect[T].field_ref[idx](instance)` — a reference to that field\n\n`reflect[T].field_offset[index=i]()` gives the byte offset, and a 1.0 fix made it correct for aligned layouts.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 90
+ },
+ {
+  "front": {
+   "text": "How complete is reflection in Mojo 1.0?",
+   "markdown": "How complete is reflection in Mojo 1.0?"
+  },
+  "back": {
+   "text": "Newly introduced and incomplete, by the docs' own admission",
+   "markdown": "## Newly introduced and incomplete, by the docs' own admission\n\n{#C62828}Expect gaps and expect it to change.{/}\n\n{#0F766E}Fine for code generation you control and can recompile. A poor foundation for a published API.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 91
+ },
+ {
+  "front": {
+   "text": "What replaced `ConditionalType`?",
+   "markdown": "What replaced `ConditionalType`?"
+  },
+  "back": {
+   "text": "The ternary type expression",
+   "markdown": "## The ternary type expression\n\nA type can be selected inline with an ordinary conditional expression, so choosing between two types no longer needs a dedicated helper.\n\n{#C62828}`ConditionalType` is gone.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 92
+ },
+ {
+  "front": {
+   "text": "What is a partial or unbound type?",
+   "markdown": "What is a partial or unbound type?"
+  },
+  "back": {
+   "text": "A type with some parameters left unspecified",
+   "markdown": "## A type with some parameters left unspecified\n\nWritten with `_` in the parameter position, it names a family rather than one type — the same underscore that leaves an origin unbound in `ref[_]`.\n\n{#0F766E}It lets a signature say \"a `Span` over anything\" without inventing a parameter to bind.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 93
+ },
+ {
+  "front": {
+   "text": "What does `rebind` do?",
+   "markdown": "What does `rebind` do?"
+  },
+  "back": {
+   "text": "Tells the compiler two types are the same when it cannot see it",
+   "markdown": "## Tells the compiler two types are the same when it cannot see it\n\nIn a branch where a constraint has already established the equality, `rebind` converts between the two spellings.\n\n{#0F766E}It asserts a compile-time fact — it is not a cast and does not convert anything at run time.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 94
+ },
+ {
+  "front": {
+   "text": "When does a parameter have to be inferred rather than passed?",
+   "markdown": "When does a parameter have to be inferred rather than passed?"
+  },
+  "back": {
+   "text": "When it is marked infer-only with //",
+   "markdown": "## When it is marked infer-only with `//`\n\n```\ndef foo[T: Intable, //](x: T) -> Int:\n    return x.__int__()\n```\n\nEverything after `//` is deduced from the arguments and cannot be given explicitly. {#0F766E}This is how higher-order functions take a function's type.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 95
+ },
+ {
+  "front": {
+   "text": "What is the reflection field-handle rename to know about?",
+   "markdown": "What is the reflection field-handle rename to know about?"
+  },
+  "back": {
+   "text": "Field handles were renamed for 1.0",
+   "markdown": "## Field handles were renamed for 1.0\n\n{#C62828}Beta-era field-handle spellings no longer resolve.{/} Use the `reflect[T]` surface — `field`, `field_ref`, `field_offset` — as documented.\n\n{#0F766E}Reflection code is the most likely thing in a beta codebase to need rewriting by hand.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 96
+ },
+ {
+  "front": {
+   "text": "What is the grammar of a lambda expression?",
+   "markdown": "What is the grammar of a lambda expression?"
+  },
+  "back": {
+   "text": "lambda (params) {captures} -> Ret: expression",
+   "markdown": "## `lambda (params) {captures} -> Ret: expression`\n\n```\nlambda (x: Int) -> Int: x + 1\n```\n\nThe capture list and the return type are both optional. {#0F766E}Parameter types are not — a lambda's parameters are always annotated.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 97
+ },
+ {
+  "front": {
+   "text": "How big can a lambda body be?",
+   "markdown": "How big can a lambda body be?"
+  },
+  "back": {
+   "text": "One expression, always",
+   "markdown": "## One expression, always\n\n```\nlambda (a: Int, b: Int) -> Bool: a > b\n```\n\nThere is no block form and no `return` statement — the expression *is* the result.\n\n{#0F766E}Need more than an expression? That is a nested `def`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 98
+ },
+ {
+  "front": {
+   "text": "What is a lambda's return type when you omit it?",
+   "markdown": "What is a lambda's return type when you omit it?"
+  },
+  "back": {
+   "text": "None",
+   "markdown": "## `None`\n\nIt does not infer from the body. A lambda written for its side effect therefore needs no annotation, and one that returns a value must say so.\n\n{#0F766E}A lambda that silently returns nothing is the likeliest first surprise.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 99
+ },
+ {
+  "front": {
+   "text": "What is a closure, as distinct from a nested function?",
+   "markdown": "What is a closure, as distinct from a nested function?"
+  },
+  "back": {
+   "text": "A function bundled with values from its surrounding scope",
+   "markdown": "## A function bundled with values from its surrounding scope\n\nThe capture list — the braces after the argument list — is what makes the distinction syntactic rather than inferred.\n\n{#0F766E}You can see from the signature whether state came along.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 100
+ },
+ {
+  "front": {
+   "text": "What are the five capture conventions?",
+   "markdown": "What are the five capture conventions?"
+  },
+  "back": {
+   "text": "imm, mut, var, var name^, and ref",
+   "markdown": "## `imm`, `mut`, `var`, `var name^`, and `ref`\n\n- `imm` — read-only, sees later changes\n- `mut` — writes are visible outside\n- `var` — an independent copy taken now\n- `var name^` — moved in; the outer binding is gone\n- `ref` — mutability decided where the name was bound",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 101
+ },
+ {
+  "front": {
+   "text": "What does a bare name in a capture list mean?",
+   "markdown": "What does a bare name in a capture list mean?"
+  },
+  "back": {
+   "text": "imm — an immutable reference",
+   "markdown": "## `imm` — an immutable reference\n\n```\nlambda (n: Int) {mut histogram}: increment(histogram, n)\n```\n\nHere `histogram` is explicitly `mut`. Written bare it would be read-only. {#0F766E}Shorthands `{imm}`, `{mut}` and `{var}` apply one convention to every captured name.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 102
+ },
+ {
+  "front": {
+   "text": "Can one capture list mix conventions?",
+   "markdown": "Can one capture list mix conventions?"
+  },
+  "back": {
+   "text": "Yes",
+   "markdown": "## Yes\n\n```\n{imm config, mut count, var label}\n```\n\nEach name carries its own convention, which is what lets a closure read one value, update a second, and own a third.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 103
+ },
+ {
+  "front": {
+   "text": "What does an omitted capture list mean?",
+   "markdown": "What does an omitted capture list mean?"
+  },
+  "back": {
+   "text": "Free variables are captured immutably",
+   "markdown": "## Free variables are captured immutably\n\nThe default is `imm`, so a lambda written without braces can read its surroundings but not modify them.\n\n{#0F766E}The quiet part: it is still a closure, and still carries state.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 104
+ },
+ {
+  "front": {
+   "text": "What is a `thin` function value?",
+   "markdown": "What is a `thin` function value?"
+  },
+  "back": {
+   "text": "A function that carries no captured state",
+   "markdown": "## A function that carries no captured state\n\n```\nf: def(T) thin -> T\n```\n\nIt is just a code pointer, so it can be passed as a compile-time parameter.\n\n{#0F766E}A capture-free lambda is `thin`. Capture one value and it stops being one.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 105
+ },
+ {
+  "front": {
+   "text": "Why can't a capturing lambda be used at compile time?",
+   "markdown": "Why can't a capturing lambda be used at compile time?"
+  },
+  "back": {
+   "text": "It has storage, so it is a runtime value",
+   "markdown": "## It has storage, so it is a runtime value\n\nCapturing makes the lambda a type with both behavior and storage — an instance, not a function type.\n\n{#0F766E}This is the practical dividing line: a capture-free lambda can be a parameter, a capturing one has to be an argument.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 106
+ },
+ {
+  "front": {
+   "text": "How do higher-order functions in Mojo take their function argument?",
+   "markdown": "How do higher-order functions in Mojo take their function argument?"
+  },
+  "back": {
+   "text": "As an argument, with an infer-only type parameter",
+   "markdown": "## As an argument, with an infer-only type parameter\n\n```\nF: def(T) -> U, //\n```\n\nAll of them share this shape: the function's type is inferred, and the function itself is passed in parentheses rather than brackets.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 107
+ },
+ {
+  "front": {
+   "text": "How does a closure type declare what it can do?",
+   "markdown": "How does a closure type declare what it can do?"
+  },
+  "back": {
+   "text": "By explicit trait conformance",
+   "markdown": "## By explicit trait conformance\n\n{#C62828}Conformance is no longer implicit.{/} A closure states which closure traits it satisfies, and a higher-order API states which it requires.\n\n{#0F766E}The effect a function may have — raising, capturing — is part of its type.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 108
+ },
+ {
+  "front": {
+   "text": "What replaced the legacy `@parameter` closure decorators?",
+   "markdown": "What replaced the legacy `@parameter` closure decorators?"
+  },
+  "back": {
+   "text": "Ordinary lambdas and closures with capture lists",
+   "markdown": "## Ordinary lambdas and closures with capture lists\n\n{#C62828}The legacy closure decorators are deprecated{/}, along with `@parameter if` and `@parameter for`, which became `comptime if` and `comptime for`.\n\n{#0F766E}Capture behaviour is now written in the capture list instead of implied by a decorator.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 109
+ },
+ {
+  "front": {
+   "text": "Can you call a dynamic function pointer whose parameters aren't bound?",
+   "markdown": "Can you call a dynamic function pointer whose parameters aren't bound?"
+  },
+  "back": {
+   "text": "Yes — new in 1.0",
+   "markdown": "## Yes — new in 1.0\n\nA function value with unbound parameters can be called, with the parameters supplied at the call rather than baked in when the pointer was formed.\n\n{#0F766E}One pointer can then serve several specializations.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 110
+ },
+ {
+  "front": {
+   "text": "What are the two parameters of `SIMD`?",
+   "markdown": "What are the two parameters of `SIMD`?"
+  },
+  "back": {
+   "text": "The dtype and the length",
+   "markdown": "## The dtype and the length\n\n```\nSIMD[DType.float32, 4]\n```\n\n{#C62828}The second parameter was called `size` before 1.0.{/} It is `length` now, part of a rename applied across the library.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 111
+ },
+ {
+  "front": {
+   "text": "What is `Int` in Mojo 1.0?",
+   "markdown": "What is `Int` in Mojo 1.0?"
+  },
+  "back": {
+   "text": "Scalar[DType.int]",
+   "markdown": "## `Scalar[DType.int]`\n\nThe builtin integer is a one-element SIMD vector, which is why scalars and vectors share operators and methods.\n\n{#0F766E}`Scalar[dtype]` is `SIMD[dtype, 1]`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 112
+ },
+ {
+  "front": {
+   "text": "What is `SIMDLength` for?",
+   "markdown": "What is `SIMDLength` for?"
+  },
+  "back": {
+   "text": "Typing a parameter that is a SIMD vector length",
+   "markdown": "## Typing a parameter that is a SIMD vector length\n\n```\ndef frob[w: SIMDLength](v: SIMD[DType.int, w]):\n    ...\n```\n\nNew in 1.0. {#0F766E}A plain `Int` would accept lengths that are not valid vector widths; `SIMDLength` will not.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 113
+ },
+ {
+  "front": {
+   "text": "What did the `size` to `length` rename cover?",
+   "markdown": "What did the `size` to `length` rename cover?"
+  },
+  "back": {
+   "text": "Everything, not just SIMD",
+   "markdown": "## Everything, not just `SIMD`\n\n{#C62828}Renamed throughout the library.{/} `SIMD`'s second parameter, `List.resize(new_length=)`, `ComplexSIMD[..., length=N]`, and `Array`'s parameter.\n\n{#0F766E}One name per concept — `size` had meant both element count and byte count.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 114
+ },
+ {
+  "front": {
+   "text": "What does comparing two SIMD vectors give you?",
+   "markdown": "What does comparing two SIMD vectors give you?"
+  },
+  "back": {
+   "text": "SIMD[DType.bool, length] — a mask, not a Bool",
+   "markdown": "## `SIMD[DType.bool, length]` — a mask, not a `Bool`\n\nThe comparison is elementwise, so the result is one boolean per lane.\n\n{#0F766E}Use a reduction, or a select, to turn a mask into a decision.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 115
+ },
+ {
+  "front": {
+   "text": "What is a splat?",
+   "markdown": "What is a splat?"
+  },
+  "back": {
+   "text": "Broadcasting one scalar into every lane",
+   "markdown": "## Broadcasting one scalar into every lane\n\n```\nvar v = SIMD[DType.float32, 4](1.0)\n```\n\nIt is how a scalar joins a vector expression — every elementwise operation needs both sides to be the same width.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 116
+ },
+ {
+  "front": {
+   "text": "How do you collapse a SIMD vector to one value?",
+   "markdown": "How do you collapse a SIMD vector to one value?"
+  },
+  "back": {
+   "text": "A reduction",
+   "markdown": "## A reduction\n\nSum, min and max fold the lanes into a scalar.\n\n{#0F766E}A reduction is a synchronization point in vector code: everything before it can stay in lanes, everything after is scalar.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 117
+ },
+ {
+  "front": {
+   "text": "What does the `Atomic` type do?",
+   "markdown": "What does the `Atomic` type do?"
+  },
+  "back": {
+   "text": "Atomic read-modify-write on a scalar value",
+   "markdown": "## Atomic read-modify-write on a scalar value\n\nFrom `std.atomic`, with an `Ordering` type controlling memory ordering between threads.\n\n{#0F766E}The intended uses are lock-free data structures, reference counting, and synchronization primitives — not ordinary shared state.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 118
+ },
+ {
+  "front": {
+   "text": "What is a `fence` for?",
+   "markdown": "What is a `fence` for?"
+  },
+  "back": {
+   "text": "A standalone memory barrier",
+   "markdown": "## A standalone memory barrier\n\n`std.atomic.fence` orders memory operations without being attached to any particular atomic access.\n\n{#0F766E}Reach for it when the ordering you need is between *operations*, not on one variable.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 119
+ },
+ {
+  "front": {
+   "text": "Why does memory ordering appear on atomic operations at all?",
+   "markdown": "Why does memory ordering appear on atomic operations at all?"
+  },
+  "back": {
+   "text": "Because the default — full ordering — is the expensive one",
+   "markdown": "## Because the default — full ordering — is the expensive one\n\n`Ordering` lets you ask for exactly the guarantee the algorithm needs, so the compiler and CPU keep the reorderings that are still safe.\n\n{#C62828}Weakening an ordering you have not reasoned about is how lock-free code goes wrong.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 120
+ },
+ {
+  "front": {
+   "text": "What happened to `DType.invalid`?",
+   "markdown": "What happened to `DType.invalid`?"
+  },
+  "back": {
+   "text": "Removed",
+   "markdown": "## Removed\n\n{#C62828}The sentinel is gone.{/} A `DType` parameter is constrained to the dtypes that are actually valid, rather than carrying a value meaning \"none of them\".\n\n{#0F766E}Express absence with `Optional`, not with an in-band sentinel.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 121
+ },
+ {
+  "front": {
+   "text": "Which dtypes does Mojo 1.0 cover beyond the usual ones?",
+   "markdown": "Which dtypes does Mojo 1.0 cover beyond the usual ones?"
+  },
+  "back": {
+   "text": "Low-precision floats and wide integers",
+   "markdown": "## Low-precision floats and wide integers\n\nAlongside `Float32` and `Float64`: `BFloat16` and `Float8_e4m3fn`, plus integers from `Int8` through `Int256` and their unsigned counterparts.\n\n{#0F766E}The narrow float formats are there for accelerator work, where they are the native storage type.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 122
+ }
+]
