@@ -1,0 +1,752 @@
+[
+ {
+  "front": {
+   "text": "What object represents a GPU in the MAX API?",
+   "markdown": "What object represents a GPU in the MAX API?"
+  },
+  "back": {
+   "text": "DeviceContext",
+   "markdown": "## `DeviceContext`\n\n```\nfrom max.gpu.host import DeviceContext\n\nvar ctx = DeviceContext()\n```\n\nEvery allocation, copy and launch goes through it. {#0F766E}It is the handle to one device, not a global mode you switch on.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 1
+ },
+ {
+  "front": {
+   "text": "How do you launch a kernel?",
+   "markdown": "How do you launch a kernel?"
+  },
+  "back": {
+   "text": "ctx.enqueue_function[kernel](...)",
+   "markdown": "## `ctx.enqueue_function[kernel](...)`\n\n```\nctx.enqueue_function[vector_addition](\n    lhs_tensor,\n    rhs_tensor,\n    result_tensor,\n    grid_dim=num_blocks,\n    block_dim=block_size,\n)\n```\n\nThe kernel is a compile-time parameter; the data and dimensions are arguments.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 2
+ },
+ {
+  "front": {
+   "text": "What do `grid_dim` and `block_dim` specify?",
+   "markdown": "What do `grid_dim` and `block_dim` specify?"
+  },
+  "back": {
+   "text": "How many blocks, and how many threads per block",
+   "markdown": "## How many blocks, and how many threads per block\n\nA grid is made of thread blocks, organized over one, two or three dimensions; each block is divided into threads.\n\n{#0F766E}Together they decide how many threads run — and therefore how much bounds checking your kernel needs.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 3
+ },
+ {
+  "front": {
+   "text": "What is a Mojo GPU kernel, syntactically?",
+   "markdown": "What is a Mojo GPU kernel, syntactically?"
+  },
+  "back": {
+   "text": "An ordinary def that you launch instead of calling",
+   "markdown": "## An ordinary `def` that you launch instead of calling\n\nIt is a normal Mojo function; what makes it a kernel is being passed to `enqueue_function` as a compile-time parameter.\n\n{#0F766E}No decorator marks it. The launch site is what distinguishes it.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 4
+ },
+ {
+  "front": {
+   "text": "How does a thread find out which element it should work on?",
+   "markdown": "How does a thread find out which element it should work on?"
+  },
+  "back": {
+   "text": "From the built-in index structures",
+   "markdown": "## From the built-in index structures\n\n```\nfrom std.gpu import block_idx, thread_idx, block_dim\n\nvar tid = block_idx.x * block_dim.x + thread_idx.x\n```\n\n`global_idx` computes the same flattened index for you.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 5
+ },
+ {
+  "front": {
+   "text": "Which module do the thread index built-ins come from?",
+   "markdown": "Which module do the thread index built-ins come from?"
+  },
+  "back": {
+   "text": "std.gpu — not max.gpu",
+   "markdown": "## `std.gpu` — not `max.gpu`\n\n```\nfrom std.gpu import block_idx, thread_idx, block_dim\n```\n\n{#0F766E}The split is deliberate: low-level primitives that describe the execution model stayed in `std`, while host and runtime APIs live in `max`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 6
+ },
+ {
+  "front": {
+   "text": "Which GPU APIs moved out of `std` for 1.0?",
+   "markdown": "Which GPU APIs moved out of `std` for 1.0?"
+  },
+  "back": {
+   "text": "The accelerator host and runtime APIs, into max",
+   "markdown": "## The accelerator host and runtime APIs, into `max`\n\n{#C62828}`DeviceContext` and friends are no longer in `std`.{/} They are in `max.gpu.host`.\n\n{#0F766E}Rule of thumb: code that runs *on* the device is `std.gpu`; code that *drives* the device is `max.gpu`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 7
+ },
+ {
+  "front": {
+   "text": "What does the `enqueue_` prefix tell you?",
+   "markdown": "What does the `enqueue_` prefix tell you?"
+  },
+  "back": {
+   "text": "The call returns before the work happens",
+   "markdown": "## The call returns before the work happens\n\nEvery GPU operation is asynchronous — launches, allocations and copies are queued on the device, not performed inline.\n\n{#0F766E}The prefix is on the method name so you cannot forget.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 8
+ },
+ {
+  "front": {
+   "text": "How do you wait for queued GPU work to finish?",
+   "markdown": "How do you wait for queued GPU work to finish?"
+  },
+  "back": {
+   "text": "ctx.synchronize()",
+   "markdown": "## `ctx.synchronize()`\n\n```\nctx.enqueue_function[kernel](..., grid_dim=g, block_dim=b)\nctx.synchronize()\n```\n\n{#C62828}Reading a result before synchronizing reads whatever was there.{/} {#0F766E}It is a barrier between the host and the device, and it costs real time — enqueue everything you can before you call it.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 9
+ },
+ {
+  "front": {
+   "text": "What kind of arguments can a kernel take?",
+   "markdown": "What kind of arguments can a kernel take?"
+  },
+  "back": {
+   "text": "Fixed-width values and buffer views",
+   "markdown": "## Fixed-width values and buffer views\n\nSizes and scalars are passed by value; data is passed as a tensor view over device memory.\n\n{#C62828}A host pointer passed to a kernel is not valid on the device.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 10
+ },
+ {
+  "front": {
+   "text": "Which accelerator architectures can Mojo target?",
+   "markdown": "Which accelerator architectures can Mojo target?"
+  },
+  "back": {
+   "text": "NVIDIA, AMD and Apple Metal",
+   "markdown": "## NVIDIA, AMD and Apple Metal\n\nSelected at build time with `--target-accelerator`, alongside the CPU architecture and feature set.\n\n{#0F766E}Same source; the target decides which code is generated.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 11
+ },
+ {
+  "front": {
+   "text": "How do you write code that runs with or without a GPU?",
+   "markdown": "How do you write code that runs with or without a GPU?"
+  },
+  "back": {
+   "text": "comptime if has_accelerator()",
+   "markdown": "## `comptime if has_accelerator()`\n\n```\ncomptime if has_accelerator():\n    run_on_gpu()\nelse:\n    run_on_cpu()\n```\n\nOnly the live branch is compiled, so the CPU build never contains device code.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 12
+ },
+ {
+  "front": {
+   "text": "How do you allocate memory the CPU can touch?",
+   "markdown": "How do you allocate memory the CPU can touch?"
+  },
+  "back": {
+   "text": "ctx.enqueue_create_host_buffer[dtype](size)",
+   "markdown": "## `ctx.enqueue_create_host_buffer[dtype](size)`\n\nIt produces a `HostBuffer` — CPU-accessible memory that the device can also reach for transfers.\n\n{#0F766E}Allocation is enqueued like everything else.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 13
+ },
+ {
+  "front": {
+   "text": "How do you allocate GPU global memory?",
+   "markdown": "How do you allocate GPU global memory?"
+  },
+  "back": {
+   "text": "ctx.enqueue_create_buffer[dtype](size)",
+   "markdown": "## `ctx.enqueue_create_buffer[dtype](size)`\n\nIt produces a `DeviceBuffer` in the device's global memory.\n\n{#0F766E}The unqualified name is the device one — the host case is the one that has to say so.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 14
+ },
+ {
+  "front": {
+   "text": "What is the difference between a `HostBuffer` and a `DeviceBuffer`?",
+   "markdown": "What is the difference between a `HostBuffer` and a `DeviceBuffer`?"
+  },
+  "back": {
+   "text": "Which processor can dereference it",
+   "markdown": "## Which processor can dereference it\n\n`HostBuffer` is CPU-accessible; `DeviceBuffer` lives in GPU global memory and is not addressable from the host.\n\n{#C62828}They are distinct types precisely so you cannot confuse them.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 15
+ },
+ {
+  "front": {
+   "text": "How do you move data between host and device?",
+   "markdown": "How do you move data between host and device?"
+  },
+  "back": {
+   "text": "ctx.enqueue_copy(dst_buf=..., src_buf=...)",
+   "markdown": "## `ctx.enqueue_copy(dst_buf=..., src_buf=...)`\n\nThe same call serves both directions — the buffer types say which way the data is going.\n\n{#0F766E}It is enqueued, so it has not happened when the call returns.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 16
+ },
+ {
+  "front": {
+   "text": "When is a copied result actually readable on the host?",
+   "markdown": "When is a copied result actually readable on the host?"
+  },
+  "back": {
+   "text": "After synchronize()",
+   "markdown": "## After `synchronize()`\n\n```\nctx.enqueue_copy(dst_buf=host_buf, src_buf=dev_buf)\nctx.synchronize()\n# now read host_buf\n```\n\n{#C62828}The classic bug: reading between the enqueue and the synchronize, and getting stale data that looks plausible.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 17
+ },
+ {
+  "front": {
+   "text": "How is shared memory allocated in a kernel?",
+   "markdown": "How is shared memory allocated in a kernel?"
+  },
+  "back": {
+   "text": "stack_allocation with the shared address space",
+   "markdown": "## `stack_allocation` with the shared address space\n\n```\nfrom layout import stack_allocation\n\nstack_allocation[dtype, address_space=.SHARED](layout)\n```\n\nShared memory is on-chip and visible to every thread in the block — the staging area for a tile.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 18
+ },
+ {
+  "front": {
+   "text": "Why is the address space part of a pointer's type?",
+   "markdown": "Why is the address space part of a pointer's type?"
+  },
+  "back": {
+   "text": "So global and shared memory cannot be mixed up",
+   "markdown": "## So global and shared memory cannot be mixed up\n\n`AddressSpace` distinguishes host memory, GPU global memory and shared memory, and `Span` carries the parameter too.\n\n{#0F766E}A shared-memory pointer will not silently pass where a global one is expected. The type system does the checking the hardware will not.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 19
+ },
+ {
+  "front": {
+   "text": "What owns device memory in the MAX API?",
+   "markdown": "What owns device memory in the MAX API?"
+  },
+  "back": {
+   "text": "The buffer, with Mojo's ordinary ownership rules",
+   "markdown": "## The buffer, with Mojo's ordinary ownership rules\n\nA `DeviceBuffer` frees its allocation when it is destroyed, and it moves rather than copies.\n\n{#0F766E}GPU allocations get the same lifetime discipline as everything else — no manual free, no double free.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 20
+ },
+ {
+  "front": {
+   "text": "How long must a buffer outlive the kernel that uses it?",
+   "markdown": "How long must a buffer outlive the kernel that uses it?"
+  },
+  "back": {
+   "text": "Until the work has actually completed",
+   "markdown": "## Until the work has actually completed\n\n{#C62828}Enqueueing is not executing.{/} A buffer destroyed after the launch but before synchronization can be freed while the kernel is still reading it.\n\n{#0F766E}The one place where the asynchrony can defeat ownership reasoning.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 21
+ },
+ {
+  "front": {
+   "text": "Why is host-to-device transfer often the bottleneck?",
+   "markdown": "Why is host-to-device transfer often the bottleneck?"
+  },
+  "back": {
+   "text": "The bus is far slower than device memory",
+   "markdown": "## The bus is far slower than device memory\n\nA kernel can read global memory at a rate the host link cannot approach.\n\n{#0F766E}Which is why the usual shape is: copy once, run many kernels, copy back once — not copy per step.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 22
+ },
+ {
+  "front": {
+   "text": "What is the memory hierarchy a kernel sees?",
+   "markdown": "What is the memory hierarchy a kernel sees?"
+  },
+  "back": {
+   "text": "Registers, then shared memory, then global",
+   "markdown": "## Registers, then shared memory, then global\n\nRegisters are per-thread; shared memory is per-block and on-chip; global memory is device-wide and off-chip.\n\n{#0F766E}Tiling exists to move a working set up this hierarchy once and reuse it many times.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 23
+ },
+ {
+  "front": {
+   "text": "What does `TileTensor` wrap?",
+   "markdown": "What does `TileTensor` wrap?"
+  },
+  "back": {
+   "text": "A buffer, plus the layout that gives it shape",
+   "markdown": "## A buffer, plus the layout that gives it shape\n\n```\nfrom layout import TileTensor, row_major\n```\n\nIt is the multi-dimensional view you actually index inside a kernel, rather than the flat buffer underneath.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 24
+ },
+ {
+  "front": {
+   "text": "What is a `Layout`?",
+   "markdown": "What is a `Layout`?"
+  },
+  "back": {
+   "text": "A mapping from logical coordinates to a linear index",
+   "markdown": "## A mapping from logical coordinates to a linear index\n\nIt is what turns `(row, col)` into an offset — and it can also map GPU threads onto the tiles of data they own.\n\n{#0F766E}Separating the layout from the storage is what lets one kernel work over several memory arrangements.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 25
+ },
+ {
+  "front": {
+   "text": "Which package do the layout types come from?",
+   "markdown": "Which package do the layout types come from?"
+  },
+  "back": {
+   "text": "layout, which ships with MAX",
+   "markdown": "## `layout`, which ships with MAX\n\n```\nfrom layout import TileTensor, row_major, stack_allocation\n```\n\n{#C62828}It is bundled with MAX, not with the Mojo standard library{/} — so GPU code depends on MAX even for its layout types.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 26
+ },
+ {
+  "front": {
+   "text": "What do shape and stride mean in a layout?",
+   "markdown": "What do shape and stride mean in a layout?"
+  },
+  "back": {
+   "text": "Shape is how many; stride is how far apart",
+   "markdown": "## Shape is how many; stride is how far apart\n\nShape gives the extent of each dimension. Stride gives the step in the linear index when that dimension advances by one.\n\n{#0F766E}Two tensors can share a shape and have completely different strides — that is the whole point of the abstraction.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 27
+ },
+ {
+  "front": {
+   "text": "What is row-major order?",
+   "markdown": "What is row-major order?"
+  },
+  "back": {
+   "text": "The last dimension is contiguous",
+   "markdown": "## The last dimension is contiguous\n\n```\nrow_major(rows, cols)\n```\n\nAdjacent columns of one row sit next to each other in memory. {#0F766E}Column-major is the transpose of that convention — adjacent rows of one column are contiguous.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 28
+ },
+ {
+  "front": {
+   "text": "Why does row-major versus column-major matter so much on a GPU?",
+   "markdown": "Why does row-major versus column-major matter so much on a GPU?"
+  },
+  "back": {
+   "text": "It decides whether neighbouring threads read neighbouring addresses",
+   "markdown": "## It decides whether neighbouring threads read neighbouring addresses\n\nConsecutive threads reading consecutive addresses is one wide memory transaction; the same threads reading down a column is many.\n\n{#C62828}Same arithmetic, order-of-magnitude difference in bandwidth.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 29
+ },
+ {
+  "front": {
+   "text": "What is a tiled layout for?",
+   "markdown": "What is a tiled layout for?"
+  },
+  "back": {
+   "text": "Giving each block a rectangular piece of the data",
+   "markdown": "## Giving each block a rectangular piece of the data\n\nThe layout maps a block's threads onto one tile, so the block can stage that tile in shared memory and reuse it.\n\n{#0F766E}The layout expresses the decomposition, so the kernel body does not have to compute it.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 30
+ },
+ {
+  "front": {
+   "text": "What is a `LayoutTensor`?",
+   "markdown": "What is a `LayoutTensor`?"
+  },
+  "back": {
+   "text": "A tensor with its memory layout stated explicitly, via a Layout",
+   "markdown": "## A tensor with its memory layout stated explicitly, via a `Layout`\n\nIt is the general form: the layout is a value the tensor carries.\n\n{#0F766E}Use it when the arrangement is what you are reasoning about.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 31
+ },
+ {
+  "front": {
+   "text": "How does `TileTensor` differ from `LayoutTensor`?",
+   "markdown": "How does `TileTensor` differ from `LayoutTensor`?"
+  },
+  "back": {
+   "text": "TileTensor carries compile-time layout information",
+   "markdown": "## `TileTensor` carries compile-time layout information\n\nKnowing the layout at compile time lets index arithmetic fold away and access vectorize.\n\n{#0F766E}`TileTensor` is what the tutorials hand to kernels; `LayoutTensor` is the more general type underneath.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 32
+ },
+ {
+  "front": {
+   "text": "What is `RuntimeLayout` for?",
+   "markdown": "What is `RuntimeLayout` for?"
+  },
+  "back": {
+   "text": "Layouts whose dimensions are not known until run time",
+   "markdown": "## Layouts whose dimensions are not known until run time\n\nThe compile-time path cannot express a shape read from a file or a request.\n\n{#0F766E}The trade is explicit: dynamic dimensions cost you the folding that a compile-time layout gets.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 33
+ },
+ {
+  "front": {
+   "text": "What is an `IntTuple`?",
+   "markdown": "What is an `IntTuple`?"
+  },
+  "back": {
+   "text": "The hierarchical integer tuple layouts are built from",
+   "markdown": "## The hierarchical integer tuple layouts are built from\n\nShapes and strides are `IntTuple`s, and being hierarchical is what lets a layout describe nested tiling rather than a flat grid.\n\n{#0F766E}A shape can itself contain a shape.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 34
+ },
+ {
+  "front": {
+   "text": "What is `tile_io` for?",
+   "markdown": "What is `tile_io` for?"
+  },
+  "back": {
+   "text": "Copying data between TileTensors",
+   "markdown": "## Copying data between `TileTensor`s\n\nMoving a tile from global into shared memory is the operation, and it is common enough to have its own utilities.\n\n{#0F766E}Layout-aware, so the copy knows the arrangement on both sides.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 35
+ },
+ {
+  "front": {
+   "text": "What does `tensor_core` provide?",
+   "markdown": "What does `tensor_core` provide?"
+  },
+  "back": {
+   "text": "Access to the hardware matrix units",
+   "markdown": "## Access to the hardware matrix units\n\nHigh-performance matrix operations, including asynchronous variants, mapped onto Tensor Core instructions.\n\n{#0F766E}The layout requirements are strict — this is where the tiling has to match what the hardware expects, exactly.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 36
+ },
+ {
+  "front": {
+   "text": "What are TMA operations for?",
+   "markdown": "What are TMA operations for?"
+  },
+  "back": {
+   "text": "Asynchronous bulk data movement",
+   "markdown": "## Asynchronous bulk data movement\n\nThe transfer is issued and proceeds while the block computes on data it already has.\n\n{#0F766E}Overlapping movement with compute is what keeps the arithmetic units busy instead of waiting on memory.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 37
+ },
+ {
+  "front": {
+   "text": "What does layout-driven vectorization mean?",
+   "markdown": "What does layout-driven vectorization mean?"
+  },
+  "back": {
+   "text": "The layout tells the compiler which accesses are contiguous",
+   "markdown": "## The layout tells the compiler which accesses are contiguous\n\nContiguous elements can be loaded as one wide vector rather than one at a time.\n\n{#0F766E}You get it by describing the layout accurately, not by writing vector code.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 38
+ },
+ {
+  "front": {
+   "text": "How do threads within a block synchronize?",
+   "markdown": "How do threads within a block synchronize?"
+  },
+  "back": {
+   "text": "barrier()",
+   "markdown": "## `barrier()`\n\n```\nfrom max.gpu.sync import barrier\n```\n\nEvery thread in the block waits until all of them have arrived — the call you need between filling shared memory and reading it.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 39
+ },
+ {
+  "front": {
+   "text": "What is the rule about where a `barrier()` may appear?",
+   "markdown": "What is the rule about where a `barrier()` may appear?"
+  },
+  "back": {
+   "text": "Every thread in the block must reach it",
+   "markdown": "## Every thread in the block must reach it\n\n{#C62828}A `barrier()` inside a conditional is a common source of deadlock.{/} Threads that skip the branch never arrive, and the ones that did wait forever.\n\n{#0F766E}Put the barrier outside the `if`, not inside it.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 40
+ },
+ {
+  "front": {
+   "text": "What is `syncwarp()` for?",
+   "markdown": "What is `syncwarp()` for?"
+  },
+  "back": {
+   "text": "Fine-grained synchronization within a single warp",
+   "markdown": "## Fine-grained synchronization within a single warp\n\n```\nfrom max.gpu.sync import syncwarp\n```\n\nIt takes an optional `mask`, defaulting to all threads — for coordinating threads that have diverged inside one warp.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 41
+ },
+ {
+  "front": {
+   "text": "Do you need `syncwarp()` before a warp shuffle or reduction?",
+   "markdown": "Do you need `syncwarp()` before a warp shuffle or reduction?"
+  },
+  "back": {
+   "text": "No — it is redundant",
+   "markdown": "## No — it is redundant\n\nWarp shuffles and reductions provide implicit synchronization.\n\n{#0F766E}An extra `syncwarp()` there is a cost with no effect, and it suggests the author was unsure of the semantics.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 42
+ },
+ {
+  "front": {
+   "text": "What are the warp shuffle operations?",
+   "markdown": "What are the warp shuffle operations?"
+  },
+  "back": {
+   "text": "shuffle_up, shuffle_down, shuffle_xor, shuffle_idx, broadcast",
+   "markdown": "## `shuffle_up`, `shuffle_down`, `shuffle_xor`, `shuffle_idx`, `broadcast`\n\nFrom `gpu.primitives.warp`. Each lane receives a value from another lane: at a fixed offset down or up, at an XOR of its lane id, at an arbitrary lane, or from lane 0.\n\n{#0F766E}Register-to-register — no memory involved.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 43
+ },
+ {
+  "front": {
+   "text": "What is the safety rule for shuffles in divergent code?",
+   "markdown": "What is the safety rule for shuffles in divergent code?"
+  },
+  "back": {
+   "text": "Every thread in the warp must reach the shuffle",
+   "markdown": "## Every thread in the warp must reach the shuffle\n\n{#C62828}With a full mask, all threads must arrive — even those that will not use the result.{/}\n\n{#0F766E}Same trap as `barrier()`: a collective operation hidden inside a branch that not every thread takes.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 44
+ },
+ {
+  "front": {
+   "text": "What warp-level reductions does MAX provide?",
+   "markdown": "What warp-level reductions does MAX provide?"
+  },
+  "back": {
+   "text": "max, min, sum, and prefix_sum",
+   "markdown": "## `max`, `min`, `sum`, and `prefix_sum`\n\nFrom `gpu.primitives.warp`. `prefix_sum[exclusive=False]` gives an inclusive scan; set the parameter for an exclusive one.\n\n{#0F766E}A warp reduction is far cheaper than the shared-memory equivalent.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 45
+ },
+ {
+  "front": {
+   "text": "What block-level collectives are available?",
+   "markdown": "What block-level collectives are available?"
+  },
+  "back": {
+   "text": "The same set, one level up",
+   "markdown": "## The same set, one level up\n\n`gpu.primitives.block` provides `sum`, `max`, `min`, `prefix_sum`, and `broadcast(val, src_thread=0)`.\n\n{#0F766E}Reduce within each warp first, then across warps — which is what the block primitives already do for you.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 46
+ },
+ {
+  "front": {
+   "text": "What must every kernel check before touching data?",
+   "markdown": "What must every kernel check before touching data?"
+  },
+  "back": {
+   "text": "That its index is in bounds",
+   "markdown": "## That its index is in bounds\n\n```\nif global_idx.x < Int(size):\n    ...\n```\n\n{#C62828}The grid is sized in whole blocks, so the last block almost always has threads with nothing to do.{/} Without the guard they read past the end.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 47
+ },
+ {
+  "front": {
+   "text": "How do you debug a Mojo GPU kernel?",
+   "markdown": "How do you debug a Mojo GPU kernel?"
+  },
+  "back": {
+   "text": "mojo debug --cuda-gdb --break-on-launch",
+   "markdown": "## `mojo debug --cuda-gdb --break-on-launch`\n\n```\nmojo debug --cuda-gdb --break-on-launch \\\n  --vscode myproject.mojo\n```\n\n`--break-on-launch` stops as the kernel launches so you can set breakpoints in device code. {#C62828}NVIDIA GPUs only.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 48
+ },
+ {
+  "front": {
+   "text": "Why use breakpoints rather than stepping in a GPU kernel?",
+   "markdown": "Why use breakpoints rather than stepping in a GPU kernel?"
+  },
+  "back": {
+   "text": "Stepping does not work reliably on the GPU",
+   "markdown": "## Stepping does not work reliably on the GPU\n\n{#C62828}Step Over, Step Into and Step Out are all unreliable there.{/}\n\nSet a breakpoint with `break filename.mojo:line_number` and continue. {#0F766E}`info registers` inspects state; the `cuda` command switches focus between threads and blocks.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 49
+ },
+ {
+  "front": {
+   "text": "What makes a GPU race different from a CPU race?",
+   "markdown": "What makes a GPU race different from a CPU race?"
+  },
+  "back": {
+   "text": "The wrong answer is often stable",
+   "markdown": "## The wrong answer is often stable\n\nA missing `barrier()` produces the right result whenever the scheduler happens to cooperate, which on one machine can be every time.\n\n{#0F766E}Reason about which thread wrote a value and which barrier makes that write visible. Testing will not find it for you.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 50
+ }
+]
