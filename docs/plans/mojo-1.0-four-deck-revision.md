@@ -1,6 +1,6 @@
 # Mojo 1.0 four-deck revision specification
 
-Status: specification revised 2026-08-19 after adversarial review ([review](mojo-1.0-four-deck-revision-review-2.md)); card authoring has not started.
+Status: specification revised 2026-08-19 after adversarial review ([review](mojo-1.0-four-deck-revision-review-2.md)). All four decks were authored on 2026-08-28 — 370 cards against a 330–404 target — and none has yet been studied on device. The sequencing rule below (Fundamentals ships alone first) was deliberately overridden so the suite could be assessed as a unit.
 
 ## Scope and invariants
 
