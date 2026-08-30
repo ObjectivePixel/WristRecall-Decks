@@ -1,0 +1,177 @@
+{
+  "id": "famous-figures-history",
+  "uuid": "D91837A6-0469-4727-BDB1-D7D154BBF411",
+  "name": "Famous Figures in History",
+  "description": "Meet 107 influential people—and recall the ideas, discoveries, art, leadership, and movements that shaped world history.",
+  "storeFileName": "famous_figures_history",
+  "imageName": "famous_figures_history_deck",
+  "gradientColors": [
+    "#61005EFF",
+    "#A40023FF"
+  ],
+  "cardCount": 113,
+  "topicCount": 9,
+  "category": "History",
+  "version": "1.0.1",
+  "sourceFileName": "cards.json",
+  "topicDefinitions": [
+    {
+      "name": "Africa",
+      "cardIDs": [
+        11,
+        19,
+        20,
+        47,
+        75,
+        77,
+        84,
+        86,
+        87,
+        88
+      ]
+    },
+    {
+      "name": "East Asia",
+      "cardIDs": [
+        6,
+        7,
+        8,
+        15,
+        28,
+        37,
+        41,
+        50,
+        51,
+        52,
+        56,
+        81,
+        82
+      ]
+    },
+    {
+      "name": "South Asia",
+      "cardIDs": [
+        5,
+        14,
+        44,
+        73,
+        85,
+        89,
+        90,
+        91,
+        92,
+        93
+      ]
+    },
+    {
+      "name": "Middle East & North Africa",
+      "cardIDs": [
+        1,
+        4,
+        9,
+        12,
+        13,
+        21,
+        25,
+        53,
+        57,
+        80
+      ]
+    },
+    {
+      "name": "Europe",
+      "cardIDs": [
+        2,
+        3,
+        16,
+        17,
+        18,
+        22,
+        23,
+        24,
+        29,
+        30,
+        31,
+        33,
+        34,
+        38,
+        39,
+        40,
+        42,
+        43,
+        45,
+        48,
+        49,
+        54,
+        55,
+        59,
+        61,
+        63,
+        71,
+        72,
+        78,
+        79
+      ]
+    },
+    {
+      "name": "North America",
+      "cardIDs": [
+        32,
+        35,
+        36,
+        58,
+        60,
+        64,
+        69,
+        70,
+        74,
+        76
+      ]
+    },
+    {
+      "name": "Latin America & the Caribbean",
+      "cardIDs": [
+        46,
+        65,
+        66,
+        67,
+        68,
+        83,
+        94,
+        95,
+        96,
+        97
+      ]
+    },
+    {
+      "name": "Oceania & the Pacific",
+      "cardIDs": [
+        62,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ]
+    },
+    {
+      "name": "Central Asia",
+      "cardIDs": [
+        10,
+        26,
+        27,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113
+      ]
+    }
+  ]
+}

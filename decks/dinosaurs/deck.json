@@ -1,0 +1,25 @@
+{
+  "id": "dinosaurs",
+  "uuid": "1FA89811-0B50-4739-BF29-402A44ACB73D",
+  "name": "Dinosaurs",
+  "description": "Meet iconic dinosaurs and explore their groups, adaptations, times, and world.",
+  "storeFileName": "dinosaurs",
+  "imageName": "dinosaurs_deck",
+  "gradientColors": ["#232739FF", "#2A551AFF"],
+  "cardCount": 92,
+  "topicCount": 7,
+  "category": "Science",
+  "version": "1.0.0",
+  "moreInfoURL": "https://www.nhm.ac.uk/discover/dino-directory.html",
+  "aboutURL": "https://github.com/ObjectivePixel/WristRecall-Decks",
+  "sourceFileName": "cards.json",
+  "topicDefinitions": [
+    { "name": "Species · Easy", "cardIDs": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20] },
+    { "name": "Species · Medium", "cardIDs": [21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43] },
+    { "name": "Species · Hard", "cardIDs": [44,45,46,47,48,49,50,51,52,53,54,55,56,57,58] },
+    { "name": "Dinosaur Groups", "cardIDs": [59,60,61,62,63,64,65,66,67,68] },
+    { "name": "Timeline", "cardIDs": [69,70,71,72,73,74,75,76,77] },
+    { "name": "Anatomy & Adaptations", "cardIDs": [78,79,80,81,82,83,84,85] },
+    { "name": "Trivia & Misconceptions", "cardIDs": [86,87,88,89,90,91,92] }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "famous-movie-quotes",
+  "uuid": "E8A20CC8-CAC3-4610-9854-C8B6FC246D99",
+  "name": "Famous Movie Quotes",
+  "description": "50 famous movie quotes, from easy to hard.",
+  "storeFileName": "famous_movie_quotes",
+  "imageName": "famous_movie_quotes_deck",
+  "gradientColors": ["#004924FF", "#00356BFF"],
+  "cardCount": 50,
+  "topicCount": 3,
+  "category": "Entertainment",
+  "version": "1.1.0",
+  "sourceFileName": "cards.json",
+  "topicDefinitions": [
+    { "name": "Easy", "cardIDs": [1, 2, 3, 5, 6, 7, 8, 11, 13, 14, 15, 16, 17, 18, 19, 20, 24, 25, 26, 27, 30, 31, 34, 37, 38, 43, 46] },
+    { "name": "Medium", "cardIDs": [4, 9, 10, 12, 21, 22, 23, 28, 32, 33, 35, 36, 39, 40, 41, 42, 47, 49, 50] },
+    { "name": "Hard", "cardIDs": [29, 44, 45, 48] }
+  ]
+}
