@@ -9,7 +9,7 @@
   "cardCount": 10,
   "topicCount": 3,
   "category": "Getting Started",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "aboutURL": "https://github.com/objectivepixel/wristrecall-decks",
   "sourceFileName": "cards.json",
   "topicDefinitions": [
