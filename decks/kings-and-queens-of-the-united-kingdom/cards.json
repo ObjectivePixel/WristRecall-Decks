@@ -1,0 +1,632 @@
+[
+  {
+    "id": 1,
+    "front": {
+      "text": "Who became king in 1066 after the Battle of Hastings?",
+      "markdown": "Who became **king** in **1066** after the **Battle of Hastings**?"
+    },
+    "back": {
+      "text": "William I, later known as William the Conqueror, ruled 1066–1087.",
+      "markdown": "## William I the Conqueror\n\n{#0F766E}He was Duke of Normandy and defeated Harold II at Hastings.{/}\n\n- Reign: **1066–1087**\n- Famous for: **Norman Conquest** of England and commissioning the **Domesday Book**",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 2,
+    "front": {
+      "text": "Who ruled England from 1087 to 1100 and was nicknamed 'Rufus'?",
+      "markdown": "Who ruled from **1087–1100** and was nicknamed **“Rufus”**?"
+    },
+    "back": {
+      "text": "William II was king from 1087–1100.",
+      "markdown": "## William II (Rufus)\n\n{#0F766E}Known as **William II** and called **William Rufus** for his red hair or complexion.{/}\n\n- Reign: **1087–1100**\n- Died unexpectedly while hunting in the New Forest",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 3,
+    "front": {
+      "text": "Which king reigned from 1100 to 1135 and was called 'Lion of Justice'?",
+      "markdown": "Which king reigned **1100–1135** and was called **“Lion of Justice”**?"
+    },
+    "back": {
+      "text": "Henry I, third child of William I, ruled from 1100–1135.",
+      "markdown": "## Henry I\n\n{#0F766E}Henry I is often remembered for strengthening royal justice and government.{/}\n\n- Reign: **1100–1135**\n- Nickname: **“Lion of Justice”**\n- Died without surviving male heir, leading to a succession crisis",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 4,
+    "front": {
+      "text": "Who ruled during the period known as 'The Anarchy'?",
+      "markdown": "Who ruled during the conflict called **“The Anarchy”**?"
+    },
+    "back": {
+      "text": "King Stephen (1135–1154), a nephew of Henry I.",
+      "markdown": "## Stephen of Blois\n\n{#C62828}His reign was marked by civil war between supporters of Stephen and Empress Matilda.{/}\n\n- Reign: **1135–1154**\n- Conflict called: **The Anarchy**\n- Ended with **Treaty of Wallingford** allowing Matilda's son to inherit\n",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 5,
+    "front": {
+      "text": "Who began the long Plantagenet dynasty in 1154?",
+      "markdown": "Who began the long **Plantagenet** dynasty in **1154**?"
+    },
+    "back": {
+      "text": "Henry II, who reigned 1154–1189.",
+      "markdown": "## Henry II\n\n{#0F766E}Founder of the Plantagenet line and the first king after Stephen's reign ended in compromise.{/}\n\n- Reign: **1154–1189**\n- Set early groundwork for common law and royal administration",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 6,
+    "front": {
+      "text": "Which king was known for crusades and ruled 1189–1199?",
+      "markdown": "Which king ruled **1189–1199** and was famous for leading the **Third Crusade**?"
+    },
+    "back": {
+      "text": "Richard I, called the Lionheart, ruled 1189–1199.",
+      "markdown": "## Richard I (Lionheart)\n\n{#0F766E}Popularly known as **Richard the Lionheart** for his battlefield reputation.{/}\n\n- Reign: **1189–1199**\n- Spent much of his reign campaigning in the **Crusades**\n- Spent little time ruling in England itself",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 7,
+    "front": {
+      "text": "Who signed Magna Carta and ruled from 1199 to 1216?",
+      "markdown": "Who signed **Magna Carta** and ruled from **1199–1216**?"
+    },
+    "back": {
+      "text": "King John, who reigned from 1199–1216.",
+      "markdown": "## King John\n\n{#C62828}His conflicts with nobles led directly to the 1215 signing of Magna Carta at Runnymede.{/}\n\n- Reign: **1199–1216**\n- Magna Carta: **1215**\n- Also called **John Lackland** after losing French territories",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 8,
+    "front": {
+      "text": "Who ruled from 1216 to 1272 and was a child during his accession?",
+      "markdown": "Which king ruled **1216–1272** after ascending young?"
+    },
+    "back": {
+      "text": "Henry III was king from 1216–1272.",
+      "markdown": "## Henry III\n\n{#0F766E}Henry III was crowned as a child after the death of King John.{/}\n\n- Reign: **1216–1272**\n- Longest reigning king of his era\n- Era marked by conflicts with barons and baronial reform",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 9,
+    "front": {
+      "text": "Which king (1272–1307) expanded royal authority and built famous castles?",
+      "markdown": "Who ruled **1272–1307** and strengthened royal power?"
+    },
+    "back": {
+      "text": "Edward I, known for wars in Wales and Scotland.",
+      "markdown": "## Edward I\n\n{#0F766E}Often called **Edward Longshanks** for his height and rule through law and war.{/}\n\n- Reign: **1272–1307**\n- Built strong royal institutions and castles including in Wales\n- Key conflict with Scotland under William Wallace and Robert the Bruce",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 10,
+    "front": {
+      "text": "Which king (1307–1327) faced deposition and was seen as weak in court politics?",
+      "markdown": "Which king ruled **1307–1327** and was deposed after conflict with nobles?"
+    },
+    "back": {
+      "text": "Edward II, deposed in 1327.",
+      "markdown": "## Edward II\n\n{#C62828}His reign is remembered for battlefield losses and deep noble resentment.{/}\n\n- Reign: **1307–1327**\n- Deposed by a coalition led by queen Isabella and Roger Mortimer\n- Follows a turbulent and unstable period",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 11,
+    "front": {
+      "text": "Who ruled the longest among early Edwardians, from 1327–1377?",
+      "markdown": "Who ruled from **1327–1377**, the longest of the early Edwards?"
+    },
+    "back": {
+      "text": "Edward III, reigning for 50 years.",
+      "markdown": "## Edward III\n\n{#0F766E}Reign began in youth and lasted a full **50 years**—long for medieval England.{/}\n\n- Reign: **1327–1377**\n- Led England during the start of the **Hundred Years’ War**\n- Known for military and courtly developments",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 12,
+    "front": {
+      "text": "Which king reigned 1377–1399 and was deposed by Henry IV?",
+      "markdown": "Who reigned **1377–1399** and was deposed by **Henry Bolingbroke**?"
+    },
+    "back": {
+      "text": "Richard II was deposed in 1399 and replaced by Henry IV.",
+      "markdown": "## Richard II\n\n{#C62828}Richard II’s rule ended in 1399 when Henry IV seized the crown after conflict and exile.{/}\n\n- Reign: **1377–1399**\n- One of the last medieval kings to be deposed rather than merely replaced by succession\n- Central figure in the transition from Plantagenet to Lancastrian rule",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 13,
+    "front": {
+      "text": "Who was the first Lancastrian king, ruling from 1399 to 1413?",
+      "markdown": "Who was the first **Lancastrian** king (1399–1413)?"
+    },
+    "back": {
+      "text": "Henry IV, beginning the Lancastrian line.",
+      "markdown": "## Henry IV\n\n{#0F766E}His reign began by taking the crown from Richard II.{/}\n\n- Reign: **1399–1413**\n- Founder of the **House of Lancaster** phase within the Plantagenet period\n- First king to rule from the claim of Bolingbroke bloodline",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 14,
+    "front": {
+      "text": "Which king ruled 1413–1422 and won Agincourt?",
+      "markdown": "Which king ruled **1413–1422** and won at **Agincourt**?"
+    },
+    "back": {
+      "text": "Henry V.",
+      "markdown": "## Henry V\n\n{#0F766E}Henry V is celebrated for the **Battle of Agincourt** in 1415 during the Hundred Years’ War.{/}\n\n- Reign: **1413–1422**\n- Famous victory: **Agincourt (1415)**\n- Strong symbol of military kingship in English memory",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 15,
+    "front": {
+      "text": "Who ruled during two separate periods during the Wars of the Roses (1422–1471)?",
+      "markdown": "Which king ruled from **1422–1471**, with a break in between?"
+    },
+    "back": {
+      "text": "Henry VI.",
+      "markdown": "## Henry VI\n\n{#C62828}Henry VI’s reign was interrupted by civil conflict between York and Lancaster factions.{/}\n\n- Reign periods: **1422–1461** and **1470–1471**\n- Era characterized by mental illness episodes and weak central control\n- The Wars of the Roses intensified under his weak kingship",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 16,
+    "front": {
+      "text": "Which king ruled in 1461 and was restored after a brief deposition?",
+      "markdown": "Who ruled as king in **1461** from the House of York?"
+    },
+    "back": {
+      "text": "Edward IV, restored after brief interruption and central to Yorkist rule.",
+      "markdown": "## Edward IV\n\n{#0F766E}A major Yorkist king who helped secure Lancastrian defeat at key moments.{/}\n\n- Reign: **1461–1483**\n- Exile and return helped shape **Wars of the Roses** outcomes\n- Preceded the brief reign of Edward V and Richard III",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 17,
+    "front": {
+      "text": "Who was king for only a few months in 1483 before being deposed?",
+      "markdown": "Who ruled for a short period in **1483** before being replaced?"
+    },
+    "back": {
+      "text": "Edward V, one of the youngest English monarchs to rule.",
+      "markdown": "## Edward V\n\n{#C62828}Known for his brief reign and the mystery of his disappearance with his brother (the “Princes in the Tower”).{/}\n\n- Reign: **April–July 1483**\n- Never crowned\n- Deposed in favor of his uncle Richard III",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 18,
+    "front": {
+      "text": "Which king reigned 1483–1485 and was the last Plantagenet king?",
+      "markdown": "Which king reigned **1483–1485** and was the last **Plantagenet** king?"
+    },
+    "back": {
+      "text": "Richard III.",
+      "markdown": "## Richard III\n\n{#0F766E}He was the last English king from the Plantagenet line.{/}\n\n- Reign: **1483–1485**\n- Died at the **Battle of Bosworth Field**\n- Replaced by Henry VII, beginning the Tudor dynasty",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 19,
+    "front": {
+      "text": "Which king started the Tudor dynasty in 1485?",
+      "markdown": "Who began the **Tudor dynasty** in **1485**?"
+    },
+    "back": {
+      "text": "Henry VII, crowned after Bosworth.",
+      "markdown": "## Henry VII\n\n{#0F766E}Founded the Tudor dynasty after defeating Richard III at Bosworth.{/}\n\n- Reign: **1485–1509**\n- Stabilized England after years of civil war\n- Founder of the **Tudor royal line**",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 20,
+    "front": {
+      "text": "Who ruled 1509–1547 and oversaw the English Reformation?",
+      "markdown": "Who ruled **1509–1547** and broke with Rome?\n"
+    },
+    "back": {
+      "text": "Henry VIII ruled from 1509 to 1547.",
+      "markdown": "## Henry VIII\n\n{#C62828}His break with Rome created the Church of England and began major religious reordering.{/}\n\n- Reign: **1509–1547**\n- Broke from the **Catholic Church** in 1534\n- Married six times and had three legitimate heirs",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 21,
+    "front": {
+      "text": "Which child king ruled from 1547–1553 as the first Tudor monarch to reign as Protestant?",
+      "markdown": "Which monarch ruled **1547–1553** and was the first Tudor Protestant king?"
+    },
+    "back": {
+      "text": "Edward VI.",
+      "markdown": "## Edward VI\n\n{#0F766E}A child king whose short reign advanced Protestant reforms.{/}\n\n- Reign: **1547–1553**\n- Died at age 15\n- Followed by the Catholic restoration under Mary I",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 22,
+    "front": {
+      "text": "Who ruled 1553–1558 and tried to restore Catholicism?",
+      "markdown": "Who ruled **1553–1558** and is known for restoring Catholic practice?"
+    },
+    "back": {
+      "text": "Mary I (\"Bloody Mary\").",
+      "markdown": "## Mary I\n\n{#C62828}Called **“Bloody Mary”** by later Protestant opponents for religious persecution.{/}\n\n- Reign: **1553–1558**\n- Attempted to reverse the Protestant reforms of Edward VI\n- Died without a surviving heir in 1558",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 23,
+    "front": {
+      "text": "Which queen reigned 1558–1603 and founded what many call the English Renaissance era at court?",
+      "markdown": "Who reigned **1558–1603** and presided over a major cultural flowering?"
+    },
+    "back": {
+      "text": "Elizabeth I.",
+      "markdown": "## Elizabeth I\n\n{#0F766E}Reign is commonly associated with the **Elizabethan era**, diplomacy, and sea exploration.{/}\n\n- Reign: **1558–1603**\n- Known as the **Virgin Queen**\n- Presided over the defeat of the Spanish Armada in 1588",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 24,
+    "front": {
+      "text": "Who was the first Stuart king, beginning the move from England to a United Kingdom-style monarchy?",
+      "markdown": "Who was the **first Stuart king** of England in **1603**?"
+    },
+    "back": {
+      "text": "James I, who reigned 1603–1625.",
+      "markdown": "## James I\n\n{#0F766E}He became king of England in 1603, uniting the crowns of England and Scotland under one ruler.{/}\n\n- Reign: **1603–1625**\n- Also known as **James VI of Scotland**\n- Published ideas on monarchy in texts like the **Divine Right** tradition",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 25,
+    "front": {
+      "text": "Which king ruled from 1625 to 1649 and was executed after civil war?",
+      "markdown": "Which king ruled **1625–1649** and was executed in 1649?"
+    },
+    "back": {
+      "text": "Charles I.",
+      "markdown": "## Charles I\n\n{#C62828}Charles I’s conflict with Parliament led to the English Civil War and his execution.{/}\n\n- Reign: **1625–1649**\n- Tried-and-executed after defeat\n- Led to temporary abolition of monarchy during the Interregnum",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 26,
+    "front": {
+      "text": "Who restored the monarchy in 1660?",
+      "markdown": "Who restored the monarchy after the Interregnum in **1660**?"
+    },
+    "back": {
+      "text": "Charles II, who reigned 1660–1685.",
+      "markdown": "## Charles II\n\n{#0F766E}His period is remembered as the **Restoration**, when the monarchy returned after Oliver Cromwell’s republic.{/}\n\n- Reign: **1660–1685**\n- Also called **The Merry Monarch**\n- Reinstated court culture and parliamentary monarchy after upheaval",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 27,
+    "front": {
+      "text": "Which king was deposed during the Glorious Revolution?",
+      "markdown": "Which king was deposed in the **1688 Glorious Revolution**?"
+    },
+    "back": {
+      "text": "James II, ruling 1685–1688.",
+      "markdown": "## James II\n\n{#C62828}James II was removed by Parliament and invited invaders in 1688, leading to constitutional change.{/}\n\n- Reign: **1685–1688**\n- Overthrown in favor of William and Mary\n- Preceded stronger constitutional monarchy limits",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 28,
+    "front": {
+      "text": "Who ruled jointly with Mary II from 1689 to 1702?",
+      "markdown": "Which king ruled jointly from **1689–1702**?"
+    },
+    "back": {
+      "text": "William III, co-ruling with Mary II (1689–1702).",
+      "markdown": "## William III (of Orange)\n\n{#0F766E}His reign with Mary II is remembered for winning the war against France and the **Glorious Revolution** settlement.{/}\n\n- Reign: **1689–1702**\n- Co-ruler with **Mary II** from 1689–1694\n- Strengthened constitutional balance between king and Parliament",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 29,
+    "front": {
+      "text": "Who was queen in 1689–1694 and ruled jointly with William III?",
+      "markdown": "Who was the co-ruler queen with **William III**?"
+    },
+    "back": {
+      "text": "Mary II, co-queen from 1689 to 1694.",
+      "markdown": "## Mary II\n\n{#0F766E}Mary II became co-sovereign with her husband William III, bringing legitimacy to the post-revolution settlement.{/}\n\n- Reign: **1689–1694**\n- Queen of England, Scotland, and Ireland\n- Part of the **Glorious Revolution** transition",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 30,
+    "front": {
+      "text": "Which queen reigned 1702–1714 and was the last Stuart monarch?",
+      "markdown": "Who reigned **1702–1714** and was the last of the Stuarts?"
+    },
+    "back": {
+      "text": "Anne.",
+      "markdown": "## Queen Anne\n\n{#0F766E}Anne was the last direct **Stuart** sovereign of Great Britain.{/}\n\n- Reign: **1702–1714**\n- Oversaw the **Acts of Union (1707)** creating the Kingdom of Great Britain\n- Her death ended the main Stuart dynasty",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 31,
+    "front": {
+      "text": "Who was the first Hanoverian king in 1714?",
+      "markdown": "Who became king in **1714** starting the Hanoverian line?"
+    },
+    "back": {
+      "text": "George I, who ruled 1714–1727.",
+      "markdown": "## George I\n\n{#0F766E}His accession followed Anne’s death under the 1701 Act of Settlement line of succession.{/}\n\n- Reign: **1714–1727**\n- First king of the **House of Hanover**\n- First monarch with limited English fluency as a German-speaking ruler",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 32,
+    "front": {
+      "text": "Which king reigned 1727–1760 and presided over early empire expansion?",
+      "markdown": "Which king ruled **1727–1760** during major imperial expansion?"
+    },
+    "back": {
+      "text": "George II.",
+      "markdown": "## George II\n\n{#0F766E}George II’s reign included parliamentary power growth and expanding empire trade.{/}\n\n- Reign: **1727–1760**\n- First British monarch whose English government role was largely constitutional in practice\n- Reign includes early growth of imperial global competition",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 33,
+    "front": {
+      "text": "Who ruled 1760–1820 across American independence and Napoleonic conflict?",
+      "markdown": "Who reigned **1760–1820** through the American Revolution and Napoleonic era?"
+    },
+    "back": {
+      "text": "George III.",
+      "markdown": "## George III\n\n{#C62828}Longest Hanoverian reign and the king during the American Revolution.{/}\n\n- Reign: **1760–1820**\n- Witnessed: **American Revolution (1775–1783)**\n- Also ruled during the early Napoleonic period",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 34,
+    "front": {
+      "text": "Who became king in 1820 and was known for style and scandal in the Regency context?",
+      "markdown": "Who became king in **1820** and was a major 19th-century court figure?"
+    },
+    "back": {
+      "text": "George IV.",
+      "markdown": "## George IV\n\n{#0F766E}George IV’s tastes shaped architecture, culture, and court spectacle in the early 1800s.{/}\n\n- Reign: **1820–1830**\n- Served as Prince Regent before kingship (1811–1820)\n- Era linked to elegant neoclassical culture",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 35,
+    "front": {
+      "text": "Which king ruled 1830–1837 before Victoria and was called the 'Sailor King'?",
+      "markdown": "Who ruled from **1830–1837** before Queen Victoria?"
+    },
+    "back": {
+      "text": "William IV, known as the Sailor King.",
+      "markdown": "## William IV\n\n{#0F766E}William IV had a naval background and ruled for only seven years.{/}\n\n- Reign: **1830–1837**\n- Known as the **Sailor King**\n- Succeeded by his niece Victoria",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 36,
+    "front": {
+      "text": "Who ruled 1837–1901 and had the longest reign until Elizabeth II?",
+      "markdown": "Which monarch ruled **1837–1901** and later held the record for longest reign?"
+    },
+    "back": {
+      "text": "Queen Victoria.",
+      "markdown": "## Queen Victoria\n\n{#0F766E}She reigned during industrial expansion and colonial period; “Victorian era” still defines an age.{/}\n\n- Reign: **1837–1901**\n- Preceded the 20th-century constitutional monarchy form we know today\n- Married Prince Albert (marriage in 1840)",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 37,
+    "front": {
+      "text": "Who became king in 1901 after Victoria and ruled until 1910?",
+      "markdown": "Who became king in **1901** and reigned until **1910**?"
+    },
+    "back": {
+      "text": "Edward VII reigned from 1901–1910 and gave his name to the Edwardian era.",
+      "markdown": "## Edward VII\n\n{#0F766E}He ushered in the Edwardian era, ending the long Victorian era.{/}\n\n- Reign: **1901–1910**\n- House: **Saxe-Coburg and Gotha**\n- Era named for him: **Edwardian era**",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 38,
+    "front": {
+      "text": "Which king ruled 1910–1936 and was king through WWI?",
+      "markdown": "Who ruled **1910–1936** and was king through World War I?"
+    },
+    "back": {
+      "text": "George V.",
+      "markdown": "## George V\n\n{#0F766E}His reign included World War I and the 1917 renaming of the royal house.{/}\n\n- Reign: **1910–1936**\n- Changed family dynastic name from Saxe-Coburg-Gotha to **Windsor** in 1917\n- Led monarchy through wartime transitions",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 39,
+    "front": {
+      "text": "Which king had the briefest reign of modern rulers, abdicating in 1936?",
+      "markdown": "Who had the shortest modern reign and abdicated in **1936**?"
+    },
+    "back": {
+      "text": "Edward VIII, who abdicated the same year he became king.",
+      "markdown": "## Edward VIII\n\n{#C62828}His abdication to marry Wallis Simpson made 1936 a year of constitutional shock.{/}\n\n- Reign: **January–December 1936**\n- Abdicated voluntarily (the **Abdication Crisis**)\n- Succeeded by his brother George VI",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 40,
+    "front": {
+      "text": "Who became king after Edward VIII and reigned through WWII?",
+      "markdown": "Who became king in 1936 after Edward VIII and ruled through World War II?"
+    },
+    "back": {
+      "text": "George VI, reign 1936–1952.",
+      "markdown": "## George VI\n\n{#0F766E}His reign is tied to wartime morale and steady public leadership.{/}\n\n- Reign: **1936–1952**\n- Became king after his brother’s abdication\n- Father of Elizabeth II",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 41,
+    "front": {
+      "text": "Which queen reigned from 1952 until 2022 and became Britain’s longest-reigning monarch?",
+      "markdown": "Who reigned **1952–2022** and became Britain’s longest-reigning monarch?"
+    },
+    "back": {
+      "text": "Queen Elizabeth II, Britain’s longest-reigning monarch, reigned from 1952–2022.",
+      "markdown": "## Queen Elizabeth II\n\n{#0F766E}Britain’s longest-reigning monarch, whose reign bridged postwar Britain and the modern media age.{/}\n\n- Reign: **1952–2022**\n- Reigned through decolonization, Cold War years, and major media modernization\n- Succeeded by her son, **Charles III**",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  },
+  {
+    "id": 42,
+    "front": {
+      "text": "Who is the current king and what is the year of accession?",
+      "markdown": "Who is the **current king** and when did he accede?"
+    },
+    "back": {
+      "text": "Charles III has been king since 8 September 2022.",
+      "markdown": "## King Charles III\n\n{#0F766E}Current monarch as of August 2026, ascending after Queen Elizabeth II’s death.{/}\n\n- Reign started: **8 September 2022**\n- Coronation: **6 May 2023**\n- Continues the constitutional monarch role with an elected government",
+      "code_snippet": null,
+      "formatting": {
+        "inline_code_terms": []
+      }
+    }
+  }
+]

@@ -29,6 +29,8 @@ WristRecall lets you study any subject in quick, focused sessions right on your 
   <img src="assets/screenshots/02_deck_browser.jpg" alt="iPhone deck browser" width="240">
   &nbsp;&nbsp;
   <img src="assets/screenshots/09_widget_home.jpg" alt="Home-screen widgets" width="240">
+  &nbsp;&nbsp;
+  <img src="assets/screenshots/kings_queens_deck_browser.png" alt="Kings and Queens deck in the WristRecall deck browser" width="240">
 </p>
 
 ---
@@ -80,6 +82,14 @@ If a tap doesn't open WristRecall, save the file to **Files**, open it from ther
       <strong>United States</strong> · 100 cards · 7 topics · Geography<br>
       States and letters, capitals, and national parks — test your knowledge of the US.<br>
       <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/us-states-v2.0.3/us-states-2.0.3.wristdeck"><strong>Download v2.0.3 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=us-states">All versions</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="120" align="center"><img src="decks/kings-and-queens-of-the-united-kingdom/assets/kings_and_queens_of_the_united_kingdom_deck.jpg" alt="Kings and Queens of the United Kingdom deck cover" width="100"></td>
+    <td>
+      <strong>Kings &amp; Queens of the United Kingdom</strong> · 42 cards · 6 topics · History<br>
+      A chronological walk through every monarch of England and the United Kingdom from William I in 1066 through Charles III.<br>
+      <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases/download/kings-and-queens-of-the-united-kingdom-v1.0.0/kings-and-queens-of-the-united-kingdom-1.0.0.wristdeck"><strong>Download v1.0.0 ↓</strong></a> · <a href="https://github.com/ObjectivePixel/WristRecall-Decks/releases?q=kings-and-queens-of-the-united-kingdom">All versions</a>
     </td>
   </tr>
   <tr>
