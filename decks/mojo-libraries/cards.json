@@ -1,0 +1,1322 @@
+[
+ {
+  "front": {
+   "text": "What does the Mojo 1.0 stability promise actually cover?",
+   "markdown": "What does the Mojo 1.0 stability promise actually cover?"
+  },
+  "back": {
+   "text": "A deliberately small initial stable set",
+   "markdown": "## A deliberately small initial stable set\n\n`Deinitable`, `Movable`, `Copyable`, `Array`, `List`, `Span`, `String`, `Bool`, `Optional`.\n\n{#0F766E}1.0 is a promise about *these*, not about the whole library. Everything else may still move.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 1
+ },
+ {
+  "front": {
+   "text": "What is the stability policy for the 1.x series?",
+   "markdown": "What is the stability policy for the 1.x series?"
+  },
+  "back": {
+   "text": "Mostly additive",
+   "markdown": "## Mostly additive\n\nNew API is expected; removals and signature changes to the stable set are not.\n\n{#C62828}\"Mostly\" is doing real work in that sentence.{/} Anything outside the stable set carries no such commitment.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 2
+ },
+ {
+  "front": {
+   "text": "How do you tell whether a given API is stable?",
+   "markdown": "How do you tell whether a given API is stable?"
+  },
+  "back": {
+   "text": "Per-API stability markings in the reference",
+   "markdown": "## Per-API stability markings in the reference\n\nStability is recorded on the API itself rather than inferred from the module it lives in.\n\n{#0F766E}Check the marking before you depend on something in a library you publish — the 1.0 label on the language does not extend to every symbol.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 3
+ },
+ {
+  "front": {
+   "text": "What is the mechanical path from beta code to 1.0?",
+   "markdown": "What is the mechanical path from beta code to 1.0?"
+  },
+  "back": {
+   "text": "A deprecated alias plus a compiler fix-it",
+   "markdown": "## A deprecated alias plus a compiler fix-it\n\nNearly every breaking change in 1.0 ships both, so old code keeps compiling and the compiler tells you what the new spelling is.\n\n{#0F766E}Compile, then apply the fix-its. Most of the migration is mechanical.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 4
+ },
+ {
+  "front": {
+   "text": "Why is \"it still compiles\" a poor migration check?",
+   "markdown": "Why is \"it still compiles\" a poor migration check?"
+  },
+  "back": {
+   "text": "Because deprecated aliases are *designed* to keep compiling",
+   "markdown": "## Because deprecated aliases are *designed* to keep compiling\n\n{#C62828}A file full of beta spellings builds clean.{/} Silence from the compiler means the aliases are working, not that you have migrated.\n\n{#0F766E}Treat deprecation warnings as the real work list.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 5
+ },
+ {
+  "front": {
+   "text": "What principle drove the 1.0 renames?",
+   "markdown": "What principle drove the 1.0 renames?"
+  },
+  "back": {
+   "text": "One name, and one type, per concept",
+   "markdown": "## One name, and one type, per concept\n\nThe beta library had several spellings for the same idea and several types doing one job.\n\n{#0F766E}It explains the whole rename set at once: `StringSpan`, `Array`, `Deinitable`, the unified `Pointer`, and `size` becoming `length`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 6
+ },
+ {
+  "front": {
+   "text": "Which pointer rename does the \"one type per concept\" rule explain?",
+   "markdown": "Which pointer rename does the \"one type per concept\" rule explain?"
+  },
+  "back": {
+   "text": "Pointer and UnsafePointer unifying",
+   "markdown": "## `Pointer` and `UnsafePointer` unifying\n\n{#C62828}Two types for one concept became one.{/} Safety moved onto the operations, which are prefixed `unsafe_`.\n\n{#0F766E}The old distinction is gone: it implied a pointer was safe or unsafe as a whole, when in fact individual operations are.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 7
+ },
+ {
+  "front": {
+   "text": "Which trait rename should you expect to hit first in old code?",
+   "markdown": "Which trait rename should you expect to hit first in old code?"
+  },
+  "back": {
+   "text": "ImplicitlyDestructible becoming Deinitable",
+   "markdown": "## `ImplicitlyDestructible` becoming `Deinitable`\n\nIt appears in nearly every generic bound in beta-era library code, alongside the `__del__` to `__deinit__` change it accompanies.\n\n{#C62828}Both ship deprecated aliases, so neither breaks the build.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 8
+ },
+ {
+  "front": {
+   "text": "Which collection rename changes behavior, not just spelling?",
+   "markdown": "Which collection rename changes behavior, not just spelling?"
+  },
+  "back": {
+   "text": "InlineArray becoming Array",
+   "markdown": "## `InlineArray` becoming `Array`\n\n{#C62828}Renamed *and* narrowed.{/} Its parameters changed — `ElementType` to `T`, `size` to `length` — and it is no longer `ImplicitlyCopyable` or `Defaultable`.\n\n{#0F766E}The fix-it renames the type. It cannot fix the copies you were getting for free.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 9
+ },
+ {
+  "front": {
+   "text": "What happened to the `read` convention keyword?",
+   "markdown": "What happened to the `read` convention keyword?"
+  },
+  "back": {
+   "text": "imm is the preferred spelling",
+   "markdown": "## `imm` is the preferred spelling\n\n{#C62828}`read` is deprecated{/} for both the argument convention and closure capture.\n\n{#0F766E}The hardest rename to grep for: `read` is also an ordinary English word and an ordinary method name.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 10
+ },
+ {
+  "front": {
+   "text": "Which 1.0 rename is easiest to miss in a scan?",
+   "markdown": "Which 1.0 rename is easiest to miss in a scan?"
+  },
+  "back": {
+   "text": "size becoming length",
+   "markdown": "## `size` becoming `length`\n\nIt was applied across the library, not just to `SIMD` — `List.resize(new_length=)`, `ComplexSIMD[..., length=N]`, `Array`'s parameter.\n\n{#C62828}`size` remains a legitimate identifier elsewhere, so a plain search over it is mostly noise.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 11
+ },
+ {
+  "front": {
+   "text": "What does `Error` conform to in Mojo 1.0?",
+   "markdown": "What does `Error` conform to in Mojo 1.0?"
+  },
+  "back": {
+   "text": "ImplicitlyCopyable",
+   "markdown": "## `ImplicitlyCopyable`\n\nAn error value can be copied without an explicit request, which is what makes propagating one through `raise` and `except` unremarkable.\n\n{#0F766E}Errors are values in Mojo, and this is the conformance that makes them behave like the small values they are.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 12
+ },
+ {
+  "front": {
+   "text": "Where should you look first when a 1.0 upgrade breaks?",
+   "markdown": "Where should you look first when a 1.0 upgrade breaks?"
+  },
+  "back": {
+   "text": "The renames, not your logic",
+   "markdown": "## The renames, not your logic\n\nMost 1.0 breakage is one of: a rename with a fix-it, `Array` losing implicit copyability, a `where` clause moving to trailing position, or `alias` becoming `comptime`.\n\n{#0F766E}Semantics changed in few places; spellings changed in many.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 13
+ },
+ {
+  "front": {
+   "text": "What does the collections module give you beyond `List` and `Dict`?",
+   "markdown": "What does the collections module give you beyond `List` and `Dict`?"
+  },
+  "back": {
+   "text": "A full container set",
+   "markdown": "## A full container set\n\n`Set`, `Optional`, `String`, `Array`, `Span`, `Deque`, `BitSet`, `BinaryHeap`, `LinkedList`, `Counter`, `Interval`, `TypeDict`.\n\n{#0F766E}`BitSet` is a compact set of non-negative integers in inline storage; `Interval` is a balanced tree for interval queries.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 14
+ },
+ {
+  "front": {
+   "text": "What is the difference between `Array` and `List`?",
+   "markdown": "What is the difference between `Array` and `List`?"
+  },
+  "back": {
+   "text": "Fixed size at compile time versus dynamic",
+   "markdown": "## Fixed size at compile time versus dynamic\n\n`Array` is fixed-size with compile-time length checking; `List` grows.\n\n{#0F766E}A list expression like `[1, 2, 3]` now builds an `Array`, so reaching for `List` is a decision you make, not a default you get.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 15
+ },
+ {
+  "front": {
+   "text": "When is a collection `Deinitable` in Mojo 1.0?",
+   "markdown": "When is a collection `Deinitable` in Mojo 1.0?"
+  },
+  "back": {
+   "text": "Only when its element type is",
+   "markdown": "## Only when its element type is\n\nSeveral collections conform conditionally, which is what lets them hold unique resources that must not be silently dropped.\n\n{#0F766E}The container inherits the discipline of what it contains.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 16
+ },
+ {
+  "front": {
+   "text": "How do you destroy a collection whose elements need explicit cleanup?",
+   "markdown": "How do you destroy a collection whose elements need explicit cleanup?"
+  },
+  "back": {
+   "text": "deinit_with()",
+   "markdown": "## `deinit_with()`\n\nYou supply the operation to run on each element, so a container of explicitly destroyed values can be torn down without the container knowing how.\n\n{#0F766E}The reason a `List` of file handles is expressible at all.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 17
+ },
+ {
+  "front": {
+   "text": "Can a collection hold a type that isn't `Movable`?",
+   "markdown": "Can a collection hold a type that isn't `Movable`?"
+  },
+  "back": {
+   "text": "Yes — Array supports non-Movable elements",
+   "markdown": "## Yes — `Array` supports non-`Movable` elements\n\nThe element is constructed in place rather than moved in, so a pinned type can live in a container.\n\n{#0F766E}Before this, opting out of `Movable` meant opting out of collections.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 18
+ },
+ {
+  "front": {
+   "text": "How do `Optional` and `Variant` hold a non-`Movable` value?",
+   "markdown": "How do `Optional` and `Variant` hold a non-`Movable` value?"
+  },
+  "back": {
+   "text": "In-place construction with init_with=",
+   "markdown": "## In-place construction with `init_with=`\n\nThe constructor builds the payload where it will live instead of moving it in.\n\n{#0F766E}Same trick as the containers: if you cannot move a value, construct it at its final address.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 19
+ },
+ {
+  "front": {
+   "text": "Is `Optional` an iterator?",
+   "markdown": "Is `Optional` an iterator?"
+  },
+  "back": {
+   "text": "No — it is Iterable",
+   "markdown": "## No — it is `Iterable`\n\n{#C62828}It is not an `Iterator`.{/} It can be iterated, yielding zero or one item, but it does not itself carry iteration state.\n\n{#0F766E}The distinction matters when a generic bound asks for one specifically.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 20
+ },
+ {
+  "front": {
+   "text": "What changed about iterating a collection you own?",
+   "markdown": "What changed about iterating a collection you own?"
+  },
+  "back": {
+   "text": "Owned iteration no longer requires Copyable",
+   "markdown": "## Owned iteration no longer requires `Copyable`\n\nConsuming a container yields its elements by ownership, so elements that cannot be copied can still be iterated out.\n\n{#0F766E}Iterating to move values out of a container is now ordinary.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 21
+ },
+ {
+  "front": {
+   "text": "What is the constraint difference between borrowed and consuming `Dict` iteration?",
+   "markdown": "What is the constraint difference between borrowed and consuming `Dict` iteration?"
+  },
+  "back": {
+   "text": "Consuming iteration is the one that can yield linear values",
+   "markdown": "## Consuming iteration is the one that can yield linear values\n\nBorrowed iteration hands out references and leaves the dictionary intact; consuming iteration takes the entries out.\n\n{#0F766E}Which one you get follows from how you pass the dictionary.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 22
+ },
+ {
+  "front": {
+   "text": "What are `Dict` and `Set` linear-safe about in 1.0?",
+   "markdown": "What are `Dict` and `Set` linear-safe about in 1.0?"
+  },
+  "back": {
+   "text": "Insertion and clearing",
+   "markdown": "## Insertion and clearing\n\nInserting over an existing key, and clearing the container, now handle elements that must be explicitly destroyed rather than dropping them.\n\n{#C62828}A silently discarded linear value is exactly the bug the type system exists to prevent.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 23
+ },
+ {
+  "front": {
+   "text": "How do you take every element out of a tuple at once?",
+   "markdown": "How do you take every element out of a tuple at once?"
+  },
+  "back": {
+   "text": "Tuple.consume_elements()",
+   "markdown": "## `Tuple.consume_elements()`\n\nIt moves the elements out rather than copying them, which is what a tuple of unique resources requires.\n\n{#0F766E}The tuple is consumed — that is the point, not a side effect.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 24
+ },
+ {
+  "front": {
+   "text": "What is `StringDict`?",
+   "markdown": "What is `StringDict`?"
+  },
+  "back": {
+   "text": "The dictionary behind keyword arguments",
+   "markdown": "## The dictionary behind keyword arguments\n\n{#C62828}Renamed from `OwnedKwargsDict`.{/} It maps string keys to owned values, and is what `var **kwargs` gives you.\n\n{#0F766E}The new name says what it is rather than where it came from.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 25
+ },
+ {
+  "front": {
+   "text": "What are `MutSpan` and `ImmSpan`?",
+   "markdown": "What are `MutSpan` and `ImmSpan`?"
+  },
+  "back": {
+   "text": "Prelude aliases for the two Span mutabilities",
+   "markdown": "## Prelude aliases for the two `Span` mutabilities\n\nThey save spelling out the origin parameter for the common cases, and are available without an import.\n\n{#0F766E}`Span` also carries an address-space parameter, so a GPU shared-memory span is a distinct type from a host one.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 26
+ },
+ {
+  "front": {
+   "text": "What does iterating a `String` yield in Mojo 1.0?",
+   "markdown": "What does iterating a `String` yield in Mojo 1.0?"
+  },
+  "back": {
+   "text": "Grapheme clusters — user-perceived characters",
+   "markdown": "## Grapheme clusters — user-perceived characters\n\n```\nfor c in my_string:\n    ...\n```\n\n{#C62828}Changed in 1.0.{/} An emoji with a modifier, or a letter with a combining accent, arrives as one item rather than several.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 27
+ },
+ {
+  "front": {
+   "text": "What is a `StringSpan`?",
+   "markdown": "What is a `StringSpan`?"
+  },
+  "back": {
+   "text": "A borrowed view of string data",
+   "markdown": "## A borrowed view of string data\n\n{#C62828}Renamed from `StringSlice`.{/} It refers to text it does not own, carrying the origin of whatever does.\n\n{#0F766E}Take a `StringSpan` in a function that only reads text — it accepts literals and owned strings alike without copying.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 28
+ },
+ {
+  "front": {
+   "text": "What is `Variant` for?",
+   "markdown": "What is `Variant` for?"
+  },
+  "back": {
+   "text": "Holding one of several types, chosen at run time",
+   "markdown": "## Holding one of several types, chosen at run time\n\nThe stored type is discovered by testing, not by pattern matching — Mojo 1.0 has no `match` statement.\n\n{#C62828}`Variant.unwrap` was renamed{/}, so beta code that reaches into a variant needs updating.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 29
+ },
+ {
+  "front": {
+   "text": "How do you import a Python module from Mojo?",
+   "markdown": "How do you import a Python module from Mojo?"
+  },
+  "back": {
+   "text": "Python.import_module()",
+   "markdown": "## `Python.import_module()`\n\n```\nvar np = Python.import_module(\"numpy\")\nvar array = np.array(Python.list(1, 2, 3))\n```\n\nIt returns the module as a `PythonObject`, which you must keep in a variable to reach its members.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 30
+ },
+ {
+  "front": {
+   "text": "Can you import a single Python class or function?",
+   "markdown": "Can you import a single Python class or function?"
+  },
+  "back": {
+   "text": "No — modules only",
+   "markdown": "## No — modules only\n\nThere is no equivalent of `from x import y`. Import the module and go through it.\n\n{#0F766E}Python built-ins are not automatic either: import the `builtins` module to reach them.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 31
+ },
+ {
+  "front": {
+   "text": "Where can `import_module()` be called?",
+   "markdown": "Where can `import_module()` be called?"
+  },
+  "back": {
+   "text": "Inside a function — not at top level",
+   "markdown": "## Inside a function — not at top level\n\n{#C62828}Mojo has no top-level code, so the import lives in a method.{/}\n\nIt may also raise, so the caller must handle or propagate the error.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 32
+ },
+ {
+  "front": {
+   "text": "How do you import a Python file of your own?",
+   "markdown": "How do you import a Python file of your own?"
+  },
+  "back": {
+   "text": "Add its directory to the path first",
+   "markdown": "## Add its directory to the path first\n\n```\nPython.add_to_path(\"path/to/module\")\nvar mypython = Python.import_module(\"mypython\")\n```\n\nThe path is a directory, and the module name has no extension.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 33
+ },
+ {
+  "front": {
+   "text": "What is a `PythonObject`?",
+   "markdown": "What is a `PythonObject`?"
+  },
+  "back": {
+   "text": "A Mojo wrapper around any Python value",
+   "markdown": "## A Mojo wrapper around any Python value\n\nModules, classes, instances and results all arrive as one. Attribute access and calls on it dispatch into CPython.\n\n{#0F766E}One Mojo type stands in for the entire Python type system.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 34
+ },
+ {
+  "front": {
+   "text": "How do `PythonObject` operators work in 1.0?",
+   "markdown": "How do `PythonObject` operators work in 1.0?"
+  },
+  "back": {
+   "text": "Through CPython's abstract protocols",
+   "markdown": "## Through CPython's abstract protocols\n\nArithmetic, comparison and membership dispatch through the protocol slots instead of a slower generic path — roughly a twelvefold speedup.\n\n{#0F766E}The behavior also matches CPython's own more exactly, which was the more important half.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 35
+ },
+ {
+  "front": {
+   "text": "How do you move data between NumPy and Mojo?",
+   "markdown": "How do you move data between NumPy and Mojo?"
+  },
+  "back": {
+   "text": "Copy helpers, or a zero-copy borrow",
+   "markdown": "## Copy helpers, or a zero-copy borrow\n\nThe borrowing form gives Mojo a view over the array's existing buffer.\n\n{#C62828}A borrowed view is only valid while the Python object lives.{/} {#0F766E}Copy when the lifetime is unclear; borrow when the array is large and you control its lifetime.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 36
+ },
+ {
+  "front": {
+   "text": "What happens to a Python exception raised during a call from Mojo?",
+   "markdown": "What happens to a Python exception raised during a call from Mojo?"
+  },
+  "back": {
+   "text": "It becomes a Mojo error",
+   "markdown": "## It becomes a Mojo error\n\nThe call site handles it with ordinary `try`/`except`.\n\n{#0F766E}This is why so much of the Python interop surface is marked `raises`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 37
+ },
+ {
+  "front": {
+   "text": "How does Python find your Mojo code?",
+   "markdown": "How does Python find your Mojo code?"
+  },
+  "back": {
+   "text": "Through a PyInit_<module>() entry point",
+   "markdown": "## Through a `PyInit_<module>()` entry point\n\n```\n@export\ndef PyInit_mojo_module() abi(\"C\") -> PythonObject:\n    ...\n```\n\nThe Python runtime looks up that symbol across the C boundary, exactly as it does for a C extension module.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 38
+ },
+ {
+  "front": {
+   "text": "What builds the module you hand back to Python?",
+   "markdown": "What builds the module you hand back to Python?"
+  },
+  "back": {
+   "text": "PythonModuleBuilder",
+   "markdown": "## `PythonModuleBuilder`\n\n```\nvar m = PythonModuleBuilder(\"mojo_module\")\nm.def_function[factorial](\n    \"factorial\", docstring=\"Compute n!\"\n)\nreturn m.finalize()\n```\n\n`finalize()` produces the module object.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 39
+ },
+ {
+  "front": {
+   "text": "Do exported functions need the `@export` decorator?",
+   "markdown": "Do exported functions need the `@export` decorator?"
+  },
+  "back": {
+   "text": "No — only the PyInit_ entry point does",
+   "markdown": "## No — only the `PyInit_` entry point does\n\nYou pass the function by reference to `def_function`, and Mojo generates the C wrapper CPython actually calls.\n\n{#0F766E}You write ordinary Mojo functions; the binding layer is generated.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 40
+ },
+ {
+  "front": {
+   "text": "Why can't an `abi(\"C\")` function be marked `raises`?",
+   "markdown": "Why can't an `abi(\"C\")` function be marked `raises`?"
+  },
+  "back": {
+   "text": "C has no exceptions to propagate into",
+   "markdown": "## C has no exceptions to propagate into\n\n{#C62828}An unhandled error at that boundary has nowhere to go.{/} Catch it inside and call `abort()`, or translate it into a Python exception.\n\n{#0F766E}The constraint applies to the entry point, not to the functions it registers.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 41
+ },
+ {
+  "front": {
+   "text": "How do you expose a Mojo struct as a Python type?",
+   "markdown": "How do you expose a Mojo struct as a Python type?"
+  },
+  "back": {
+   "text": "add_type(), which returns a PythonTypeBuilder",
+   "markdown": "## `add_type()`, which returns a `PythonTypeBuilder`\n\n```\nvar person_type = mb.add_type[Person](\"Person\")\n```\n\nThe builder is then used to configure the type's constructor and methods.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 42
+ },
+ {
+  "front": {
+   "text": "What shape must a method exposed to Python have?",
+   "markdown": "What shape must a method exposed to Python have?"
+  },
+  "back": {
+   "text": "A @staticmethod taking the receiver explicitly",
+   "markdown": "## A `@staticmethod` taking the receiver explicitly\n\n```\n@staticmethod\ndef get_name(py_self: PythonObject) raises -> PythonObject:\n    var self_ptr = py_self.downcast_value_ptr[Self]()\n    return self_ptr[].name\n```\n\nThe receiver arrives as `py_self: PythonObject` or `self_ptr: Pointer[Self]`.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 43
+ },
+ {
+  "front": {
+   "text": "How do you get a Mojo value back out of a `PythonObject`?",
+   "markdown": "How do you get a Mojo value back out of a `PythonObject`?"
+  },
+  "back": {
+   "text": "downcast_value_ptr[Type](), or ConvertibleFromPython",
+   "markdown": "## `downcast_value_ptr[Type]()`, or `ConvertibleFromPython`\n\nThe downcast gives a pointer to the Mojo value inside a bound Python object; the trait converts an ordinary Python value into a Mojo one.\n\n{#0F766E}Downcast for your own bound types; convert for Python's.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 44
+ },
+ {
+  "front": {
+   "text": "How do you register a function that needs no instance?",
+   "markdown": "How do you register a function that needs no instance?"
+  },
+  "back": {
+   "text": "def_staticmethod()",
+   "markdown": "## `def_staticmethod()`\n\nIt exposes a class-level operation callable without constructing anything — the counterpart to `def_method()` on the same builder.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 45
+ },
+ {
+  "front": {
+   "text": "What pointer types appear in Python binding signatures in 1.0?",
+   "markdown": "What pointer types appear in Python binding signatures in 1.0?"
+  },
+  "back": {
+   "text": "Safe Pointer types",
+   "markdown": "## Safe `Pointer` types\n\n{#C62828}The binding APIs moved off raw unsafe pointers.{/} A callback receives `Pointer[Self]` rather than an untyped address.\n\n{#0F766E}The boundary is still unsafe in principle; the signatures no longer pretend otherwise by being vague.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 46
+ },
+ {
+  "front": {
+   "text": "How do you call a C function by name?",
+   "markdown": "How do you call a C function by name?"
+  },
+  "back": {
+   "text": "external_call",
+   "markdown": "## `external_call`\n\n```\nfrom std.ffi import external_call, c_int\n\nvar n = external_call[\"abs\", c_int](c_int(-42))\n```\n\nThe symbol name and the return type are parameters; the arguments are ordinary runtime arguments.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 47
+ },
+ {
+  "front": {
+   "text": "What must you pass when calling a variadic C function?",
+   "markdown": "What must you pass when calling a variadic C function?"
+  },
+  "back": {
+   "text": "num_fixed_args",
+   "markdown": "## `num_fixed_args`\n\n```\nexternal_call[\n    \"snprintf\", c_int, num_fixed_args=3\n](...)\n```\n\n{#C62828}Omit it and every argument is treated as fixed, which gets the ABI wrong.{/} It counts the non-variadic parameters.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 48
+ },
+ {
+  "front": {
+   "text": "What does `abi(\"C\")` on a function do?",
+   "markdown": "What does `abi(\"C\")` on a function do?"
+  },
+  "back": {
+   "text": "Gives it the C calling convention so C can call it",
+   "markdown": "## Gives it the C calling convention so C can call it\n\n```\ndef compare(\n    a: OpaquePointer[mut=False, _],\n    b: OpaquePointer[mut=False, _],\n) abi(\"C\") -> c_int:\n    ...\n```\n\nRequired for callbacks — a comparison function handed to `qsort`, say. Such a function captures no Mojo state.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 49
+ },
+ {
+  "front": {
+   "text": "How do you load a shared library?",
+   "markdown": "How do you load a shared library?"
+  },
+  "back": {
+   "text": "OwnedDLHandle",
+   "markdown": "## `OwnedDLHandle`\n\n```\nfrom std.ffi import OwnedDLHandle, c_double\n\nvar lib = OwnedDLHandle(\"libm.so.6\")\nvar sqrt = lib.get_function[c_double](\"sqrt\")\n```\n\nIt owns the handle with RAII semantics, so the library is unloaded when it dies.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 50
+ },
+ {
+  "front": {
+   "text": "What does `get_function` take in Mojo 1.0?",
+   "markdown": "What does `get_function` take in Mojo 1.0?"
+  },
+  "back": {
+   "text": "The return type only",
+   "markdown": "## The return type only\n\n```\nvar sqrt = lib.get_function[c_double](\"sqrt\")\n```\n\n{#C62828}The signature changed in 1.0.{/} Argument types are deduced at the call rather than declared when the symbol is looked up.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 51
+ },
+ {
+  "front": {
+   "text": "How do you handle a symbol that may not exist?",
+   "markdown": "How do you handle a symbol that may not exist?"
+  },
+  "back": {
+   "text": "check_symbol() before get_function()",
+   "markdown": "## `check_symbol()` before `get_function()`\n\n```\nif lib.check_symbol(\"exp10\"):\n    var exp10 = lib.get_function[c_double](\"exp10\")\n```\n\nThe pattern for optional platform features — asking is cheaper than crashing.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 52
+ },
+ {
+  "front": {
+   "text": "How do you get a C string from a Mojo `String`?",
+   "markdown": "How do you get a C string from a Mojo `String`?"
+  },
+  "back": {
+   "text": "as_c_string_slice().unsafe_ptr()",
+   "markdown": "## `as_c_string_slice().unsafe_ptr()`\n\n```\nname.as_c_string_slice().unsafe_ptr()\n```\n\nString literals convert at compile time. {#0F766E}The pointer borrows the string's storage, so the string has to outlive the call.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 53
+ },
+ {
+  "front": {
+   "text": "How do you turn a C string back into a Mojo `String`?",
+   "markdown": "How do you turn a C string back into a Mojo `String`?"
+  },
+  "back": {
+   "text": "String(unsafe_from_utf8_ptr=...)",
+   "markdown": "## `String(unsafe_from_utf8_ptr=...)`\n\n```\nString(unsafe_from_utf8_ptr=c_string_ptr)\n```\n\nIt reads up to the null terminator and takes a copy. {#C62828}The name says what you are promising: valid UTF-8, properly terminated.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 54
+ },
+ {
+  "front": {
+   "text": "How do you name a library across platforms?",
+   "markdown": "How do you name a library across platforms?"
+  },
+  "back": {
+   "text": "platform_map()",
+   "markdown": "## `platform_map()`\n\n```\nfrom std.sys.info import platform_map\n\ncomptime LIBM = platform_map[\n    \"libm\", linux=\"libm.so.6\", macos=\"libm.dylib\"\n]()\n```\n\nIt resolves at compile time, so the wrong name never reaches the target.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 55
+ },
+ {
+  "front": {
+   "text": "Why use `libcurl.so.4` rather than `libcurl.so` on Linux?",
+   "markdown": "Why use `libcurl.so.4` rather than `libcurl.so` on Linux?"
+  },
+  "back": {
+   "text": "The unversioned name belongs to the development package",
+   "markdown": "## The unversioned name belongs to the development package\n\nIt is a symlink that may be absent at run time, and may point at a different ABI.\n\n{#0F766E}Load the ABI-versioned name — it is the one that encodes the contract you compiled against.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 56
+ },
+ {
+  "front": {
+   "text": "What is `initialize_runtime()` for?",
+   "markdown": "What is `initialize_runtime()` for?"
+  },
+  "back": {
+   "text": "Starting the Mojo runtime when a foreign host calls in",
+   "markdown": "## Starting the Mojo runtime when a foreign host calls in\n\nFrom `std.runtime.asyncrt`, it initializes the global runtime if it is not already running.\n\n{#0F766E}Needed when Mojo is a shared library being called by C or Python — nothing else has started the runtime for you.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 57
+ },
+ {
+  "front": {
+   "text": "What is an `OpaquePointer` used for at the C boundary?",
+   "markdown": "What is an `OpaquePointer` used for at the C boundary?"
+  },
+  "back": {
+   "text": "Carrying an address whose type C does not tell you",
+   "markdown": "## Carrying an address whose type C does not tell you\n\nIt is `Pointer[NoneType]` — the `void *` of Mojo — and appears in callback signatures such as a `qsort` comparator.\n\n{#0F766E}Recover the type with `unsafe_bitcast`, which is where you take responsibility for being right.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 58
+ },
+ {
+  "front": {
+   "text": "Which C scalar type names does `std.ffi` provide?",
+   "markdown": "Which C scalar type names does `std.ffi` provide?"
+  },
+  "back": {
+   "text": "c_int, c_double, c_size_t and friends",
+   "markdown": "## `c_int`, `c_double`, `c_size_t` and friends\n\n```\nfrom std.ffi import c_int, c_double, c_size_t\n```\n\n{#0F766E}Use them rather than `Int` at the boundary: their widths follow the platform's C ABI, which is the whole point.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 59
+ },
+ {
+  "front": {
+   "text": "What does `mojo build` decide about a target?",
+   "markdown": "What does `mojo build` decide about a target?"
+  },
+  "back": {
+   "text": "Architecture, CPU model, and feature set",
+   "markdown": "## Architecture, CPU model, and feature set\n\nx86-64 or AArch64; a specific processor; and the instruction extensions such as AVX-512 or Neon.\n\n{#0F766E}For GPU work an accelerator architecture is added on top — NVIDIA, AMD or Apple Metal.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 60
+ },
+ {
+  "front": {
+   "text": "What are the two target flag families, and can you mix them?",
+   "markdown": "What are the two target flag families, and can you mix them?"
+  },
+  "back": {
+   "text": "Mojo-native and GCC/Clang-compatible — never mixed",
+   "markdown": "## Mojo-native and GCC/Clang-compatible — never mixed\n\n- `--target-triple`, `--target-cpu`, `--target-features`, `--target-accelerator`\n- `--march`, `--mcpu`, `--mtune`\n\n{#C62828}The compiler enforces the separation.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 61
+ },
+ {
+  "front": {
+   "text": "How do you cross-compile an object file?",
+   "markdown": "How do you cross-compile an object file?"
+  },
+  "back": {
+   "text": "--target-triple plus --emit object",
+   "markdown": "## `--target-triple` plus `--emit object`\n\n```\nmojo build \\\n  --target-triple aarch64-unknown-linux-gnu \\\n  --target-cpu cortex-a72 \\\n  --emit object -o myapp.o myapp.mojo\n```\n\nThe triple names the platform; `--target-cpu` names the chip.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 62
+ },
+ {
+  "front": {
+   "text": "Which `--emit` outputs work when cross-compiling?",
+   "markdown": "Which `--emit` outputs work when cross-compiling?"
+  },
+  "back": {
+   "text": "The ones that don't need linking",
+   "markdown": "## The ones that don't need linking\n\n`object`, `asm`, `llvm`, `llvm-bitcode` work for any supported target.\n\n{#C62828}`exe` and `shared-lib` are native-only{/} — cross-compilation fails at the link step, not the compile step.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 63
+ },
+ {
+  "front": {
+   "text": "What is the difference between `--mcpu` and `--mtune`?",
+   "markdown": "What is the difference between `--mcpu` and `--mtune`?"
+  },
+  "back": {
+   "text": "One changes the instructions, the other only the scheduling",
+   "markdown": "## One changes the instructions, the other only the scheduling\n\n`--mcpu` selects a CPU and may emit instructions only it has. `--mtune` optimizes for a CPU without changing which instructions are used.\n\n{#0F766E}`--mtune` keeps the binary portable; `--mcpu` does not.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 64
+ },
+ {
+  "front": {
+   "text": "How do you compile a Mojo library for distribution?",
+   "markdown": "How do you compile a Mojo library for distribution?"
+  },
+  "back": {
+   "text": "mojo precompile",
+   "markdown": "## `mojo precompile`\n\n```\nmojo precompile src/my_mojo_lib \\\n  -o ${PREFIX}/lib/mojo/my_mojo_lib.mojoc\n```\n\n{#C62828}Replaces `mojo package`; the artifact is `.mojoc`, not `.mojopkg`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 65
+ },
+ {
+  "front": {
+   "text": "Why must a `.mojoc` file land in `$PREFIX/lib/mojo/`?",
+   "markdown": "Why must a `.mojoc` file land in `$PREFIX/lib/mojo/`?"
+  },
+  "back": {
+   "text": "That path is what makes it auto-discoverable",
+   "markdown": "## That path is what makes it auto-discoverable\n\nThe compiler looks there, so a package installed to the right place needs no path configuration.\n\n{#0F766E}Output it somewhere else and the import will not resolve, even though the build succeeded.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 66
+ },
+ {
+  "front": {
+   "text": "How portable is a `.mojoc` file?",
+   "markdown": "How portable is a `.mojoc` file?"
+  },
+  "back": {
+   "text": "It is tied to the compiler version that produced it",
+   "markdown": "## It is tied to the compiler version that produced it\n\n{#C62828}Precompiled files may not be compatible with other compiler versions.{/}\n\n{#0F766E}Which is why package recipes pin the compiler version strictly.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 67
+ },
+ {
+  "front": {
+   "text": "What is the recommended layout for a Mojo library?",
+   "markdown": "What is the recommended layout for a Mojo library?"
+  },
+  "back": {
+   "text": "Sources under src/<package>/ with an __init__.mojo",
+   "markdown": "## Sources under `src/<package>/` with an `__init__.mojo`\n\n```\nmy-mojo-lib/\n  src/my_mojo_lib/\n    __init__.mojo\n    utils.mojo\n  test.mojo\n  conda.recipe/recipe.yaml\n```\n\n`__init__.mojo` marks the directory importable, following Python's convention.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 68
+ },
+ {
+  "front": {
+   "text": "How is a Mojo package published?",
+   "markdown": "How is a Mojo package published?"
+  },
+  "back": {
+   "text": "As a conda package, built with rattler-build",
+   "markdown": "## As a conda package, built with rattler-build\n\nWrite a `recipe.yaml`, build it with `rattler-build`, then upload the `.conda` file to a channel.\n\n{#0F766E}The modular-community channel on prefix.dev is the shared destination.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 69
+ },
+ {
+  "front": {
+   "text": "How do you write a Mojo test?",
+   "markdown": "How do you write a Mojo test?"
+  },
+  "back": {
+   "text": "A module-level def whose name starts with test_",
+   "markdown": "## A module-level `def` whose name starts with `test_`\n\nIt takes no arguments, returns `None`, and signals failure by raising.\n\n{#C62828}It must be at module scope — a struct method will not be discovered.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 70
+ },
+ {
+  "front": {
+   "text": "How are tests discovered and run?",
+   "markdown": "How are tests discovered and run?"
+  },
+  "back": {
+   "text": "TestSuite.discover_tests in main()",
+   "markdown": "## `TestSuite.discover_tests` in `main()`\n\n```\nTestSuite.discover_tests[\n    __functions_in_module()\n]().run()\n```\n\n`__functions_in_module()` is a compiler intrinsic listing the module's functions; `discover_tests` keeps the ones prefixed `test_`.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 71
+ },
+ {
+  "front": {
+   "text": "What assertions does `std.testing` provide?",
+   "markdown": "What assertions does `std.testing` provide?"
+  },
+  "back": {
+   "text": "The usual set, plus a tolerance form",
+   "markdown": "## The usual set, plus a tolerance form\n\n`assert_true`, `assert_false`, `assert_equal`, `assert_not_equal`, `assert_almost_equal` (with `atol` and `rtol`), and `assert_raises`.\n\n{#0F766E}All take an optional `msg`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 72
+ },
+ {
+  "front": {
+   "text": "How do you run only some of a file's tests?",
+   "markdown": "How do you run only some of a file's tests?"
+  },
+  "back": {
+   "text": "--only, --skip, --skip-all",
+   "markdown": "## `--only`, `--skip`, `--skip-all`\n\n`--only` runs the named tests, `--skip` excludes them, and `--skip-all` lists tests without running any.\n\n{#0F766E}You can also skip programmatically with `suite.skip[test_name]()` before `suite^.run()`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 73
+ },
+ {
+  "front": {
+   "text": "What are Mojo AI skills?",
+   "markdown": "What are Mojo AI skills?"
+  },
+  "back": {
+   "text": "Packaged instructions that teach an AI assistant current Mojo",
+   "markdown": "## Packaged instructions that teach an AI assistant current Mojo\n\nThey ship with the toolchain so a coding assistant works from 1.0 conventions rather than from beta-era code it was trained on.\n\n{#0F766E}Directly relevant here: Mojo changed enough in 1.0 that plausible-looking generated code is often beta code.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 74
+ },
+ {
+  "front": {
+   "text": "What lives in `std.math`?",
+   "markdown": "What lives in `std.math`?"
+  },
+  "back": {
+   "text": "A curated numeric surface",
+   "markdown": "## A curated numeric surface\n\nTrigonometric, exponential, logarithmic and special functions, plus constants.\n\n{#0F766E}Curated, not exhaustive — the functions operate on SIMD types, so they vectorize rather than looping element by element.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 75
+ },
+ {
+  "front": {
+   "text": "What does `std.os` cover?",
+   "markdown": "What does `std.os` cover?"
+  },
+  "back": {
+   "text": "The OS interface layer",
+   "markdown": "## The OS interface layer\n\nEnvironment variables, the filesystem, and process control.\n\n{#0F766E}Paths and file operations live here; the lower-level hardware and intrinsic surface is `std.sys`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 76
+ },
+ {
+  "front": {
+   "text": "What does `std.sys` cover?",
+   "markdown": "What does `std.sys` cover?"
+  },
+  "back": {
+   "text": "System runtime and hardware facts",
+   "markdown": "## System runtime and hardware facts\n\nI/O, hardware information, intrinsics, and compile-time utilities — including `platform_map` and the accelerator queries used by `comptime if`.\n\n{#0F766E}This is where code asks what machine it is being compiled for.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 77
+ },
+ {
+  "front": {
+   "text": "What does `std.time` provide?",
+   "markdown": "What does `std.time` provide?"
+  },
+  "back": {
+   "text": "Monotonic clocks, performance counters, sleep, and time_function",
+   "markdown": "## Monotonic clocks, performance counters, sleep, and `time_function`\n\n{#0F766E}A monotonic clock never goes backwards, which is why it — not wall-clock time — is what you measure durations with.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 78
+ },
+ {
+  "front": {
+   "text": "When should you use `std.benchmark` rather than timing something yourself?",
+   "markdown": "When should you use `std.benchmark` rather than timing something yourself?"
+  },
+  "back": {
+   "text": "Whenever the answer matters",
+   "markdown": "## Whenever the answer matters\n\nIt runs enough iterations to be statistically meaningful and reports the analysis, rather than handing you one sample.\n\n{#C62828}A single timed run of fast code mostly measures noise.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 79
+ },
+ {
+  "front": {
+   "text": "What did `Bencher.iter` change to in 1.0?",
+   "markdown": "What did `Bencher.iter` change to in 1.0?"
+  },
+  "back": {
+   "text": "The final closure form",
+   "markdown": "## The final closure form\n\n{#C62828}Benchmark bodies written against the beta closure spelling need updating.{/}\n\n{#0F766E}Part of the same sweep that deprecated the legacy closure decorators.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 80
+ },
+ {
+  "front": {
+   "text": "What does `std.random` offer?",
+   "markdown": "What does `std.random` offer?"
+  },
+  "back": {
+   "text": "Uniform and normal pseudorandom generation",
+   "markdown": "## Uniform and normal pseudorandom generation\n\n{#0F766E}Pseudorandom: reproducible from a seed, which is what you want in a test and not what you want in a key.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 81
+ },
+ {
+  "front": {
+   "text": "Which module holds Mojo's async support?",
+   "markdown": "Which module holds Mojo's async support?"
+  },
+  "back": {
+   "text": "std.runtime.asyncrt",
+   "markdown": "## `std.runtime.asyncrt`\n\nThe low-level concurrency library: async coroutines, task groups, and parallel execution.\n\n{#C62828}Experimental in 1.0.{/} Async is library surface, outside the stable set — the manual's Functions page does not mention it.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 82
+ },
+ {
+  "front": {
+   "text": "What creates a running task in `asyncrt`?",
+   "markdown": "What creates a running task in `asyncrt`?"
+  },
+  "back": {
+   "text": "create_task(), or create_raising_task()",
+   "markdown": "## `create_task()`, or `create_raising_task()`\n\nThey run a coroutine on the AsyncRT runtime, producing a `Task` or a `RaisingTask`.\n\n{#C62828}Experimental in 1.0.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 83
+ },
+ {
+  "front": {
+   "text": "What is a `TaskGroup`?",
+   "markdown": "What is a `TaskGroup`?"
+  },
+  "back": {
+   "text": "A group of tasks that run concurrently",
+   "markdown": "## A group of tasks that run concurrently\n\nIt is the structured unit for fanning work out and collecting it back.\n\n{#C62828}Experimental in 1.0.{/} {#0F766E}`parallelism_level()` reports how much parallelism the runtime actually has.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 84
+ },
+ {
+  "front": {
+   "text": "Is language-level `async` part of Mojo 1.0?",
+   "markdown": "Is language-level `async` part of Mojo 1.0?"
+  },
+  "back": {
+   "text": "No — the runtime is, the language feature is not",
+   "markdown": "## No — the runtime is, the language feature is not\n\n`std.runtime.asyncrt` ships and works, but the manual never introduces `async` as a language construct and first-class async remains unstarted on the roadmap.\n\n{#C62828}Treat it as a library you opted into, not a language feature.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 85
+ },
+ {
+  "front": {
+   "text": "What does `RaisingTask` add over `Task`?",
+   "markdown": "What does `RaisingTask` add over `Task`?"
+  },
+  "back": {
+   "text": "It may complete with an error",
+   "markdown": "## It may complete with an error\n\nThe error surfaces when the task's result is taken, so a failure inside a coroutine reaches the code that awaited it.\n\n{#C62828}Experimental in 1.0.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 86
+ },
+ {
+  "front": {
+   "text": "How do you find out how much parallelism you have?",
+   "markdown": "How do you find out how much parallelism you have?"
+  },
+  "back": {
+   "text": "parallelism_level()",
+   "markdown": "## `parallelism_level()`\n\nIt reports the runtime's parallelism level.\n\n{#0F766E}Worth asking before sizing a fan-out: a task group wider than the runtime buys queueing, not speed.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 87
+ },
+ {
+  "front": {
+   "text": "Which debugging support ships with Mojo 1.0?",
+   "markdown": "Which debugging support ships with Mojo 1.0?"
+  },
+  "back": {
+   "text": "A debugger, with editor integration",
+   "markdown": "## A debugger, with editor integration\n\nBreakpoints and stepping over Mojo source, rather than over the generated code.\n\n{#0F766E}For compile-time evaluation there is nothing to step through — a `comptime` value either folds or reports why it cannot.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 88
+ }
+]

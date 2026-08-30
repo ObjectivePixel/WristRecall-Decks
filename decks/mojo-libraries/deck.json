@@ -1,0 +1,144 @@
+{
+  "id": "mojo-libraries",
+  "uuid": "D2E7C67C-9F82-4FEA-A844-30702495BC44",
+  "name": "Mojo 1.0 Libraries, Interop & Tools",
+  "description": "Builds on Mojo 1.0 Fundamentals: the stable library surface, collections, Python and C interop, packaging, testing and the system APIs.",
+  "storeFileName": "mojo_libraries",
+  "imageName": "shippingbox.fill",
+  "gradientColors": [
+    "#FBD667FF",
+    "#6D28D9CC"
+  ],
+  "category": "Programming",
+  "version": "0.1.0",
+  "moreInfoURL": "https://mojolang.org/docs/std/",
+  "aboutURL": "https://github.com/objectivepixel/wristrecall-decks",
+  "cardCount": 88,
+  "topicCount": 7,
+  "sourceFileName": "cards.json",
+  "topicDefinitions": [
+    {
+      "name": "Stable Surface & Migration",
+      "cardIDs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "name": "Collections, Iterators & Linear Values",
+      "cardIDs": [
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ]
+    },
+    {
+      "name": "Python from Mojo",
+      "cardIDs": [
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ]
+    },
+    {
+      "name": "Mojo from Python",
+      "cardIDs": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ]
+    },
+    {
+      "name": "C FFI & Runtime",
+      "cardIDs": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ]
+    },
+    {
+      "name": "Compilation, Packaging & Tools",
+      "cardIDs": [
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ]
+    },
+    {
+      "name": "Math, I/O, System & Measurement",
+      "cardIDs": [
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88
+      ]
+    }
+  ]
+}

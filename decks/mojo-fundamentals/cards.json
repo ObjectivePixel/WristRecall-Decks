@@ -1,0 +1,1652 @@
+[
+ {
+  "front": {
+   "text": "What keyword declares a function in Mojo 1.0?",
+   "markdown": "What keyword declares a function in Mojo 1.0?"
+  },
+  "back": {
+   "text": "def — for every function",
+   "markdown": "## `def` — for every function\n\n```\ndef greet(name: String) -> String:\n    return \"Hello, \" + name\n```\n\n{#C62828}`fn` is **deprecated** and will be removed.{/} If you see `fn` in older code, read it as `def`.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 1
+ },
+ {
+  "front": {
+   "text": "What's the difference between `[]` and `()` in a Mojo signature?",
+   "markdown": "What's the difference between `[]` and `()` in a Mojo signature?"
+  },
+  "back": {
+   "text": "[] is compile time, () is runtime",
+   "markdown": "## `[]` is compile time, `()` is runtime\n\n- **Parameters** in `[...]` — known at compile time, used to specialize the function.\n- **Arguments** in `(...)` — ordinary runtime values.\n\n```\ndef fill[T: Copyable](count: Int, value: T):\n    ...\n```\n\n{#0F766E}One `def`, many specializations: each distinct `T` compiles its own version.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 2
+ },
+ {
+  "front": {
+   "text": "Where may default values appear in an argument list?",
+   "markdown": "Where may default values appear in an argument list?"
+  },
+  "back": {
+   "text": "Once a default appears, later positional arguments need one too",
+   "markdown": "## Once a default appears, later positional arguments need one too\n\n```\ndef connect(host: String = \"localhost\", port: Int = 80):\n    ...\n```\n\n{#0F766E}Keyword-only arguments are exempt from the rule.{/}\n\n```\ndef configure(*, retries: Int = 3, verbose: Bool):\n    ...\n```",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 3
+ },
+ {
+  "front": {
+   "text": "How do you force arguments to be passed positionally?",
+   "markdown": "How do you force arguments to be passed positionally?"
+  },
+  "back": {
+   "text": "Put  after them",
+   "markdown": "## Put `/` after them\n\nEverything **before** the `/` must be passed by position.\n\n```\ndef div(a: Int, b: Int, /):\n    return a // b\n\ndiv(10, 3)       # OK\ndiv(a=10, b=3)   # Error\n```",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 4
+ },
+ {
+  "front": {
+   "text": "How do you force arguments to be passed by keyword?",
+   "markdown": "How do you force arguments to be passed by keyword?"
+  },
+  "back": {
+   "text": "Put  before them",
+   "markdown": "## Put `*` before them\n\nEverything **after** the bare `*` must be named at the call site.\n\n```\ndef configure(*, verbose: Bool, retries: Int):\n    ...\n\nconfigure(verbose=True, retries=3)  # OK\nconfigure(True, 3)                  # Error\n```",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 5
+ },
+ {
+  "front": {
+   "text": "How do you accept a variable number of arguments of the same type?",
+   "markdown": "How do you accept a variable number of arguments of the same type?"
+  },
+  "back": {
+   "text": "args — a homogeneous variadic",
+   "markdown": "## `*args` — a homogeneous variadic\n\n```\ndef sum_all(*values: Int) -> Int:\n    var total = 0\n    for v in values:\n        total += v\n    return total\n```\n\n{#0F766E}Iterate it like any collection.{/} For a *heterogeneous* pack of differing types, see parameter packs in the Advanced deck.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 6
+ },
+ {
+  "front": {
+   "text": "What are the three restrictions on variadic arguments?",
+   "markdown": "What are the three restrictions on variadic arguments?"
+  },
+  "back": {
+   "text": "One args, no defaults, never out",
+   "markdown": "## One `*args`, no defaults, never `out`\n\n1. **At most one** `*args` per function.\n2. Variadic arguments **cannot have default values**.\n3. An `out` argument **cannot** be variadic.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 7
+ },
+ {
+  "front": {
+   "text": "How do you accept arbitrary keyword arguments?",
+   "markdown": "How do you accept arbitrary keyword arguments?"
+  },
+  "back": {
+   "text": "var kwargs",
+   "markdown": "## `var **kwargs`\n\n```\ndef report(var **kwargs: Int):\n    ...\n```\n\n{#C62828}A bare `**kwargs` is an **error** in Mojo 1.0.{/} The `var` prefix is required — it says the function owns the collected arguments.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 8
+ },
+ {
+  "front": {
+   "text": "How do you forward keyword variadics to another function?",
+   "markdown": "How do you forward keyword variadics to another function?"
+  },
+  "back": {
+   "text": "Python-style , transferring ownership",
+   "markdown": "## Python-style `**`, transferring ownership\n\n```\ndef outer(var **kwargs: Int):\n    inner(**kwargs^)\n```\n\n{#0F766E}The `^` transfers the owned pack rather than copying it.{/} The receiving function must itself take keyword variadics.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 9
+ },
+ {
+  "front": {
+   "text": "How do you declare what a function returns?",
+   "markdown": "How do you declare what a function returns?"
+  },
+  "back": {
+   "text": "-> after the argument list",
+   "markdown": "## `->` after the argument list\n\n```\ndef square(x: Int) -> Int:\n    return x * x\n```\n\n{#0F766E}With no `->`, the function returns `None`.{/} The arrow comes *after* any effects, such as `raises`.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 10
+ },
+ {
+  "front": {
+   "text": "What does an `out` argument do to a function's signature?",
+   "markdown": "What does an `out` argument do to a function's signature?"
+  },
+  "back": {
+   "text": "It becomes the result slot, replacing ->",
+   "markdown": "## It becomes the result slot, replacing `->`\n\n```\ndef make_tag(var name: String, out tag: NameTag):\n    tag = NameTag(name^)\n```\n\n`tag` is built in place, so `out` works for results that cannot be moved or copied. A function declares one result — `out` or `->`, never both. This is how initializers are written — `__init__(out self)`.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 11
+ },
+ {
+  "front": {
+   "text": "How do you declare that a function can raise an error?",
+   "markdown": "How do you declare that a function can raise an error?"
+  },
+  "back": {
+   "text": "The raises effect",
+   "markdown": "## The `raises` effect\n\n```\ndef parse(text: String) raises -> Int:\n    ...\n```\n\n{#0F766E}Effects come before the return arrow.{/} Without `raises`, the compiler guarantees the function cannot propagate an error.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 12
+ },
+ {
+  "front": {
+   "text": "In what order does Mojo pick between overloads?",
+   "markdown": "In what order does Mojo pick between overloads?"
+  },
+  "back": {
+   "text": "Fewest conversions first, then specificity",
+   "markdown": "## Fewest conversions first, then specificity\n\n1. Fewer implicit conversions.\n2. Does not bind non-empty variadics.\n3. Fewer mismatched argument conventions.\n4. Shorter parameter list — concrete beats parameterized.\n\n{#0F766E}Tiebreakers: instance methods beat `@staticmethod`; non-`@implicit` constructors beat `@implicit` ones.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 13
+ },
+ {
+  "front": {
+   "text": "Can two overloads differ only by return type, or only by `raises`?",
+   "markdown": "Can two overloads differ only by return type, or only by `raises`?"
+  },
+  "back": {
+   "text": "No — neither disambiguates",
+   "markdown": "## No — neither disambiguates\n\n{#C62828}Return types don't disambiguate, and `raises` doesn't either.{/}\n\nTwo functions that differ *only* in what they return, or *only* in whether they raise, cannot both exist in one overload set. Change the arguments instead.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 14
+ },
+ {
+  "front": {
+   "text": "What does a plain argument with no convention keyword mean?",
+   "markdown": "What does a plain argument with no convention keyword mean?"
+  },
+  "back": {
+   "text": "An immutable reference — the default",
+   "markdown": "## An immutable reference — the default\n\n```\ndef show(value: String):   # value is immutable here\n    print(value)\n```\n\nThe callee may read it but not mutate it, and no copy is made.\n\n{#0F766E}`mut`, `var`, `out`, `deinit` and `ref` change that contract — they're covered in the Advanced deck.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 15
+ },
+ {
+  "front": {
+   "text": "How do you write a function that takes no arguments and returns nothing?",
+   "markdown": "How do you write a function that takes no arguments and returns nothing?"
+  },
+  "back": {
+   "text": "Omit the arrow entirely",
+   "markdown": "## Omit the arrow entirely\n\n```\ndef main():\n    print(\"Hello!\")\n```\n\n{#0F766E}`main()` is the entry point of an executable Mojo program.{/} Its return type is `None` because no `->` is given.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 16
+ },
+ {
+  "front": {
+   "text": "How do you declare a variable in Mojo 1.0?",
+   "markdown": "How do you declare a variable in Mojo 1.0?"
+  },
+  "back": {
+   "text": "var, always",
+   "markdown": "## `var`, always\n\n```\nvar greeting: String = \"Hello\"\nvar count = 0            # type inferred\n```\n\n{#C62828}Implicit declaration — assigning to a name that was never declared — is no longer allowed.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 17
+ },
+ {
+  "front": {
+   "text": "How do you create a value that is fixed at compile time?",
+   "markdown": "How do you create a value that is fixed at compile time?"
+  },
+  "back": {
+   "text": "comptime",
+   "markdown": "## `comptime`\n\n```\ncomptime MAX_USERS = 1024\ncomptime Vec3 = SIMD[DType.float32, 4]\n```\n\n{#0F766E}`comptime` binds both constants and type aliases — one keyword for anything the compiler must know before the program runs.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 18
+ },
+ {
+  "front": {
+   "text": "What is `Int` actually, in Mojo 1.0?",
+   "markdown": "What is `Int` actually, in Mojo 1.0?"
+  },
+  "back": {
+   "text": "An alias for Scalar[DType.int]",
+   "markdown": "## An alias for `Scalar[DType.int]`\n\n```\ncomptime Int = Scalar[DType.int]\n```\n\n{#0F766E}The everyday integer type *is* a one-element SIMD value.{/} Because of this unification, some conversions are stricter than you might expect.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 19
+ },
+ {
+  "front": {
+   "text": "Does Mojo automatically widen or narrow numeric operands?",
+   "markdown": "Does Mojo automatically widen or narrow numeric operands?"
+  },
+  "back": {
+   "text": "No — you convert explicitly",
+   "markdown": "## No — you convert explicitly\n\n{#C62828}Numeric operators never automatically narrow or widen to a common type.{/}\n\n```\nvar a: Int32 = 1\nvar b: Int64 = 2\nvar c = Int64(a) + b     # convert first\n```\n\nUse `cast()` or a constructor to line the types up.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 20
+ },
+ {
+  "front": {
+   "text": "What sized integer types does Mojo provide?",
+   "markdown": "What sized integer types does Mojo provide?"
+  },
+  "back": {
+   "text": "Int8 through Int256, signed and unsigned",
+   "markdown": "## `Int8` through `Int256`, signed and unsigned\n\n- **Signed** — `Int8`, `Int16`, `Int32`, `Int64`, `Int128`, `Int256`\n- **Unsigned** — `UInt8` … `UInt256`\n\n{#0F766E}Use plain `Int` unless you need a specific width.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 21
+ },
+ {
+  "front": {
+   "text": "What floating-point types does Mojo provide?",
+   "markdown": "What floating-point types does Mojo provide?"
+  },
+  "back": {
+   "text": "Float16Float32Float64, plus BFloat16",
+   "markdown": "## `Float16`/`Float32`/`Float64`, plus `BFloat16`\n\n`BFloat16` and the other narrow AI formats trade mantissa bits for range — they exist for machine-learning workloads.\n\n{#0F766E}`Float64` is the default choice when you just need a float.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 22
+ },
+ {
+  "front": {
+   "text": "What is the type of a bare numeric literal like `42`?",
+   "markdown": "What is the type of a bare numeric literal like `42`?"
+  },
+  "back": {
+   "text": "IntLiteral — arbitrary precision, compile time only",
+   "markdown": "## `IntLiteral` — arbitrary precision, compile time only\n\n`42` is an `IntLiteral` and `3.5` is a `FloatLiteral`. Both hold arbitrary-precision values **at compile time**, then materialize into a concrete runtime type such as `Int` or `Float64`.\n\n{#0F766E}This is why `comptime` arithmetic on literals never overflows.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 23
+ },
+ {
+  "front": {
+   "text": "What is a `Scalar` in Mojo?",
+   "markdown": "What is a `Scalar` in Mojo?"
+  },
+  "back": {
+   "text": "A single-element SIMD vector",
+   "markdown": "## A single-element `SIMD` vector\n\n```\ncomptime Float32 = Scalar[DType.float32]\n```\n\nEvery scalar numeric type in Mojo is a `SIMD` of length 1, which is why the numeric types share one set of operators.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 24
+ },
+ {
+  "front": {
+   "text": "What does `DType` describe?",
+   "markdown": "What does `DType` describe?"
+  },
+  "back": {
+   "text": "The element type of a SIMD value",
+   "markdown": "## The element type of a `SIMD` value\n\n```\nvar v = SIMD[DType.float32, 4](1.0)\n```\n\n`DType.float32`, `DType.int`, `DType.bool` and friends parameterize `SIMD`, `Scalar` and the buffer types.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 25
+ },
+ {
+  "front": {
+   "text": "What is Mojo's boolean type?",
+   "markdown": "What is Mojo's boolean type?"
+  },
+  "back": {
+   "text": "Bool, with values True and False",
+   "markdown": "## `Bool`, with values `True` and `False`\n\n```\nvar ready: Bool = True\n```\n\n{#0F766E}Comparison and membership operators produce `Bool`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 26
+ },
+ {
+  "front": {
+   "text": "What is a `Tuple` in Mojo?",
+   "markdown": "What is a `Tuple` in Mojo?"
+  },
+  "back": {
+   "text": "A fixed-size, heterogeneous group",
+   "markdown": "## A fixed-size, heterogeneous group\n\n```\nvar pair = (1, \"one\")\nprint(pair[0])\n```\n\nIts length and the type of each position are fixed at compile time, so elements may have different types.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 27
+ },
+ {
+  "front": {
+   "text": "How do you model a value that may be absent?",
+   "markdown": "How do you model a value that may be absent?"
+  },
+  "back": {
+   "text": "Optional[T]",
+   "markdown": "## `Optional[T]`\n\n```\nvar maybe: Optional[Int] = None\nmaybe = 42\n```\n\n{#0F766E}Mojo has no `null`.{/} Absence is a value of the type system, so the compiler forces you to handle it.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 28
+ },
+ {
+  "front": {
+   "text": "How do you get the value out of an `Optional`?",
+   "markdown": "How do you get the value out of an `Optional`?"
+  },
+  "back": {
+   "text": "Test it first, then unwrap",
+   "markdown": "## Test it first, then unwrap\n\n```\nvar found: Optional[Int] = 7\nif found:\n    print(found.value())\n```\n\n{#C62828}Unwrapping an empty `Optional` is a programming error.{/} Check before you take the value.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 29
+ },
+ {
+  "front": {
+   "text": "Does Mojo infer variable types?",
+   "markdown": "Does Mojo infer variable types?"
+  },
+  "back": {
+   "text": "Yes, from the initializer",
+   "markdown": "## Yes, from the initializer\n\n```\nvar count = 0            # Int\nvar name = \"Ada\"         # String\nvar ratio = 1.5          # Float64\n```\n\n{#0F766E}Annotate explicitly when you want a *different* type than the literal would give you.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 30
+ },
+ {
+  "front": {
+   "text": "How do you convert between numeric types?",
+   "markdown": "How do you convert between numeric types?"
+  },
+  "back": {
+   "text": "A constructor, or cast()",
+   "markdown": "## A constructor, or `cast()`\n\n```\nvar i: Int = 42\nvar f = Float64(i)\nvar v = SIMD[DType.int32, 4](1)\nvar w = v.cast[DType.float32]()\n```\n\n{#0F766E}`cast()` is the SIMD-aware form — it converts every lane.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 31
+ },
+ {
+  "front": {
+   "text": "Which type should you reach for by default: `Int` or a sized integer?",
+   "markdown": "Which type should you reach for by default: `Int` or a sized integer?"
+  },
+  "back": {
+   "text": "Int",
+   "markdown": "## `Int`\n\n`Int` is the general-purpose integer and the type indexes and lengths use. Reach for `Int32`, `UInt8` and friends only when a specific width matters — a binary format, an FFI boundary, or a SIMD lane type.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 32
+ },
+ {
+  "front": {
+   "text": "What is the walrus operator `:=` for?",
+   "markdown": "What is the walrus operator `:=` for?"
+  },
+  "back": {
+   "text": "Assigning inside an expression",
+   "markdown": "## Assigning inside an expression\n\n```\nwhile (name := input(\"Name or 'quit': \")) != \"quit\":\n    print(name)\n```\n\n{#0F766E}It binds a value and yields it in the same breath — useful when a loop condition also needs the value.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 33
+ },
+ {
+  "front": {
+   "text": "How do you write a conditional expression in Mojo?",
+   "markdown": "How do you write a conditional expression in Mojo?"
+  },
+  "back": {
+   "text": "a if cond else b",
+   "markdown": "## `a if cond else b`\n\n```\nvar label = \"even\" if n % 2 == 0 else \"odd\"\n```\n\nUnlike an `if` *statement*, this is an expression: it produces a value.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 34
+ },
+ {
+  "front": {
+   "text": "Do `and` and `or` evaluate both sides?",
+   "markdown": "Do `and` and `or` evaluate both sides?"
+  },
+  "back": {
+   "text": "No — they short-circuit",
+   "markdown": "## No — they short-circuit\n\n`and` stops at the first false operand; `or` stops at the first true one.\n\n```\nif user and user.is_active():\n    ...\n```\n\n{#0F766E}This is what makes the guard-then-use pattern safe.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 35
+ },
+ {
+  "front": {
+   "text": "How do you test whether a collection contains a value?",
+   "markdown": "How do you test whether a collection contains a value?"
+  },
+  "back": {
+   "text": "in and not in",
+   "markdown": "## `in` and `not in`\n\n```\nif \"key\" in my_dict:\n    ...\nif 3 not in my_list:\n    ...\n```",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 36
+ },
+ {
+  "front": {
+   "text": "What do `is` and `is not` compare?",
+   "markdown": "What do `is` and `is not` compare?"
+  },
+  "back": {
+   "text": "Identity, not value",
+   "markdown": "## Identity, not value\n\n`is` asks whether two names refer to the *same* entity; `==` asks whether two values are equal.\n\n{#C62828}Reaching for `is` when you meant `==` is a classic source of wrong-but-compiling code.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 37
+ },
+ {
+  "front": {
+   "text": "What are Mojo's arithmetic operators?",
+   "markdown": "What are Mojo's arithmetic operators?"
+  },
+  "back": {
+   "text": "The Python set, including , % and",
+   "markdown": "## The Python set, including `//`, `%` and `**`\n\n- `+`, `-`, `*`, `/` — the usual four\n- `//` — floor division\n- `%` — remainder\n- `**` — exponentiation\n\n{#0F766E}`/` on integers produces a float; `//` keeps you in integers.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 38
+ },
+ {
+  "front": {
+   "text": "What bitwise operators does Mojo provide?",
+   "markdown": "What bitwise operators does Mojo provide?"
+  },
+  "back": {
+   "text": "&, |, ^, ~, <<, >>",
+   "markdown": "## `&`, `|`, `^`, `~`, `<<`, `>>`\n\n```\nvar flags = read_flags() & 0b1010\nvar doubled = value << 1\n```\n\n{#C62828}`^` is bitwise XOR here.{/} As a *postfix* sigil on a value, `^` means transfer of ownership instead — context tells them apart.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 39
+ },
+ {
+  "front": {
+   "text": "What are the in-place assignment operators?",
+   "markdown": "What are the in-place assignment operators?"
+  },
+  "back": {
+   "text": "+=, -=, = and friends",
+   "markdown": "## `+=`, `-=`, `*=` and friends\n\n```\nvar total = 0\ntotal += 10\n```\n\nFor a struct, these dispatch to `__iadd__` and friends, so an in-place update can avoid making a copy.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 40
+ },
+ {
+  "front": {
+   "text": "How do you concatenate or repeat strings?",
+   "markdown": "How do you concatenate or repeat strings?"
+  },
+  "back": {
+   "text": "+ and",
+   "markdown": "## `+` and `*`\n\n```\nvar greeting = \"Hello, \" + name\nvar line = \"-\" * 20\n```",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 41
+ },
+ {
+  "front": {
+   "text": "How do comparison operators chain in Mojo?",
+   "markdown": "How do comparison operators chain in Mojo?"
+  },
+  "back": {
+   "text": "Like Python — 0 <= i < n works",
+   "markdown": "## Like Python — `0 <= i < n` works\n\n```\nif 0 <= index < length:\n    ...\n```\n\n{#0F766E}The middle expression is evaluated once, and the chain short-circuits.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 42
+ },
+ {
+  "front": {
+   "text": "When do you need parentheses to override precedence?",
+   "markdown": "When do you need parentheses to override precedence?"
+  },
+  "back": {
+   "text": "Whenever the default order isn't what you mean",
+   "markdown": "## Whenever the default order isn't what you mean\n\nArithmetic binds tighter than comparison, which binds tighter than `not`, `and`, `or`.\n\n```\nif (a or b) and c:      # not the same as a or (b and c)\n    ...\n```\n\n{#0F766E}When a mixed expression needs a second read, parenthesize it.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 43
+ },
+ {
+  "front": {
+   "text": "What does `not` do, and how tightly does it bind?",
+   "markdown": "What does `not` do, and how tightly does it bind?"
+  },
+  "back": {
+   "text": "Logical negation, binding looser than comparison",
+   "markdown": "## Logical negation, binding looser than comparison\n\n```\nif not 0 <= i < n:\n    raise \"index out of range\"\n```\n\nThe comparison chain is evaluated first, then negated.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 44
+ },
+ {
+  "front": {
+   "text": "What is the syntax for `if` in Mojo?",
+   "markdown": "What is the syntax for `if` in Mojo?"
+  },
+  "back": {
+   "text": "Python's, with a colon and indentation",
+   "markdown": "## Python's, with a colon and indentation\n\n```\nif score > 90:\n    print(\"A\")\nelif score > 80:\n    print(\"B\")\nelse:\n    print(\"C\")\n```",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 45
+ },
+ {
+  "front": {
+   "text": "How do you branch at compile time rather than runtime?",
+   "markdown": "How do you branch at compile time rather than runtime?"
+  },
+  "back": {
+   "text": "comptime if",
+   "markdown": "## `comptime if`\n\n```\ncomptime if size_of[T]() > 8:\n    use_indirect_path()\nelse:\n    use_direct_path()\n```\n\n{#0F766E}The untaken branch isn't just skipped — it isn't compiled into the program at all.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 46
+ },
+ {
+  "front": {
+   "text": "What is the syntax for `while`?",
+   "markdown": "What is the syntax for `while`?"
+  },
+  "back": {
+   "text": "A condition and a block",
+   "markdown": "## A condition and a block\n\n```\nvar n = 0\nwhile n < 10:\n    n += 1\n```\n\n{#0F766E}Pair it with the walrus operator when the condition also produces the value you need.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 47
+ },
+ {
+  "front": {
+   "text": "What can a `for` loop iterate over?",
+   "markdown": "What can a `for` loop iterate over?"
+  },
+  "back": {
+   "text": "Anything implementing __iter__()",
+   "markdown": "## Anything implementing `__iter__()`\n\nThe returned iterator must define `__next__()` and `__len__()`.\n\n```\nfor item in my_list:\n    print(item)\n```\n\nThat contract is why your own types can be looped over without special-casing.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 48
+ },
+ {
+  "front": {
+   "text": "How do you exit or skip a loop iteration?",
+   "markdown": "How do you exit or skip a loop iteration?"
+  },
+  "back": {
+   "text": "break and continue",
+   "markdown": "## `break` and `continue`\n\n```\nfor n in numbers:\n    if n < 0:\n        continue      # skip this one\n    if n > 100:\n        break         # stop the loop\n    total += n\n```",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 49
+ },
+ {
+  "front": {
+   "text": "What does an `else` block on a loop mean?",
+   "markdown": "What does an `else` block on a loop mean?"
+  },
+  "back": {
+   "text": "It runs only if the loop was never break-ed",
+   "markdown": "## It runs only if the loop was never `break`-ed\n\n```\nfor n in haystack:\n    if n == needle:\n        break\nelse:\n    print(\"not found\")\n```\n\n{#C62828}It's not \"otherwise\" — it means \"the loop ran to completion\".{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 50
+ },
+ {
+  "front": {
+   "text": "How do you build a list from an existing collection in one expression?",
+   "markdown": "How do you build a list from an existing collection in one expression?"
+  },
+  "back": {
+   "text": "A comprehension",
+   "markdown": "## A comprehension\n\n```\nvar squares = [n * n for n in range(10)]\nvar evens = [n for n in values if n % 2 == 0]\n```\n\n{#0F766E}Set and dictionary comprehensions use the same shape with `{}`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 51
+ },
+ {
+  "front": {
+   "text": "What changed about `range()` in Mojo 1.0?",
+   "markdown": "What changed about `range()` in Mojo 1.0?"
+  },
+  "back": {
+   "text": "The Int and Scalar range families were unified",
+   "markdown": "## The `Int` and `Scalar` range families were unified\n\nOne `range()` covers both. Floating-point iteration is now drift-free and reversible.\n\n{#C62828}One- and two-argument *float* ranges are now compile errors, not infinite loops.{/} Use the three-argument stepped form:\n\n```\nfor x in range(0.0, 1.0, 0.25):\n    ...\n```",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 52
+ },
+ {
+  "front": {
+   "text": "Can you build a `range()` over any type?",
+   "markdown": "Can you build a `range()` over any type?"
+  },
+  "back": {
+   "text": "No — non-numeric types are rejected at construction",
+   "markdown": "## No — non-numeric types are rejected at construction\n\nA `range` of `Bool`, for example, is refused when you build it rather than misbehaving later.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 53
+ },
+ {
+  "front": {
+   "text": "How do you raise an error?",
+   "markdown": "How do you raise an error?"
+  },
+  "back": {
+   "text": "raise, with an Error or a bare string",
+   "markdown": "## `raise`, with an `Error` or a bare string\n\n```\nraise Error(\"something went wrong\")\nraise \"something went wrong\"\n```\n\n{#0F766E}A bare string is wrapped in an `Error` for you.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 54
+ },
+ {
+  "front": {
+   "text": "What is the full shape of a `try` statement?",
+   "markdown": "What is the full shape of a `try` statement?"
+  },
+  "back": {
+   "text": "try  except  else  finally",
+   "markdown": "## `try` / `except` / `else` / `finally`\n\n```\ntry:\n    risky()\nexcept e:\n    print(\"failed:\", e)\nelse:\n    print(\"no error\")\nfinally:\n    cleanup()\n```\n\n{#0F766E}You must have `except`, `finally`, or both. `else` is optional.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 55
+ },
+ {
+  "front": {
+   "text": "When does the `else` block of a `try` run?",
+   "markdown": "When does the `else` block of a `try` run?"
+  },
+  "back": {
+   "text": "Only when the try block completed without raising",
+   "markdown": "## Only when the `try` block completed without raising\n\n{#C62828}It is skipped if the `try` block exits via `continue`, `break` or `return`.{/}\n\n`finally`, by contrast, runs regardless — including after those control-flow statements.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 56
+ },
+ {
+  "front": {
+   "text": "How do you catch an error and inspect it?",
+   "markdown": "How do you catch an error and inspect it?"
+  },
+  "back": {
+   "text": "Bind it with except e:",
+   "markdown": "## Bind it with `except e:`\n\n```\ntry:\n    validate(name)\nexcept e:\n    print(e)\n```\n\nFor a typed error, the compiler infers the concrete type — no cast is needed to reach its fields.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 57
+ },
+ {
+  "front": {
+   "text": "How do you define a custom, typed error?",
+   "markdown": "How do you define a custom, typed error?"
+  },
+  "back": {
+   "text": "A struct, declared on the raising function",
+   "markdown": "## A struct, declared on the raising function\n\n```\n@fieldwise_init\nstruct ValidationError(Copyable, Writable):\n    var field: String\n    var reason: String\n\ndef validate(name: String) raises ValidationError:\n    raise ValidationError(field=\"name\", reason=\"empty\")\n```",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 58
+ },
+ {
+  "front": {
+   "text": "How do you re-raise a caught error?",
+   "markdown": "How do you re-raise a caught error?"
+  },
+  "back": {
+   "text": "raise e, or raise e^ to avoid the copy",
+   "markdown": "## `raise e`, or `raise e^` to avoid the copy\n\n```\nexcept e:\n    raise e^\n```\n\n{#0F766E}Copying an `Error` is cheap — its message and stack trace are reference counted.{/} Custom error types that aren't implicitly copyable need the `^`.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 59
+ },
+ {
+  "front": {
+   "text": "What do `raises Never` and `-> Never` mean?",
+   "markdown": "What do `raises Never` and `-> Never` mean?"
+  },
+  "back": {
+   "text": "\"Never raises\" and \"never returns\"",
+   "markdown": "## \"Never raises\" and \"never returns\"\n\n- `raises Never -> Int` — cannot raise; equivalent to a plain non-raising function.\n- `raises MyError -> Never` — always raises, never returns a value.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 60
+ },
+ {
+  "front": {
+   "text": "What is the syntax for using a context manager?",
+   "markdown": "What is the syntax for using a context manager?"
+  },
+  "back": {
+   "text": "with, optionally binding with as",
+   "markdown": "## `with`, optionally binding with `as`\n\n```\nwith open(path, \"r\") as f:\n    var content = f.read()\n```\n\nSeveral may be opened on one line, separated by commas — each is closed in reverse order.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 61
+ },
+ {
+  "front": {
+   "text": "What does a type need to work with `with`?",
+   "markdown": "What does a type need to work with `with`?"
+  },
+  "back": {
+   "text": "__enter__ and __exit__",
+   "markdown": "## `__enter__` and `__exit__`\n\n```\nstruct Timer(ImplicitlyCopyable):\n    var start: Int\n\n    def __enter__(mut self) -> Self:\n        self.start = Int(time.perf_counter_ns())\n        return self\n\n    def __exit__(mut self):\n        print(time.perf_counter_ns() - self.start)\n```\n\n{#0F766E}An overload of `__exit__` taking an error can suppress it by returning `True`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 62
+ },
+ {
+  "front": {
+   "text": "What Python control-flow statement does Mojo 1.0 not have?",
+   "markdown": "What Python control-flow statement does Mojo 1.0 not have?"
+  },
+  "back": {
+   "text": "match — there's no pattern matching",
+   "markdown": "## `match` — there's no pattern matching\n\n{#C62828}Mojo 1.0 has no equivalent of Python's `match` or C's `switch`.{/}\n\nUse `if`/`elif` chains. Algebraic data types and pattern matching are planned, not shipped.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 63
+ },
+ {
+  "front": {
+   "text": "How do you define a custom type in Mojo?",
+   "markdown": "How do you define a custom type in Mojo?"
+  },
+  "back": {
+   "text": "struct",
+   "markdown": "## `struct`\n\n```\nstruct Point:\n    var x: Int\n    var y: Int\n```\n\n{#0F766E}Fields are declared with `var` and typed explicitly.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 64
+ },
+ {
+  "front": {
+   "text": "What are the core differences between a Mojo `struct` and a Python `class`?",
+   "markdown": "What are the core differences between a Mojo `struct` and a Python `class`?"
+  },
+  "back": {
+   "text": "Static layout, no inheritance, compile-time bound",
+   "markdown": "## Static layout, no inheritance, compile-time bound\n\n- Fields and methods are **fixed at compile time** — nothing is added at runtime.\n- There is **no inheritance**; composition and traits take its place.\n- The layout is known statically, so there's no per-instance dictionary.\n\n{#C62828}Mojo 1.0 has no `class` at all.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 65
+ },
+ {
+  "front": {
+   "text": "How do you write an initializer for a struct?",
+   "markdown": "How do you write an initializer for a struct?"
+  },
+  "back": {
+   "text": "__init__ with out self",
+   "markdown": "## `__init__` with `out self`\n\n```\nstruct Point:\n    var x: Int\n    var y: Int\n\n    def __init__(out self, x: Int, y: Int):\n        self.x = x\n        self.y = y\n```\n\n{#0F766E}`out self` marks `self` as the result slot — the initializer *produces* the value.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 66
+ },
+ {
+  "front": {
+   "text": "What type must a method's `self` have?",
+   "markdown": "What type must a method's `self` have?"
+  },
+  "back": {
+   "text": "Self — the enclosing struct",
+   "markdown": "## `Self` — the enclosing struct\n\n{#C62828}Giving `self` any other type is an error in Mojo 1.0.{/}\n\n`Self` names the enclosing struct, so a method that returns a new instance can be written `-> Self` and stays correct if the struct is renamed.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 67
+ },
+ {
+  "front": {
+   "text": "What does `Self()` do inside a method?",
+   "markdown": "What does `Self()` do inside a method?"
+  },
+  "back": {
+   "text": "Constructs a new instance of the enclosing struct",
+   "markdown": "## Constructs a new instance of the enclosing struct\n\n```\ndef reset(self) -> Self:\n    return Self()\n```\n\nUseful for constructor delegation and for producing default values without repeating the type name.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 68
+ },
+ {
+  "front": {
+   "text": "How do you let a method modify the instance it's called on?",
+   "markdown": "How do you let a method modify the instance it's called on?"
+  },
+  "back": {
+   "text": "Declare mut self",
+   "markdown": "## Declare `mut self`\n\n```\nstruct Counter:\n    var count: Int\n\n    def increment(mut self):\n        self.count += 1\n```\n\n{#C62828}A plain `self` is immutable — assigning to a field through it won't compile.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 69
+ },
+ {
+  "front": {
+   "text": "How do you write a method that belongs to the type, not an instance?",
+   "markdown": "How do you write a method that belongs to the type, not an instance?"
+  },
+  "back": {
+   "text": "@staticmethod",
+   "markdown": "## `@staticmethod`\n\n```\nstruct Temperature:\n    var celsius: Float64\n\n    @staticmethod\n    def from_fahrenheit(f: Float64) -> Temperature:\n        return Temperature(celsius=(f - 32) / 1.8)\n```\n\nIt takes no `self` and is called on the type: `Temperature.from_fahrenheit(72.0)`.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 70
+ },
+ {
+  "front": {
+   "text": "How do you make a struct copyable?",
+   "markdown": "How do you make a struct copyable?"
+  },
+  "back": {
+   "text": "Conform to Copyable",
+   "markdown": "## Conform to `Copyable`\n\n```\nstruct Point(Copyable):\n    var x: Int\n    var y: Int\n```\n\n{#0F766E}Copies are then explicit — `.copy()` — unless the type is also implicitly copyable.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 71
+ },
+ {
+  "front": {
+   "text": "How do you generate an initializer from a struct's fields?",
+   "markdown": "How do you generate an initializer from a struct's fields?"
+  },
+  "back": {
+   "text": "@fieldwise_init",
+   "markdown": "## `@fieldwise_init`\n\n```\n@fieldwise_init\nstruct Point(Copyable):\n    var x: Int\n    var y: Int\n\nvar p = Point(x=1, y=2)\n```\n\n{#0F766E}Saves writing an `__init__` that only assigns each field in order.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 72
+ },
+ {
+  "front": {
+   "text": "How do you make `+` work on your own type?",
+   "markdown": "How do you make `+` work on your own type?"
+  },
+  "back": {
+   "text": "Implement __add__",
+   "markdown": "## Implement `__add__`\n\n```\nstruct Point(Copyable):\n    var x: Int\n    var y: Int\n\n    def __add__(self, other: Self) -> Self:\n        return Self(self.x + other.x, self.y + other.y)\n```\n\n{#0F766E}Every operator maps to a dunder — `__sub__`, `__mul__`, `__eq__`, and so on.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 73
+ },
+ {
+  "front": {
+   "text": "How do you make your type support `obj[i]`?",
+   "markdown": "How do you make your type support `obj[i]`?"
+  },
+  "back": {
+   "text": "Implement __getitem__ (and __setitem__ to assign)",
+   "markdown": "## Implement `__getitem__` (and `__setitem__` to assign)\n\n```\ndef __getitem__(self, index: Int) -> Int:\n    return self._data[index]\n```\n\n{#0F766E}`__setitem__` takes the index and the new value, and needs `mut self`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 74
+ },
+ {
+  "front": {
+   "text": "How do you make your type printable?",
+   "markdown": "How do you make your type printable?"
+  },
+  "back": {
+   "text": "Conform to Writable and implement write_to",
+   "markdown": "## Conform to `Writable` and implement `write_to`\n\n```\nstruct Point(Writable):\n    var x: Int\n    var y: Int\n\n    def write_to(self, mut writer: Some[Writer]):\n        writer.write(\"(\", self.x, \", \", self.y, \")\")\n```\n\n`print()` then accepts your type directly.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 75
+ },
+ {
+  "front": {
+   "text": "How do you make your type usable in `if` and `while`?",
+   "markdown": "How do you make your type usable in `if` and `while`?"
+  },
+  "back": {
+   "text": "Implement __bool__",
+   "markdown": "## Implement `__bool__`\n\n```\ndef __bool__(self) -> Bool:\n    return self.count > 0\n```\n\nThe type can then be tested directly rather than compared against a sentinel.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 76
+ },
+ {
+  "front": {
+   "text": "What does `@implicit` do on a constructor?",
+   "markdown": "What does `@implicit` do on a constructor?"
+  },
+  "back": {
+   "text": "Allows the conversion to happen without being written",
+   "markdown": "## Allows the conversion to happen without being written\n\nAn `@implicit` single-argument constructor lets Mojo convert automatically at a call site.\n\n{#C62828}Overload resolution prefers non-`@implicit` constructors{/} — implicit conversions are the first thing it tries to avoid.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 77
+ },
+ {
+  "front": {
+   "text": "How do you make a struct comparable with `==`?",
+   "markdown": "How do you make a struct comparable with `==`?"
+  },
+  "back": {
+   "text": "Conform to Equatable and implement __eq__",
+   "markdown": "## Conform to `Equatable` and implement `__eq__`\n\n```\nstruct Point(Equatable):\n    var x: Int\n    var y: Int\n\n    def __eq__(self, other: Self) -> Bool:\n        return self.x == other.x and self.y == other.y\n```\n\n{#0F766E}`!=` follows from `__ne__`, which you usually get alongside it.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 78
+ },
+ {
+  "front": {
+   "text": "Can you add methods to a struct you didn't define?",
+   "markdown": "Can you add methods to a struct you didn't define?"
+  },
+  "back": {
+   "text": "No — Mojo 1.0 has no extensions",
+   "markdown": "## No — Mojo 1.0 has no extensions\n\n{#C62828}Post-hoc type extension is not in Mojo 1.0.{/}\n\nWrap the type in your own struct, or write a free function. Struct extensions are a proposed future feature.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 79
+ },
+ {
+  "front": {
+   "text": "Are struct fields private?",
+   "markdown": "Are struct fields private?"
+  },
+  "back": {
+   "text": "No — privacy is a naming convention",
+   "markdown": "## No — privacy is a naming convention\n\n{#C62828}Mojo 1.0 has no `private` modifier.{/}\n\nA leading underscore (`_buffer`) marks a field or method as internal by convention. Nothing enforces it; access control is a planned feature.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 80
+ },
+ {
+  "front": {
+   "text": "What does iterating a `String` yield in Mojo 1.0?",
+   "markdown": "What does iterating a `String` yield in Mojo 1.0?"
+  },
+  "back": {
+   "text": "Grapheme clusters",
+   "markdown": "## Grapheme clusters\n\n```\nfor c in my_string:\n    ...\n```\n\nEach `c` is what a reader perceives as one character on screen — an emoji with a skin-tone modifier counts once.\n\n{#0F766E}The same applies to `StringSpan` and `StringLiteral`.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 81
+ },
+ {
+  "front": {
+   "text": "What is `StringSpan`?",
+   "markdown": "What is `StringSpan`?"
+  },
+  "back": {
+   "text": "A borrowed view over string data",
+   "markdown": "## A borrowed view over string data\n\nIt refers to text owned by something else rather than owning it, so passing one copies no characters.\n\n{#C62828}It was called `StringSlice` before 1.0.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 82
+ },
+ {
+  "front": {
+   "text": "What's the difference between `String` and `StringLiteral`?",
+   "markdown": "What's the difference between `String` and `StringLiteral`?"
+  },
+  "back": {
+   "text": "Owned and runtime, versus written in source",
+   "markdown": "## Owned and runtime, versus written in source\n\n- **`String`** — mutable, UTF-8, owns its buffer.\n- **`StringLiteral`** — the type of text written directly in your source, known at compile time.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 83
+ },
+ {
+  "front": {
+   "text": "How do you get the byte length of a string?",
+   "markdown": "How do you get the byte length of a string?"
+  },
+  "back": {
+   "text": "byte_length()",
+   "markdown": "## `byte_length()`\n\n```\nif username.byte_length() == 0:\n    raise \"username cannot be empty\"\n```\n\n{#C62828}Bytes are not characters.{/} A grapheme may span several bytes, so byte length is a storage measure, not a count of what the reader sees.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 84
+ },
+ {
+  "front": {
+   "text": "Which module provides Mojo's string functionality?",
+   "markdown": "Which module provides Mojo's string functionality?"
+  },
+  "back": {
+   "text": "std.collections.string",
+   "markdown": "## `std.collections.string`\n\nStrings live in the collections package, alongside the other containers. The everyday types are in the prelude, so you don't normally import them.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 85
+ },
+ {
+  "front": {
+   "text": "What type does a list expression like `[1, 2, 3]` produce?",
+   "markdown": "What type does a list expression like `[1, 2, 3]` produce?"
+  },
+  "back": {
+   "text": "Array, not List",
+   "markdown": "## `Array`, not `List`\n\n{#C62828}Changed in 1.0 — a list expression used to give you a `List`.{/}\n\n```\nvar xs = [1, 2, 3]      # Array\n```\n\n{#0F766E}`Array` is fixed-size and needs no heap allocation, so the default no longer allocates.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 86
+ },
+ {
+  "front": {
+   "text": "What is the difference between `Array` and `List`?",
+   "markdown": "What is the difference between `Array` and `List`?"
+  },
+  "back": {
+   "text": "Fixed size versus growable",
+   "markdown": "## Fixed size versus growable\n\n- **`Array`** — length fixed at compile time, no heap allocation.\n- **`List`** — grows and shrinks at runtime, heap allocated.\n\nReach for `List` when the size isn't known up front.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 87
+ },
+ {
+  "front": {
+   "text": "What was `Array` called before Mojo 1.0?",
+   "markdown": "What was `Array` called before Mojo 1.0?"
+  },
+  "back": {
+   "text": "InlineArray",
+   "markdown": "## `InlineArray`\n\nThe rename came with parameter changes too: `ElementType` became `T`, and `size` became `length`.\n\n{#0F766E}`size` → `length` is a suite-wide renaming, not just here.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 88
+ },
+ {
+  "front": {
+   "text": "What happens if you index a collection with an invalid slice?",
+   "markdown": "What happens if you index a collection with an invalid slice?"
+  },
+  "back": {
+   "text": "The program exits",
+   "markdown": "## The program exits\n\n{#C62828}An invalid contiguous slice terminates the program instead of silently clamping or wrapping.{/}\n\nFailing loudly at the point of the mistake is deliberate — a silently clamped slice hides the bug.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 89
+ },
+ {
+  "front": {
+   "text": "Does Mojo support negative indexing like Python's `xs[-1]`?",
+   "markdown": "Does Mojo support negative indexing like Python's `xs[-1]`?"
+  },
+  "back": {
+   "text": "No — it was removed",
+   "markdown": "## No — it was removed\n\n{#C62828}Negative indexing is gone in Mojo 1.0, and explicit end indices are now required.{/}\n\nCompute the index yourself:\n\n```\nvar last = xs[len(xs) - 1]\n```",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 90
+ },
+ {
+  "front": {
+   "text": "How do you add to and remove from a `List`?",
+   "markdown": "How do you add to and remove from a `List`?"
+  },
+  "back": {
+   "text": "append() and pop()",
+   "markdown": "## `append()` and `pop()`\n\n```\nvar xs = List[Int]()\nxs.append(1)\nxs.append(2)\nvar last = xs.pop()\n```",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 91
+ },
+ {
+  "front": {
+   "text": "How do you create a dictionary?",
+   "markdown": "How do you create a dictionary?"
+  },
+  "back": {
+   "text": "Dict[K, V]",
+   "markdown": "## `Dict[K, V]`\n\n```\nvar ages = Dict[String, Int]()\nages[\"ada\"] = 36\nif \"ada\" in ages:\n    print(ages[\"ada\"])\n```",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 92
+ },
+ {
+  "front": {
+   "text": "How do you iterate a dictionary's keys and values?",
+   "markdown": "How do you iterate a dictionary's keys and values?"
+  },
+  "back": {
+   "text": "items(), or iterate keys directly",
+   "markdown": "## `items()`, or iterate keys directly\n\n```\nfor entry in ages.items():\n    print(entry.key, entry.value)\n```\n\n{#C62828}Entries can't be unpacked like Python's `for k, v in ...` yet{/} — reach for `.key` and `.value` as attributes.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 93
+ },
+ {
+  "front": {
+   "text": "What is a `Set` for?",
+   "markdown": "What is a `Set` for?"
+  },
+  "back": {
+   "text": "Unique membership, tested fast",
+   "markdown": "## Unique membership, tested fast\n\n```\nvar seen = Set[String]()\nseen.add(\"ada\")\nif \"ada\" in seen:\n    ...\n```",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 94
+ },
+ {
+  "front": {
+   "text": "How do you get the number of elements in a collection?",
+   "markdown": "How do you get the number of elements in a collection?"
+  },
+  "back": {
+   "text": "len()",
+   "markdown": "## `len()`\n\n```\nvar n = len(my_list)\n```\n\nIt works on anything implementing `__len__()`, including your own types.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 95
+ },
+ {
+  "front": {
+   "text": "How do you loop over indexes rather than elements?",
+   "markdown": "How do you loop over indexes rather than elements?"
+  },
+  "back": {
+   "text": "for i in range(len(xs))",
+   "markdown": "## `for i in range(len(xs))`\n\n```\nfor i in range(len(xs)):\n    print(i, xs[i])\n```\n\n{#0F766E}Prefer iterating elements directly when you don't need the index — it can't run off the end.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 96
+ },
+ {
+  "front": {
+   "text": "What must a type support to be stored in a collection?",
+   "markdown": "What must a type support to be stored in a collection?"
+  },
+  "back": {
+   "text": "The collection's element bounds — usually copy and move",
+   "markdown": "## The collection's element bounds — usually copy and move\n\nContainer element requirements are expressed as trait bounds such as `Copyable` and `Movable`.\n\n{#C62828}`CollectionElement` is gone — 1.0 uses the specific traits instead.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 97
+ },
+ {
+  "front": {
+   "text": "How do you build a string from parts efficiently?",
+   "markdown": "How do you build a string from parts efficiently?"
+  },
+  "back": {
+   "text": "Write into it rather than concatenating repeatedly",
+   "markdown": "## Write into it rather than concatenating repeatedly\n\nRepeated `+` in a loop builds a new string every time. Prefer a single write pass through a `Writable` sink, or join the pieces once.\n\n{#0F766E}The same reasoning as any language with immutable-ish string values.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 98
+ },
+ {
+  "front": {
+   "text": "What counts as a module in Mojo?",
+   "markdown": "What counts as a module in Mojo?"
+  },
+  "back": {
+   "text": "Any .mojo source file",
+   "markdown": "## Any `.mojo` source file\n\n```\n# gridv1.mojo defines struct Grid\nfrom gridv1 import Grid\n```\n\nNo declaration is needed — the file *is* the module.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 99
+ },
+ {
+  "front": {
+   "text": "How do you import from the standard library?",
+   "markdown": "How do you import from the standard library?"
+  },
+  "back": {
+   "text": "import or from ... import",
+   "markdown": "## `import` or `from ... import`\n\n```\nimport std.math\nfrom std.math import sin, pi\n```\n\n{#0F766E}The most-used names — `String`, `List`, `Int` — are in the prelude and need no import.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 100
+ },
+ {
+  "front": {
+   "text": "How do you turn a directory into a package?",
+   "markdown": "How do you turn a directory into a package?"
+  },
+  "back": {
+   "text": "Add an __init__.mojo file",
+   "markdown": "## Add an `__init__.mojo` file\n\nThe file may be **empty**, which just marks the directory as a package, or it may import members to re-export them.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 101
+ },
+ {
+  "front": {
+   "text": "What does an empty `__init__.mojo` mean for importers?",
+   "markdown": "What does an empty `__init__.mojo` mean for importers?"
+  },
+  "back": {
+   "text": "They must use the full path",
+   "markdown": "## They must use the full path\n\n```\nfrom mypackage.core import Engine\n```\n\n{#0F766E}Re-exporting in `__init__.mojo` is what lets importers write `from mypackage import Engine` instead.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 102
+ },
+ {
+  "front": {
+   "text": "How do you re-export a submodule's API from a package?",
+   "markdown": "How do you re-export a submodule's API from a package?"
+  },
+  "back": {
+   "text": "Import it in __init__.mojo",
+   "markdown": "## Import it in `__init__.mojo`\n\n```\n# mypackage/__init__.mojo\nfrom .core import Engine\n```\n\nImporters can then reach `Engine` from the package name directly.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 103
+ },
+ {
+  "front": {
+   "text": "How do you import from a sibling module inside a package?",
+   "markdown": "How do you import from a sibling module inside a package?"
+  },
+  "back": {
+   "text": "A relative import, with a leading dot",
+   "markdown": "## A relative import, with a leading dot\n\n```\nfrom .mymodule import MyPair\n```\n\nThe dot means \"relative to this package\" rather than a top-level search.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 104
+ },
+ {
+  "front": {
+   "text": "How do you rename something on import?",
+   "markdown": "How do you rename something on import?"
+  },
+  "back": {
+   "text": "The as keyword",
+   "markdown": "## The `as` keyword\n\n```\nimport std.math as m\nfrom std.collections import Dict as Map\n```",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 105
+ },
+ {
+  "front": {
+   "text": "How do you precompile a package for distribution?",
+   "markdown": "How do you precompile a package for distribution?"
+  },
+  "back": {
+   "text": "mojo precompile",
+   "markdown": "## `mojo precompile`\n\n```\nmojo precompile mypackage -o mypack.mojoc\n```\n\n{#C62828}This replaces the old `mojo package` command and the `.mojopkg` format.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 106
+ },
+ {
+  "front": {
+   "text": "What is a `.mojoc` file?",
+   "markdown": "What is a `.mojoc` file?"
+  },
+  "back": {
+   "text": "A precompiled package of non-elaborated code",
+   "markdown": "## A precompiled package of non-elaborated code\n\nIt can be shared across systems and becomes architecture-specific only once imported.\n\n{#C62828}It is tied to the exact compiler version that produced it.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 107
+ },
+ {
+  "front": {
+   "text": "In what order does Mojo resolve an import?",
+   "markdown": "In what order does Mojo resolve an import?"
+  },
+  "back": {
+   "text": "Source packages, then .mojoc, then source modules, then legacy .mojopkg",
+   "markdown": "## Source packages, then `.mojoc`, then source modules, then legacy `.mojopkg`\n\n{#0F766E}Source wins over precompiled, so a local edit takes effect without rebuilding a package.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 108
+ },
+ {
+  "front": {
+   "text": "How do you document a function or struct?",
+   "markdown": "How do you document a function or struct?"
+  },
+  "back": {
+   "text": "A docstring, as the first statement",
+   "markdown": "## A docstring, as the first statement\n\n```\ndef add(a: Int, b: Int) -> Int:\n    \"\"\"Adds two integers.\"\"\"\n    return a + b\n```\n\nTooling reads these — the language server surfaces them at the call site.",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 109
+ },
+ {
+  "front": {
+   "text": "What is the naming convention for Mojo code?",
+   "markdown": "What is the naming convention for Mojo code?"
+  },
+  "back": {
+   "text": "snake_case for functions and variables, PascalCase for types",
+   "markdown": "## `snake_case` for functions and variables, `PascalCase` for types\n\n```\nstruct HttpClient:\n    var retry_count: Int\n\n    def send_request(self):\n        ...\n```\n\n{#0F766E}A leading underscore marks something internal by convention.{/}",
+   "code_snippet": null,
+   "formatting": {
+    "inline_code_terms": []
+   }
+  },
+  "id": 110
+ }
+]

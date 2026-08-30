@@ -1,0 +1,91 @@
+{
+  "id": "mojo-gpu",
+  "uuid": "F874C067-9762-4400-B776-8D337FD0BEE2",
+  "name": "Mojo 1.0 GPU Programming with MAX",
+  "description": "Builds on Mojo 1.0 Fundamentals: the Mojo/MAX GPU API — device context, kernel launch, buffers, layouts and synchronization. Pinned to MAX 26.5. For the hardware model, see the AI Terms deck.",
+  "storeFileName": "mojo_gpu",
+  "imageName": "cpu.fill",
+  "gradientColors": [
+    "#FBD667FF",
+    "#B71C1CCC"
+  ],
+  "category": "Programming",
+  "version": "0.1.0",
+  "moreInfoURL": "https://max.modular.com/gpu/intro-tutorial/",
+  "aboutURL": "https://github.com/objectivepixel/wristrecall-decks",
+  "cardCount": 50,
+  "topicCount": 4,
+  "sourceFileName": "cards.json",
+  "topicDefinitions": [
+    {
+      "name": "Device Runtime & Kernel Launch",
+      "cardIDs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "name": "Host & Device Memory",
+      "cardIDs": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ]
+    },
+    {
+      "name": "Layouts & TileTensor",
+      "cardIDs": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ]
+    },
+    {
+      "name": "Synchronization, Debugging & Correctness",
+      "cardIDs": [
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ]
+    }
+  ]
+}
